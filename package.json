@@ -9,6 +9,7 @@
     "server": "cd server nodemon server.js --ignore client",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
+    "seed": "cd server && npm run seed",
     "heroku-prebuild": "npm install --dev"
   },
   "repository": {
@@ -24,6 +25,7 @@
   "homepage": "https://github.com/richardjhong/project-3#readme",
   "dependencies": {
     "axios": "^1.2.0",
+    "csvtojson": "^2.0.10",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^6.7.4"
