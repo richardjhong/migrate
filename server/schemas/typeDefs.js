@@ -1,6 +1,7 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+
 type User {
   _id: ID
   username: String
@@ -37,6 +38,22 @@ type Mutation {
   removeComment(commentId: ID!): Comment
   removeComment(commentId: ID!, commentId: ID!): Comment
 }
+
+type Country {
+    _id: ID
+    country: String
+    rank_score_spi:Float,
+    status: String,
+    score_spi:Float,
+    score_bhn:Float,
+    score_fow:Float,
+    score_opp:Float,
+  }
+
+  type Query {
+    countries: [Country]
+  }
+
 `;
 
 module.exports = typeDefs;
