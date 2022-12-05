@@ -13,7 +13,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    classes: [Country]
+    countries: [Country]
   }
 `;
 

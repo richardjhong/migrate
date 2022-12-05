@@ -42,15 +42,13 @@
 // );
 
 const db = require('../config/connection');
-const { Country } = require('../models');
+const { Country, Bhn } = require('../models');
 const countrySeed = require('./2011-2022 SPI data-Table 1.json');
 
 
 db.once('open', async () => {
     try {
         await Country.deleteMany({});
-
-        // await Country.create(countrySeed);
 
         for (let i = 0; i < countrySeed.length; i++) {
 
@@ -60,8 +58,28 @@ db.once('open', async () => {
                     rank_score_spi: countrySeed[i].rank_score_spi,
                     status: countrySeed[i].status,
                     score_spi: countrySeed[i].score_spi,
+                    score_bhn: countrySeed[i].score_bhn,
+                    bhn : {
+                         score_nbmc:countrySeed[i].score_nbmc,
+                         score_ws:countrySeed[i].score_ws,
+                         score_sh:countrySeed[i].score_sh,
+                         score_ps:countrySeed[i].score_ps
+                    },
                     score_fow: countrySeed[i].score_fow,
+                    fow : {
+                        score_pr:countrySeed[i].score_pr,
+                        score_pfc:countrySeed[i].score_pfc,
+                        score_incl:countrySeed[i].score_incl,
+                        score_aae:countrySeed[i].score_aae
+                    },
                     score_opp: countrySeed[i].score_opp,
+                    opp : {
+                        score_abk:countrySeed[i].score_abk,
+                        score_aic:countrySeed[i].score_aic,
+                        score_hw:countrySeed[i].score_hw,
+                        score_eq:countrySeed[i].score_eq
+
+                    }
                 });
             }
 

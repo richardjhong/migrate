@@ -2,7 +2,7 @@ const { Country } = require('../models');
 
 const resolvers = {
   Query: {
-    classes: async () => {
+    countries: async () => {
       return await Country.find({});
     }
   }
