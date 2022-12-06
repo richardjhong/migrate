@@ -13,16 +13,45 @@ const CountryList = ({ countries, title }) => {
     <div>
       <h3>{title}</h3>
       {countryListings &&
-        countryListings.map((country) => (
-          <div key={country._id} className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
-              {country.country} 
-            </h4>
-            <div className="card-body bg-light p-2">
-              <p>{country.country}'s rank_score_spi: {country.rank_score_spi}</p>
-            </div>
-          </div>
-        ))}
+        countryListings.map(country => {
+          const { _id, ...countryProperties } = country
+          return (
+            <>
+              <p>{countryProperties.country}</p>
+              <p>{countryProperties.rank_score_spi}</p>
+              <p>{countryProperties.status}</p>
+              <p>{countryProperties.score_spi}</p>
+              <p>{countryProperties.score_bhn}</p>
+
+              {Object.keys(countryProperties.bhn).map(bhnKey => {
+                return (
+                  <p>
+                    {bhnKey}: {countryProperties.bhn[bhnKey]}
+                  </p>
+                )
+              })}
+
+              <p>{countryProperties.score_fow}</p>
+              {Object.keys(countryProperties.fow).map(fowKey => {
+                return (
+                  <p>
+                    {fowKey}: {countryProperties.fow[fowKey]}
+                  </p>
+                )
+              })}
+              
+              <p>{countryProperties.score_fow}</p>
+              {Object.keys(countryProperties.opp).map(oppKey => {
+                return (
+                  <p>
+                    {oppKey}: {countryProperties.opp[oppKey]}
+                  </p>
+                )
+              })}
+            </>
+          )
+        })
+      }
     </div>
   );
 };

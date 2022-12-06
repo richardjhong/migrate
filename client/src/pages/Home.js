@@ -8,7 +8,7 @@ const Home = () => {
   const { loading, data } = useQuery(QUERY_COUNTRIES);
   const countries = data?.countries || [];
 
-  const firstTenCountries = countries.slice(0, 10);
+  const firstTwoCountries = countries.slice(0, 3);
 
   return (
     <main>
@@ -18,7 +18,7 @@ const Home = () => {
             <div>Loading...</div>
           ) : (
             <CountryList
-              countries={firstTenCountries}
+              countries={firstTwoCountries}
               title="Some Feed for Thought(s)..."
             />
           )}
