@@ -110,7 +110,6 @@ db.once('open', async () => {
                         score_aic:countrySeed[i].score_aic,
                         score_hw:countrySeed[i].score_hw,
                         score_eq:countrySeed[i].score_eq
-
                     }
                 });
             }

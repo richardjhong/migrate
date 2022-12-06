@@ -88,7 +88,7 @@ const { Country } = require('../models');
 const resolvers = {
   Query: {
     countries: async () => {
-      return await Country.find({});
+      return await Country.find();
     }
   }
 };
