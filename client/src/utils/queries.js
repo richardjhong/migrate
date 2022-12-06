@@ -5,6 +5,7 @@ export const QUERY_COUNTRIES = gql`
     countries {
       _id
       country
+      rank_score_spi
     }
   }
 `;
