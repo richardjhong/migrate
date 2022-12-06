@@ -17,11 +17,11 @@ const CountryList = ({ countries, title }) => {
           const { _id, ...countryProperties } = country
           return (
             <>
-              <p>{countryProperties.country}</p>
-              <p>{countryProperties.rank_score_spi}</p>
-              <p>{countryProperties.status}</p>
-              <p>{countryProperties.score_spi}</p>
-              <p>{countryProperties.score_bhn}</p>
+              <p>country: {countryProperties.country}</p>
+              <p>rank_score_spi: {countryProperties.rank_score_spi}</p>
+              <p>status: {countryProperties.status}</p>
+              <p>score_spi: {countryProperties.score_spi}</p>
+              <p>score_bhn: {countryProperties.score_bhn}</p>
 
               {Object.keys(countryProperties.bhn).map(bhnKey => {
                 return (
@@ -31,7 +31,7 @@ const CountryList = ({ countries, title }) => {
                 )
               })}
 
-              <p>{countryProperties.score_fow}</p>
+              <p>score_fow: {countryProperties.score_fow}</p>
               {Object.keys(countryProperties.fow).map(fowKey => {
                 return (
                   <p>
@@ -40,7 +40,7 @@ const CountryList = ({ countries, title }) => {
                 )
               })}
               
-              <p>{countryProperties.score_fow}</p>
+              <p>score_opp: {countryProperties.score_opp}</p>
               {Object.keys(countryProperties.opp).map(oppKey => {
                 return (
                   <p>
