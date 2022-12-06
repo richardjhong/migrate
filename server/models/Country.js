@@ -48,8 +48,7 @@ const countrySchema = new Schema(
         fow : fowSchema,
         //Opportunity
         score_opp:Number,
-        opp : oppSchema,
-        
+        opp : oppSchema,      
     }
 
 
