@@ -1,3 +1,38 @@
+
+const db = require('../config/connection');
+const { User, Comment, Country, Bhn } = require('../models');
+const userSeeds = require('./userSeeds.json');
+const commentSeeds = require('./commentSeeds.json');
+const countrySeed = require('./2011-2022 SPI data-Table 1.json');
+
+
+db.once('open', async () => {
+  try {
+    await Comment.deleteMany({});
+    await User.deleteMany({});
+
+    await User.create(userSeeds);
+
+    for (let i = 0; i < commentSeeds.length; i++) {
+      const { _id, commentAuthor } = await Comment.create(commentSeeds[i]);
+      const user = await User.findOneAndUpdate(
+        { username: commentAuthor },
+        {
+          $addToSet: {
+            comments: _id,
+          },
+        }
+      );
+    }
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+
+  console.log('all done!');
+  process.exit(0);
+});
+=======
 // const fs = require('fs');
 
 // function csvToJson(csv) {
@@ -41,9 +76,6 @@
 // }
 // );
 
-const db = require('../config/connection');
-const { Country, Bhn } = require('../models');
-const countrySeed = require('./2011-2022 SPI data-Table 1.json');
 
 
 db.once('open', async () => {
@@ -92,4 +124,5 @@ db.once('open', async () => {
     console.log('all done!');
     process.exit(0);
 });
+
 

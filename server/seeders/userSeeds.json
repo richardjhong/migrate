@@ -1,0 +1,22 @@
+[
+  {
+    "username": "Brian",
+    "email": "brian@techfriends.dev",
+    "password": "password01"
+  },
+  {
+    "username": "Maximus",
+    "email": "max@techfriends.dev",
+    "password": "password02"
+  },
+  {
+    "username": "Lucky",
+    "email": "lucky@techfriends.dev",
+    "password": "password03"
+  },
+  {
+    "username": "Kent",
+    "email": "kent@techfriends.dev",
+    "password": "password04"
+  }
+]
