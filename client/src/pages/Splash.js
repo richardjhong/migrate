@@ -8,3 +8,5 @@ function Splash(){
             </main>
         )
 }
+
+export default Splash;
