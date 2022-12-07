@@ -1,0 +1,20 @@
+* {
+    background-image: url("homeBackground.png");
+    background-size: cover;
+    background-color: #04566e;
+    background-repeat: no-repeat;
+}
+
+.button {
+    background-color: #eff2f6;
+    color: #022831;
+    position: relative;
+    left: 35%;
+    margin-top: 34%;
+    background-image: none;
+    width: 30%;
+    height: 55px;
+    border: 2px solid #022831;
+    font-size: 20px;
+    box-shadow: 0px 5px 5px;
+}

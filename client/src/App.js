@@ -10,6 +10,7 @@ import Signup from './pages/Signup';
 import Chart from './pages/Chart';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Splash from './pages/Splash'
 import './App.scss';
 
 // Construct our main GraphQL API endpoint
@@ -48,6 +49,10 @@ function App() {
           <Header />
           <div className="container">
             <Routes>
+            <Route 
+                path="/splash" 
+                element={<Splash />} 
+              />
               <Route 
                 path="/listings" 
                 element={<CountryListing />} 
