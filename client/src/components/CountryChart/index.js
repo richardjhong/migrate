@@ -1,5 +1,4 @@
 import React from "react";
-import { render } from "react-dom";
 import { VictoryChart, VictoryVoronoiContainer, VictoryContainer, VictoryAxis, VictoryTooltip, VictoryScatter, VictoryLine } from "victory";
 
 const Chart = () => {
