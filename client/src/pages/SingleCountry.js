@@ -1,12 +1,22 @@
 import React from 'react';
 import "./SingleCountry.scss";
+import Header from '../components/Header';
+import CountryCards from '../components/CountryCards';
+import Footer from '../components/Footer';
 
-function SingleCountry(){
+
+function SingleCountry() {
     return (
+        <>
+            <Header />
             <main>
-                <h1>Country Name</h1> 
+                <SingleCountryHeader />
+                <CountryCards />
             </main>
-        )
+            <Footer />
+        </>
+
+    )
 }
 
 export default SingleCountry;
