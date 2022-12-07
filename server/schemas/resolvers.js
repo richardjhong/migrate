@@ -24,8 +24,7 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     countries: async () => {
-
-      return await Country.find();
+      return await Country.find({});
     }
   },
 

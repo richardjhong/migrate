@@ -7,9 +7,13 @@ import Dashboard from './pages/Dashboard';
 import CountryListing from './pages/CountryListing';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+
+import Chart from './pages/Chart';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import './App.css';
+import Splash from './pages/Splash';
+import SingleCountry from './pages/SingleCountry';
+import './App.scss';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -39,30 +43,37 @@ const client = new ApolloClient({
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   return (
-    
+
     <ApolloProvider client={client}>
-     <Dashboard loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      <Dashboard loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
-            <Routes>
-              <Route 
-                path="/listings" 
-                element={<CountryListing />} 
-              />
-              <Route 
-                path="/login" 
-                element={<Login />} 
-              />
-              <Route 
-                path="/signup" 
-                element={<Signup />} 
-              />
-            </Routes>
-          </div>
-          <Footer />
-        </div>
+
+        <Routes>
+          <Route
+            path="/splash"
+            element={<Splash />}
+          />
+          <Route
+            path="/SingleCountry"
+            element={<SingleCountry />}
+          />
+          <Route
+            path="/listings"
+            element={<CountryListing />}
+          />
+          <Route
+            path="/login"
+            element={<Login />}
+          />
+          <Route
+            path="/signup"
+            element={<Signup />}
+          />
+          <Route
+            path="/chart"
+            element={<Chart />}
+          />
+        </Routes>
       </Router>
     </ApolloProvider>
   );

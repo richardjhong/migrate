@@ -31,6 +31,10 @@ const oppSchema = new Schema(
 
 const countrySchema = new Schema(
     {
+        spiyear: {
+            type: String,
+            required: true
+        },
         country: {
             type: String,
             required: true,
