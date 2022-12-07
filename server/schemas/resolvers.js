@@ -1,4 +1,4 @@
-
+const { Country } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Comment, Country } = require('../models');
 const { signToken } = require('../utils/auth');
@@ -25,6 +25,7 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     countries: async () => {
+
       return await Country.find();
     }
   },
@@ -86,6 +87,10 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
   },
-}
+
+
+};
+
+
 
 module.exports = resolvers;

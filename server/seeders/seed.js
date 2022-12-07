@@ -67,6 +67,7 @@ db.once('open', async () => {
   console.log('all done!');
   process.exit(0);
 });
+
 // const fs = require('fs');
 
 // function csvToJson(csv) {
