@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CountryListing from './pages/CountryListing';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Splash from './pages/Splash';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -47,6 +48,10 @@ function App() {
           <Header />
           <div className="container">
             <Routes>
+            <Route 
+                path="/splash" 
+                element={<Splash />} 
+              />
               <Route 
                 path="/listings" 
                 element={<CountryListing />} 
