@@ -46,9 +46,7 @@ function App() {
     <ApolloProvider client={client}>
      <Dashboard loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
+       
             <Routes>
             <Route 
                 path="/splash" 
@@ -75,9 +73,7 @@ function App() {
                 element={<Chart />} 
               />
             </Routes>
-          </div>
-          <Footer />
-        </div>
+         
       </Router>
     </ApolloProvider>
   );
