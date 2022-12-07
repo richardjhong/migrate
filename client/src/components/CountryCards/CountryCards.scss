@@ -1,0 +1,28 @@
+.countryCardContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.countryCard {
+    display: inline-flex;
+    width: 30%;
+    height: 300px;
+    overflow: hidden;
+    border: solid 5px var(--lightBorder);
+    background-color: var(--darkBackground);
+    color: var(--lightBackground);
+    margin-bottom: 20px;
+    border-radius: 30px;
+}
+
+.wide {
+    width: 96.5%;
+    height: 600px;
+}
+
+
+@for $i from 1 through 30 {
+    .card:nth-child(#{$i}) {
+        order: $i;
+    }
+}
