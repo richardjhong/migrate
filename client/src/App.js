@@ -7,7 +7,7 @@ import Dashboard from './pages/Dashboard';
 import CountryListing from './pages/CountryListing';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-
+import Chart from './pages/Chart';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.scss';
@@ -59,6 +59,10 @@ function App() {
               <Route 
                 path="/signup" 
                 element={<Signup />} 
+              />
+              <Route
+                path="/chart"
+                element={<Chart />} 
               />
             </Routes>
           </div>
