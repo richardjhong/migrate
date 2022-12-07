@@ -2,7 +2,7 @@
 const db = require('../config/connection');
 const { Country, Bhn, User, Comment } = require('../models');
 const userSeeds = require('./userSeeds.json');
-const commentSeeds = require('./commentSeeds.js');
+const commentSeeds = require('./commentSeeds.json');
 const countrySeed = require('./2011-2022 SPI data-Table 1.json');
 
 
@@ -17,7 +17,7 @@ db.once('open', async () => {
       const { _id, commentAuthor } = await Comment.create(commentSeeds[i]);
       const user = await User.findOneAndUpdate(
         { username: commentAuthor },
-        { $push: { comments: comment._id}},
+        { $push: { comments: Comment._id}},
       );
     }
   } catch (err) {
