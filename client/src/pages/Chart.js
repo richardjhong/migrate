@@ -4,7 +4,6 @@ import { VictoryChart, VictoryVoronoiContainer, VictoryContainer, VictoryAxis, V
 
 const Chart = () => {
   return (
-    
 
     <VictoryChart height={400} width={500}
       containerComponent={<VictoryContainer responsive={false}/>}

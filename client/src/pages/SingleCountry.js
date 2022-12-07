@@ -1,5 +1,6 @@
 import React from 'react';
-import "./SingleCountry.scss";
+import "../components/SingleCountry/SingleCountry.scss";
+import SingleCountryHeader from '../components/SingleCountryHeader';
 import Header from '../components/Header';
 import CountryCards from '../components/CountryCards';
 import Footer from '../components/Footer';
