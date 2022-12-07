@@ -1,23 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
 import Auth from '../../utils/auth';
 
 const Header = () => {
+
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
+
+
+
+
   return (
-    <header className="bg-info text-dark mb-4 py-3 display-flex align-center">
-      <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
+    <header className="bg-info text-dark mb-4 display-flex align-center">
+      <div>
         <Link className="text-dark" to="/">
           <h1 className="m-0" style={{ fontSize: '3rem' }}>
             Migrate
           </h1>
-        </Link>
-        <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
-          Testing
-        </p>
+        </Link> 
         <div>
           {Auth.loggedIn() ? (
             <button className="btn btn-lg btn-light m-2" onClick={logout}>
@@ -33,9 +36,9 @@ const Header = () => {
               </Link>
             </>
           )}
-        </div>
+        </div> 
       </div>
-    </header>
+    </header >
   );
 };
 
