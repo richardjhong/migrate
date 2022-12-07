@@ -1,0 +1,28 @@
+:root {
+  --darkBackground:#04566e;
+  --light:#04566e;
+  --lightBorder: #b4d330;
+  --dark:#022831;
+
+}
+
+//font import
+
+@import url("https://use.typekit.net/veo7sml.css");
+
+// global
+
+html {
+  scroll-behavior: smooth;
+}
+
+main {
+  font-family: 'rigid-square', sans-serif;
+  background-color:var(--light);
+  color:var(--dark)
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "transat", sans-serif
+}
+
