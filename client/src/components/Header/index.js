@@ -81,12 +81,12 @@ const Header = () => {
             </button>
           </div>
         </div>
-        {/* <Link className="text-dark" to="/">
+        <Link className="text-dark" to="/">
           <h1 className="m-0" style={{ fontSize: '3rem' }}>
             Migrate
           </h1>
-        </Link> */}
-        {/* <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
+        </Link> 
+         <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
           Testing
         </p>
         <div>
@@ -104,7 +104,7 @@ const Header = () => {
               </Link>
             </>
           )}
-        </div> */}
+        </div> 
       </div>
     </header >
   );
