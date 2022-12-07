@@ -31,7 +31,6 @@ export const ADD_COMMENT = gql`
       commentText
       commentAuthor
       createdAt
-      }
     }
   }
 `;
