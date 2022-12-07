@@ -17,11 +17,13 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
+      minlength: 5,
     },
     comments:
     [
       {
-        type: Types.ObjectId, ref: 'comment'
+        type: Types.ObjectId, ref: 'comment',
+        ref: 'Comment',
       }
     ],
   },
@@ -47,7 +49,6 @@ userSchema.pre('save', async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
-
 
 const User = model('User', userSchema);
 
