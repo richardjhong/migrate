@@ -42,9 +42,9 @@ const client = new ApolloClient({
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   return (
-    
+
     <ApolloProvider client={client}>
-     <Dashboard loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      <Dashboard loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <Router>
        
             <Routes>
