@@ -1,8 +1,5 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 const bcrypt = require('bcrypt');
-
-// import schema from Book.js
-const bookSchema = require('./Book');
 
 const userSchema = new Schema(
   {
@@ -21,8 +18,12 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    // set savedThoughts to be an array of data that adheres to the thoughtSchema => will be used for Forum
-    savedThoughts: [thoughtSchema],
+    comments:
+    [
+      {
+        type: Types.ObjectId, ref: 'comment'
+      }
+    ],
   },
   // set this to use virtual below
   {
