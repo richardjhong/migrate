@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css';
@@ -36,8 +37,11 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
   return (
+    
     <ApolloProvider client={client}>
+     <Dashboard loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
