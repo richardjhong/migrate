@@ -1,15 +1,15 @@
 
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Comment } = require('../models');
+const { User, Comment, Country } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('comments');
+      return User.find()
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('comments');
+      return User.findOne({ username })
     },
     comments: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -20,16 +20,20 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('thoughts');
+        return User.findOne({ _id: context.user._id })
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    countries: async () => {
+      return await Country.find();
+    }
   },
 
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
+      console.log('this is being read')
       return { token, user };
     },
     login: async (parent, { email, password }) => {
@@ -82,15 +86,6 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
   },
-
-const { Country } = require('../models');
-
-const resolvers = {
-  Query: {
-    countries: async () => {
-      return await Country.find();
-    }
-  }
-};
+}
 
 module.exports = resolvers;
