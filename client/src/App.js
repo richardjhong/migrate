@@ -1,14 +1,17 @@
 import React from 'react';
+import { useState } from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
+import CountryListing from './pages/CountryListing';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Chart from './pages/Chart';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import './App.css';
+import Splash from './pages/Splash'
+import './App.scss';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -36,16 +39,23 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
   return (
+    
     <ApolloProvider client={client}>
+     <Dashboard loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
           <div className="container">
             <Routes>
+            <Route 
+                path="/splash" 
+                element={<Splash />} 
+              />
               <Route 
-                path="/" 
-                element={<Home />} 
+                path="/listings" 
+                element={<CountryListing />} 
               />
               <Route 
                 path="/login" 
@@ -54,6 +64,10 @@ function App() {
               <Route 
                 path="/signup" 
                 element={<Signup />} 
+              />
+              <Route
+                path="/chart"
+                element={<Chart />} 
               />
             </Routes>
           </div>
