@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { searchImage } from '../../utils/API';
 
-const Header = () => {
+const SingleCountryHeader = () => {
   
     //For Search country
     const [searchImgInput, setSearchImgInput] = useState("");
@@ -78,5 +78,5 @@ const Header = () => {
     );
   };
   
-  export default Header;
+  export default SingleCountryHeader;
   

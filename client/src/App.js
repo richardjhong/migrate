@@ -10,6 +10,7 @@ import Signup from './pages/Signup';
 import Chart from './pages/Chart';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import SingleCountryHeader from './components/SingleCountryHeader';
 import Splash from './pages/Splash'
 import './App.scss';
 
