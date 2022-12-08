@@ -12,13 +12,21 @@
 
 // global
 
+body {
+  margin:0;
+
+}
+
 html {
   scroll-behavior: smooth;
   background-color:var(--light);
+  font-family: 'rigid-square', sans-serif;
 }
 
+
+
 main {
-  font-family: 'rigid-square', sans-serif;
+
   background-color:var(--light);
   color:var(--dark)
 }

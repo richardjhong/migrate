@@ -1,0 +1,38 @@
+a {
+    text-decoration:none;
+}
+
+header {
+    background-color:var(--darkBackground);
+    display:flex;
+    justify-content:space-between;
+    padding:20px;
+    
+}
+
+header h1 {
+    color:var(--lightBorder);
+    font-size:3em;
+}
+
+.navbar {
+    display:flex;
+    justify-content:end;
+    align-items:center;
+    font-size:1.2em;
+
+}
+
+.navLink {
+    color:var(--light);
+    margin-right:1em;
+    transition:all .3s;
+}
+
+.navLink:hover {
+    color:var(--lightBorder);
+    scale:1.2;
+}
+
+
+
