@@ -26,12 +26,23 @@ const Dashboard = () => {
     window.localStorage.setItem('Search History', JSON.stringify(showSearchHistory))
   }, [showSearchHistory]);
 
-  let lastSearch = searchHistory[searchHistory.length - 1];
-	// render movie posters of stored movies to the DOM
-	if(searchHistory) { 
-		for (var i = 0; i < 3; i++) {
-		const searchHistoryContent = 
-    }}
+  // store search history in local storage and render country name and image upon page load
+  const searchHistory = JSON.parse(localStorage.getItem('Search History')) || [];
+
+  // const searchHistoryContent = searchHistory.map((searchHistory) =>
+  //   <div>
+  //     <img src={searchHistory.flag} alt={searchHistory.name} />
+  //     <p>{searchHistory.name}</p>
+  //   </div>
+  // );
+
+  // let lastSearch = searchHistory[searchHistory.length - 1];
+  // let searchHistoryContent;
+	// if(searchHistory) { 
+	// 	for (var i = 0; i < 3; i++) {
+	// 	// const searchHistoryContent = searchHistory.map((searchHistory) => 
+  //   }}
+
   // navigate to personal profile page if username matches param
   if (Auth.loggedIn() && Auth.getDashboard().data.username === userParam) {
     return <Navigate to="/me" />;
