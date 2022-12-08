@@ -4,11 +4,12 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
-import CountryListing from './pages/CountryListing';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Chart from './pages/Chart';
-import Splash from './pages/Splash';
+import CountryListing from './pages/CountryListing';
+import Splash from './pages/Splash/index'
+import Header from './components/Header';
+import Footer from './components/Footer';
 import SingleCountryCont from './pages/SingleCountryCont';
 import './App.scss';
 
@@ -54,7 +55,7 @@ function App() {
           />
           <Route
             path="/SingleCountry"
-            element={<SingleCountry />}
+            element={<SingleCountryCont />}
           />
           <Route
             path="/listings"
@@ -75,10 +76,6 @@ function App() {
              path="/dashboard/:username" 
              element={<Dashboard />}
            />
-          <Route
-            path="/chart"
-            element={<Chart />}
-          />
         </Routes>
         </div>
           <Footer />

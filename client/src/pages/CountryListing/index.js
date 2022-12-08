@@ -1,14 +1,14 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_COUNTRIES } from '../utils/queries';
+import { QUERY_COUNTRIES } from '../../utils/queries';
 
-import CountryList from '../components/CountryList';
+import CountryList from '../../components/CountryList';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_COUNTRIES);
   const countries = data?.countries || [];
 
-  const firstTwoCountries = countries.slice(0, 3);
+  const firstTwoCountries = countries.slice(0, 5);
 
   return (
     <main>
@@ -19,7 +19,7 @@ const Home = () => {
           ) : (
             <CountryList
               countries={firstTwoCountries}
-              title="Some Feed for Thought(s)..."
+              title="Country Listings"
             />
           )}
         </div>
