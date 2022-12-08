@@ -3,14 +3,14 @@ import { useState } from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import CountryListing from './pages/CountryListing';
+import Dashboard from './pages/Dashboard/Dashboard';
+import Login from './pages/Login/Login';
+import Signup from './pages/Signup/Signup';
+import CountryListing from './pages/CountryListing/CountryListing';
 import Splash from './pages/Splash/index'
 import Header from './components/Header';
 import Footer from './components/Footer';
-import SingleCountryCont from './pages/SingleCountryCont';
+import SingleCountryCont from './pages/SingleCountryCont/SingleCountryCont';
 import './App.scss';
 
 // Construct our main GraphQL API endpoint
