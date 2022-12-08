@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_COUNTRIES } from '../../utils/queries';
+import { QUERY_COUNTRIES, QUERY_COMPILATIONS } from '../../utils/queries';
 
 import CountryList from '../../components/CountryList';
 
@@ -8,7 +8,13 @@ const Home = () => {
   const { loading, data } = useQuery(QUERY_COUNTRIES);
   const countries = data?.countries || [];
 
+  const { otherloading, otherdata } = useQuery(QUERY_COMPILATIONS)
+
+  const compilations = otherdata?.countries || [];
+
   const firstTwoCountries = countries.slice(0, 5);
+
+  // console.log('testing: ', compilations)
 
   return (
     <main>
