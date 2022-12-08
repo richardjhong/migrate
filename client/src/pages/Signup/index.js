@@ -20,6 +20,7 @@ const Signup = () => {
     setFormState({
       ...formState,
       [name]: value,
+      
     });
   };
 
