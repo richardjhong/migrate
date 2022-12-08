@@ -110,7 +110,7 @@ export default function CountryCards({ countryProperties}) {
 
             <div className='countryCard' id="col2row1" data-name={'col2row1'} onClick={(event) => { 
                 expand(event) 
-                handleGetClassName(event)        
+                handleTrackCardExpandedState(event)        
             }} data-column='2'>
                 {
                     !expanded.col2row1 ? (
@@ -131,7 +131,7 @@ export default function CountryCards({ countryProperties}) {
             </div>
             <div className='countryCard' id="col3row1" data-name={'col3row1'} onClick={(event) => { 
                 expand(event) 
-                handleGetClassName(event)        
+                handleTrackCardExpandedState(event)        
             }} data-column='3'>
                 {
                     !expanded.col3row1 ? (
@@ -150,7 +150,7 @@ export default function CountryCards({ countryProperties}) {
             </div>
             <div className='countryCard' id="col1row2" data-name={'col1row2'} onClick={(event) => { 
                 expand(event) 
-                handleGetClassName(event)        
+                handleTrackCardExpandedState(event)        
             }} data-column='4'>
                 {
                     !expanded.col1row2 ? (
@@ -169,7 +169,7 @@ export default function CountryCards({ countryProperties}) {
             </div>
             <div className='countryCard' id="col2row2" data-name={'col2row2'} onClick={(event) => { 
                 expand(event) 
-                handleGetClassName(event)        
+                handleTrackCardExpandedState(event)        
             }} data-column='5'>
                 {
                     !expanded.col2row2 ? (
@@ -188,7 +188,7 @@ export default function CountryCards({ countryProperties}) {
             </div>
             <div className='countryCard' id="col3row2" data-name={'col3row2'} onClick={(event) => { 
                 expand(event) 
-                handleGetClassName(event)        
+                handleTrackCardExpandedState(event)        
             }} data-column='6'>
                 {
                     !expanded.col3row2 ? (
@@ -207,7 +207,7 @@ export default function CountryCards({ countryProperties}) {
             </div>
             <div className='countryCard' id="col1row3" data-name={'col1row3'} onClick={(event) => { 
                 expand(event) 
-                handleGetClassName(event)        
+                handleTrackCardExpandedState(event)        
             }} data-column='7'>
                 {
                     !expanded.col1row3 ? (
@@ -226,7 +226,7 @@ export default function CountryCards({ countryProperties}) {
             </div>
             <div className='countryCard' id="col2row3" data-name={'col2row3'} onClick={(event) => { 
                 expand(event) 
-                handleGetClassName(event)        
+                handleTrackCardExpandedState(event)        
             }} data-column='8'>
                 {
                     !expanded.col2row3 ? (
@@ -245,7 +245,7 @@ export default function CountryCards({ countryProperties}) {
             </div>
             <div className='countryCard' id="col3row3" data-name={'col3row3'} onClick={(event) => { 
                 expand(event) 
-                handleGetClassName(event)        
+                handleTrackCardExpandedState(event)        
             }} data-column='9'>
                 {
                     !expanded.col3row3 ? (
@@ -264,7 +264,7 @@ export default function CountryCards({ countryProperties}) {
             </div>
             <div className='countryCard' id="col1row4" data-name={'col1row4'} onClick={(event) => { 
                 expand(event) 
-                handleGetClassName(event)        
+                handleTrackCardExpandedState(event)        
             }} data-column='10'>
                 {
                     !expanded.col1row4 ? (
@@ -283,7 +283,7 @@ export default function CountryCards({ countryProperties}) {
             </div>
             <div className='countryCard' id="col2row4" data-name={'col2row4'} onClick={(event) => { 
                 expand(event) 
-                handleGetClassName(event)        
+                handleTrackCardExpandedState(event)        
             }} data-column='11'>
                 {
                     !expanded.col2row4 ? (
@@ -302,7 +302,7 @@ export default function CountryCards({ countryProperties}) {
             </div>
             <div className='countryCard' id="col3row4" data-name={'col3row4'} onClick={(event) => { 
                 expand(event) 
-                handleGetClassName(event)        
+                handleTrackCardExpandedState(event)        
             }} data-column='12'>
                 {
                     !expanded.col3row4 ? (
