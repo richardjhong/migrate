@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { searchImage } from '../../utils/API';
 import './SingleCountryHeader.scss';
-import Autocomplete from 'react-autocomplete';
-import {useQuery} from '@apollo/client';
-import {QUERY_COUNTRY_NAME, QUERY_COUNTRIES} from '../../utils/queries';
+import { useQuery } from '@apollo/client';
+import { QUERY_COMPILATIONS } from '../../utils/queries';
+
 
 const SingleCountryHeader = () => {
 
   //For Search country
   const [searchImgInput, setSearchImgInput] = useState("");
   const [searchedImgs, setSearchedImgs] = useState([]);
-  const {loading, data}= useQuery(QUERY_COUNTRY_NAME);
-  const countries=data?.countries||[];
+  const [suggestions, setSuggestions]=useState([]);
+  const { loading, data } = useQuery(QUERY_COMPILATIONS);
+  const countries = data?.countryCompilations || [];
+  const countryName=countries.map(data=>data.name);
   console.log(countries);
-  
-  
+
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (!searchImgInput) {
+
       return false;
     }
     try {
@@ -43,7 +45,25 @@ const SingleCountryHeader = () => {
     }
 
   };
+  const onChangeHandler= (text)=>{
+    let matches=[];
+    console.log(matches);
+    if(text.length>0){
+      matches = countries.filter(country=>{
+        const regex = new RegExp(`${text}`,"gi");
+        return country.name.match(regex)
+      })
+    }
+    console.log('matches',matches);
+    setSuggestions(matches);
+    setSearchImgInput(text);
 
+  }
+
+  const onSuggestHandler = (text)=> {
+    setSearchImgInput(text);
+    setSuggestions([]);
+ }
 
   return (
     <div className="bg-info text-dark mb-4 display-flex align-center">
@@ -66,25 +86,13 @@ const SingleCountryHeader = () => {
             </div>
           </div>
           <div className="flex flex-row mt-1 mx-2">
-
-            <Autocomplete
-              getItemValue={(item) => item.label}
-              items={[
-                { label: 'apple' },
-                { label: 'banana' },
-                { label: 'pear' }
-              ]}
-              renderItem={(item, isHighlighted) =>
-                
-                <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
-                  {item.label}
-                </div>
-              }
-               value={searchImgInput}
-               onChange={(e) => setSearchImgInput(e.target.value)}
-               onSelect={(val) => searchImgInput = val}
-              
-            />
+            <input
+              className="w-1/5 border rounded border-text-blustery_blue"
+              type="text"
+              placeholder="Search Country"
+              value={searchImgInput}
+              onChange={(e) => onChangeHandler(e.target.value)}
+            /> 
             <button
               type="submit"
               onClick={handleFormSubmit}
@@ -92,15 +100,13 @@ const SingleCountryHeader = () => {
             >
               Search
             </button>
-{/* 
-            <input
-              className="w-1/5 border rounded border-text-blustery_blue"
-              type="text"
-              placeholder="Search Country"
-              value={searchImgInput}
-              onChange={(e) => setSearchImgInput(e.target.value)}
-            /> */}
-            
+            {suggestions && suggestions.map((suggestions, i) =>
+            <div className='suggestion'
+            key={i}
+            onClick={()=> onSuggestHandler(suggestions.name)}
+
+            >{suggestions.name}</div>
+            )}
           </div>
         </div>
       </div>
