@@ -1,4 +1,5 @@
 import React from 'react';
+import Chart from '../CountryChart/index.js'
 
 const CountryList = ({ countries, title }) => {
   if (!countries.length) {
@@ -7,7 +8,7 @@ const CountryList = ({ countries, title }) => {
 
   // skip over 0th index entry of countries which is effectively a header in 
   // in csv content
-  const [headers, ...countryListings] = [...countries]
+  const [...countryListings] = [...countries]
 
   return (
     <div>
@@ -18,6 +19,7 @@ const CountryList = ({ countries, title }) => {
           return (
             <>
               <p>country: {countryProperties.country}</p>
+              <p>spiyear: {countryProperties.spiyear}</p>
               <p>rank_score_spi: {countryProperties.rank_score_spi}</p>
               <p>status: {countryProperties.status}</p>
               <p>score_spi: {countryProperties.score_spi}</p>
@@ -48,6 +50,7 @@ const CountryList = ({ countries, title }) => {
                   </p>
                 )
               })}
+            <Chart fields={countryProperties}/>
             </>
           )
         })

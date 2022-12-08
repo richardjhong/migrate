@@ -4,7 +4,9 @@ const Country = require('./Country');
 const Bhn = require('./Bhn');
 const User = require('./User');
 const Comment = require('./Comment');
+const CompileCountry = require('./CompileCountry');
+
 
 // module.exports = { User, Country };
-module.exports = { Country, Bhn, User, Comment };
+module.exports = { Country, Bhn, User, Comment, CompileCountry};
 

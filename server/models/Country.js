@@ -28,13 +28,17 @@ const oppSchema = new Schema(
     }
 );
 
+// loop through all csv data within seeds.js, 
+// check if compileCountrySchema exists: i
+    // check if country already exists: if so, append new year information
+    // otherwise create new countrySchema
 
 const countrySchema = new Schema(
     {
-        spiyear: {
-            type: String,
-            required: true
-        },
+        // spiyear: {
+        //     type: String,
+        //     required: true
+        // },
         country: {
             type: String,
             required: true,
@@ -54,11 +58,8 @@ const countrySchema = new Schema(
         score_opp:Number,
         opp : oppSchema,      
     }
-
-
 );
 
-
-const Country = model('Country', countrySchema);
+const Country = model('country', countrySchema);
 
 module.exports = Country;

@@ -1,8 +1,8 @@
 
 const db = require('../config/connection');
-const { Country, Bhn, User, Comment } = require('../models');
+const { Country, Bhn, User, Comment, CompileCountry } = require('../models');
 const userSeeds = require('./userSeeds.json');
-const commentSeeds = require('./commentSeeds.json');
+// const commentSeeds = require('./commentSeeds.js');
 const countrySeed = require('./2011-2022 SPI data-Table 1.json');
 
 
@@ -13,13 +13,13 @@ db.once('open', async () => {
 
     await User.create(userSeeds);
 
-    for (let i = 0; i < commentSeeds.length; i++) {
-      const { _id, commentAuthor } = await Comment.create(commentSeeds[i]);
-      const user = await User.findOneAndUpdate(
-        { username: commentAuthor },
-        { $push: { comments: Comment._id}},
-      );
-    }
+    // for (let i = 0; i < commentSeeds.length; i++) {
+    //   const { _id, commentAuthor } = await Comment.create(commentSeeds[i]);
+    //   const user = await User.findOneAndUpdate(
+    //     { username: commentAuthor },
+    //     { $push: { comments: comment._id}},
+    //   );
+    // }
   } catch (err) {
     console.error(err);
     process.exit(1);
@@ -27,13 +27,14 @@ db.once('open', async () => {
 
   try {
     await Country.deleteMany({});
+    await CompileCountry.deleteMany({});
 
+   
 
     for (let i = 0; i < countrySeed.length; i++) {
-        if (parseInt(countrySeed[i].spiyear) >= 2018 && countrySeed[i].country !== "World") { // greater than 2017 
+        if (parseInt(countrySeed[i].spiyear) <= 2018) { // greater than 2017 
             const newData = await Country.create(
               {
-                spiyear: countrySeed[i].spiyear,
                 country: countrySeed[i].country,
                 rank_score_spi: countrySeed[i].rank_score_spi,
                 status: countrySeed[i].status,
@@ -60,7 +61,9 @@ db.once('open', async () => {
                     score_eq:countrySeed[i].score_eq
                 }
             });
+            await CompileCountry.update({ name: countrySeed[i].country }, { $push: { year_catalog: newData } }, { upsert : true })
         }
+
     }
   } catch (err) {
       console.error(err);
@@ -72,3 +75,21 @@ db.once('open', async () => {
 });
 
 
+// Country {
+//   "2022" : {
+//     yearsworthof information
+//   },
+//   "2022" : {
+//     yearsworthof information
+//   }
+// }
+
+// Country {
+//   country.country = USA
+//   country.spiyear = 2022
+// }
+
+// Country {
+//   country.country = USA
+//   country.spiyear = 2021
+// }
