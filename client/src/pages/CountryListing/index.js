@@ -5,16 +5,13 @@ import { QUERY_COUNTRIES, QUERY_COMPILATIONS } from '../../utils/queries';
 import CountryList from '../../components/CountryList';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_COUNTRIES);
-  const countries = data?.countries || [];
+  // const { loading, data } = useQuery(QUERY_COUNTRIES);
+  // const countries = data?.countries || [];
+  // const firstTwoCountries = countries.slice(0, 5);
 
-  const { otherloading, otherdata } = useQuery(QUERY_COMPILATIONS)
+  const { loading, data } = useQuery(QUERY_COMPILATIONS)
 
-  const compilations = otherdata?.countries || [];
-
-  const firstTwoCountries = countries.slice(0, 5);
-
-  // console.log('testing: ', compilations)
+  const compilations = data?.countryCompilations || [];
 
   return (
     <main>
@@ -24,7 +21,7 @@ const Home = () => {
             <div>Loading...</div>
           ) : (
             <CountryList
-              countries={firstTwoCountries}
+              compilations={compilations}
               title="Country Listings"
             />
           )}
