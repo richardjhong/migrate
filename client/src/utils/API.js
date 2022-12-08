@@ -1,4 +1,4 @@
-import env from "react-dotenv";
+
 
  // Upsplash API call
  export const searchImage = async (query) => { 
