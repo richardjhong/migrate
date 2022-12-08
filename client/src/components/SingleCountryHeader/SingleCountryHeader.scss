@@ -1,0 +1,36 @@
+.singleCountryHead {
+    height:12em;
+    display:flex;
+    margin-bottom:3em;
+}
+
+.singleCountHeadCont {
+    margin-bottom:3em;
+ 
+}
+
+.singleCountryImage {
+   height:100%;
+   
+}
+
+.singleCountryHeadTitle {
+    background:var(--lightBorder);
+    background-color:var(--light);
+    color:var(--darkBackground);
+    border:solid 5px var(--lightBorder);
+    border-radius:20px;
+    width:fit-content;
+    padding:20px;
+    position:absolute;
+    margin-top: -175px;
+    margin-left: 90px;
+}
+
+.singleCountryHeadTitle h2{
+    margin:0;
+}
+
+.singleCountryInput {
+    margin:0 0 3em 90px;
+}

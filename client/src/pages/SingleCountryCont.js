@@ -12,8 +12,12 @@ function SingleCountryCont() {
         <>
             <Header />
             <main>
-                <SingleCountryHeader />
-                <SingleCountry />
+                <div class='singleCountHeadCont'>
+                    <SingleCountryHeader />
+                </div>
+                <div>
+                    <SingleCountry />
+                </div>
             </main>
             <Footer />
         </>
