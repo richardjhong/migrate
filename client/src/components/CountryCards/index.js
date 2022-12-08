@@ -307,7 +307,7 @@ export default function CountryCards({ countryProperties}) {
                     )
                 }
             </div>
-</>
+        </>
 
     );
 }

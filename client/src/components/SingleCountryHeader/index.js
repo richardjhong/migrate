@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { searchImage } from '../../utils/API';
 import './SingleCountryHeader.scss';
+import { useQuery } from '@apollo/client';
+import { QUERY_COMPILATIONS } from '../../utils/queries';
+
 
 const SingleCountryHeader = () => {
 
   //For Search country
   const [searchImgInput, setSearchImgInput] = useState("");
   const [searchedImgs, setSearchedImgs] = useState([]);
+  const [suggestions, setSuggestions]=useState([]);
+  const { loading, data } = useQuery(QUERY_COMPILATIONS);
+  const countries = data?.countryCompilations || [];
+  const countryName=countries.map(data=>data.name);
+  console.log(countries);
+
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (!searchImgInput) {
+
       return false;
     }
     try {
@@ -22,7 +32,7 @@ const SingleCountryHeader = () => {
 
       //Randomly pick 4 images out of 10 results
       const newImgs = [];
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < 4; i++) {
         const newImg = items.results[Math.floor(Math.random() * items.results.length)];
         newImgs.push(newImg);
       }
@@ -35,45 +45,72 @@ const SingleCountryHeader = () => {
     }
 
   };
+  const onChangeHandler= (text)=>{
+    let matches=[];
+    console.log(matches);
+    if(text.length>0){
+      matches = countries.filter(country=>{
+        const regex = new RegExp(`${text}`,"gi");
+        return country.name.match(regex)
+      })
+    }
+    console.log('matches',matches);
+    setSuggestions(matches);
+    setSearchImgInput(text);
 
+  }
+
+  const onSuggestHandler = (text)=> {
+    setSearchImgInput(text);
+    setSuggestions([]);
+ }
 
   return (
-    <>
-      {/* <div className='singleCountHeadCont'> */}
-      <div className="singleCountryHead">
+    <div className="bg-info text-dark mb-4 display-flex align-center">
+      <div>
+        <div className="header-container max-h-44">
+          <div className='relative flew-col'>
+            <div className="flex flex-row max-h-44 max-w-lg">
+              {searchedImgs.map((val) => {
+                return (
+                  <img
+                    className="w-full"
+                    src={val.urls.regular}
+                    alt={val.alt_description}
+                  />
+                );
+              })}
+            </div>
+            <div className='country-text border border-2 border-green_pear font-extrabold text-4xl px-4 py-1 bg-blustery_blue absolute bottom-10 left-10'>
+              <h1 >{searchImgInput.toUpperCase()}</h1>
+            </div>
+          </div>
+          <div className="flex flex-row mt-1 mx-2">
+            <input
+              className="w-1/5 border rounded border-text-blustery_blue"
+              type="text"
+              placeholder="Search Country"
+              value={searchImgInput}
+              onChange={(e) => onChangeHandler(e.target.value)}
+            /> 
+            <button
+              type="submit"
+              onClick={handleFormSubmit}
+              className="btn ml-1 px-3 py-1 bg-pastel_green rounded text-blustery_blue"
+            >
+              Search
+            </button>
+            {suggestions && suggestions.map((suggestions, i) =>
+            <div className='suggestion'
+            key={i}
+            onClick={()=> onSuggestHandler(suggestions.name)}
 
-        {searchedImgs.map((val) => {
-          return (
-            <img
-              className="singleCountryImage"
-              src={val.urls.regular}
-              alt={val.alt_description}
-            />
-
-          );
-        })}
+            >{suggestions.name}</div>
+            )}
+          </div>
+        </div>
       </div>
-      <div className='singleCountryHeadTitle'>
-        <h2 >{searchImgInput.toUpperCase()}</h2>
-      </div>
-      <div className="singleCountryInput">
-        <input
-          className=""
-          type="text"
-          placeholder="Search Country"
-          value={searchImgInput}
-          onChange={(e) => setSearchImgInput(e.target.value)}
-        />
-        <button
-          type="submit"
-          onClick={handleFormSubmit}
-          className=""
-        >
-          Search
-        </button>
-      </div>
-      {/* </div> */}
-    </>
+    </div >
   );
 };
 
