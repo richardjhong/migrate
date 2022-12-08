@@ -1,13 +1,13 @@
-.splash {
+.splash{
     background-image: url("../../../public/images/homeBackground.png");
-    background-size:contain;
+    background-size: contain;
     background-color: #04566e;
     background-repeat: no-repeat;
     height:100vh;
-    display:flex;
-    // flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    background-position: center top;
 }
 
 .splashContain {
@@ -24,15 +24,35 @@
     background-color: #eff2f6;
     color: #022831;
     position: relative;
-    // top:
-    // left: 35%;
-    // margin-top: 34%;
+
+    left: 35%;
+    margin-top: -1%;
     background-image: none;
-    // width: 30%;
-    height: 70px;
+    width: 30%;
+    height: 5vw;
     border: 2px solid #022831;
-    font-size: 20px;
-    box-shadow: 10px 10px 10px var(--dark);
-    border-radius:20px;
-    padding:1em;
+    font-size: 2vw;
+    box-shadow: 0px 5px 5px;
+}
+
+.migrate {
+    margin-left: 33%;
+    font-family: TRANSAT;
+    font-size: 8vw;
+    margin-top: 18%;
+}
+
+.overview {
+    color: #eff2f6;
+    margin-top: 11%;
+    margin-right: 10%;
+    margin-left: 10%;
+    font-size: 1.1vw;
+}
+
+.tag {
+    color: #eff2f6;
+    margin-left: 38%;
+    font-size: 1.1vw;
+
 }
