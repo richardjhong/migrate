@@ -1,8 +1,10 @@
 import React from 'react';
 import "./Splash.scss";
+import Header from '../../components/Header';
 
-function Splash(){
+function Splash() {
     return (
+
             <main className="splash">
                 <p className='tag'>Looking to relocate? Start your search here.</p>
                 <h1 className='migrate'>MIGRATE</h1>
