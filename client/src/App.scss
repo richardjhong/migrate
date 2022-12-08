@@ -17,6 +17,20 @@ body {
 
 }
 
+button, .button {
+  background-color:var(--light);
+  border:5px solid var(--lightBorder);
+  padding:10px;
+  border-radius:20px;
+  font-family:'rigid-square', sans-serif;
+  width:fit-content;
+  margin:1em;
+}
+
+input {
+  font-family: "rigid-square", sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
   background-color:var(--light);
