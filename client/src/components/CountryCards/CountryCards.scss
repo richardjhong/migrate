@@ -1,14 +1,15 @@
 .countryCard {
     display: inline-flex;
-    width: 30%;
+    width: 28%;
     height: 300px;
     overflow: hidden;
     border: solid 5px var(--lightBorder);
     background-color: var(--darkBackground);
-    color: var(--lightBackground);
-    margin-bottom: 20px;
+    color: var(--light);
+    margin-bottom: 3em;
     border-radius: 30px;
     padding:20px;
+    transition:box-shadow .2s;
 }
 
 .wide {
@@ -16,6 +17,9 @@
     height: 600px;
 }
 
+.countryCard:hover {
+    box-shadow: 10px 10px 10px var(--dark);
+}
 
 @for $i from 1 through 30 {
     .card:nth-child(#{$i}) {

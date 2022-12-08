@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
+    "watch": "nodemon server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
@@ -27,8 +28,12 @@
     "csvtojson": "^2.0.10",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "gsap": "^3.11.3",
+    "jsonwebtoken": "^8.5.1",
+    "gsap": "^3.11.3",
     "mongoose": "^6.7.4",
-    "sass": "^1.56.1"
+    "sass": "^1.56.1",
+    "victory": "^36.6.8"
   },
   "devDependencies": {
     "concurrently": "^7.6.0"

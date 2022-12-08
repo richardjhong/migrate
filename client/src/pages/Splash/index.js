@@ -3,7 +3,7 @@ import "./Splash.scss";
 
 function Splash(){
     return (
-            <main>
+            <main class="splash">
                 <button class="button">Where are you going?...</button> 
             </main>
         )
