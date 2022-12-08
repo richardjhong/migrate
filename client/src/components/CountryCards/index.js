@@ -61,7 +61,7 @@ export default function CountryCards({ countryProperties}) {
         "previousClicked": ''
     })
 
-    const handleGetClassName = e => {
+    const handleTrackCardExpandedState = e => {
         e.stopPropagation();
         const fieldToUpdate = e.currentTarget.getAttribute("data-name")
         const prevClicked = expanded.previousClicked
@@ -89,7 +89,7 @@ export default function CountryCards({ countryProperties}) {
    <>
             <div className='countryCard' id="col1row1" data-name={'col1row1'} onClick={(event) => { 
                 expand(event) 
-                handleGetClassName(event)        
+                handleTrackCardExpandedState(event)        
             }} data-column='1'>
                 {
                     !expanded.col1row1 ? (
