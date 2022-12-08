@@ -73,23 +73,3 @@ db.once('open', async () => {
   console.log('all done!');
   process.exit(0);
 });
-
-
-// Country {
-//   "2022" : {
-//     yearsworthof information
-//   },
-//   "2022" : {
-//     yearsworthof information
-//   }
-// }
-
-// Country {
-//   country.country = USA
-//   country.spiyear = 2022
-// }
-
-// Country {
-//   country.country = USA
-//   country.spiyear = 2021
-// }
