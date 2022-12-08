@@ -32,10 +32,11 @@ db.once('open', async () => {
    
 
     for (let i = 0; i < countrySeed.length; i++) {
-        if (parseInt(countrySeed[i].spiyear) <= 2018) { // greater than 2017 
+        if (parseInt(countrySeed[i].spiyear) >= 2018 && countrySeed[i].country !== "World") { // greater than 2017 
             const newData = await Country.create(
               {
                 country: countrySeed[i].country,
+                spiyear: countrySeed[i].spiyear,
                 rank_score_spi: countrySeed[i].rank_score_spi,
                 status: countrySeed[i].status,
                 score_spi: countrySeed[i].score_spi,
