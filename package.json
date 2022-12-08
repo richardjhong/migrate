@@ -29,6 +29,7 @@
     "express": "^4.18.2",
     "gsap": "^3.11.3",
     "jsonwebtoken": "^8.5.1",
+    "gsap": "^3.11.3",
     "mongoose": "^6.7.4",
     "sass": "^1.56.1",
     "victory": "^36.6.8"

@@ -1,18 +1,19 @@
 import React from 'react';
-import "../components/SingleCountry/SingleCountry.scss";
-import SingleCountryHeader from '../components/SingleCountryHeader';
 import Header from '../components/Header';
 import CountryCards from '../components/CountryCards';
 import Footer from '../components/Footer';
+import SingleCountryHeader from '../components/SingleCountryHeader'
+import SingleCountry from '../components/SingleCountry';
 
 
-function SingleCountry() {
+
+function SingleCountryCont() {
     return (
         <>
             <Header />
             <main>
                 <SingleCountryHeader />
-                <CountryCards />
+                <SingleCountry />
             </main>
             <Footer />
         </>
@@ -20,4 +21,4 @@ function SingleCountry() {
     )
 }
 
-export default SingleCountry;
+export default SingleCountryCont;

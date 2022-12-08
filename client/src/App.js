@@ -7,12 +7,9 @@ import Dashboard from './pages/Dashboard';
 import CountryListing from './pages/CountryListing';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-
 import Chart from './pages/Chart';
-import Header from './components/Header';
-import Footer from './components/Footer';
 import Splash from './pages/Splash';
-import SingleCountry from './pages/SingleCountry';
+import SingleCountryCont from './pages/SingleCountryCont';
 import './App.scss';
 
 // Construct our main GraphQL API endpoint
