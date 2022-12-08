@@ -28,6 +28,11 @@ const typeDefs = gql`
     opp: oppType
   }
 
+  type CountryCompilation {
+    name: String
+    year_catalog: [Country]
+  }
+
   type bhnType {
     score_nbmc: Float
     score_ws: Float
@@ -54,6 +59,7 @@ const typeDefs = gql`
     user(username: String!): User
     me: User
     countries: [Country]
+    countryCompilations: [CountryCompilation]
   }
 
   type Mutation {
