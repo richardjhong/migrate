@@ -1,8 +1,8 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_COUNTRIES } from '../utils/queries';
+import { QUERY_COUNTRIES } from '../../utils/queries';
 
-import CountryList from '../components/CountryList';
+import CountryList from '../../components/CountryList';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_COUNTRIES);
