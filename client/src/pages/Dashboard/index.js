@@ -73,7 +73,7 @@ const Dashboard = () => {
           Welcome {userParam ? `back, ${user.username}!` : 'Welcome!'} Continue where you left off..
         </h2>
         <div>
-{     searchHistoryContent}
+{/* {     searchHistoryContent} */}
   </div>
         <div>
          

@@ -19,7 +19,7 @@ const Header = () => {
       
         <Link className="text-dark" to="/">
           <h1 >
-            Migrate
+            MIGRATE
           </h1>
         </Link> 
         <nav className='navbar'>
