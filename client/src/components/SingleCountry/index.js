@@ -1,9 +1,13 @@
 import CountryCards from "../CountryCards";
+import "./SingleCountry.scss";
 
 export default function SingleCountry() {
-    <>
-         <div className='countryCardContainer'>
-        <CountryCards />
+
+    return(
+    <div className='containerCenter'>
+        <div className='countryCardContainer'>
+            <CountryCards />
         </div>
-    </>
+    </div>
+    )
 }
