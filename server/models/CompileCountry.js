@@ -1,5 +1,4 @@
 const { Schema, model, Types } = require('mongoose')
-const Country = require('./Country')
 
 const compileCountrySchema = new Schema(
   {
@@ -10,7 +9,9 @@ const compileCountrySchema = new Schema(
       year_catalog:
     [
       {
-        type: Types.ObjectId, ref: 'country'
+        type: Types.ObjectId, 
+        ref: 'country',
+        required: true
       }
     ],
   }

@@ -8,9 +8,7 @@ const countrySeed = require('./2011-2022 SPI data-Table 1.json');
 
 db.once('open', async () => {
   try {
-    await Comment.deleteMany({});
     await User.deleteMany({});
-
     await User.create(userSeeds);
 
     // for (let i = 0; i < commentSeeds.length; i++) {
@@ -62,7 +60,7 @@ db.once('open', async () => {
                     score_eq:countrySeed[i].score_eq
                 }
             });
-            await CompileCountry.update({ name: countrySeed[i].country }, { $push: { year_catalog: newData } }, { upsert : true })
+            await CompileCountry.updateOne({ name: countrySeed[i].country }, { $push: { year_catalog: newData } }, { upsert : true })
         }
 
     }

@@ -57,7 +57,7 @@ export default function CountryCards() {
 
             </div>
             <div className='card' id='1' onClick={(event) => { expand(event) }} data-column='3'>
-                <img src={logo} alt='logo' className='imgTest'></img>
+                {/* <img src={logo} alt='logo' className='imgTest'></img> */}
                 This is a test element. CAT1
 
             </div>

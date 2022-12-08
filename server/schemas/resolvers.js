@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Comment, Country } = require('../models');
+const { User, Comment, Country, CompileCountry } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -22,6 +22,9 @@ const resolvers = {
         return User.findOne({ _id: context.user._id })
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    countryCompilations: async () => {
+      return await CompileCountry.find({}).populate('year_catalog');
     },
     countries: async () => {
       return await Country.find({});
