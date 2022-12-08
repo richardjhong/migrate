@@ -10,10 +10,21 @@
     background-position: center top;
 }
 
+.splashContain {
+    height:100%;
+    display:flex;
+    // flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
 .button {
     background-color: #eff2f6;
     color: #022831;
     position: relative;
+
     left: 35%;
     margin-top: -1%;
     background-image: none;
@@ -43,4 +54,5 @@
     color: #eff2f6;
     margin-left: 38%;
     font-size: 1.1vw;
+
 }
