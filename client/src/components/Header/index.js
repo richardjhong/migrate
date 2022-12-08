@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.scss'
+import heroImage from '../../images/homeBackground.png'
 
 import Auth from '../../utils/auth';
 
@@ -16,15 +17,15 @@ const Header = () => {
 
   return (
     <header >
-      
-        <Link className="text-dark" to="/">
+   
+        <Link className="" to="/">
           <h1 >
-            Migrate
+            MIGRATE
           </h1>
         </Link> 
         <nav className='navbar'>
           {Auth.loggedIn() ? (
-            <button className="btn btn-lg btn-light m-2" onClick={logout}>
+            <button className="" onClick={logout}>
               Logout
             </button>
           ) : (
@@ -38,7 +39,7 @@ const Header = () => {
             </>
           )}
         </nav> 
-      
+     
     </header >
   );
 };
