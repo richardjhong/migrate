@@ -42,13 +42,13 @@ const expand = (event) => {
 }
 
 
-export default function CountryCards() {
+export default function CountryCards({ countryProperties}) {
 
     return (
 
    <>
             <div className='countryCard' onClick={(event) => { expand(event) }} data-column='1'>
-                This is a test element. CAT1
+                Nutrition & Basic Medical Care: {(countryProperties.bhn.score_nbmc).toString()}
             </div>
 
             <div className='countryCard' onClick={(event) => { expand(event) }} data-column='2'>
