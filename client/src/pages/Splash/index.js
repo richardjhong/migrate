@@ -1,12 +1,18 @@
 import React from 'react';
 import "./Splash.scss";
+import Header from '../../components/Header';
 
-function Splash(){
+function Splash() {
     return (
-            <main class="splash">
-                <button class="button">Where are you going?...</button> 
-            </main>
-        )
+        <>
+        <Header />
+        <main className="splash">
+            <div className="splashContain">
+                <button className="button">Where are you going?...</button>
+            </div>
+        </main>
+        </>
+    )
 }
 
 export default Splash;
