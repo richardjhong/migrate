@@ -1,6 +1,6 @@
 :root {
   --darkBackground:#04566e;
-  --light:#04566e;
+  --light:#eff2f6;
   --lightBorder: #b4d330;
   --dark:#022831;
 
@@ -14,6 +14,7 @@
 
 html {
   scroll-behavior: smooth;
+  background-color:var(--light);
 }
 
 main {

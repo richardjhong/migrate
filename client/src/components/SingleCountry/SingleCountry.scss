@@ -1,4 +1,11 @@
 .countryCardContainer {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    width: 95%;
+    flex-wrap:wrap;
+}
+
+.containerCenter {
+    display:flex;
+    justify-content:center;
 }
