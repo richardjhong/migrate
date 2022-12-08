@@ -1,5 +1,7 @@
 .countryCard {
-    display: inline-flex;
+    display: flex;
+    justify-content:space-around;
+    align-items: flex-start;
     width: 28%;
     height: 300px;
     overflow: hidden;
@@ -17,8 +19,25 @@
     height: 600px;
 }
 
+.cardIcon {
+    width:45%;
+}
+
+.cardTitle {
+    width:45%;
+}
+
+.cardValue {
+    font-size:3em;
+}
+
 .countryCard:hover {
     box-shadow: 10px 10px 10px var(--dark);
+}
+
+.countryCard img {
+    width:100%;
+    height:auto;
 }
 
 @for $i from 1 through 30 {

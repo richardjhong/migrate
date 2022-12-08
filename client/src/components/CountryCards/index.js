@@ -2,11 +2,13 @@ import React from "react";
 import './CountryCards.scss';
 import { gsap } from 'gsap'
 import { Flip } from "gsap/Flip";
+import nutritionIcon from '../../images/Nutrition-Basic-Needs.png'
+
 gsap.registerPlugin(Flip);
 
 const expand = (event) => {
     let box = event.target;
-    const flipTargets = document.querySelectorAll(".flex-container, .countryCard");
+    const flipTargets = document.querySelectorAll(".flex-container, .countryCard, .embedTest");
     console.log(flipTargets)
     const state = Flip.getState(flipTargets);
 
@@ -42,13 +44,16 @@ const expand = (event) => {
 }
 
 
-export default function CountryCards({ countryProperties}) {
+export default function CountryCards({ countryProperties }) {
 
     return (
 
-   <>
+        <>
             <div className='countryCard' onClick={(event) => { expand(event) }} data-column='1'>
-                Nutrition & Basic Medical Care: {(countryProperties.bhn.score_nbmc).toString()}
+                <div className="cardIcon"><img src={nutritionIcon} /></div>
+                <div className='cardTitle'>
+                    <h3>Nutrition & Basic Medical Care: </h3><div className="cardValue">{(countryProperties.bhn.score_nbmc).toString()}</div>
+                </div>
             </div>
 
             <div className='countryCard' onClick={(event) => { expand(event) }} data-column='2'>
@@ -57,7 +62,7 @@ export default function CountryCards({ countryProperties}) {
 
             </div>
             <div className='countryCard' id='1' onClick={(event) => { expand(event) }} data-column='3'>
-               
+
                 This is a test element. CAT1
 
             </div>
@@ -97,7 +102,7 @@ export default function CountryCards({ countryProperties}) {
                 This is a test element.CAT3
 
             </div>
-</>
+        </>
 
     );
 }

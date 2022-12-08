@@ -13,38 +13,16 @@ const Dashboard = () => {
   const user = data?.me || data?.user || {};
   
   // Store search history in local storage
-  const [showSearchHistory, setShowSearchHistory] = useState(true);
-
-  // Get search history from local storage and set to state
+  let [showSearchHistory, setShowSearchHistory] = useState(true);
+  let storedSearches = JSON.parse(window.localStorage.getItem('searchHistory'));
+// Get search history from local storage and set to state
   useEffect(() => {
-    const data = window.localStorage.getItem('Search History');
-    if (data !== null) {
-      setShowSearchHistory(JSON.parse(data));
-  }}, []);
+     if (storedSearches !== null) {
+        setShowSearchHistory(storedSearches);
+      }
+  },  [storedSearches]);
 
-  // Set search history in local storage when state changes
-  useEffect(() => {
-    window.localStorage.setItem('Search History', JSON.stringify(showSearchHistory))
-  }, [showSearchHistory]);
-
-  // store search history in local storage and render country name and image upon page load
-  const searchHistory = JSON.parse(localStorage.getItem('Search History')) || [];
-
-  // const searchHistoryContent = searchHistory.map((searchHistory) =>
-  //   <div>
-  //     <img src={searchHistory.flag} alt={searchHistory.name} />
-  //     <p>{searchHistory.name}</p>
-  //   </div>
-  // );
-
-  // let lastSearch = searchHistory[searchHistory.length - 1];
-  // let searchHistoryContent;
-	// if(searchHistory) { 
-	// 	for (var i = 0; i < 3; i++) {
-	// 	// const searchHistoryContent = searchHistory.map((searchHistory) => 
-  //   }}
-
-  // navigate to personal profile page if username matches param
+  // navigate to personal dashboard page if username matches param
   if (Auth.loggedIn() && Auth.getDashboard().data.username === userParam) {
     return <Navigate to="/me" />;
   }
@@ -70,19 +48,32 @@ const Dashboard = () => {
     <div>
       <div className="flex-row justify-center mb-3">
         <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Welcome {userParam ? `back, ${user.username}!` : 'Welcome!'} Continue where you left off..
+          Welcome {userParam ? `back, ${user.username} continue where you left off.. !` : `back, ${user.username}!`} 
         </h2>
-        <div>
-{/* {     searchHistoryContent} */}
-  </div>
-        <div>
-         
-        </div>
-        {!userParam && (
           <div>
-            
-          </div>
-        )}
+            <h3>Search History</h3>
+            {storedSearches ? storedSearches : 'No search history yet!'}
+            <div className='singleCountryHeadTitle'>
+      </div>
+      {/* <div className="singleCountryInput">
+        <input
+          className=""
+          type="text"
+          placeholder="Search Country"
+          value={searchImgInput}
+          onChange={(e) => setSearchImgInput(e.target.value)}
+        />
+        <button
+          type="submit"
+          onClick={handleFormSubmit}
+          className=""
+        >
+          Search
+        </button>
+      </div> */}
+         </div>
+        <div>
+        </div>
       </div>
     </div>
   );
