@@ -1,12 +1,17 @@
 import React from 'react';
+import './Footer.scss'
 
 const Footer = () => {
   return (
-    <footer className="w-100 mt-auto bg-secondary p-4">
-      <div className="container text-center mb-5">
-        <h4>
-          Footer Content
-        </h4>
+    <footer >
+
+     
+      <div >
+        This site created by 
+        Paris Bland, Mark Gardner, Richard Hong, Yeon Seo, Sarah Thoorens
+      </div>
+      <div>
+        Copyright 2022
       </div>
     </footer>
   );
