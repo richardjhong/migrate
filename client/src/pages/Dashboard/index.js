@@ -3,6 +3,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 import Auth from '../../utils/auth';
+import "./dashboard.scss";
 
 const Dashboard = () => {
   const { username: userParam } = useParams();
@@ -54,12 +55,16 @@ const Dashboard = () => {
 
   if (!user?.username) {
     return (
+      <div>
       <h4>
-        You need to be logged in to see this. Use the navigation links above to
+        You need to be logged in to see this. Use the navigation links below to
         sign up or log in!
-      </h4>
+       </h4>
+       <button><a href="https://migrate.com/login ">Login</a></button>
+       </div>
     );
   }
+
 
   return (
     <div>
