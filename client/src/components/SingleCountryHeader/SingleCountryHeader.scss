@@ -34,3 +34,15 @@
 .singleCountryInput {
     margin:0 0 3em 90px;
 }
+
+/////////////////// Feel free to delete @Mark
+.suggestion{
+    cursor: pointer;
+    border-right: 1px solid var(--lightBorder);;
+    border-left: 1px solid var(--lightBorder);;
+    border-bottom: 1px solid var(--lightBorder);;
+}
+.suggestion:hover{
+    background-color:var(--darkBackground);
+}
+///////////////////
