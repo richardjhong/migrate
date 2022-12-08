@@ -37,7 +37,7 @@ const SingleCountryHeader = () => {
   
   
     return (
-      <header className="bg-info text-dark mb-4 display-flex align-center">
+      <div className="bg-info text-dark mb-4 display-flex align-center">
         <div>
           <div className="header-container max-h-44">
             <div className='relative flew-col'>
@@ -53,7 +53,7 @@ const SingleCountryHeader = () => {
                 })}
               </div>
               <div className='country-text border border-2 border-green_pear font-extrabold text-4xl px-4 py-1 bg-blustery_blue absolute bottom-10 left-10'>
-                <h1 text-pastel_green>{searchImgInput.toUpperCase()}</h1>
+                <h1 >{searchImgInput.toUpperCase()}</h1>
               </div>
             </div>
             <div className="flex flex-row mt-1 mx-2">
@@ -74,7 +74,7 @@ const SingleCountryHeader = () => {
             </div>
           </div>
         </div>
-      </header >
+      </div >
     );
   };
   

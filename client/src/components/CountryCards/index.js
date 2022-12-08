@@ -6,7 +6,7 @@ gsap.registerPlugin(Flip);
 
 const expand = (event) => {
     let box = event.target;
-    const flipTargets = document.querySelectorAll(".flex-container, .card");
+    const flipTargets = document.querySelectorAll(".flex-container, .countryCard");
     console.log(flipTargets)
     const state = Flip.getState(flipTargets);
 
@@ -46,58 +46,58 @@ export default function CountryCards() {
 
     return (
 
-        <div className='countryCardContainer'>
+   <>
             <div className='countryCard' onClick={(event) => { expand(event) }} data-column='1'>
                 This is a test element. CAT1
             </div>
 
-            <div className='card' onClick={(event) => { expand(event) }} data-column='2'>
+            <div className='countryCard' onClick={(event) => { expand(event) }} data-column='2'>
                 CAT1
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
             </div>
-            <div className='card' id='1' onClick={(event) => { expand(event) }} data-column='3'>
-                {/* <img src={logo} alt='logo' className='imgTest'></img> */}
+            <div className='countryCard' id='1' onClick={(event) => { expand(event) }} data-column='3'>
+               
                 This is a test element. CAT1
 
             </div>
-            <div className='card' id='2' onClick={(event) => { expand(event) }} data-column='4'>
+            <div className='countryCard' id='2' onClick={(event) => { expand(event) }} data-column='4'>
                 This is a test element. CAT1
 
             </div>
-            <div className='card' id='3' onClick={(event) => { expand(event) }} data-column='5'>
+            <div className='countryCard' id='3' onClick={(event) => { expand(event) }} data-column='5'>
                 This is a test element. CAT2<div className='embedTest'>This is a test embed</div>
 
             </div>
-            <div className='card' id='4' onClick={(event) => { expand(event) }} data-column='6'>
+            <div className='countryCard' id='4' onClick={(event) => { expand(event) }} data-column='6'>
                 This is a test element.CAT2
 
             </div>
-            <div className='card' id='5' onClick={(event) => { expand(event) }} data-column='7'>
+            <div className='countryCard' id='5' onClick={(event) => { expand(event) }} data-column='7'>
                 <p>CAT 2Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
             </div>
-            <div className='card' id='6' onClick={(event) => { expand(event) }} data-column='18'>
+            <div className='countryCard' id='6' onClick={(event) => { expand(event) }} data-column='18'>
                 This is a test element. CAT2
 
             </div>
-            <div className='card' id='7' onClick={(event) => { expand(event) }} data-column='9'>
+            <div className='countryCard' id='7' onClick={(event) => { expand(event) }} data-column='9'>
                 This is a test element.CAT3
 
             </div>
-            <div className='card' onClick={(event) => { expand(event) }} data-column='10'>
+            <div className='countryCard' onClick={(event) => { expand(event) }} data-column='10'>
                 This is a test element.CAT3
             </div>
-            <div className='card' onClick={(event) => { expand(event) }} data-column='11'>
-                This is a test element.CAT3
-
-            </div>
-            <div className='card' onClick={(event) => { expand(event) }} data-column='12'>
+            <div className='countryCard' onClick={(event) => { expand(event) }} data-column='11'>
                 This is a test element.CAT3
 
             </div>
-        </div>
+            <div className='countryCard' onClick={(event) => { expand(event) }} data-column='12'>
+                This is a test element.CAT3
+
+            </div>
+</>
 
     );
 }
