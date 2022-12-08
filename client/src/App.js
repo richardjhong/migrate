@@ -6,8 +6,17 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+<<<<<<< HEAD
 import CountryListing from './pages/CountryListing';
 import Splash from './pages/Splash/index'
+=======
+
+import Chart from './pages/Chart';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Splash from './pages/Splash';
+import SingleCountry from './pages/SingleCountry';
+>>>>>>> 5611690a2e51899d2ec9c2bbbfadbc1e5df3dffa
 import './App.scss';
 
 // Construct our main GraphQL API endpoint
@@ -38,32 +47,37 @@ const client = new ApolloClient({
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   return (
-    
+
     <ApolloProvider client={client}>
-     <Dashboard loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      <Dashboard loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <div className="container">
-            <Routes>
-            <Route 
-                path="/splash" 
-                element={<Splash />} 
-              />
-              <Route 
-                path="/listings" 
-                element={<CountryListing />} 
-              />
-              <Route 
-                path="/login" 
-                element={<Login />} 
-              />
-              <Route 
-                path="/signup" 
-                element={<Signup />} 
-              />             
-            </Routes>
-          </div>
-        </div>
+
+        <Routes>
+          <Route
+            path="/splash"
+            element={<Splash />}
+          />
+          <Route
+            path="/SingleCountry"
+            element={<SingleCountry />}
+          />
+          <Route
+            path="/listings"
+            element={<CountryListing />}
+          />
+          <Route
+            path="/login"
+            element={<Login />}
+          />
+          <Route
+            path="/signup"
+            element={<Signup />}
+          />
+          <Route
+            path="/chart"
+            element={<Chart />}
+          />
+        </Routes>
       </Router>
     </ApolloProvider>
   );
