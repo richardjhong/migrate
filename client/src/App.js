@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -38,40 +38,51 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
   return (
 
     <ApolloProvider client={client}>
-      {/* <Dashboard loggedIn={loggedIn} setLoggedIn={setLoggedIn} /> */}
+      
       <Router>
-       
-            <Routes>
-            <Route 
-                path="/splash" 
-                element={<Splash />} 
-              />
-            <Route 
-                path="/SingleCountry" 
-                element={<SingleCountryCont />} 
-              />
-              <Route 
-                path="/listings" 
-                element={<CountryListing />} 
-              />
-              <Route 
-                path="/login" 
-                element={<Login />} 
-              />
-              <Route 
-                path="/signup" 
-                element={<Signup />} 
-              />
-              <Route
-                path="/chart"
-                element={<Chart />} 
-              />
-            </Routes>
-         
+        <div className="flex-column justify-flex-start min-100-vh">
+          <Header />
+          <div className="container">
+        <Routes>
+        
+          <Route
+            path="/splash"
+            element={<Splash />}
+          />
+          <Route
+            path="/SingleCountry"
+            element={<SingleCountry />}
+          />
+          <Route
+            path="/listings"
+            element={<CountryListing />}
+          />
+          <Route
+            path="/login"
+            element={<Login />}
+          />
+          <Route
+            path="/signup"
+            element={<Signup />}
+          />
+          <Route
+            path="/dashboard"
+            element={<Dashboard />} />
+          <Route 
+             path="/dashboard/:username" 
+             element={<Dashboard />}
+           />
+          <Route
+            path="/chart"
+            element={<Chart />}
+          />
+        </Routes>
+        </div>
+          <Footer />
+        </div>
       </Router>
     </ApolloProvider>
   );
