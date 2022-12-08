@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { searchImage } from '../../utils/API';
+import './SingleCountryHeader.scss';
 import Autocomplete from 'react-autocomplete';
 import {useQuery} from '@apollo/client';
 import {QUERY_COUNTRY_NAME, QUERY_COUNTRIES} from '../../utils/queries';
