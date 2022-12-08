@@ -6,15 +6,11 @@ const CountryList = ({ countries, title }) => {
     return <h3>No Countries Retrieved From Database</h3>;
   }
 
-  // skip over 0th index entry of countries which is effectively a header in 
-  // in csv content
-  const [...countryListings] = [...countries]
-
   return (
     <div>
       <h3>{title}</h3>
-      {countryListings &&
-        countryListings.map(country => {
+      {countries &&
+        countries.map(country => {
           const { _id, ...countryProperties } = country
           return (
             <>
