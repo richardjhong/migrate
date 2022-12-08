@@ -1,11 +1,48 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import './CountryCards.scss';
 import { gsap } from 'gsap'
 import { Flip } from "gsap/Flip";
 import Chart from '../CountryChart/'
 gsap.registerPlugin(Flip);
 
+const expand = (event) => {
+    let box = event.target;
+    const flipTargets = document.querySelectorAll(".flex-container, .countryCard");
+    console.log(flipTargets)
+    const state = Flip.getState(flipTargets);
+    
+    console.log(box);
+    let boxOrder = box.dataset.column;
+    console.log('boxOrder: ', boxOrder);
+    // All of the positioning logic to set the end state
+    const lastExpanded = document.querySelector(".wide");
+    if (lastExpanded) {
+        gsap.set(lastExpanded, { clearProps: "order" });
+        lastExpanded.classList.remove("wide");
+        // change order number of selected box to -1 to move to top of page (probably could be refactored)
+        if (!box.isSameNode(lastExpanded)) {
+            box.classList.add("wide");
+            gsap.set(box, { order: -1 });
+        }
+    } else {
+        box.classList.add("wide");
+        gsap.set(box, { order: -1 });
+    }
 
+    //move scroll bar to top div with selected box
+    let jumpY = box.getBoundingClientRect();
+    console.log(jumpY.y)
+    window.scroll({ top: jumpY.y, left: 0, behavior: 'smooth' });
+
+    // Animate from the initial state to the end state!
+
+    Flip.from(state, {
+        duration: 1,
+        nested: true,
+        scale: true,
+    });
+
+}
 
 export default function CountryCards({ countryProperties}) {
     const [expanded, setIsExpanded] = useState({
@@ -21,58 +58,30 @@ export default function CountryCards({ countryProperties}) {
         "col1row4": false,
         "col2row4": false,
         "col3row4": false,
+        "previousClicked": ''
     })
-
-    const expand = (event) => {
-        let box = event.target;
-        const flipTargets = document.querySelectorAll(".flex-container, .countryCard");
-        console.log(flipTargets)
-        const state = Flip.getState(flipTargets);
-        
-        console.log(box);
-        let boxOrder = box.dataset.column;
-        console.log('boxOrder: ', boxOrder);
-        // All of the positioning logic to set the end state
-        const lastExpanded = document.querySelector(".wide");
-        if (lastExpanded) {
-            gsap.set(lastExpanded, { clearProps: "order" });
-            lastExpanded.classList.remove("wide");
-            // change order number of selected box to -1 to move to top of page (probably could be refactored)
-            if (!box.isSameNode(lastExpanded)) {
-                box.classList.add("wide");
-                gsap.set(box, { order: -1 });
-            }
-        } else {
-            box.classList.add("wide");
-            gsap.set(box, { order: -1 });
-        }
-
-        //move scroll bar to top div with selected box
-        let jumpY = box.getBoundingClientRect();
-        console.log(jumpY.y)
-        window.scroll({ top: jumpY.y, left: 0, behavior: 'smooth' });
-    
-        // Animate from the initial state to the end state!
-
-
-
-
-        Flip.from(state, {
-            duration: 1,
-            nested: true,
-            scale: true,
-        });
-    
-    }
 
     const handleGetClassName = e => {
         e.stopPropagation();
-        e.preventDefault();
-        const fieldToUpdate = e.target.getAttribute("data-name")
-        setIsExpanded((prevState) => ({
-            ...prevState,
-            [fieldToUpdate]: e.target.closest('.countryCard').className.includes('wide') 
-        }));
+        const fieldToUpdate = e.currentTarget.getAttribute("data-name")
+        const prevClicked = expanded.previousClicked
+
+        // checks to see if a new card was clicked; if so then the 
+        // previousCard should go to non-expanded state content
+        if (fieldToUpdate === prevClicked) {
+            setIsExpanded((prevState) => ({
+                ...prevState,
+                [fieldToUpdate]: e.currentTarget.closest('.countryCard').className.includes('wide') ,
+                previousClicked: fieldToUpdate 
+            }));
+        } else {
+            setIsExpanded((prevState) => ({
+                ...prevState,
+                [prevClicked]: false,
+                [fieldToUpdate]: e.currentTarget.closest('.countryCard').className.includes('wide') ,
+                previousClicked: fieldToUpdate 
+            }));
+        }
     };
 
     return (
@@ -92,7 +101,7 @@ export default function CountryCards({ countryProperties}) {
                             <p>
                                 Nutrition & Basic Medical Care: {(countryProperties.bhn.score_nbmc).toString()}
                             </p>
-                        <Chart />
+                            <Chart />
                         </>
                     )
                 }
@@ -109,9 +118,12 @@ export default function CountryCards({ countryProperties}) {
                             <p>This is non-expanded col2row1</p>
                         </>
                     ) : (
-                        <p>
-                            This is expanded col2row1
-                        </p>
+                        <>
+                            <p>
+                                This is expanded col2row1
+                            </p>
+                            <Chart />
+                        </>
                     )
                 }
                 
