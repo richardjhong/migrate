@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { searchImage } from '../../utils/API';
 
 const SingleCountryHeader = () => {
-  
+    
     //For Search country
     const [searchImgInput, setSearchImgInput] = useState("");
     const [searchedImgs, setSearchedImgs] = useState([]);
