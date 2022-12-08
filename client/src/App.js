@@ -55,7 +55,7 @@ function App() {
           />
           <Route
             path="/SingleCountry"
-            element={<SingleCountry />}
+            element={<SingleCountryCont />}
           />
           <Route
             path="/listings"
