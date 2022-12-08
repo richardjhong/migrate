@@ -1,23 +1,21 @@
 import React from 'react';
+import Chart from '../CountryChart/index.js'
 
 const CountryList = ({ countries, title }) => {
   if (!countries.length) {
     return <h3>No Countries Retrieved From Database</h3>;
   }
 
-  // skip over 0th index entry of countries which is effectively a header in 
-  // in csv content
-  const [headers, ...countryListings] = [...countries]
-
   return (
     <div>
       <h3>{title}</h3>
-      {countryListings &&
-        countryListings.map(country => {
+      {countries &&
+        countries.map(country => {
           const { _id, ...countryProperties } = country
           return (
             <>
               <p>country: {countryProperties.country}</p>
+              <p>spiyear: {countryProperties.spiyear}</p>
               <p>rank_score_spi: {countryProperties.rank_score_spi}</p>
               <p>status: {countryProperties.status}</p>
               <p>score_spi: {countryProperties.score_spi}</p>
@@ -48,6 +46,7 @@ const CountryList = ({ countries, title }) => {
                   </p>
                 )
               })}
+            <Chart fields={countryProperties}/>
             </>
           )
         })

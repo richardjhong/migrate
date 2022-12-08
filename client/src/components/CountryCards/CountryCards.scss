@@ -1,13 +1,14 @@
 .countryCard {
     display: inline-flex;
-    width: 30%;
+    width: 28%;
     height: 300px;
     overflow: hidden;
     border: solid 5px var(--lightBorder);
     background-color: var(--darkBackground);
-    color: var(--lightBackground);
+    color: var(--light);
     margin-bottom: 20px;
     border-radius: 30px;
+    padding:20px;
 }
 
 .wide {

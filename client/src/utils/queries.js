@@ -6,34 +6,7 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      comments {
-        _id
-        commentText
-        createdAt
-      }
     }
-  }
-`;
-
-export const QUERY_COMMENTS = gql`
-  query getComments {
-    commentss {
-      _id
-      commentText
-      commentAuthor
-      createdAt
-    }
-  }
-`;
-
-export const QUERY_SINGLE_COMMENT = gql`
-  query getSingleComment($commentId: ID!) {
-   comment(commentId: $commentId) {
-      _id
-      commentText
-      commentAuthor
-      createdAt
-      }
   }
 `;
 
@@ -43,12 +16,7 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
+
     }
   }
  `;
@@ -57,6 +25,7 @@ export const QUERY_COUNTRIES = gql`
 query allCountries {
   countries {
     _id
+    spiyear
     country
     rank_score_spi
     status

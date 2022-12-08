@@ -6,14 +6,6 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    comments: [Comment]!
-  }
-
-  type Comment {
-    _id: ID
-    commentText: String
-    commentAuthor: String
-    createdAt: String
   }
 
   type Auth {
@@ -34,6 +26,11 @@ const typeDefs = gql`
     bhn: bhnType
     fow: fowType
     opp: oppType
+  }
+
+  type CountryCompilation {
+    name: String
+    year_catalog: [Country]
   }
 
   type bhnType {
@@ -60,17 +57,14 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    comments(username: String): [Comment]
-    comment(commentId: ID!): Comment
     me: User
     countries: [Country]
+    countryCompilations: [CountryCompilation]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addComment(commentId: ID!, commentText: String!): Comment
-    removeComment(commentId: ID!, commentId: ID!): Comment
   }
 `
 
