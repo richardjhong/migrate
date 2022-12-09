@@ -45,9 +45,7 @@ const expand = (event) => {
 
 
 export default function CountryCards({ countryProperties }) {
-
     return (
-
         <>
             <div className='countryCard' onClick={(event) => { expand(event) }} data-column='1'>
                 <div className="cardIcon"><img src={nutritionIcon} /></div>

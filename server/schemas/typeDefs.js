@@ -6,6 +6,14 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
+    searchHistory: [SearchHistory]!
+    
+  }
+
+  type SearchHistory {
+    user: User
+    searchedCountry: String
+    createdAt: String
   }
 
   type Auth {
@@ -58,6 +66,7 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     me: User
+    searchHistory(username: String): [SearchHistory]
     countries: [Country]
     countryCompilations: [CountryCompilation]
   }
@@ -65,6 +74,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    addSearchHistory(userId: ID!, searchedCountry: String!): User
   }
 `
 

@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { searchImage } from '../../utils/API';
 import './SingleCountryHeader.scss';
 import { useQuery } from '@apollo/client';
-import { QUERY_COMPILATIONS } from '../../utils/queries';
+import { QUERY_COMPILATIONS, QUERY_ME, QUERY_SEARCH_HISTORY } from '../../utils/queries';
+import { useMutation } from '@apollo/client';
+import { ADD_SEARCH_HISTORY } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 
 const SingleCountryHeader = () => {
@@ -17,7 +20,31 @@ const SingleCountryHeader = () => {
   console.log(countries);
 
 
-  const handleFormSubmit = async (e) => {
+  const Searches = () => {
+    const [searchImage, { error }] = useMutation(ADD_SEARCH_HISTORY, {
+      update(cache, { data: { addSearchHistory } }) {
+        try {
+          const { searches } = cache.readQuery({ query: QUERY_SEARCH_HISTORY });
+  
+          cache.writeQuery({
+            query: QUERY_SEARCH_HISTORY,
+            data: { searchHistory: [addSearchHistory, ...searches] },
+          });
+        } catch (e) {
+          console.error(e);
+        }
+  
+        // update me object's cache
+        const { me } = cache.readQuery({ query: QUERY_ME });
+        cache.writeQuery({
+          query: QUERY_ME,
+          data: { me: { ...me, searchHistory: [...me.searchHistory, addSearchHistory] } },
+        });
+      },
+    });
+  };
+
+    const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (!searchImgInput) {
 
@@ -44,7 +71,8 @@ const SingleCountryHeader = () => {
       console.error(err);
     }
 
-  };
+  }; 
+
   const onChangeHandler= (text)=>{
     let matches=[];
     console.log(matches);
@@ -57,6 +85,8 @@ const SingleCountryHeader = () => {
     console.log('matches',matches);
     setSuggestions(matches);
     setSearchImgInput(text);
+
+   
 
   }
 
@@ -83,6 +113,7 @@ const SingleCountryHeader = () => {
             </div>
             <div className='country-text border border-2 border-green_pear font-extrabold text-4xl px-4 py-1 bg-blustery_blue absolute bottom-10 left-10'>
               <h1 >{searchImgInput.toUpperCase()}</h1>
+           
             </div>
           </div>
           <div className="flex flex-row mt-1 mx-2">
@@ -112,6 +143,7 @@ const SingleCountryHeader = () => {
       </div>
     </div >
   );
+
 };
 
 export default SingleCountryHeader;

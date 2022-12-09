@@ -6,6 +6,10 @@ export const QUERY_USER = gql`
       _id
       username
       email
+      searchHistory {
+        country
+        createdAt
+      }
     }
   }
 `;
@@ -19,6 +23,19 @@ export const QUERY_ME = gql`
     }
   }
  `;
+
+ export const QUERY_SEARCH_HISTORY = gql`
+  query searchHistory($username: String!) {
+    searchHistory(username: $username) {
+      _id
+      username
+      searchHistory {
+        country
+        createdAt
+      }
+    }
+  }
+`;
 
 export const QUERY_COUNTRIES = gql`
 query allCountries {

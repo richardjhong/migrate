@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../../utils/queries';
+import SearchHistoryList from '../../components/SearchHistory';
 import Auth from '../../utils/auth';
 import "./dashboard.scss";
 
@@ -11,16 +12,6 @@ const Dashboard = () => {
     variables: { username: userParam },
   });
   const user = data?.me || data?.user || {};
-  
-  // Store search history in local storage
-  let [showSearchHistory, setShowSearchHistory] = useState(true);
-  let storedSearches = JSON.parse(window.localStorage.getItem('searchHistory'));
-// Get search history from local storage and set to state
-  useEffect(() => {
-     if (storedSearches !== null) {
-        setShowSearchHistory(storedSearches);
-      }
-  },  [storedSearches]);
 
   // navigate to personal dashboard page if username matches param
   if (Auth.loggedIn() && Auth.getDashboard().data.username === userParam) {
@@ -43,7 +34,6 @@ const Dashboard = () => {
     );
   }
 
-
   return (
     <div>
       <div className="flex-row justify-center mb-3">
@@ -51,31 +41,17 @@ const Dashboard = () => {
           Welcome {userParam ? `back, ${user.username} continue where you left off.. !` : `back, ${user.username}!`} 
         </h2>
           <div>
-            <h3>Search History</h3>
-            {storedSearches ? storedSearches : 'No search history yet!'}
-            <div className='singleCountryHeadTitle'>
-      </div>
-      {/* <div className="singleCountryInput">
-        <input
-          className=""
-          type="text"
-          placeholder="Search Country"
-          value={searchImgInput}
-          onChange={(e) => setSearchImgInput(e.target.value)}
-        />
-        <button
-          type="submit"
-          onClick={handleFormSubmit}
-          className=""
-        >
-          Search
-        </button>
-      </div> */}
-         </div>
-        <div>
-
+            <h3>Your Most Recent Search: </h3>
+            <div className="col-12 col-md-10 mb-5">
+          <SearchHistoryList
+            thoughts={user.searchHistory}
+            title={`${user.username}'s search history...`}
+            showTitle={false}
+            showUsername={false}
+          />
         </div>
-      </div>
+          </div>
+        </div>
     </div>
   );
 };
