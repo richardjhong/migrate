@@ -1,7 +1,7 @@
 import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, redirect } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -45,50 +45,44 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <SearchProvider>
-
-
         <Router>
-
-
           <Routes>
             <Route
               path='/about'
               element={<AboutUs />}
             />
             <Route
-              path="/splash"
+              index
               element={<Splash />}
             />
-          <Route
-            path="/SingleCountry"
-            element={<SingleCountryCont />}
-          />
-          <Route
-            path="/SingleCountry/:countryname"
-            element={<SingleCountryCont />}
-          />
-          <Route
-            path="/listings"
-            element={<CountryListing />}
-          />
-          <Route
-            path="/login"
-            element={<Login />}
-          />
-          <Route
-            path="/signup"
-            element={<Signup />}
-          />
-          <Route
-            path="/dashboard"
-            element={<Dashboard />} />
-          <Route 
-             path="/dashboard/:username" 
-             element={<Dashboard />}
-           />
-        </Routes>
-
-
+            <Route
+              path="/SingleCountry"
+              element={<SingleCountryCont />}
+            />
+            <Route
+              path="/SingleCountry/:countryname"
+              element={<SingleCountryCont />}
+            />
+            <Route
+              path="/listings"
+              element={<CountryListing />}
+            />
+            <Route
+              path="/login"
+              element={<Login />}
+            />
+            <Route
+              path="/signup"
+              element={<Signup />}
+            />
+            <Route
+              path="/dashboard"
+              element={<Dashboard />} />
+            <Route 
+              path="/dashboard/:username" 
+              element={<Dashboard />}
+            />
+          </Routes>
         </Router>
       </SearchProvider>
 
