@@ -10,16 +10,17 @@ import SearchCountry from '../../components/SearchCountry';
 import { useSearch } from '../../utils/CountryContext';
 
 // const { countryname: countryParam } = useParams();
-// const { loading, data } = useQuery(countryParam ? QUERY_SINGLE_COMPILATION : QUERY_COUNTRIES, {
+//  const { loading, data } = useQuery(countryParam ? QUERY_SINGLE_COMPILATION : QUERY_COUNTRIES, {
 //   variables: {countryname: countryParam}
 // });
 // const countries = data?.singleCompileCountry || data?.countries || [];
 
 export default function SingleCountry() {
   const { searches, countryImgs} = useSearch();
+  const { countryname: countryParam } = useParams();
 
   const { loading, data } = useQuery(QUERY_SINGLE_COMPILATION,{
-    variables:{countryname : searches[0]}
+    variables:{countryname : countryParam}
   });
 
   const singleCountry = data?.singleCompileCountry.year_catalog || [];
