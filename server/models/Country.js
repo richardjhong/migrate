@@ -12,19 +12,19 @@ const bhnSchema = new Schema(
 
 const fowSchema = new Schema(
     {
-        score_pr:Number,
-        score_pfc: Number,
-        score_incl:Number,   
-        score_aae:Number,
+        score_abk:Number,
+        score_aic: Number,
+        score_hw:Number,   
+        score_eq:Number,
     }
 );
 
 const oppSchema = new Schema(
     {
-        score_abk:Number,
-        score_aic: Number,
-        score_hw:Number,   
-        score_eq:Number,
+        score_pr:Number,
+        score_pfc: Number,
+        score_incl:Number,   
+        score_aae:Number,
     }
 );
 
