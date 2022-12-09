@@ -1,6 +1,7 @@
 import CountryCards from "../CountryCards";
 import "./SingleCountry.scss";
 import { useParams } from 'react-router-dom';
+import Loader from "../Loader";
 
 
 import { useQuery } from '@apollo/client';
@@ -29,7 +30,7 @@ export default function SingleCountry() {
     <div className='containerCenter'>
         <div className='countryCardContainer'>
         {loading ? (
-            <div>Loading...</div>
+            <Loader />
           ) : (
             <CountryCards
                 countryProperties={singleCountry}

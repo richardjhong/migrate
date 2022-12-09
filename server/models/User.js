@@ -19,13 +19,13 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
-    searchedCountries: 
+    searchHistory: [
       {
         type: Schema.Types.ObjectId,
         ref: 'Country'
 
   },
-  
+],
   }
 );
 
