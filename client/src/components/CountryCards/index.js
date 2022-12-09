@@ -45,6 +45,7 @@ const expand = (event) => {
 }
 
 export default function CountryCards({ countryProperties}) {
+    console.log('ohboy: ', countryProperties)
     const [expanded, setIsExpanded] = useState({
         "col1row1": false,
         "col2row1": false,
@@ -94,14 +95,22 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col1row1 ? (
                         <>
-                            <p>This is non-expanded col1row1</p>
+                            <p>Nutrition & Basic Medical Care: {(countryProperties[4].bhn.score_nbmc).toString()}</p>
                         </>
                     ) : (
                         <>
                             <p>
-                                Nutrition & Basic Medical Care: {(countryProperties.bhn.score_nbmc).toString()}
+                                Nutrition & Basic Medical Care: {(countryProperties[4].bhn.score_nbmc).toString()}
                             </p>
-                            <Chart />
+                            <Chart 
+                                fields={
+                                    {"2018": countryProperties[0].bhn.score_nbmc,
+                                    "2019": countryProperties[1].bhn.score_nbmc,
+                                    "2020": countryProperties[2].bhn.score_nbmc,
+                                    "2021": countryProperties[3].bhn.score_nbmc,
+                                    "2022": countryProperties[4].bhn.score_nbmc,}
+                                }
+                            />
                         </>
                     )
                 }
@@ -115,14 +124,22 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col2row1 ? (
                         <>
-                            <p>This is non-expanded col2row1</p>
+                            <p>Water & Sanitation: {(countryProperties[4].bhn.score_ws).toString()}</p>
                         </>
                     ) : (
                         <>
                             <p>
-                                This is expanded col2row1
+                            Water & Sanitation: {(countryProperties[4].bhn.score_ws).toString()}
                             </p>
-                            <Chart />
+                            <Chart 
+                                fields={
+                                    {"2018": countryProperties[0].bhn.score_ws,
+                                    "2019": countryProperties[1].bhn.score_ws,
+                                    "2020": countryProperties[2].bhn.score_ws,
+                                    "2021": countryProperties[3].bhn.score_ws,
+                                    "2022": countryProperties[4].bhn.score_ws,}
+                                }
+                            />
                         </>
                     )
                 }
@@ -136,14 +153,22 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col3row1 ? (
                         <>
-                            <p>This is non-expanded col3row1</p>
+                            <p>Shelter: {(countryProperties[4].bhn.score_sh).toString()}</p>
                         </>
                     ) : (
                         <>
                             <p>
-                                This is expanded col3row1
+                            Shelter: {(countryProperties[4].bhn.score_sh).toString()}
                             </p>
-                        <Chart />
+                        <Chart 
+                            fields={
+                                {"2018": countryProperties[0].bhn.score_sh,
+                                "2019": countryProperties[1].bhn.score_sh,
+                                "2020": countryProperties[2].bhn.score_sh,
+                                "2021": countryProperties[3].bhn.score_sh,
+                                "2022": countryProperties[4].bhn.score_sh,}
+                            }
+                        />
                         </>
                     )
                 }
@@ -155,14 +180,22 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col1row2 ? (
                         <>
-                            <p>This is non-expanded col1row2</p>
+                            <p>Personal Safety: {(countryProperties[4].bhn.score_ps).toString()}</p>
                         </>
                     ) : (
                         <>
                             <p>
-                                This is expanded col1row2
+                            Personal Safety: {(countryProperties[4].bhn.score_ps).toString()}
                             </p>
-                        <Chart />
+                        <Chart 
+                            fields={
+                                {"2018": countryProperties[0].bhn.score_ps,
+                                "2019": countryProperties[1].bhn.score_ps,
+                                "2020": countryProperties[2].bhn.score_ps,
+                                "2021": countryProperties[3].bhn.score_ps,
+                                "2022": countryProperties[4].bhn.score_ps,}
+                            }
+                        />
                         </>
                     )
                 }
@@ -174,14 +207,22 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col2row2 ? (
                         <>
-                            <p>This is non-expanded col2row2</p>
+                            <p>Access to Basic Knowledge: {(countryProperties[4].fow.score_abk).toString()}</p>
                         </>
                     ) : (
                         <>
                             <p>
-                                This is expanded col2row2
+                            Access to Basic Knowledge: {(countryProperties[4].fow.score_abk).toString()}
                             </p>
-                        <Chart />
+                        <Chart 
+                            fields={
+                                {"2018": countryProperties[0].fow.score_abk,
+                                "2019": countryProperties[1].fow.score_abk,
+                                "2020": countryProperties[2].fow.score_abk,
+                                "2021": countryProperties[3].fow.score_abk,
+                                "2022": countryProperties[4].fow.score_abk,}
+                            }
+                        />
                         </>
                     )
                 }
@@ -193,14 +234,22 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col3row2 ? (
                         <>
-                            <p>This is non-expanded col3row2</p>
+                            <p>Access to Information & Community: {(countryProperties[4].fow.score_aic).toString()}</p>
                         </>
                     ) : (
                         <>
                             <p>
-                                This is expanded col3row2
+                            Access to Information & Community: {(countryProperties[4].fow.score_aic).toString()}
                             </p>
-                        <Chart />
+                        <Chart 
+                            fields={
+                                {"2018": countryProperties[0].fow.score_aic,
+                                "2019": countryProperties[1].fow.score_aic,
+                                "2020": countryProperties[2].fow.score_aic,
+                                "2021": countryProperties[3].fow.score_aic,
+                                "2022": countryProperties[4].fow.score_aic,}
+                            }
+                        />
                         </>
                     )
                 }
@@ -212,14 +261,22 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col1row3 ? (
                         <>
-                            <p>This is non-expanded col1row3</p>
+                            <p>Health & Wellness: {(countryProperties[4].fow.score_hw).toString()}</p>
                         </>
                     ) : (
                         <>
                             <p>
-                                This is expanded col1row3
+                            Health & Wellness: {(countryProperties[4].fow.score_hw).toString()}
                             </p>
-                        <Chart />
+                        <Chart 
+                            fields={
+                                {"2018": countryProperties[0].fow.score_hw,
+                                "2019": countryProperties[1].fow.score_hw,
+                                "2020": countryProperties[2].fow.score_hw,
+                                "2021": countryProperties[3].fow.score_hw,
+                                "2022": countryProperties[4].fow.score_hw}
+                            }
+                        />
                         </>
                     )
                 }
@@ -231,14 +288,22 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col2row3 ? (
                         <>
-                            <p>This is non-expanded col2row3</p>
+                            <p>Environment Quality: {(countryProperties[4].fow.score_eq).toString()}</p>
                         </>
                     ) : (
                         <>
                             <p>
-                                This is expanded col2row3
+                            Environment Quality: {(countryProperties[4].fow.score_eq).toString()}
                             </p>
-                        <Chart />
+                        <Chart 
+                            fields={
+                                {"2018": countryProperties[0].fow.score_eq,
+                                "2019": countryProperties[1].fow.score_eq,
+                                "2020": countryProperties[2].fow.score_eq,
+                                "2021": countryProperties[3].fow.score_eq,
+                                "2022": countryProperties[4].fow.score_eq,}
+                            }
+                        />
                         </>
                     )
                 }
@@ -250,14 +315,22 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col3row3 ? (
                         <>
-                            <p>This is non-expanded col3row3</p>
+                            <p>Personal Rights: {(countryProperties[4].opp.score_pr).toString()}</p>
                         </>
                     ) : (
                         <>
                             <p>
-                                This is expanded col3row3
+                            Personal Rights: {(countryProperties[4].opp.score_pr).toString()}
                             </p>
-                        <Chart />
+                        <Chart 
+                        fields={
+                            {"2018": countryProperties[0].opp.score_pr,
+                            "2019": countryProperties[1].opp.score_pr,
+                            "2020": countryProperties[2].opp.score_pr,
+                            "2021": countryProperties[3].opp.score_pr,
+                            "2022": countryProperties[4].opp.score_pr,}
+                        }
+                        />
                         </>
                     )
                 }
@@ -269,14 +342,22 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col1row4 ? (
                         <>
-                            <p>This is non-expanded col1row4</p>
+                            <p>Personal Freedom & Choice: {(countryProperties[4].opp.score_pfc).toString()}</p>
                         </>
                     ) : (
                         <>
                             <p>
-                                This is expanded col1row4
+                            Personal Freedom & Choice: {(countryProperties[4].opp.score_pfc).toString()}
                             </p>
-                        <Chart />
+                        <Chart 
+                        fields={
+                            {"2018": countryProperties[0].opp.score_pfc,
+                            "2019": countryProperties[1].opp.score_pfc,
+                            "2020": countryProperties[2].opp.score_pfc,
+                            "2021": countryProperties[3].opp.score_pfc,
+                            "2022": countryProperties[4].opp.score_pfc,}
+                        }
+                        />
                         </>
                     )
                 }
@@ -288,14 +369,22 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col2row4 ? (
                         <>
-                            <p>This is non-expanded col2row4</p>
+                            <p>Inclusive: {(countryProperties[4].opp.score_incl).toString()}</p>
                         </>
                     ) : (
                         <>
                             <p>
-                                This is expanded col2row4
+                            Inclusive: {(countryProperties[4].opp.score_incl).toString()}
                             </p>
-                        <Chart />
+                        <Chart 
+                        fields={
+                            {"2018": countryProperties[0].opp.score_incl,
+                            "2019": countryProperties[1].opp.score_incl,
+                            "2020": countryProperties[2].opp.score_incl,
+                            "2021": countryProperties[3].opp.score_incl,
+                            "2022": countryProperties[4].opp.score_incl,}
+                        }
+                        />
                         </>
                     )
                 }
@@ -307,14 +396,22 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col3row4 ? (
                         <>
-                            <p>This is non-expanded col3row4</p>
+                            <p>Access to Advanced Education: {(countryProperties[4].opp.score_aae).toString()}</p>
                         </>
                     ) : (
                         <>
                             <p>
-                                This is expanded col3row4
+                            Access to Advanced Education: {(countryProperties[4].opp.score_aae).toString()}
                             </p>
-                        <Chart />
+                        <Chart 
+                        fields={
+                            {"2018": countryProperties[0].opp.score_aae,
+                            "2019": countryProperties[1].opp.score_aae,
+                            "2020": countryProperties[2].opp.score_aae,
+                            "2021": countryProperties[3].opp.score_aae,
+                            "2022": countryProperties[4].opp.score_aae,}
+                        }
+                        />
                         </>
                     )
                 }
