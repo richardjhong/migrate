@@ -56,7 +56,7 @@ function App() {
               element={<AboutUs />}
             />
             <Route
-              path="/splash"
+              index
               element={<Splash />}
             />
           <Route

@@ -2,7 +2,6 @@ import CountryCards from "../CountryCards";
 import Dropdown from "../Dropdown";
 import "./SingleCountry.scss";
 import { useParams } from 'react-router-dom';
-import Loader from "../Loader";
 
 import { useQuery } from '@apollo/client';
 import { QUERY_COUNTRIES, QUERY_SINGLE_COMPILATION, QUERY_COUNTRY } from '../../utils/queries';
@@ -29,7 +28,7 @@ export default function SingleCountry() {
     <div className='containerCenter'>
         <div className='countryCardContainer'>
         {loading ? (
-            <Loader />
+            <div>Loading...</div>
           ) : (
             <>
               <Dropdown />

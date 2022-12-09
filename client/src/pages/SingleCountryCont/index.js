@@ -5,8 +5,6 @@ import SingleCountryHeader from '../../components/SingleCountryHeader'
 import SingleCountry from '../../components/SingleCountry';
 import SearchCountry from '../../components/SearchCountry';
 
-
-
 function SingleCountryCont() {
     return (
         <>
