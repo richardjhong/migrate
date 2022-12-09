@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_COMPILATIONS } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
 import "./SearchCountry.scss";
-
+import { useNavigate } from 'react-router-dom';
 
 const SearchCountry = () => {
   const { searches, countryImgs, addSearch, addCountryImgs } = useSearch();
@@ -13,13 +13,16 @@ const SearchCountry = () => {
   const [searchImgInput, setSearchImgInput] = useState("");
   const [searchedImgs, setSearchedImgs] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
+
   const { loading, data } = useQuery(QUERY_COMPILATIONS);
   const countries = data?.countryCompilations || [];
   const countryName = countries.map(data => data.countryname);
+  let navigate=useNavigate();
 
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+   
     if (!searchImgInput) {
 
       return false;
@@ -29,21 +32,29 @@ const SearchCountry = () => {
       if (!response.ok) {
         throw new Error('something went wrong!');
       }
-      addSearch(searchImgInput);
+      
       
       const items = await response.json();
       console.log(items);
 
       //Randomly pick 4 images out of 10 results
       const newImgs = [];
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < items.results.length; i++) {
         // const newImg = items.results[Math.floor(Math.random() * items.results.length)];
         const newImg = items.results[i];
         newImgs.push(newImg);
       }
+      await addSearch(searchImgInput);
       await addCountryImgs(newImgs);
       console.log(newImgs);
-      window.location.replace('/SingleCountry');
+      console.log('search',searches);
+      navigate(`/SingleCountry/${searchImgInput}`);
+
+      // <Navigate to="/SingleCountry" replace={true} />
+      
+    
+      //window.location.replace(`/SingleCountry`);
+      // window.location.replace(`/SingleCountry/${searches[0]}`);
 
     }
     catch (err) {
