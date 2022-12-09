@@ -23,3 +23,17 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_SEARCH_HISTORY = gql`
+  mutation addSearchHistory($searchedCountry: String!) {
+    addSearchHistory(searchedCountry: $searchedCountry) {
+      _id
+      username
+      email
+      searchHistory {
+        country
+        createdAt
+      }
+    }
+  }
+  `;
