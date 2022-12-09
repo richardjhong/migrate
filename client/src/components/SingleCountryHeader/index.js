@@ -15,9 +15,10 @@ const SingleCountryHeader = () => {
       {/* <div className='singleCountHeadCont'> */}
       <div className="singleCountryHead">
 
-        {countryImgs.map((val) => {
+        {countryImgs.map((val,i) => {
           return (
             <img
+              key={i}
               className=""
               src={val.urls.regular}
               alt={val.alt_description}

@@ -11,18 +11,13 @@ import { useSearch } from '../../utils/CountryContext';
 
 export default function SingleCountry() {
   const { searches, countryImgs} = useSearch();
-  console.log(searches[0]);
-
 
   const { loading, data } = useQuery(QUERY_SINGLE_COMPILATION,{
     variables:{countryname : searches[0]}
   });
-  console.log(data);
+
   const country = data?.singleCompileCountry.year_catalog[4] || [];
   const singleCountry = country;
-
-  console.log(singleCountry);
-
 
     return(
     <div className='containerCenter'>

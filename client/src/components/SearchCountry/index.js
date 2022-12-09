@@ -32,14 +32,17 @@ const SearchCountry = () => {
       addSearch(searchImgInput);
       
       const items = await response.json();
+      console.log(items);
 
       //Randomly pick 4 images out of 10 results
       const newImgs = [];
       for (let i = 0; i < 4; i++) {
-        const newImg = items.results[Math.floor(Math.random() * items.results.length)];
+        // const newImg = items.results[Math.floor(Math.random() * items.results.length)];
+        const newImg = items.results[i];
         newImgs.push(newImg);
       }
-      addCountryImgs(newImgs);
+      await addCountryImgs(newImgs);
+      console.log(newImgs);
       window.location.replace('/SingleCountry');
 
     }
