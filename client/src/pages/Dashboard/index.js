@@ -13,6 +13,14 @@ const Dashboard = () => {
   });
   const user = data?.me || data?.user || {};
 
+  const handleLogout = async (e) => {  
+    e.preventDefault();
+      if (Auth.loggedIn()) {     
+        localStorage.removeItem("id_token");
+        <Navigate to="/splash"/>;
+     }
+    };
+
   // navigate to personal dashboard page if username matches param
   if (Auth.loggedIn() && Auth.getDashboard().data.username === userParam) {
     return <Navigate to="/me" />;
@@ -29,11 +37,10 @@ const Dashboard = () => {
         You need to be logged in to see this. Use the navigation links below to
         sign up or log in!
        </h4>
-       <button><a href="https://migrate.com/login ">Login</a></button>
+       <button><a href="/login">Login</a></button>
        </div>
     );
-  }
-
+    }
   return (
     <div>
       <div className="flex-row justify-center mb-3">
@@ -42,16 +49,17 @@ const Dashboard = () => {
         </h2>
           <div>
             <h3>Your Most Recent Search: </h3>
-            <div className="col-12 col-md-10 mb-5">
+            <div className='countryCard' id="col2row1">
           <SearchHistoryList
             thoughts={user.searchHistory}
             title={`${user.username}'s search history...`}
             showTitle={false}
             showUsername={false}
           />
-        </div>
+            </div>
           </div>
         </div>
+        <button type="submit" onClick={handleLogout}>Log Out</button>
     </div>
   );
 };
