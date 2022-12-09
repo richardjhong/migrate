@@ -28,11 +28,6 @@ const oppSchema = new Schema(
     }
 );
 
-// loop through all csv data within seeds.js, 
-// check if compileCountrySchema exists: i
-    // check if country already exists: if so, append new year information
-    // otherwise create new countrySchema
-
 const countrySchema = new Schema(
     {
         spiyear: {

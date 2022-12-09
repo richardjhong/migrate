@@ -57,7 +57,7 @@ query allCountries {
 export const QUERY_COMPILATIONS = gql`
   query allCompilations {
     countryCompilations {
-      name
+      countryname
       year_catalog {
         _id
         spiyear
@@ -74,17 +74,18 @@ export const QUERY_COMPILATIONS = gql`
         }
         score_fow
         fow {
-          score_aae
-          score_incl
-          score_pfc
-          score_pr
-        }
-        score_opp
-        opp {
           score_abk
           score_aic
           score_eq
           score_hw
+         
+        }
+        score_opp
+        opp {
+          score_aae
+          score_incl
+          score_pfc
+          score_pr
         }
       }
     }
