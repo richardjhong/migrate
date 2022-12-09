@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -11,6 +10,11 @@ import Splash from './pages/Splash/index'
 import AboutUs from './pages/AboutUs';
 import SingleCountryCont from './pages/SingleCountryCont';
 import './App.scss';
+
+
+
+import { SearchProvider } from './utils/CountryContext';
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -40,18 +44,20 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <SearchProvider>
 
-      
-      <Router>
 
-        <Routes>
-          <Route 
-            path='/about'
-            element={<AboutUs />}
-          />
-          <Route
-            path="/splash"
-            element={<Splash />}
+        <Router>
+
+
+          <Routes>
+            <Route
+              path='/about'
+              element={<AboutUs />}
+            />
+            <Route
+              path="/splash"
+              element={<Splash />}
             />
           <Route
             path="/SingleCountry"
@@ -82,7 +88,10 @@ function App() {
            />
         </Routes>
 
-      </Router>
+
+        </Router>
+      </SearchProvider>
+
 
     </ApolloProvider>
   );
