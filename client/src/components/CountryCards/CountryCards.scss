@@ -12,6 +12,11 @@
     border-radius: 30px;
     padding:20px;
     transition:box-shadow .2s;
+    cursor:pointer;
+}
+
+.countryCard:active {
+    box-shadow:inset 10px 10px 10px var(--dark);
 }
 
 .wide {
