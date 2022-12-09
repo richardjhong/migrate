@@ -91,7 +91,7 @@ export const QUERY_COMPILATIONS = gql`
     }
   }
 `
-export const QUERY_SINGLE_COUNTRY_COMPILATION = gql`
+export const QUERY_SINGLE_COMPILATION = gql`
   query SingleCompileCountry($countryname: String!) {
     singleCompileCountry(countryname: $countryname) {
       countryname
