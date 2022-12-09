@@ -3,6 +3,15 @@ import './CountryCards.scss';
 import { gsap } from 'gsap'
 import { Flip } from "gsap/Flip";
 import Chart from '../CountryChart/'
+import nutritionIcon from '../../images/Nutrition-Basic-Needs.png';
+import waterIcon from '../../images/Water-Sanitation.png';
+import shelterIcon from '../../images/Shelter.png';
+import safetyIcon from '../../images/Safety.png';
+import basicKnowIcon from '../../images/Access-Knowledge.png';
+import healthWellIcon from '../../images/Health-Wellness.png';
+import enivronQualityIcon from '../../images/Environmental-Quality.png'
+
+
 gsap.registerPlugin(Flip);
 
 const expand = (event) => {
@@ -94,14 +103,28 @@ export default function CountryCards({ countryProperties}) {
             }} data-column='1'>
                 {
                     !expanded.col1row1 ? (
+
+                        
                         <>
-                            <p>Nutrition & Basic Medical Care: {(countryProperties[4].bhn.score_nbmc).toString()}</p>
+                            <div className='cardIcon'>
+                                <img src={nutritionIcon} alt='food' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Nutrition and Basic Medical Care</h3>
+                                <p className='cardValue'>{(countryProperties[4].bhn.score_nbmc).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                                Nutrition & Basic Medical Care: {(countryProperties[4].bhn.score_nbmc).toString()}
-                            </p>
+                            <div className='cardIcon'>
+                                <img src={waterIcon} alt='food' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Nutrition and Basic Medical Care</h3>
+                                <p className='cardValue'>{(countryProperties[4].bhn.score_nbmc).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
                             <Chart 
                                 fields={
                                     {"2018": countryProperties[0].bhn.score_nbmc,
@@ -124,13 +147,25 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col2row1 ? (
                         <>
-                            <p>Water & Sanitation: {(countryProperties[4].bhn.score_ws).toString()}</p>
+                            <div className='cardIcon'>
+                                <img src={waterIcon} alt='water' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Water and Sanitation</h3>
+                                <p className='cardValue'>{(countryProperties[4].bhn.score_ws).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                            Water & Sanitation: {(countryProperties[4].bhn.score_ws).toString()}
-                            </p>
+                            <div className='cardIcon'>
+                                <img src={waterIcon} alt='water' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Water and Sanitation</h3>
+                                <p className='cardValue'>{(countryProperties[4].bhn.score_ws).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
                             <Chart 
                                 fields={
                                     {"2018": countryProperties[0].bhn.score_ws,
@@ -152,14 +187,26 @@ export default function CountryCards({ countryProperties}) {
             }} data-column='3'>
                 {
                     !expanded.col3row1 ? (
-                        <>
-                            <p>Shelter: {(countryProperties[4].bhn.score_sh).toString()}</p>
-                        </>
+                      <>
+                        <div className='cardIcon'>
+                            <img src={shelterIcon} alt='shelter' />
+                        </div>
+                        <div className='cardTitle'>
+                            <h3>Shelter</h3>
+                            <p className='cardValue'>{(countryProperties[4].bhn.score_sh).toString()}</p>
+                            <p className='clickHere'>Click to see more...</p>
+                        </div>
+                    </>
                     ) : (
                         <>
-                            <p>
-                            Shelter: {(countryProperties[4].bhn.score_sh).toString()}
-                            </p>
+                        <div className='cardIcon'>
+                            <img src={shelterIcon} alt='shelter' />
+                        </div>
+                        <div className='cardTitle'>
+                            <h3>Shelter</h3>
+                            <p className='cardValue'>{(countryProperties[4].bhn.score_sh).toString()}</p>
+                            <p className='clickHere'>Click to close...</p>
+                        </div>
                         <Chart 
                             fields={
                                 {"2018": countryProperties[0].bhn.score_sh,
@@ -169,7 +216,7 @@ export default function CountryCards({ countryProperties}) {
                                 "2022": countryProperties[4].bhn.score_sh,}
                             }
                         />
-                        </>
+                        </>   
                     )
                 }
             </div>
@@ -180,22 +227,34 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col1row2 ? (
                         <>
-                            <p>Personal Safety: {(countryProperties[4].bhn.score_ps).toString()}</p>
+                            <div className='cardIcon'>
+                                <img src={safetyIcon} alt='personal safety' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Personal Safety</h3>
+                                <p className='cardValue'>{(countryProperties[4].bhn.score_ps).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                            Personal Safety: {(countryProperties[4].bhn.score_ps).toString()}
-                            </p>
-                        <Chart 
-                            fields={
-                                {"2018": countryProperties[0].bhn.score_ps,
-                                "2019": countryProperties[1].bhn.score_ps,
-                                "2020": countryProperties[2].bhn.score_ps,
-                                "2021": countryProperties[3].bhn.score_ps,
-                                "2022": countryProperties[4].bhn.score_ps,}
-                            }
-                        />
+                            <div className='cardIcon'>
+                                <img src={safetyIcon} alt='personal safety' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Personal Safety</h3>
+                                <p className='cardValue'>{(countryProperties[4].bhn.score_ps).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
+                            <Chart 
+                                fields={
+                                    {"2018": countryProperties[0].bhn.score_ps,
+                                    "2019": countryProperties[1].bhn.score_ps,
+                                    "2020": countryProperties[2].bhn.score_ps,
+                                    "2021": countryProperties[3].bhn.score_ps,
+                                    "2022": countryProperties[4].bhn.score_ps,}
+                                }
+                            />
                         </>
                     )
                 }
@@ -207,22 +266,34 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col2row2 ? (
                         <>
-                            <p>Access to Basic Knowledge: {(countryProperties[4].fow.score_abk).toString()}</p>
+                            <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='personal safety' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Access to Basic Knowledge</h3>
+                                <p className='cardValue'>{(countryProperties[4].fow.score_abk).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                            Access to Basic Knowledge: {(countryProperties[4].fow.score_abk).toString()}
-                            </p>
-                        <Chart 
-                            fields={
-                                {"2018": countryProperties[0].fow.score_abk,
-                                "2019": countryProperties[1].fow.score_abk,
-                                "2020": countryProperties[2].fow.score_abk,
-                                "2021": countryProperties[3].fow.score_abk,
-                                "2022": countryProperties[4].fow.score_abk,}
-                            }
-                        />
+                            <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='personal safety' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Access to Basic Knowledge</h3>
+                                <p className='cardValue'>{(countryProperties[4].fow.score_abk).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
+                            <Chart 
+                                fields={
+                                    {"2018": countryProperties[0].fow.score_abk,
+                                    "2019": countryProperties[1].fow.score_abk,
+                                    "2020": countryProperties[2].fow.score_abk,
+                                    "2021": countryProperties[3].fow.score_abk,
+                                    "2022": countryProperties[4].fow.score_abk,}
+                                }
+                            />
                         </>
                     )
                 }
@@ -234,22 +305,34 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col3row2 ? (
                         <>
-                            <p>Access to Information & Community: {(countryProperties[4].fow.score_aic).toString()}</p>
+                             <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='personal safety' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Access to Information and Communicationaic</h3>
+                                <p className='cardValue'>{(countryProperties[4].fow.score_aic).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                            Access to Information & Community: {(countryProperties[4].fow.score_aic).toString()}
-                            </p>
-                        <Chart 
-                            fields={
-                                {"2018": countryProperties[0].fow.score_aic,
-                                "2019": countryProperties[1].fow.score_aic,
-                                "2020": countryProperties[2].fow.score_aic,
-                                "2021": countryProperties[3].fow.score_aic,
-                                "2022": countryProperties[4].fow.score_aic,}
-                            }
-                        />
+                            <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='access to information and communications' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Access to Information and Communicationaic</h3>
+                                <p className='cardValue'>{(countryProperties[4].fow.score_aic).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
+                            <Chart 
+                                fields={
+                                    {"2018": countryProperties[0].fow.score_aic,
+                                    "2019": countryProperties[1].fow.score_aic,
+                                    "2020": countryProperties[2].fow.score_aic,
+                                    "2021": countryProperties[3].fow.score_aic,
+                                    "2022": countryProperties[4].fow.score_aic,}
+                                }
+                            />
                         </>
                     )
                 }
@@ -261,21 +344,33 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col1row3 ? (
                         <>
-                            <p>Health & Wellness: {(countryProperties[4].fow.score_hw).toString()}</p>
+                            <div className='cardIcon'>
+                                <img src={healthWellIcon} alt='health and wellness' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Health and Wellness</h3>
+                                <p className='cardValue'>{(countryProperties[4].fow.score_hw).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                            Health & Wellness: {(countryProperties[4].fow.score_hw).toString()}
-                            </p>
-                        <Chart 
-                            fields={
-                                {"2018": countryProperties[0].fow.score_hw,
-                                "2019": countryProperties[1].fow.score_hw,
-                                "2020": countryProperties[2].fow.score_hw,
-                                "2021": countryProperties[3].fow.score_hw,
-                                "2022": countryProperties[4].fow.score_hw}
-                            }
+                            <div className='cardIcon'>
+                                <img src={healthWellIcon} alt='health and wellness' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Health and Wellness</h3>
+                                <p className='cardValue'>{(countryProperties[4].fow.score_hw).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
+                            <Chart 
+                                fields={
+                                    {"2018": countryProperties[0].fow.score_hw,
+                                    "2019": countryProperties[1].fow.score_hw,
+                                    "2020": countryProperties[2].fow.score_hw,
+                                    "2021": countryProperties[3].fow.score_hw,
+                                    "2022": countryProperties[4].fow.score_hw}
+                                }
                         />
                         </>
                     )
@@ -288,22 +383,34 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col2row3 ? (
                         <>
-                            <p>Environment Quality: {(countryProperties[4].fow.score_eq).toString()}</p>
+                            <div className='cardIcon'>
+                                <img src={enivronQualityIcon} alt='environmental quality' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Environmental Quality</h3>
+                                <p className='cardValue'>{(countryProperties[4].fow.score_eq).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                            Environment Quality: {(countryProperties[4].fow.score_eq).toString()}
-                            </p>
-                        <Chart 
-                            fields={
-                                {"2018": countryProperties[0].fow.score_eq,
-                                "2019": countryProperties[1].fow.score_eq,
-                                "2020": countryProperties[2].fow.score_eq,
-                                "2021": countryProperties[3].fow.score_eq,
-                                "2022": countryProperties[4].fow.score_eq,}
-                            }
-                        />
+                            <div className='cardIcon'>
+                                <img src={enivronQualityIcon} alt='environmental quality' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Environmental Quality</h3>
+                                <p className='cardValue'>{(countryProperties[4].fow.score_eq).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
+                            <Chart 
+                                fields={
+                                    {"2018": countryProperties[0].fow.score_eq,
+                                    "2019": countryProperties[1].fow.score_eq,
+                                    "2020": countryProperties[2].fow.score_eq,
+                                    "2021": countryProperties[3].fow.score_eq,
+                                    "2022": countryProperties[4].fow.score_eq,}
+                                }
+                            />
                         </>
                     )
                 }
@@ -315,22 +422,34 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col3row3 ? (
                         <>
-                            <p>Personal Rights: {(countryProperties[4].opp.score_pr).toString()}</p>
+                            <div className='cardIcon'>
+                                <img src={enivronQualityIcon} alt='personal rights' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Personal Rights</h3>
+                                <p className='cardValue'>{(countryProperties[4].opp.score_pr).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                            Personal Rights: {(countryProperties[4].opp.score_pr).toString()}
-                            </p>
-                        <Chart 
-                        fields={
-                            {"2018": countryProperties[0].opp.score_pr,
-                            "2019": countryProperties[1].opp.score_pr,
-                            "2020": countryProperties[2].opp.score_pr,
-                            "2021": countryProperties[3].opp.score_pr,
-                            "2022": countryProperties[4].opp.score_pr,}
-                        }
-                        />
+                            <div className='cardIcon'>
+                                <img src={enivronQualityIcon} alt='personal rights' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Personal Rights</h3>
+                                <p className='cardValue'>{(countryProperties[4].opp.score_pr).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
+                            <Chart 
+                                fields={
+                                    {"2018": countryProperties[0].opp.score_pr,
+                                    "2019": countryProperties[1].opp.score_pr,
+                                    "2020": countryProperties[2].opp.score_pr,
+                                    "2021": countryProperties[3].opp.score_pr,
+                                    "2022": countryProperties[4].opp.score_pr,}
+                                }
+                            />
                         </>
                     )
                 }
@@ -342,22 +461,34 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col1row4 ? (
                         <>
-                            <p>Personal Freedom & Choice: {(countryProperties[4].opp.score_pfc).toString()}</p>
+                             <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='personal freedom and choice' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Personal Freedom and Choice</h3>
+                                <p className='cardValue'>{(countryProperties[4].opp.score_pfc).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                            Personal Freedom & Choice: {(countryProperties[4].opp.score_pfc).toString()}
-                            </p>
-                        <Chart 
-                        fields={
-                            {"2018": countryProperties[0].opp.score_pfc,
-                            "2019": countryProperties[1].opp.score_pfc,
-                            "2020": countryProperties[2].opp.score_pfc,
-                            "2021": countryProperties[3].opp.score_pfc,
-                            "2022": countryProperties[4].opp.score_pfc,}
-                        }
-                        />
+                            <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='personal freedom and choice' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Personal Freedom and Choice</h3>
+                                <p className='cardValue'>{(countryProperties[4].opp.score_pfc).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
+                            <Chart 
+                                fields={
+                                    {"2018": countryProperties[0].opp.score_pfc,
+                                    "2019": countryProperties[1].opp.score_pfc,
+                                    "2020": countryProperties[2].opp.score_pfc,
+                                    "2021": countryProperties[3].opp.score_pfc,
+                                    "2022": countryProperties[4].opp.score_pfc,}
+                                }
+                            />
                         </>
                     )
                 }
@@ -369,22 +500,34 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col2row4 ? (
                         <>
-                            <p>Inclusive: {(countryProperties[4].opp.score_incl).toString()}</p>
+                            <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='inclusiveness' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Inclusiveness</h3>
+                                <p className='cardValue'>{(countryProperties[4].opp.score_incl).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                            Inclusive: {(countryProperties[4].opp.score_incl).toString()}
-                            </p>
-                        <Chart 
-                        fields={
-                            {"2018": countryProperties[0].opp.score_incl,
-                            "2019": countryProperties[1].opp.score_incl,
-                            "2020": countryProperties[2].opp.score_incl,
-                            "2021": countryProperties[3].opp.score_incl,
-                            "2022": countryProperties[4].opp.score_incl,}
-                        }
-                        />
+                             <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='inclusiveness' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Inclusiveness</h3>
+                                <p className='cardValue'>{(countryProperties[4].opp.score_incl).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
+                            <Chart 
+                                fields={
+                                    {"2018": countryProperties[0].opp.score_incl,
+                                    "2019": countryProperties[1].opp.score_incl,
+                                    "2020": countryProperties[2].opp.score_incl,
+                                    "2021": countryProperties[3].opp.score_incl,
+                                    "2022": countryProperties[4].opp.score_incl,}
+                                }
+                            />
                         </>
                     )
                 }
@@ -396,22 +539,34 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col3row4 ? (
                         <>
-                            <p>Access to Advanced Education: {(countryProperties[4].opp.score_aae).toString()}</p>
+                           <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='access to advanced education' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Access to Advanced Education</h3>
+                                <p className='cardValue'>{(countryProperties[4].opp.score_aae).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                            Access to Advanced Education: {(countryProperties[4].opp.score_aae).toString()}
-                            </p>
-                        <Chart 
-                        fields={
-                            {"2018": countryProperties[0].opp.score_aae,
-                            "2019": countryProperties[1].opp.score_aae,
-                            "2020": countryProperties[2].opp.score_aae,
-                            "2021": countryProperties[3].opp.score_aae,
-                            "2022": countryProperties[4].opp.score_aae,}
-                        }
-                        />
+                            <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='access to advanced education' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Access to Advanced Education</h3>
+                                <p className='cardValue'>{(countryProperties[4].opp.score_aae).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
+                            <Chart 
+                                fields={
+                                    {"2018": countryProperties[0].opp.score_aae,
+                                    "2019": countryProperties[1].opp.score_aae,
+                                    "2020": countryProperties[2].opp.score_aae,
+                                    "2021": countryProperties[3].opp.score_aae,
+                                    "2022": countryProperties[4].opp.score_aae,}
+                                }
+                            />
                         </>
                     )
                 }
