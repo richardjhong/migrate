@@ -19,6 +19,11 @@
     box-shadow:inset 10px 10px 10px var(--dark);
 }
 
+.countryCard.wide img {
+    height:auto;
+    width:50%;
+}
+
 .wide {
     width: 96.5%;
     height: 600px;
@@ -26,6 +31,12 @@
 
 .cardIcon {
     width:45%;
+}
+
+.cardIcon img {
+    width:100%;
+    height:auto;
+
 }
 
 .cardTitle {
@@ -49,10 +60,7 @@
     box-shadow: 10px 10px 10px var(--dark);
 }
 
-.countryCard img {
-    width:100%;
-    height:auto;
-}
+
 
 @for $i from 1 through 30 {
     .card:nth-child(#{$i}) {
