@@ -47,20 +47,20 @@ db.once('open', async () => {
                 },
                 score_fow: countrySeed[i].score_fow,
                 fow : {
-                    score_pr:countrySeed[i].score_pr,
-                    score_pfc:countrySeed[i].score_pfc,
-                    score_incl:countrySeed[i].score_incl,
-                    score_aae:countrySeed[i].score_aae
-                },
-                score_opp: countrySeed[i].score_opp,
-                opp : {
                     score_abk:countrySeed[i].score_abk,
                     score_aic:countrySeed[i].score_aic,
                     score_hw:countrySeed[i].score_hw,
                     score_eq:countrySeed[i].score_eq
+                },
+                score_opp: countrySeed[i].score_opp,
+                opp : {
+                    score_pr:countrySeed[i].score_pr,
+                    score_pfc:countrySeed[i].score_pfc,
+                    score_incl:countrySeed[i].score_incl,
+                    score_aae:countrySeed[i].score_aae
                 }
             });
-            await CompileCountry.updateOne({ name: countrySeed[i].country }, { $push: { year_catalog: newData } }, { upsert : true })
+            await CompileCountry.updateOne({ countryname: countrySeed[i].country }, { $push: { year_catalog: newData } }, { upsert : true })
         }
 
     }
