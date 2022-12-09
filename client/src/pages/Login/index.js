@@ -29,7 +29,7 @@ const Login = (props) => {
       });
 
       Auth.login(data.login.token);
- 
+ < Navigate to="/dashboard"/>
     } catch (e) {
       console.error(e);
     }

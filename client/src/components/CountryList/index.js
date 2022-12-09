@@ -21,39 +21,7 @@ const CountryList = ({ compilations, title }) => {
           }
           return (
             <>
-              <p>{year_catalog[4].country}</p>
-              {/* <p>{year_catalog[4].country}</p>
-              <p>spiyear: {year_catalog[4].spiyear}</p>
-              <p>rank_score_spi: {year_catalog[4].rank_score_spi}</p>
-              <p>status: {year_catalog[4].status}</p>
-              <p>score_spi: {year_catalog[4].score_spi}</p>
-              <p>score_bhn: {year_catalog[4].score_bhn}</p>
-
-              {Object.keys(year_catalog[4].bhn).map(bhnKey => {
-                return (
-                  <p>
-                    {bhnKey}: {year_catalog[4].bhn[bhnKey]}
-                  </p>
-                )
-              })}
-
-              <p>score_fow: {year_catalog[4].score_fow}</p>
-              {Object.keys(year_catalog[4].fow).map(fowKey => {
-                return (
-                  <p>
-                    {fowKey}: {year_catalog[4].fow[fowKey]}
-                  </p>
-                )
-              })}
-              
-              <p>score_opp: {year_catalog[4].score_opp}</p>
-              {Object.keys(year_catalog[4].opp).map(oppKey => {
-                return (
-                  <p>
-                    {oppKey}: {year_catalog[4].opp[oppKey]}
-                  </p>
-                )
-              })} */}
+              <p>{name}</p>
             <Chart fields={chartData}/> 
             </>
           )
