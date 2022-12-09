@@ -19,19 +19,13 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
-    comments:
-    [
+    searchedCountries: 
       {
-        type: Types.ObjectId, ref: 'comment',
-        ref: 'Comment',
-      }
-    ],
+        type: Schema.Types.ObjectId,
+        ref: 'Country'
+
   },
-  // set this to use virtual below
-  {
-    toJSON: {
-      virtuals: true,
-    },
+  
   }
 );
 
