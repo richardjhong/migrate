@@ -19,12 +19,26 @@ body {
 
 button, .button {
   background-color:var(--light);
+  font-weight:bolder;
+  font-family: "transat", sans-serif;
   border:5px solid var(--lightBorder);
   padding:10px;
   border-radius:20px;
   font-family:'rigid-square', sans-serif;
   width:fit-content;
   margin:1em;
+  transition:all .2s;
+}
+
+button:hover, .button:hover {
+  box-shadow:5px 5px 10px var(--dark);
+}
+
+button:active, .button:active {
+  background-color:var(--darkBackground);
+  color:var(--light);
+  box-shadow:inset 5px 5px 10px var(--dark);
+
 }
 
 input {
