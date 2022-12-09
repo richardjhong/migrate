@@ -58,6 +58,10 @@ function App() {
             element={<SingleCountryCont />}
           />
           <Route
+            path="/SingleCountry/:countryname"
+            element={<SingleCountryCont />}
+          />
+          <Route
             path="/listings"
             element={<CountryListing />}
           />

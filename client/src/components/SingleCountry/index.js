@@ -1,16 +1,18 @@
 import CountryCards from "../CountryCards";
-import { Navigate, useParams } from 'react-router-dom';
 import "./SingleCountry.scss";
+import { useParams } from 'react-router-dom';
+
 
 import { useQuery } from '@apollo/client';
 import { QUERY_COUNTRIES, QUERY_SINGLE_COMPILATION } from '../../utils/queries';
 
 
 export default function SingleCountry() {
-    const { countryname: userParam } = useParams();
-    const { loading, data } = useQuery(QUERY_COUNTRIES);
-    const countries = data?.countries || [];
-    const singleCountry = countries.slice(0, 1)
+    const { countryname: countryParam } = useParams();
+    const { loading, data } = useQuery(countryParam ? QUERY_SINGLE_COMPILATION : QUERY_COUNTRIES, {
+      variables: {countryname: countryParam}
+    });
+    const countries = data?.singleCompileCountry || data?.countries || [];
 
     return(
     <div className='containerCenter'>
@@ -19,7 +21,7 @@ export default function SingleCountry() {
             <div>Loading...</div>
           ) : (
             <CountryCards
-                countryProperties={singleCountry[0]}
+                countryProperties={Array.isArray(countries) ? countries.slice(0, 5) : countries.year_catalog}
             />
           )}
         </div>
