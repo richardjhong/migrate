@@ -12,15 +12,6 @@ const bhnSchema = new Schema(
 
 const fowSchema = new Schema(
     {
-        score_pr:Number,
-        score_pfc: Number,
-        score_incl:Number,   
-        score_aae:Number,
-    }
-);
-
-const oppSchema = new Schema(
-    {
         score_abk:Number,
         score_aic: Number,
         score_hw:Number,   
@@ -28,10 +19,14 @@ const oppSchema = new Schema(
     }
 );
 
-// loop through all csv data within seeds.js, 
-// check if compileCountrySchema exists: i
-    // check if country already exists: if so, append new year information
-    // otherwise create new countrySchema
+const oppSchema = new Schema(
+    {
+        score_pr:Number,
+        score_pfc: Number,
+        score_incl:Number,   
+        score_aae:Number,
+    }
+);
 
 const countrySchema = new Schema(
     {

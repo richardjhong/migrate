@@ -55,17 +55,17 @@ query allCountries {
     }
     score_fow
     fow {
-      score_aae
-      score_incl
-      score_pfc
-      score_pr
-    }
-    score_opp
-    opp {
       score_abk
       score_aic
       score_eq
       score_hw
+    }
+    score_opp
+    opp {
+      score_aae
+      score_incl
+      score_pfc
+      score_pr
     }
   }
 }
@@ -74,7 +74,7 @@ query allCountries {
 export const QUERY_COMPILATIONS = gql`
   query allCompilations {
     countryCompilations {
-      name
+      countryname
       year_catalog {
         _id
         spiyear
@@ -91,17 +91,54 @@ export const QUERY_COMPILATIONS = gql`
         }
         score_fow
         fow {
+          score_abk
+          score_aic
+          score_eq
+          score_hw
+         
+        }
+        score_opp
+        opp {
           score_aae
           score_incl
           score_pfc
           score_pr
         }
-        score_opp
-        opp {
+      }
+    }
+  }
+`
+export const QUERY_SINGLE_COMPILATION = gql`
+  query SingleCompileCountry($countryname: String!) {
+    singleCompileCountry(countryname: $countryname) {
+      countryname
+      year_catalog {
+        _id
+        spiyear
+        country
+        rank_score_spi
+        status
+        score_spi
+        score_bhn
+        bhn {
+          score_nbmc
+          score_ps
+          score_sh
+          score_ws
+        }
+        score_fow
+        fow {
           score_abk
           score_aic
           score_eq
-          score_hw
+          score_hw       
+        }
+        score_opp
+        opp {
+          score_aae
+          score_incl
+          score_pfc
+          score_pr
         }
       }
     }

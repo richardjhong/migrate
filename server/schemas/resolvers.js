@@ -25,6 +25,9 @@ const resolvers = {
     },
     countries: async () => {
       return await Country.find({});
+    },
+    singleCompileCountry: async (parent, { countryname }) => {
+      return CompileCountry.findOne({ countryname })
     }
   },
 

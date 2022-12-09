@@ -37,7 +37,7 @@ const typeDefs = gql`
   }
 
   type CountryCompilation {
-    name: String
+    countryname: String
     year_catalog: [Country]
   }
 
@@ -49,17 +49,17 @@ const typeDefs = gql`
   }
 
   type fowType {
-    score_pr: Float
-    score_pfc: Float
-    score_incl: Float
-    score_aae: Float
-  }
-
-  type oppType {
     score_abk: Float
     score_aic: Float
     score_hw: Float
     score_eq: Float
+  }
+
+  type oppType {
+    score_pr: Float
+    score_pfc: Float
+    score_incl: Float
+    score_aae: Float
   }
 
   type Query {
@@ -69,6 +69,7 @@ const typeDefs = gql`
     searchHistory(username: String): [SearchHistory]
     countries: [Country]
     countryCompilations: [CountryCompilation]
+    singleCompileCountry(countryname: String!): CountryCompilation
   }
 
   type Mutation {

@@ -2,7 +2,7 @@ const { Schema, model, Types } = require('mongoose')
 
 const compileCountrySchema = new Schema(
   {
-      name: {
+      countryname: {
           type: String,
           required: true
       },

@@ -5,7 +5,7 @@
 }
 
 .singleCountHeadCont {
-    margin-bottom:3em;
+    margin-bottom:7em;
  
 }
 
@@ -32,17 +32,23 @@
 }
 
 .singleCountryInput {
-    margin:0 0 3em 90px;
+    margin: 0 0 3em 90px;
+    overflow: auto;
+    max-height: 20em;
+    position: absolute;
 }
 
 /////////////////// Feel free to delete @Mark
 .suggestion{
     cursor: pointer;
+    background-color:var(--light);
+
     border-right: 1px solid var(--lightBorder);;
     border-left: 1px solid var(--lightBorder);;
     border-bottom: 1px solid var(--lightBorder);;
 }
 .suggestion:hover{
     background-color:var(--darkBackground);
+    color:var(--light)
 }
 ///////////////////
