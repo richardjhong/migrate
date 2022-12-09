@@ -8,7 +8,7 @@ import { QUERY_COUNTRIES, QUERY_SINGLE_COMPILATION } from '../../utils/queries';
 
 export default function SingleCountry() {
     const { countryname: userParam } = useParams();
-    const { loading, data } = useQuery(QUERY_SINGLE_COMPILATION);
+    const { loading, data } = useQuery(QUERY_COUNTRIES);
     const countries = data?.countries || [];
     const singleCountry = countries.slice(0, 1)
 

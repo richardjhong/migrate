@@ -13,7 +13,7 @@ const SingleCountryHeader = () => {
   const [suggestions, setSuggestions] = useState([]);
   const { loading, data } = useQuery(QUERY_COMPILATIONS);
   const countries = data?.countryCompilations || [];
-  const countryName = countries.map(data => data.name);
+  const countryName = countries.map(data => data.countryname);
   console.log(countries);
 
 
@@ -51,7 +51,7 @@ const SingleCountryHeader = () => {
     if (text.length > 0) {
       matches = countries.filter(country => {
         const regex = new RegExp(`${text}`, "gi");
-        return country.name.match(regex)
+        return country.countryname.match(regex)
       })
     }
     console.log('matches', matches);
@@ -102,9 +102,9 @@ const SingleCountryHeader = () => {
         {suggestions && suggestions.map((suggestions, i) =>
           <div className='suggestion'
             key={i}
-            onClick={() => onSuggestHandler(suggestions.name)}
+            onClick={() => onSuggestHandler(suggestions.countryname)}
 
-          >{suggestions.name}</div>
+          >{suggestions.countryname}</div>
         )}
       </div>
     
