@@ -1,0 +1,46 @@
+.form{
+    background-color: #04566e;
+    color: #eff2f6;
+    margin: auto;
+    margin-top: 10%;
+    width: 50%;
+    padding: 2%;
+    border: 4px solid #b4d340;
+}
+
+.region {
+    font-size: 2vw;
+}
+
+.optionOne {
+    font-size: 2vw;
+}
+
+.optionTwo {
+    font-size: 2vw;
+}
+
+.airplane {
+    margin: auto;
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+    width: 60vw;
+}
+
+.submitButton {
+    display: block;
+    margin: 0 auto;
+    width: 10%;
+    margin-top: 2%;
+}
+
+.title {
+    color: #022831;
+    // position: fixed;
+    margin-left: 34%;
+    margin-right: 34%;
+    margin-top: 5%;
+    margin-bottom: -10%;
+    width: 100vw;
+}

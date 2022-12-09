@@ -10,6 +10,7 @@ import CountryListing from './pages/CountryListing';
 import Splash from './pages/Splash/index'
 import AboutUs from './pages/AboutUs';
 import SingleCountryCont from './pages/SingleCountryCont';
+import Form from './pages/Form';
 import './App.scss';
 
 // Construct our main GraphQL API endpoint
@@ -53,6 +54,10 @@ function App() {
             path="/splash"
             element={<Splash />}
             />
+          <Route
+            path="/form"
+            element={<Form />}
+            />  
           <Route
             path="/SingleCountry"
             element={<SingleCountryCont />}
