@@ -14,7 +14,7 @@ const SearchCountry = () => {
   const [suggestions, setSuggestions] = useState([]);
   const { loading, data } = useQuery(QUERY_COMPILATIONS);
   const countries = data?.countryCompilations || [];
-  const countryName = countries.map(data => data.name);
+  const countryName = countries.map(data => data.countryname);
 
 
   const handleFormSubmit = async (e) => {
@@ -52,7 +52,7 @@ const SearchCountry = () => {
     if (text.length > 0) {
       matches = countries.filter(country => {
         const regex = new RegExp(`${text}`, "gi");
-        return country.name.match(regex)
+        return country.countryname.match(regex)
       })
     }
     console.log('matches', matches);
@@ -86,9 +86,9 @@ const SearchCountry = () => {
       {suggestions && suggestions.map((suggestions, i) =>
         <div className='suggestion'
           key={i}
-          onClick={() => onSuggestHandler(suggestions.name)}
+          onClick={() => onSuggestHandler(suggestions.countryname)}
 
-        >{suggestions.name}</div>
+        >{suggestions.countryname}</div>
       )}
     </div>
 
