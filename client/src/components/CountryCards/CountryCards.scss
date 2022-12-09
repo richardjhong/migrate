@@ -29,11 +29,20 @@
 }
 
 .cardTitle {
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
     width:45%;
 }
 
 .cardValue {
     font-size:3em;
+    margin:20px;
+}
+
+.clickHere {
+    font-style:italic;
+
 }
 
 .countryCard:hover {

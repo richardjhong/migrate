@@ -3,6 +3,13 @@ import './CountryCards.scss';
 import { gsap } from 'gsap'
 import { Flip } from "gsap/Flip";
 import Chart from '../CountryChart/'
+import nutritionIcon from '../../images/Nutrition-Basic-Needs.png';
+import waterIcon from '../../images/Water-Sanitation.png';
+import shelterIcon from '../../images/Shelter.png';
+import safetyIcon from '../../images/Safety.png';
+import basicKnowIcon from '../../images/Access-Knowledge.png';
+import 
+
 gsap.registerPlugin(Flip);
 
 const expand = (event) => {
@@ -94,13 +101,25 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col1row1 ? (
                         <>
-                            <p>This is non-expanded col1row1</p>
+                            <div className='cardIcon'>
+                                <img src={nutritionIcon} alt='food' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Nutrition and Basic Medical Care</h3>
+                                <p className='cardValue'>{(countryProperties.bhn.score_nbmc).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                                Nutrition & Basic Medical Care: {(countryProperties.bhn.score_nbmc).toString()}
-                            </p>
+                            <div className='cardIcon'>
+                                <img src={waterIcon} alt='food' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Nutrition and Basic Medical Care</h3>
+                                <p className='cardValue'>{(countryProperties.bhn.score_nbmc).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                             <Chart />
                         </>
                     )
@@ -115,13 +134,25 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col2row1 ? (
                         <>
-                            <p>This is non-expanded col2row1</p>
+                            <div className='cardIcon'>
+                                <img src={waterIcon} alt='water' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Water and Sanitation</h3>
+                                <p className='cardValue'>{(countryProperties.bhn.score_ws).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                                This is expanded col2row1
-                            </p>
+                            <div className='cardIcon'>
+                                <img src={waterIcon} alt='water' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Water and Sanitation</h3>
+                                <p className='cardValue'>{(countryProperties.bhn.score_ws).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                             <Chart />
                         </>
                     )
@@ -136,13 +167,25 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col3row1 ? (
                         <>
-                            <p>This is non-expanded col3row1</p>
+                            <div className='cardIcon'>
+                                <img src={shelterIcon} alt='shelter' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Shelter</h3>
+                                <p className='cardValue'>{(countryProperties.bhn.score_sh).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                                This is expanded col3row1
-                            </p>
+                            <div className='cardIcon'>
+                                <img src={shelterIcon} alt='shelter' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Shelter</h3>
+                                <p className='cardValue'>{(countryProperties.bhn.score_sh).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         <Chart />
                         </>
                     )
@@ -155,13 +198,25 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col1row2 ? (
                         <>
-                            <p>This is non-expanded col1row2</p>
+                            <div className='cardIcon'>
+                                <img src={safetyIcon} alt='personal safety' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Personal Safety</h3>
+                                <p className='cardValue'>{(countryProperties.bhn.score_ps).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                                This is expanded col1row2
-                            </p>
+                           <div className='cardIcon'>
+                                <img src={safetyIcon} alt='personal safety' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Personal Safety</h3>
+                                <p className='cardValue'>{(countryProperties.bhn.score_ps).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         <Chart />
                         </>
                     )
@@ -174,7 +229,14 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col2row2 ? (
                         <>
-                            <p>This is non-expanded col2row2</p>
+                            <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='personal safety' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Access to Basic Knowledge</h3>
+                                <p className='cardValue'>{(countryProperties.app.score_abk).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
