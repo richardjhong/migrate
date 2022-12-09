@@ -55,30 +55,34 @@ function App() {
               path="/splash"
               element={<Splash />}
             />
-            <Route
-              path="/SingleCountry"
-              element={<SingleCountryCont />}
-            />
-            <Route
-              path="/listings"
-              element={<CountryListing />}
-            />
-            <Route
-              path="/login"
-              element={<Login />}
-            />
-            <Route
-              path="/signup"
-              element={<Signup />}
-            />
-            <Route
-              path="/dashboard"
-              element={<Dashboard />} />
-            <Route
-              path="/dashboard/:username"
-              element={<Dashboard />}
-            />
-          </Routes>
+          <Route
+            path="/SingleCountry"
+            element={<SingleCountryCont />}
+          />
+          <Route
+            path="/SingleCountry/:countryname"
+            element={<SingleCountryCont />}
+          />
+          <Route
+            path="/listings"
+            element={<CountryListing />}
+          />
+          <Route
+            path="/login"
+            element={<Login />}
+          />
+          <Route
+            path="/signup"
+            element={<Signup />}
+          />
+          <Route
+            path="/dashboard"
+            element={<Dashboard />} />
+          <Route 
+             path="/dashboard/:username" 
+             element={<Dashboard />}
+           />
+        </Routes>
 
         </Router>
       </SearchProvider>

@@ -1,13 +1,18 @@
 import CountryCards from "../CountryCards";
-import { Navigate, useParams } from 'react-router-dom';
 import "./SingleCountry.scss";
+import { useParams } from 'react-router-dom';
+
 
 import { useQuery } from '@apollo/client';
 import { QUERY_COUNTRIES, QUERY_SINGLE_COMPILATION, QUERY_COUNTRY } from '../../utils/queries';
 import SearchCountry from '../../components/SearchCountry';
 import { useSearch } from '../../utils/CountryContext';
 
-
+// const { countryname: countryParam } = useParams();
+// const { loading, data } = useQuery(countryParam ? QUERY_SINGLE_COMPILATION : QUERY_COUNTRIES, {
+//   variables: {countryname: countryParam}
+// });
+// const countries = data?.singleCompileCountry || data?.countries || [];
 
 export default function SingleCountry() {
   const { searches, countryImgs} = useSearch();
@@ -16,8 +21,8 @@ export default function SingleCountry() {
     variables:{countryname : searches[0]}
   });
 
-  const country = data?.singleCompileCountry.year_catalog[4] || [];
-  const singleCountry = country;
+  const singleCountry = data?.singleCompileCountry.year_catalog || [];
+  console.log(singleCountry);
 
     return(
     <div className='containerCenter'>
