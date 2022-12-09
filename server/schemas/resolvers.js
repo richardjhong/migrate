@@ -27,7 +27,9 @@ const resolvers = {
       return await Country.find({});
     },
     singleCompileCountry: async (parent, { countryname }) => {
+
       return CompileCountry.findOne({ countryname }).populate('year_catalog')
+
     }
   },
 

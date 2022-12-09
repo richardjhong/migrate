@@ -1,13 +1,16 @@
+
 import React, { useState, useEffect } from 'react';
 import './SingleCountryHeader.scss';
 import SearchCountry from '../../components/SearchCountry';
 import { useSearch } from '../../utils/CountryContext';
 
 
+
 const SingleCountryHeader = () => {
 
   const { searches, countryImgs} = useSearch();
   console.log(searches,countryImgs);
+
 
 
   return (

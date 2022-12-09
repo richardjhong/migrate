@@ -11,7 +11,10 @@ import AboutUs from './pages/AboutUs';
 import SingleCountryCont from './pages/SingleCountryCont';
 import './App.scss';
 
+
+
 import { SearchProvider } from './utils/CountryContext';
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -43,7 +46,9 @@ function App() {
     <ApolloProvider client={client}>
       <SearchProvider>
 
+
         <Router>
+
 
           <Routes>
             <Route
@@ -83,8 +88,10 @@ function App() {
            />
         </Routes>
 
+
         </Router>
       </SearchProvider>
+
 
     </ApolloProvider>
   );
