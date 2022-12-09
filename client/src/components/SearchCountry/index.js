@@ -3,6 +3,7 @@ import { searchImage } from '../../utils/API';
 import { useQuery } from '@apollo/client';
 import { QUERY_COMPILATIONS } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
+import "./SearchCountry.scss";
 
 
 const SearchCountry = () => {
@@ -39,6 +40,7 @@ const SearchCountry = () => {
         newImgs.push(newImg);
       }
       addCountryImgs(newImgs);
+      window.location.replace('/SingleCountry');
 
     }
     catch (err) {
