@@ -1,7 +1,7 @@
 import CountryCards from "../CountryCards";
+import Dropdown from "../Dropdown";
 import "./SingleCountry.scss";
 import { useParams } from 'react-router-dom';
-
 
 import { useQuery } from '@apollo/client';
 import { QUERY_COUNTRIES, QUERY_SINGLE_COMPILATION, QUERY_COUNTRY } from '../../utils/queries';
@@ -30,9 +30,12 @@ export default function SingleCountry() {
         {loading ? (
             <div>Loading...</div>
           ) : (
-            <CountryCards
-                countryProperties={singleCountry}
-            />
+            <>
+              <Dropdown />
+              <CountryCards
+                  countryProperties={singleCountry}
+              />
+            </>
           )}
         </div>
     </div>
