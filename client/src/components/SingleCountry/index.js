@@ -4,15 +4,25 @@ import { useParams } from 'react-router-dom';
 
 
 import { useQuery } from '@apollo/client';
-import { QUERY_COUNTRIES, QUERY_SINGLE_COMPILATION } from '../../utils/queries';
+import { QUERY_COUNTRIES, QUERY_SINGLE_COMPILATION, QUERY_COUNTRY } from '../../utils/queries';
+import SearchCountry from '../../components/SearchCountry';
+import { useSearch } from '../../utils/CountryContext';
 
+// const { countryname: countryParam } = useParams();
+// const { loading, data } = useQuery(countryParam ? QUERY_SINGLE_COMPILATION : QUERY_COUNTRIES, {
+//   variables: {countryname: countryParam}
+// });
+// const countries = data?.singleCompileCountry || data?.countries || [];
 
 export default function SingleCountry() {
-    const { countryname: countryParam } = useParams();
-    const { loading, data } = useQuery(countryParam ? QUERY_SINGLE_COMPILATION : QUERY_COUNTRIES, {
-      variables: {countryname: countryParam}
-    });
-    const countries = data?.singleCompileCountry || data?.countries || [];
+  const { searches, countryImgs} = useSearch();
+
+  const { loading, data } = useQuery(QUERY_SINGLE_COMPILATION,{
+    variables:{countryname : searches[0]}
+  });
+
+  const singleCountry = data?.singleCompileCountry.year_catalog || [];
+  console.log(singleCountry);
 
     return(
     <div className='containerCenter'>
@@ -21,7 +31,7 @@ export default function SingleCountry() {
             <div>Loading...</div>
           ) : (
             <CountryCards
-                countryProperties={Array.isArray(countries) ? countries.slice(0, 5) : countries.year_catalog}
+                countryProperties={singleCountry}
             />
           )}
         </div>
