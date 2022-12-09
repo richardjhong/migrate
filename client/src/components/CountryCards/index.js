@@ -8,7 +8,9 @@ import waterIcon from '../../images/Water-Sanitation.png';
 import shelterIcon from '../../images/Shelter.png';
 import safetyIcon from '../../images/Safety.png';
 import basicKnowIcon from '../../images/Access-Knowledge.png';
-import 
+import healthWellIcon from '../../images/Health-Wellness.png';
+import enivronQualityIcon from '../../images/Environmental-Quality.png'
+
 
 gsap.registerPlugin(Flip);
 
@@ -118,7 +120,7 @@ export default function CountryCards({ countryProperties}) {
                             <div className='cardTitle'>
                                 <h3>Nutrition and Basic Medical Care</h3>
                                 <p className='cardValue'>{(countryProperties.bhn.score_nbmc).toString()}</p>
-                                <p className='clickHere'>Click to see more...</p>
+                                <p className='clickHere'>Click to close...</p>
                             </div>
                             <Chart />
                         </>
@@ -151,7 +153,7 @@ export default function CountryCards({ countryProperties}) {
                             <div className='cardTitle'>
                                 <h3>Water and Sanitation</h3>
                                 <p className='cardValue'>{(countryProperties.bhn.score_ws).toString()}</p>
-                                <p className='clickHere'>Click to see more...</p>
+                                <p className='clickHere'>Click to close...</p>
                             </div>
                             <Chart />
                         </>
@@ -184,7 +186,7 @@ export default function CountryCards({ countryProperties}) {
                             <div className='cardTitle'>
                                 <h3>Shelter</h3>
                                 <p className='cardValue'>{(countryProperties.bhn.score_sh).toString()}</p>
-                                <p className='clickHere'>Click to see more...</p>
+                                <p className='clickHere'>Click to close...</p>
                             </div>
                         <Chart />
                         </>
@@ -215,7 +217,7 @@ export default function CountryCards({ countryProperties}) {
                             <div className='cardTitle'>
                                 <h3>Personal Safety</h3>
                                 <p className='cardValue'>{(countryProperties.bhn.score_ps).toString()}</p>
-                                <p className='clickHere'>Click to see more...</p>
+                                <p className='clickHere'>Click to close...</p>
                             </div>
                         <Chart />
                         </>
@@ -234,15 +236,20 @@ export default function CountryCards({ countryProperties}) {
                             </div>
                             <div className='cardTitle'>
                                 <h3>Access to Basic Knowledge</h3>
-                                <p className='cardValue'>{(countryProperties.app.score_abk).toString()}</p>
+                                <p className='cardValue'>{(countryProperties.fow.score_abk).toString()}</p>
                                 <p className='clickHere'>Click to see more...</p>
                             </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                                This is expanded col2row2
-                            </p>
+                             <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='personal safety' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Access to Basic Knowledge</h3>
+                                <p className='cardValue'>{(countryProperties.fow.score_abk).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
                         <Chart />
                         </>
                     )
@@ -255,13 +262,25 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col3row2 ? (
                         <>
-                            <p>This is non-expanded col3row2</p>
+                             <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='personal safety' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Access to Information and Communicationaic</h3>
+                                <p className='cardValue'>{(countryProperties.fow.score_aic).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                                This is expanded col3row2
-                            </p>
+                            <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='access to information and communications' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Access to Information and Communicationaic</h3>
+                                <p className='cardValue'>{(countryProperties.fow.score_aic).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
                         <Chart />
                         </>
                     )
@@ -274,13 +293,25 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col1row3 ? (
                         <>
-                            <p>This is non-expanded col1row3</p>
+                            <div className='cardIcon'>
+                                <img src={healthWellIcon} alt='health and wellness' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Health and Wellness</h3>
+                                <p className='cardValue'>{(countryProperties.fow.score_hw).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                                This is expanded col1row3
-                            </p>
+                             <div className='cardIcon'>
+                                <img src={healthWellIcon} alt='health and wellness' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Health and Wellness</h3>
+                                <p className='cardValue'>{(countryProperties.fow.score_hw).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
                         <Chart />
                         </>
                     )
@@ -293,13 +324,25 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col2row3 ? (
                         <>
-                            <p>This is non-expanded col2row3</p>
+                             <div className='cardIcon'>
+                                <img src={enivronQualityIcon} alt='environmental quality' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Environmental Quality</h3>
+                                <p className='cardValue'>{(countryProperties.fow.score_eq).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                                This is expanded col2row3
-                            </p>
+                             <div className='cardIcon'>
+                                <img src={enivronQualityIcon} alt='environmental quality' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Environmental Quality</h3>
+                                <p className='cardValue'>{(countryProperties.fow.score_eq).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
                         <Chart />
                         </>
                     )
@@ -312,13 +355,25 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col3row3 ? (
                         <>
-                            <p>This is non-expanded col3row3</p>
+                             <div className='cardIcon'>
+                                <img src={enivronQualityIcon} alt='personal rights' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Personal Rights</h3>
+                                <p className='cardValue'>{(countryProperties.opp.score_pr).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                                This is expanded col3row3
-                            </p>
+                             <div className='cardIcon'>
+                                <img src={enivronQualityIcon} alt='personal rights' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Personal Rights</h3>
+                                <p className='cardValue'>{(countryProperties.opp.score_pr).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
                         <Chart />
                         </>
                     )
@@ -331,13 +386,25 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col1row4 ? (
                         <>
-                            <p>This is non-expanded col1row4</p>
+                            <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='personal freedom and choice' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Personal Freedom and Choice</h3>
+                                <p className='cardValue'>{(countryProperties.opp.score_pfc).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                                This is expanded col1row4
-                            </p>
+                            <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='personal freedom and choice' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Personal Freedom and Choice</h3>
+                                <p className='cardValue'>{(countryProperties.opp.score_pfc).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
                         <Chart />
                         </>
                     )
@@ -350,13 +417,25 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col2row4 ? (
                         <>
-                            <p>This is non-expanded col2row4</p>
+                            <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='inclusiveness' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Inclusiveness</h3>
+                                <p className='cardValue'>{(countryProperties.opp.score_incl).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                                This is expanded col2row4
-                            </p>
+                            <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='inclusiveness' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Inclusiveness</h3>
+                                <p className='cardValue'>{(countryProperties.opp.score_incl).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
                         <Chart />
                         </>
                     )
@@ -369,13 +448,25 @@ export default function CountryCards({ countryProperties}) {
                 {
                     !expanded.col3row4 ? (
                         <>
-                            <p>This is non-expanded col3row4</p>
+                            <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='access to advanced education' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Access to Advanced Education</h3>
+                                <p className='cardValue'>{(countryProperties.opp.score_aae).toString()}</p>
+                                <p className='clickHere'>Click to see more...</p>
+                            </div>
                         </>
                     ) : (
                         <>
-                            <p>
-                                This is expanded col3row4
-                            </p>
+                            <div className='cardIcon'>
+                                <img src={basicKnowIcon} alt='access to advanced education' />
+                            </div>
+                            <div className='cardTitle'>
+                                <h3>Access to Advanced Education</h3>
+                                <p className='cardValue'>{(countryProperties.opp.score_aae).toString()}</p>
+                                <p className='clickHere'>Click to close...</p>
+                            </div>
                         <Chart />
                         </>
                     )
