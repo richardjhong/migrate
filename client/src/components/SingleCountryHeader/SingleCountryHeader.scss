@@ -1,53 +1,53 @@
-.singleCountryHead {
-    height:12em;
-    display:flex;
-    margin-bottom:3em;
-}
+// .singleCountryHead {
+//     height:12em;
+//     display:flex;
+//     margin-bottom:3em;
+// }
 
-.singleCountHeadCont {
-    margin-bottom:7em;
+// .singleCountHeadCont {
+//     margin-bottom:7em;
  
-}
+// }
 
-.singleCountryImage {
-   height:100%;
+// .singleCountryImage {
+//    height:100%;
    
-}
+// }
 
-.singleCountryHeadTitle {
-    background:var(--lightBorder);
-    background-color:var(--light);
-    color:var(--darkBackground);
-    border:solid 5px var(--lightBorder);
-    border-radius:20px;
-    width:fit-content;
-    padding:20px;
-    position:absolute;
-    margin-top: -175px;
-    margin-left: 90px;
-}
+// .singleCountryHeadTitle {
+//     background:var(--lightBorder);
+//     background-color:var(--light);
+//     color:var(--darkBackground);
+//     border:solid 5px var(--lightBorder);
+//     border-radius:20px;
+//     width:fit-content;
+//     padding:20px;
+//     position:absolute;
+//     margin-top: -175px;
+//     margin-left: 90px;
+// }
 
-.singleCountryHeadTitle h2{
-    margin:0;
-}
+// .singleCountryHeadTitle h2{
+//     margin:0;
+// }
 
-.singleCountryInput {
-    margin: 0 0 3em 90px;
-    overflow: auto;
-    max-height: 20em;
-    position: absolute;
-}
+// .singleCountryInput {
+//     margin: 0 0 3em 90px;
+//     overflow: auto;
+//     max-height: 20em;
+//     position: absolute;
+// }
 
 
-.suggestion{
-    cursor: pointer;
-    background-color:var(--light);
+// .suggestion{
+//     cursor: pointer;
+//     background-color:var(--light);
 
-    border-right: 1px solid var(--lightBorder);
-    border-left: 1px solid var(--lightBorder);
-    border-bottom: 1px solid var(--lightBorder);
-}
-.suggestion:hover{
-    background-color:var(--darkBackground);
-    color:var(--light)
-}
+//     border-right: 1px solid var(--lightBorder);
+//     border-left: 1px solid var(--lightBorder);
+//     border-bottom: 1px solid var(--lightBorder);
+// }
+// .suggestion:hover{
+//     background-color:var(--darkBackground);
+//     color:var(--light)
+// }
