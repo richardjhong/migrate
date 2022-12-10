@@ -5,7 +5,6 @@ import { QUERY_COMPILATIONS } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
 import "./SearchCountry.scss";
 import { useNavigate } from 'react-router-dom';
-
 const SearchCountry = () => {
   const { searches, countryImgs, addSearch, addCountryImgs } = useSearch();
 
@@ -48,7 +47,7 @@ const SearchCountry = () => {
       await addCountryImgs(newImgs);
       console.log(newImgs);
       console.log('search',searches);
-      navigate(`/SingleCountry/${searchImgInput}`);
+      navigate(`/singlecountry/${searchImgInput}`);
 
       // <Navigate to="/SingleCountry" replace={true} />
       
