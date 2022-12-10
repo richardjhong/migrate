@@ -1,16 +1,17 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
+import SearchCountry from '../SearchCountry';
 
-const searchHistoryList = ({
-  searchHistory
-}) => {
+
+const searchHistoryList = ({searchHistory}) => { ///search history is an array of objects stored in the user model
   if (!searchHistory) {
     return <h3>No Searches Saved Yet</h3>;
   }
 
   return (
     <div>
-      {searchHistory &&
+      <SearchCountry
+      {...searchHistory &&
         searchHistory.map((search) => (
           <div>
             <h4 className="card-header bg-primary text-light p-2 m-0">
@@ -20,6 +21,7 @@ const searchHistoryList = ({
             </h4>
           </div>
         ))}
+        />
     </div>
   );
 };

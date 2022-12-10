@@ -25,11 +25,20 @@ const Header = () => {
         </Link> 
         <nav className='navbar'>
           {Auth.loggedIn() ? (
+             <>
+             <Link className="navLink" to ='/AboutUs'>
+             About
+           </Link>
             <button className="" onClick={logout}>
               Logout
             </button>
+            </>
           ) : (
             <>
+              <Link className="navLink" to ='/AboutUs'>
+                About
+              </Link>
+
               <Link className="navLink" to="/login">
                 Login
               </Link>
