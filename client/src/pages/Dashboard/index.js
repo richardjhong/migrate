@@ -7,6 +7,8 @@ import { useSearch } from '../../utils/CountryContext';
 import { QUERY_SINGLE_COMPILATION} from '../../utils/queries';
 import Auth from '../../utils/auth';
 import "./dashboard.scss";
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 
 const Dashboard = () => {
@@ -26,13 +28,13 @@ const Dashboard = () => {
   });
   console.log(loading, data)
 
-  const handleLogout = async (e) => {  
+  const handleLogout = async (e) => {
     e.preventDefault();
-      if (Auth.loggedIn()) {     
-        localStorage.removeItem("id_token");
-        <Navigate to="/splash"/>;
-     }
-    };
+    if (Auth.loggedIn()) {
+      localStorage.removeItem("id_token");
+      <Navigate to="/splash" />;
+    }
+  };
 
   // navigate to personal dashboard page if username matches param
   if (Auth.loggedIn() && Auth.getDashboard().data.username === userParam) {
@@ -43,15 +45,19 @@ const Dashboard = () => {
   }
   if (!user?.username) {
     return (
-      <div>
-      <h4>
-        You need to be logged in to see this. Use the navigation links below to
-        sign up or log in!
-       </h4>
-       <button><a href="/login">Login</a></button>
-       </div>
+      <>
+        <Header />
+        <div>
+          <h4>
+            You need to be logged in to see this. Use the navigation links below to
+            sign up or log in!
+          </h4>
+          <button><a href="/login">Login</a></button>
+        </div>
+        <Footer />
+      </>
     );
-    }
+  }
   return (
     <>
 
@@ -83,6 +89,7 @@ const Dashboard = () => {
          </div>
         </main>
       <Footer />
+
     </>
   );
 };
