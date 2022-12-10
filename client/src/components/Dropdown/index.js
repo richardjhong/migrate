@@ -12,7 +12,7 @@ const Dropdown = ({ countryYearIndex, setCountryYearIndex }) => {
    
   return (
     <>
-      <select
+      <select className='alignSelect'
         onChange={((e) => setCountryYearIndex(years[e.target.value]))}
         value={countryYearIndex}
       >
