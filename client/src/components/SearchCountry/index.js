@@ -83,9 +83,9 @@ const SearchCountry = () => {
 
   return (
 
-    <div className="flex flex-row mt-1 mx-2">
+    <div className="singleCountryInput">
       <input
-        className="w-1/5 border rounded border-text-blustery_blue"
+        className=""
         type="text"
         placeholder="Search Country"
         value={searchImgInput}
@@ -94,7 +94,7 @@ const SearchCountry = () => {
       <button
         type="submit"
         onClick={handleFormSubmit}
-        className="btn ml-1 px-3 py-1 bg-pastel_green rounded text-blustery_blue"
+        className=""
       >
         Search
       </button>
