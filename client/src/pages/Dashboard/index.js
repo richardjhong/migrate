@@ -10,7 +10,6 @@ import "./dashboard.scss";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
-
 const Dashboard = () => {
 
   const { username: userParam } = useParams();
@@ -89,7 +88,6 @@ const Dashboard = () => {
          </div>
         </main>
       <Footer />
-
     </>
   );
 };
