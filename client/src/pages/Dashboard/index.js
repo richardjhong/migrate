@@ -49,6 +49,7 @@ const Dashboard = () => {
   }
   return (
     <>
+
       <Header />
       <main class='dashMain'>
         <div className="flex-row justify-center mb-3">
@@ -70,6 +71,7 @@ const Dashboard = () => {
         <button type="submit" onClick={handleLogout}>Log Out</button>
       </main>
       <Footer />
+
     </>
   );
 };

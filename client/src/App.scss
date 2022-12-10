@@ -53,9 +53,9 @@ html {
 
 
 main {
-
+  min-height:100vh;
   background-color:var(--light);
-  color:var(--dark)
+  color:var(--dark);
 }
 
 h1, h2, h3, h4, h5, h6 {
