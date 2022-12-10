@@ -10,8 +10,6 @@ import safetyIcon from '../../images/Safety.png';
 import basicKnowIcon from '../../images/Access-Knowledge.png';
 import healthWellIcon from '../../images/Health-Wellness.png';
 import enivronQualityIcon from '../../images/Environmental-Quality.png'
-import { isCompositeType } from "graphql";
-
 
 gsap.registerPlugin(Flip);
 

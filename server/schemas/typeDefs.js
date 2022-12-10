@@ -70,6 +70,7 @@ const typeDefs = gql`
     countries: [Country]
     countryCompilations: [CountryCompilation]
     singleCompileCountry(countryname: String!): CountryCompilation
+    validCountryName(country: String!): Country
   }
 
   type Mutation {
