@@ -1,25 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Dropdown.scss'
 
 const Dropdown = ({ countryYearIndex, setCountryYearIndex }) => {
-  const years = {
-    '2018': 0, 
-    '2019': 1, 
-    '2020': 2, 
-    '2021': 3, 
-    '2022': 4
-  }
+  const [selected, setSelected] = useState('');
+
+  const options = [
+    {value: '', text: 'Select year', disabled: true},
+    {value: 0, text: '2018'},
+    {value: 1, text: '2019'},
+    {value: 2, text: '2020'},
+    {value: 3, text: '2021'},
+    {value: 4, text: '2022'},
+  ]
    
   return (
     <>
+      
       <select className='alignSelect'
-        onChange={((e) => setCountryYearIndex(years[e.target.value]))}
+        onChange={
+          ((e) => {
+            setCountryYearIndex(e.target.value)
+            setSelected(e.target.value)
+          })
+        }
         value={countryYearIndex}
       >
-        <option>Select year</option>
-        {Object.keys(years).map((year) => (
-          <option key={year} value={year}>
-            {year}
+        {options.map(option => (
+          <option
+            disabled={option.disabled}
+            key={option.value}
+            value={option.value}
+          >
+            {option.text}
           </option>
         ))}
       </select>
