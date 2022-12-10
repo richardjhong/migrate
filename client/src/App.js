@@ -48,7 +48,7 @@ function App() {
         <Router>
           <Routes>
             <Route
-              path='/about'
+              path='/AboutUs'
               element={<AboutUs />}
             />
             <Route

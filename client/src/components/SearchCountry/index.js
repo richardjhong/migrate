@@ -5,7 +5,6 @@ import { QUERY_COMPILATIONS } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
 import "./SearchCountry.scss";
 import { useNavigate } from 'react-router-dom';
-
 const SearchCountry = () => {
   // const { searches, countryImgs, addSearch, addCountryImgs } = useSearch();
   const { searches, addSearch } = useSearch();
