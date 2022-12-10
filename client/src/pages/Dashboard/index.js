@@ -7,15 +7,15 @@ import { useSearch } from '../../utils/CountryContext';
 import { QUERY_SINGLE_COMPILATION} from '../../utils/queries';
 import Auth from '../../utils/auth';
 import "./dashboard.scss";
-import { saveCountries } from '../../utils/localStorage';
+
 
 const Dashboard = () => {
 
-  
   const { username: userParam } = useParams();
   const { loading: loadingC, data: dataC  } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam}
   });
+
   const user = dataC?.me || dataC?.user || {};
 
   const { searches } = useSearch();
@@ -36,13 +36,11 @@ const Dashboard = () => {
 
   // navigate to personal dashboard page if username matches param
   if (Auth.loggedIn() && Auth.getDashboard().data.username === userParam) {
-    return <Navigate to="/me" />;
+    return <Navigate to={`/dashboard`}/>;
   }
-
   if (loadingC) {
     return <div>Loading...</div>;
   }
-
   if (!user?.username) {
     return (
       <div>
@@ -69,7 +67,7 @@ const Dashboard = () => {
              searches && searches.map((search) => (
             <div>
               <h4 className="card-header bg-primary text-light p-2 m-0">
-                <a href='/singleCountry/${search}'>{search}</a>
+                <a href={`/singleCountry/${search}`}>{search}</a>
               </h4>
             </div>
           )) } 
