@@ -16,7 +16,8 @@ import { useSearch } from '../../utils/CountryContext';
 // const countries = data?.singleCompileCountry || data?.countries || [];
 
 export default function SingleCountry() {
-  const { searches, countryImgs} = useSearch();
+  // const { searches, countryImgs} = useSearch();
+  const { searches } = useSearch();
   const { countryname: countryParam } = useParams();
 
   const { loading, data } = useQuery(QUERY_SINGLE_COMPILATION,{
