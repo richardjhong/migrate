@@ -1,3 +1,17 @@
+.dashboardContainer {
+   display:flex;
+   justify-content:flex-start;
+
+}
+
+.dashSearch {
+   margin-left:2em;
+}
+
+.dashSearch .singleCountryInput {
+   margin:0 0 3em 0;
+}
+
 
 .savedSearchCard {
    display: flex;
@@ -14,7 +28,23 @@
    padding:20px;
    transition:box-shadow .2s;
    cursor:pointer;
+   color:var(--light);
+   overflow:hidden;
+   flex-wrap:wrap;
 };
+
+.savedSearchCard a{
+   color:var(--lightBorder);
+}
+
+.savedSearchCard a:hover {
+   color:var(--light);
+}
+
+.savedSearchCard h4 {
+   margin-right:1em;
+}
+
 .cardTitle {
    display:flex;
    flex-direction:column;
