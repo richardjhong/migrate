@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 import SearchCountry from '../../components/SearchCountry';
 import { useSearch } from '../../utils/CountryContext';
-import { QUERY_SINGLE_COMPILATION} from '../../utils/queries';
+import { QUERY_SINGLE_COMPILATION } from '../../utils/queries';
 import Auth from '../../utils/auth';
 import "./dashboard.scss";
 import Header from '../../components/Header';
@@ -13,8 +13,8 @@ import Footer from '../../components/Footer';
 const Dashboard = () => {
 
   const { username: userParam } = useParams();
-  const { loading: loadingC, data: dataC  } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { username: userParam}
+  const { loading: loadingC, data: dataC } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam }
   });
 
   const user = dataC?.me || dataC?.user || {};
@@ -22,8 +22,8 @@ const Dashboard = () => {
   const { searches } = useSearch();
   console.log(searches);
 
-  const { loading, data } = useQuery(QUERY_SINGLE_COMPILATION,{
-    variables:{countryname : searches[0]}
+  const { loading, data } = useQuery(QUERY_SINGLE_COMPILATION, {
+    variables: { countryname: searches[0] }
   });
   console.log(loading, data)
 
@@ -37,7 +37,7 @@ const Dashboard = () => {
 
   // navigate to personal dashboard page if username matches param
   if (Auth.loggedIn() && Auth.getDashboard().data.username === userParam) {
-    return <Navigate to={`/dashboard`}/>;
+    return <Navigate to={`/dashboard`} />;
   }
   if (loadingC) {
     return <div>Loading...</div>;
@@ -68,25 +68,27 @@ const Dashboard = () => {
           </h2>
           <div>
             <h3>Your Most Recent Searches: </h3>
-            <div className='countryCard' id="col2row1">
-              {loading ? (
-                <div>Loading...</div>
-              ) :
-                searches && searches.map((search) => (
+            {/* <div className='countryCard' id="col2row1"> */}
+            {loading ? (
+              <div>Loading...</div>
+            ) :
+              searches && searches.map((search) => (
+                <div className='countryCard' id="col2row1">
                   <div>
                     <h4 className="card-header bg-primary text-light p-2 m-0">
-                      <a href={`/singleCountry/${search}`}>{search}</a>
+                      <a href={`/singleCountry/${search.name}`}>{search.name}</a>
                     </h4>
                   </div>
-                ))}
-            </div>
+                </div>
+              ))}
+            {/* </div> */}
             <div>
               <h3>Start a new search here: <SearchCountry className="button" /></h3>
             </div>
           </div>
-          <button type="submit" onClick={handleLogout}>Log Out</button>
-         </div>
-        </main>
+          {/* <button type="submit" onClick={handleLogout}>Log Out</button> */}
+        </div>
+      </main>
       <Footer />
     </>
   );
