@@ -1,15 +1,20 @@
 import React from "react"
 import '../pages/Form/Form.scss';
 
-const food = 'You like to eat? Us too, luckily, has some of the best food in the region.'
+const food = 'The Global Food Security Index takes into account: affordability, availability, quality, safety, sustainability, and adaptation to provide a complete picture of a nations food security. '
 
 export let SummarySection = ({ selections }) => {
     //North America -FOOD QUALITY
     if (selections.first === "North America" && selections.second === 'Food Quality') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>{food}</p>
+                <h1>CANADA</h1>
+                <p>If food quality is the most important factor in selecting a new home, Canada would be the best fit for you. {food} 
+                Canada ranks 7th in the world overall and 1st in North America in terms of food security. 
+                Not only does Canada have an extremely stable supply of food, but The Canadian Food Inspection Agency 
+                also provides a strong framework for food safety in the country. Because Canada is such a hot spot for immigrants, 
+                larger cities like Toronto and Montreal cultivate a variety of international food selections and are home to some 
+                of the best restaurants in the world.</p>
             </div>
         )
     }
@@ -98,8 +103,13 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "South America" && selections.second === 'Food Quality') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>{food}</p>
+                <h1>CHILE</h1>
+                <p>If food quality is the most important factor in selecting a new home, Chile would be the best fit for you. {food} 
+                Chile ranks 25th in the world overall and 1st in South America in terms of food security.
+                Due to Chile's high income level- less than 3% of the population suffers from undernourishment.
+                Although you likely wouldn't have to worry about the accessibility of food in Chile, the country does fall a little
+                short in providing high nutrient food.
+                  </p>
             </div>
         )
     }
@@ -188,8 +198,10 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Food Quality') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>{food}</p>
+                <h1>FINLAND</h1>
+                <p>Finland not only ranks 1st in Europe in overall food security, but first in the globe. {food} 
+                Finland has extraordinarily high nutrition standards and imports quite a few products.
+                In addition to their high quality of food, Finland also teaches nutrition in their school systems to ensure a food educated populous.</p>
             </div>
         )
     }
@@ -278,8 +290,13 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Food Quality') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>{food}</p>
+                <h1>JAPAN</h1>
+                <p>Japan ranks 1st in Asia and 6th globally in terms of food security. {food} 
+                Pollution is the largest issue that Japan faces in terms of food security.
+                The country's food education programs, however, are some of the best in the world.
+                Additionally, Japan boosts one of the lowest obesity ratings in the world, which
+                is often contributed their focus on nutrition.
+                </p>
             </div>
         )
     }
@@ -368,8 +385,12 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Food Quality') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>{food}</p>
+                <h1>MOROCCO</h1>
+                <p>Morocco ranks first in Africa in terms of food security, however, 57th globally. {food}
+                The obesity rating in Morocco is close to a quarter of the population.
+                Generally, people of lower economic status can have difficulty securing food.
+                The largest barriers to food insecurity in Morocco come from government commitment to
+                food security policies and the volatility of their agricultural production.</p>
             </div>
         )
     }
@@ -459,8 +480,10 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Food Quality') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>{food}</p>
+                <h1>NEW ZEALAND</h1>
+                <p>New Zealand ranks 14th globally and 1st in the Oceania region in terms of food security. {food}
+                New Zealand actively works to make their food affordable and sustainable, however, they fall
+                slightly behind on nutritional standards.</p>
             </div>
         )
     }
