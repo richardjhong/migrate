@@ -7,14 +7,14 @@ import { SummarySection } from "../../components/SummarySection";
 function Form() {
   const [selectionOneValue, setSelectionOneValue] = useState("North America");
   const [selectionTwoValue, setSelectionTwoValue] = useState("Food Quality");
-  const [selectionThreeValue, setSelectionThreeValue] = useState("Food Quality");
+  // const [selectionThreeValue, setSelectionThreeValue] = useState("Food Quality");
   const [formIsSubmitted, setFormIsSubmitted] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(selectionOneValue);
     console.log(selectionTwoValue);
-    console.log(selectionThreeValue);
+    // console.log(selectionThreeValue);
 
 
     setFormIsSubmitted(true);
@@ -55,7 +55,7 @@ function Form() {
             { label: "Environmental Quality", value: "Environmental Quality" },
             { label: "Individual Rights", value: "Individual Rights" },
             { label: "Personal Freedom and Choice", value: "Personal Freedom and Choice" },
-            { label: "Inclusiveness", value: "Inclusiveness (LGBTQ+ Friendly)" },
+            { label: "Inclusiveness", value: "Inclusiveness" },
             { label: "Access to Advanced Education", value: "Access to Advanced Education" }
           ]}
           value={selectionTwoValue}
@@ -64,7 +64,7 @@ function Form() {
         <br></br>
         <br></br>
       </label>
-      <label className="optionTwo">
+      {/* <label className="optionTwo">
         What's most important to you?:
         <SearchSelect
           options={[
@@ -77,7 +77,7 @@ function Form() {
             { label: "Environmental Quality", value: "Environmental Quality" },
             { label: "Individual Rights", value: "Individual Rights" },
             { label: "Personal Freedom and Choice", value: "Personal Freedom and Choice" },
-            { label: "Inclusiveness", value: "Inclusiveness (LGBTQ+ Friendly)" },
+            { label: "Inclusiveness", value: "Inclusiveness" },
             { label: "Access to Advanced Education", value: "Access to Advanced Education" }
           ]}
           value={selectionThreeValue}
@@ -85,12 +85,12 @@ function Form() {
         />
       </label>
       <br></br>
-      <br></br>
+      <br></br> */}
       <input className="submitButton" type="submit" value="Submit" />
     </form>
 
     <img className="airplane" src={airplane} alt="airplane"/>
-    {formIsSubmitted && <SummarySection selections={{ first: selectionOneValue, second: selectionTwoValue, third: selectionThreeValue}} />}
+    {formIsSubmitted && <SummarySection selections={{ first: selectionOneValue, second: selectionTwoValue}} />}
     </div>
   );
 }
