@@ -1,7 +1,8 @@
 import React from "react"
 import '../pages/Form/Form.scss';
 
-const food = 'The Global Food Security Index takes into account: affordability, availability, quality, safety, sustainability, and adaptation to provide a complete picture of a nations food security. '
+const food = 'The Global Food Security Index takes into account: affordability, availability, quality, safety, sustainability, and adaptation to provide a complete picture of a nations food security. ';
+const water = 'Millions of people around the globe struggle with access to clean water. This can be extremely important when choosing a new home. In fact, as many as 1 in 3 people globally do not have access to clean drinking water. An Environmental Performance Index can be applied to each country to measure their quality of drinking water. The EPI calculates a score out of 100, wiith 100 being the highest rank a country can receive. ';
 
 export let SummarySection = ({ selections }) => {
     //North America -FOOD QUALITY
@@ -22,8 +23,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Clean Water') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>CANADA</h1>
+                <p>{water} Canada has an overall EPI ranking of 88/100. Canada has the best drinking water in North America and 24th globally.</p>
             </div>
         )
     }
@@ -117,8 +118,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "South America" && selections.second === 'Clean Water') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>CHILE</h1>
+                <p>{water} Chile has an overall EPI ranking of 68.1/100. Chile has the best drinking water in South America and 38th globally.</p>
             </div>
         )
     }
@@ -209,8 +210,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Clean Water') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>SWITZERLAND</h1>
+                <p>{water} Luckily,Switzerland has some of the cleanest water in the world. Switzerland boasts an impressive 100/100 EPI score, tied with Finland, Iceland, the Netherlands, Norway, and the United Kingdom. </p>
             </div>
         )
     }
@@ -304,8 +305,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Clean Water') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>JAPAN</h1>
+                <p>{water} Japan has an EPI ranking of 95.0 out of 100.</p>
             </div>
         )
     }
@@ -398,8 +399,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Clean Water') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>MAURITIUS</h1>
+                <p>{water} Mauritius has an overall EPI ranking of 65.5/100. Mauritius has the best drinking water in Africa and 44th globally.</p>
             </div>
         )
     }
@@ -491,8 +492,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Clean Water') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>AUSTRALIA</h1>
+                <p>{water} Australia has an overall EPI ranking of 87/100. Australia has the best drinking water in Oceania and 25th globally.</p>
             </div>
         )
     }
