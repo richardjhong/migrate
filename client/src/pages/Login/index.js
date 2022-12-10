@@ -47,10 +47,10 @@ const Login = (props) => {
   return (
     <>
     <Header />
-    <main className="loginMain">
+    <main >
      
           <h2 >Login</h2>
-          <div className="">
+          <div className="loginForm">
             {data ? (
               <p>
                 Success! You may now head{' '}
