@@ -39,7 +39,6 @@ const startApolloServer = async (typeDefs, resolvers) => {
   })
  };
   
- console.log(process.env.MONGODB_URI);
  // Call the async function to start the server
  startApolloServer(typeDefs, resolvers);
 
