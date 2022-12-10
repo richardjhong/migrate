@@ -107,7 +107,7 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                         </div>
                         <div className='cardTitle'>
                             <h3>Nutrition and Basic Medical Care</h3>
-                            <p className='cardValue'>{(countryProperties[4].bhn.score_nbmc).toString()}</p>
+                            <p className='cardValue'>{(countryProperties[countryYearIndex].bhn.score_nbmc).toString()}</p>
                             <p className='clickHere'>Click to see more...</p>
                         </div>
                         
