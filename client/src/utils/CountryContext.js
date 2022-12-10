@@ -4,7 +4,7 @@ import {getSavedCountries,getSavedImgs,saveImgs, saveCountries} from './localSto
 export const SearchContext = React.createContext();
 export const useSearch = () => useContext(SearchContext);
 
-export const SearchProvider=({children})=>{
+export const SearchProvider= ({children})=>{
     const [searches, setSearches]=useState(getSavedCountries());
     const [countryImgs, setCountryImgs] = useState(getSavedImgs());
 
