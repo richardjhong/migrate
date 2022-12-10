@@ -49,27 +49,29 @@ const Dashboard = () => {
   }
   return (
     <>
-        <Header />
-    <main class='dashMain'>
-      <div className="flex-row justify-center mb-3">
-        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Welcome {userParam ? `back, ${user.username} continue where you left off.. !` : `back, ${user.username}!`}
-        </h2>
-        <div>
-          <h3>Your Most Recent Search: </h3>
-          <div className='savedSearchCard' >
-            <SearchHistoryList
-              thoughts={user.searchHistory}
-              title={`${user.username}'s search history...`}
-              showTitle={false}
-              showUsername={false}
-            />
+
+      <Header />
+      <main class='dashMain'>
+        <div className="flex-row justify-center mb-3">
+          <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+            Welcome {userParam ? `back, ${user.username} continue where you left off.. !` : `back, ${user.username}!`}
+          </h2>
+          <div>
+            <h3>Your Most Recent Search: </h3>
+            <div className='savedSearchCard' >
+              <SearchHistoryList
+                thoughts={user.searchHistory}
+                title={`${user.username}'s search history...`}
+                showTitle={false}
+                showUsername={false}
+              />
+            </div>
           </div>
         </div>
-      </div>
-      <button type="submit" onClick={handleLogout}>Log Out</button>
-    </main>
-    <Footer />
+        <button type="submit" onClick={handleLogout}>Log Out</button>
+      </main>
+      <Footer />
+
     </>
   );
 };
