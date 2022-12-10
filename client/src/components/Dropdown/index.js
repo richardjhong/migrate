@@ -1,53 +1,29 @@
-import React, { useState, cloneElement } from 'react';
+import React from 'react';
 import './Dropdown.scss'
 
-const Dropdown = () => {
-  const handleMenuOne = () => {
-    console.log('clicked one');
-  };
-
-  const handleMenuTwo = () => {
-    console.log('clicked two');
-  };
-
+const Dropdown = ({ countryYearIndex, setCountryYearIndex }) => {
+  const years = {
+    '2018': 0, 
+    '2019': 1, 
+    '2020': 2, 
+    '2021': 3, 
+    '2022': 4
+  }
+   
   return (
-    <MenuSelect
-      trigger={<button>Dropdown</button>}
-      menu={[
-        <button onClick={handleMenuOne}>Menu 1</button>,
-        <button onClick={handleMenuTwo}>Menu 2</button>,
-      ]}
-    />
-  );
-};
-
-const MenuSelect = ({ trigger, menu }) => {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => {
-    setOpen(!open);
-  };
-
-  return (
-    <div className="dropdown">
-      {cloneElement(trigger, {
-        onClick: handleOpen,
-      })}
-      {open ? (
-        <ul className="menu">
-          {menu.map((menuItem, index) => (
-            <li key={index} className="menu-item">
-              {cloneElement(menuItem, {
-                onClick: () => {
-                  menuItem.props.onClick();
-                  setOpen(false);
-                },
-              })}
-            </li>
-          ))}
-        </ul>
-      ) : null}
-    </div>
+    <>
+      <select
+        onChange={((e) => setCountryYearIndex(years[e.target.value]))}
+        value={countryYearIndex}
+      >
+        <option>Select year</option>
+        {Object.keys(years).map((year) => (
+          <option key={year} value={year}>
+            {year}
+          </option>
+        ))}
+      </select>
+    </>
   );
 };
 

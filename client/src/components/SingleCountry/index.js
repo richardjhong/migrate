@@ -1,5 +1,4 @@
 import CountryCards from "../CountryCards";
-import Dropdown from "../Dropdown";
 import "./SingleCountry.scss";
 import { useParams } from 'react-router-dom';
 
@@ -14,7 +13,7 @@ import { useSearch } from '../../utils/CountryContext';
 // });
 // const countries = data?.singleCompileCountry || data?.countries || [];
 
-export default function SingleCountry() {
+export default function SingleCountry({ countryYearIndex }) {
   const { searches, countryImgs} = useSearch();
   const { countryname: countryParam } = useParams();
 
@@ -32,9 +31,8 @@ export default function SingleCountry() {
             <div>Loading...</div>
           ) : (
             <>
-              <Dropdown />
               <CountryCards
-                  countryProperties={singleCountry}
+                  countryProperties={singleCountry} countryYearIndex={countryYearIndex}
               />
             </>
           )}

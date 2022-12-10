@@ -56,7 +56,7 @@ const expand = (event) => {
 }
 
 
-export default function CountryCards({ countryProperties }) {
+export default function CountryCards({ countryProperties, countryYearIndex }) {
     let ref1 = useRef(null);
     let ref2 = useRef(null);
     let ref3 = useRef(null);
@@ -87,7 +87,7 @@ export default function CountryCards({ countryProperties }) {
                         </div>
                         <div className='cardTitle'>
                             <h3>Nutrition and Basic Medical Care -wide</h3>
-                            <p className='cardValue'>{(countryProperties[4].bhn.score_nbmc).toString()}</p>
+                            <p className='cardValue'>{(countryProperties[countryYearIndex].bhn.score_nbmc).toString()}</p>
                             <p className='clickHere'>Click to close...</p>
                         </div>
                         <Chart 
@@ -107,7 +107,7 @@ export default function CountryCards({ countryProperties }) {
                         </div>
                         <div className='cardTitle'>
                             <h3>Nutrition and Basic Medical Care</h3>
-                            <p className='cardValue'>{(countryProperties[4].bhn.score_nbmc).toString()}</p>
+                            <p className='cardValue'>{(countryProperties[countryYearIndex].bhn.score_nbmc).toString()}</p>
                             <p className='clickHere'>Click to see more...</p>
                         </div>
                         
@@ -127,7 +127,7 @@ export default function CountryCards({ countryProperties }) {
                         </div>
                         <div className='cardTitle'>
                             <h3>Water and Sanitation</h3>
-                            <p className='cardValue'>{(countryProperties[4].bhn.score_ws).toString()}</p>
+                            <p className='cardValue'>{(countryProperties[countryYearIndex].bhn.score_ws).toString()}</p>
                             <p className='clickHere'>Click to close...</p>
                         </div>
                         <Chart 
@@ -147,7 +147,7 @@ export default function CountryCards({ countryProperties }) {
                             </div>
                             <div className='cardTitle'>
                                 <h3>Water and Sanitation</h3>
-                                <p className='cardValue'>{(countryProperties[4].bhn.score_ws).toString()}</p>
+                                <p className='cardValue'>{(countryProperties[countryYearIndex].bhn.score_ws).toString()}</p>
                                 <p className='clickHere'>Click to see more...</p>
                             </div>
                             
@@ -169,7 +169,7 @@ export default function CountryCards({ countryProperties }) {
                         </div>
                         <div className='cardTitle'>
                             <h3>Shelter</h3>
-                            <p className='cardValue'>{(countryProperties[4].bhn.score_sh).toString()}</p>
+                            <p className='cardValue'>{(countryProperties[countryYearIndex].bhn.score_sh).toString()}</p>
                             <p className='clickHere'>Click to close...</p>
                         </div>
                         <Chart 
@@ -190,7 +190,7 @@ export default function CountryCards({ countryProperties }) {
                             </div>
                             <div className='cardTitle'>
                                 <h3>Shelter</h3>
-                                <p className='cardValue'>{(countryProperties[4].bhn.score_sh).toString()}</p>
+                                <p className='cardValue'>{(countryProperties[countryYearIndex].bhn.score_sh).toString()}</p>
                                 <p className='clickHere'>Click to see more...</p>
                             </div>
                         </>
@@ -208,7 +208,7 @@ export default function CountryCards({ countryProperties }) {
                         </div>
                         <div className='cardTitle'>
                             <h3>Personal Safety</h3>
-                            <p className='cardValue'>{(countryProperties[4].bhn.score_ps).toString()}</p>
+                            <p className='cardValue'>{(countryProperties[countryYearIndex].bhn.score_ps).toString()}</p>
                             <p className='clickHere'>Click to close...</p>
                         </div>
                         <Chart 
@@ -229,7 +229,7 @@ export default function CountryCards({ countryProperties }) {
                             </div>
                             <div className='cardTitle'>
                                 <h3>Personal Safety</h3>
-                                <p className='cardValue'>{(countryProperties[4].bhn.score_ps).toString()}</p>
+                                <p className='cardValue'>{(countryProperties[countryYearIndex].bhn.score_ps).toString()}</p>
                                 <p className='clickHere'>Click to see more...</p>
                             </div>
                         </>
@@ -248,7 +248,7 @@ export default function CountryCards({ countryProperties }) {
                             </div>
                             <div className='cardTitle'>
                                 <h3>Access to Basic Knowledge</h3>
-                                <p className='cardValue'>{(countryProperties[4].fow.score_abk).toString()}</p>
+                                <p className='cardValue'>{(countryProperties[countryYearIndex].fow.score_abk).toString()}</p>
                                 <p className='clickHere'>Click to close...</p>
                             </div>
                             <Chart 
@@ -269,7 +269,7 @@ export default function CountryCards({ countryProperties }) {
                             </div>
                             <div className='cardTitle'>
                                 <h3>Access to Basic Knowledge</h3>
-                                <p className='cardValue'>{(countryProperties[4].fow.score_abk).toString()}</p>
+                                <p className='cardValue'>{(countryProperties[countryYearIndex].fow.score_abk).toString()}</p>
                                 <p className='clickHere'>Click to see more...</p>
                             </div>
                         </>
@@ -287,7 +287,7 @@ export default function CountryCards({ countryProperties }) {
                         </div>
                         <div className='cardTitle'>
                             <h3>Access to Information and Communications</h3>
-                            <p className='cardValue'>{(countryProperties[4].fow.score_aic).toString()}</p>
+                            <p className='cardValue'>{(countryProperties[countryYearIndex].fow.score_aic).toString()}</p>
                             <p className='clickHere'>Click to close...</p>
                         </div>
                         <Chart 
@@ -307,7 +307,7 @@ export default function CountryCards({ countryProperties }) {
                             </div>
                             <div className='cardTitle'>
                                 <h3>Access to Information and Communications</h3>
-                                <p className='cardValue'>{(countryProperties[4].fow.score_aic).toString()}</p>
+                                <p className='cardValue'>{(countryProperties[countryYearIndex].fow.score_aic).toString()}</p>
                                 <p className='clickHere'>Click to see more...</p>
                             </div>
                         </>
@@ -325,7 +325,7 @@ export default function CountryCards({ countryProperties }) {
                         </div>
                         <div className='cardTitle'>
                             <h3>Health and Wellness</h3>
-                            <p className='cardValue'>{(countryProperties[4].fow.score_hw).toString()}</p>
+                            <p className='cardValue'>{(countryProperties[countryYearIndex].fow.score_hw).toString()}</p>
                             <p className='clickHere'>Click to close...</p>
                         </div>
                         <Chart 
@@ -345,7 +345,7 @@ export default function CountryCards({ countryProperties }) {
                             </div>
                             <div className='cardTitle'>
                                 <h3>Health and Wellness</h3>
-                                <p className='cardValue'>{(countryProperties[4].fow.score_hw).toString()}</p>
+                                <p className='cardValue'>{(countryProperties[countryYearIndex].fow.score_hw).toString()}</p>
                                 <p className='clickHere'>Click to see more...</p>
                             </div>
                         </>
@@ -363,7 +363,7 @@ export default function CountryCards({ countryProperties }) {
                         </div>
                         <div className='cardTitle'>
                             <h3>Environmental Quality</h3>
-                            <p className='cardValue'>{(countryProperties[4].fow.score_eq).toString()}</p>
+                            <p className='cardValue'>{(countryProperties[countryYearIndex].fow.score_eq).toString()}</p>
                             <p className='clickHere'>Click to close...</p>
                         </div>
                         <Chart 
@@ -383,7 +383,7 @@ export default function CountryCards({ countryProperties }) {
                             </div>
                             <div className='cardTitle'>
                                 <h3>Environmental Quality</h3>
-                                <p className='cardValue'>{(countryProperties[4].fow.score_eq).toString()}</p>
+                                <p className='cardValue'>{(countryProperties[countryYearIndex].fow.score_eq).toString()}</p>
                                 <p className='clickHere'>Click to close...</p>
                             </div>
                         </>
@@ -401,7 +401,7 @@ export default function CountryCards({ countryProperties }) {
                         </div>
                         <div className='cardTitle'>
                             <h3>Personal Rights</h3>
-                            <p className='cardValue'>{(countryProperties[4].opp.score_pr).toString()}</p>
+                            <p className='cardValue'>{(countryProperties[countryYearIndex].opp.score_pr).toString()}</p>
                             <p className='clickHere'>Click to close...</p>
                         </div>
                         <Chart 
@@ -422,7 +422,7 @@ export default function CountryCards({ countryProperties }) {
                             </div>
                             <div className='cardTitle'>
                                 <h3>Personal Rights</h3>
-                                <p className='cardValue'>{(countryProperties[4].opp.score_pr).toString()}</p>
+                                <p className='cardValue'>{(countryProperties[countryYearIndex].opp.score_pr).toString()}</p>
                                 <p className='clickHere'>Click to see more...</p>
                             </div>
                         </>
@@ -440,7 +440,7 @@ export default function CountryCards({ countryProperties }) {
                         </div>
                         <div className='cardTitle'>
                             <h3>Personal Freedom and Choice</h3>
-                            <p className='cardValue'>{(countryProperties[4].opp.score_pfc).toString()}</p>
+                            <p className='cardValue'>{(countryProperties[countryYearIndex].opp.score_pfc).toString()}</p>
                             <p className='clickHere'>Click to close...</p>
                         </div>
                         <Chart 
@@ -460,7 +460,7 @@ export default function CountryCards({ countryProperties }) {
                             </div>
                             <div className='cardTitle'>
                                 <h3>Personal Freedom and Choice</h3>
-                                <p className='cardValue'>{(countryProperties[4].opp.score_pfc).toString()}</p>
+                                <p className='cardValue'>{(countryProperties[countryYearIndex].opp.score_pfc).toString()}</p>
                                 <p className='clickHere'>Click to see more...</p>
                             </div>
                         </>
@@ -478,7 +478,7 @@ export default function CountryCards({ countryProperties }) {
                     </div>
                     <div className='cardTitle'>
                         <h3>Inclusiveness</h3>
-                        <p className='cardValue'>{(countryProperties[4].opp.score_incl).toString()}</p>
+                        <p className='cardValue'>{(countryProperties[countryYearIndex].opp.score_incl).toString()}</p>
                         <p className='clickHere'>Click to close...</p>
                     </div>
                     <Chart 
@@ -498,7 +498,7 @@ export default function CountryCards({ countryProperties }) {
                     </div>
                     <div className='cardTitle'>
                         <h3>Inclusiveness</h3>
-                        <p className='cardValue'>{(countryProperties[4].opp.score_incl).toString()}</p>
+                        <p className='cardValue'>{(countryProperties[countryYearIndex].opp.score_incl).toString()}</p>
                         <p className='clickHere'>Click to see more...</p>
                     </div>
                         </>
@@ -516,7 +516,7 @@ export default function CountryCards({ countryProperties }) {
                         </div>
                         <div className='cardTitle'>
                             <h3>Access to Advanced Education</h3>
-                            <p className='cardValue'>{(countryProperties[4].opp.score_aae).toString()}</p>
+                            <p className='cardValue'>{(countryProperties[countryYearIndex].opp.score_aae).toString()}</p>
                             <p className='clickHere'>Click to close...</p>
                         </div>
                         <Chart 
@@ -536,7 +536,7 @@ export default function CountryCards({ countryProperties }) {
                             </div>
                         <div className='cardTitle'>
                             <h3>Access to Advanced Education</h3>
-                            <p className='cardValue'>{(countryProperties[4].opp.score_aae).toString()}</p>
+                            <p className='cardValue'>{(countryProperties[countryYearIndex].opp.score_aae).toString()}</p>
                             <p className='clickHere'>Click to see more...</p>
                         </div>
                         </>
