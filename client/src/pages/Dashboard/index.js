@@ -53,33 +53,37 @@ const Dashboard = () => {
     );
     }
   return (
-    <div key={user.saveCountries}>
-      <div className="flex-row justify-center mb-3">
-        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Welcome {userParam ? `back, ${user.username} continue where you left off.. !` : `back, ${user.username}!`} 
-        </h2>
-          <div >
-            <h3 key={user}>Your Most Recent Searches: </h3>
-            <div className='countryCard' id="col2row1">
-            {loading ? (
-                <div>Loading...</div>
-              ) : 
-             searches && searches.map((search) => (
-            <div>
-              <h4 className="card-header bg-primary text-light p-2 m-0">
-                <a href={`/singleCountry/${search}`}>{search}</a>
-              </h4>
-            </div>
-          )) } 
-          </div>
+    <>
+
+      <Header />
+      <main class='dashMain'>
+        <div className="flex-row justify-center mb-3">
+          <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+            Welcome {userParam ? `back, ${user.username} continue where you left off.. !` : `back, ${user.username}!`}
+          </h2>
           <div>
-            <h3>Start a new search here: <SearchCountry className="button"/></h3>
+            <h3>Your Most Recent Searches: </h3>
+            <div className='countryCard' id="col2row1">
+              {loading ? (
+                <div>Loading...</div>
+              ) :
+                searches && searches.map((search) => (
+                  <div>
+                    <h4 className="card-header bg-primary text-light p-2 m-0">
+                      <a href={`/singleCountry/${search}`}>{search}</a>
+                    </h4>
+                  </div>
+                ))}
+            </div>
+            <div>
+              <h3>Start a new search here: <SearchCountry className="button" /></h3>
+            </div>
           </div>
-        </div>
-       
-        <button type="submit" onClick={handleLogout}>Log Out</button>
-    </div>
-    </div>
+          <button type="submit" onClick={handleLogout}>Log Out</button>
+         </div>
+        </main>
+      <Footer />
+    </>
   );
 };
 
