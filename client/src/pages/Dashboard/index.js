@@ -46,6 +46,7 @@ const Dashboard = () => {
     return (
       <>
         <Header />
+        <main class='dashMain'>
         <div>
           <h4>
             You need to be logged in to see this. Use the navigation links below to
@@ -53,6 +54,7 @@ const Dashboard = () => {
           </h4>
           <button><a href="/login">Login</a></button>
         </div>
+        </main>
         <Footer />
       </>
     );
