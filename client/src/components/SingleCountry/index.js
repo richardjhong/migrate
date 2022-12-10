@@ -1,7 +1,6 @@
 import CountryCards from "../CountryCards";
 import "./SingleCountry.scss";
 import { useParams, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react'
 import { useQuery } from '@apollo/client';
 import { QUERY_COUNTRIES, QUERY_SINGLE_COMPILATION, QUERY_COUNTRY, QUERY_VALID_COUNTRY } from '../../utils/queries';
 import SearchCountry from '../../components/SearchCountry';
