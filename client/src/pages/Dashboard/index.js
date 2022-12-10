@@ -5,6 +5,8 @@ import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 import SearchHistoryList from '../../components/SearchHistory';
 import Auth from '../../utils/auth';
 import "./dashboard.scss";
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 const Dashboard = () => {
   const { username: userParam } = useParams();
@@ -13,13 +15,13 @@ const Dashboard = () => {
   });
   const user = data?.me || data?.user || {};
 
-  const handleLogout = async (e) => {  
+  const handleLogout = async (e) => {
     e.preventDefault();
-      if (Auth.loggedIn()) {     
-        localStorage.removeItem("id_token");
-        <Navigate to="/splash"/>;
-     }
-    };
+    if (Auth.loggedIn()) {
+      localStorage.removeItem("id_token");
+      <Navigate to="/splash" />;
+    }
+  };
 
   // navigate to personal dashboard page if username matches param
   if (Auth.loggedIn() && Auth.getDashboard().data.username === userParam) {
@@ -32,37 +34,43 @@ const Dashboard = () => {
 
   if (!user?.username) {
     return (
-      <div>
-      <h4>
-        You need to be logged in to see this. Use the navigation links below to
-        sign up or log in!
-       </h4>
-       <button><a href="/login">Login</a></button>
-       </div>
+      <>
+        <Header />
+        <div>
+          <h4>
+            You need to be logged in to see this. Use the navigation links below to
+            sign up or log in!
+          </h4>
+          <button><a href="/login">Login</a></button>
+        </div>
+        <Footer />
+      </>
     );
-    }
+  }
   return (
     <>
-        <Header />
-    <main class='dashMain'>
-      <div className="">
-        <h2 className="">
-          Welcome {userParam ? `back, ${user.username} continue where you left off.. !` : `back, ${user.username}!`}
-        </h2>
+      <Header />
+      <main class='dashMain'>
+        <div className="flex-row justify-center mb-3">
+          <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+            Welcome {userParam ? `back, ${user.username} continue where you left off.. !` : `back, ${user.username}!`}
+          </h2>
           <div>
             <h3>Your Most Recent Search: </h3>
-            <div className='countryCard' id="col2row1">
-          <SearchHistoryList
-            thoughts={user.searchHistory}
-            title={`${user.username}'s search history...`}
-            showTitle={false}
-            showUsername={false}
-          />
+            <div className='savedSearchCard' >
+              <SearchHistoryList
+                thoughts={user.searchHistory}
+                title={`${user.username}'s search history...`}
+                showTitle={false}
+                showUsername={false}
+              />
             </div>
           </div>
         </div>
         <button type="submit" onClick={handleLogout}>Log Out</button>
-    </div>
+      </main>
+      <Footer />
+    </>
   );
 };
 
