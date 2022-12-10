@@ -34,7 +34,7 @@
 }
 
 .cardIcon img {
-    width:100%;
+    width:70%;
     height:auto;
 
 }
@@ -59,7 +59,6 @@
 .countryCard:hover {
     box-shadow: 10px 10px 10px var(--dark);
 }
-
 
 
 @for $i from 1 through 30 {
