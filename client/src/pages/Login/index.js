@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import './Login.scss'
 
 import Auth from '../../utils/auth.js';
 
@@ -42,11 +45,12 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
-          <div className="card-body">
+    <>
+    <Header />
+    <main className="loginMain">
+     
+          <h4 className="">Login</h4>
+          <div className="">
             {data ? (
               <p>
                 Success! You may now head{' '}
@@ -64,15 +68,15 @@ const Login = (props) => {
                 />
                 <input
                   className="form-input"
-                  placeholder="******"
+                  placeholder="enter your password"
                   name="password"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
+                  className=""
+                  
                   type="submit"
                 >
                   Submit
@@ -86,10 +90,12 @@ const Login = (props) => {
               </div>
             )}
           </div>
-        </div>
-      </div>
+       
     </main>
+    <Footer />
+    </>
   );
 };
+
 
 export default Login;
