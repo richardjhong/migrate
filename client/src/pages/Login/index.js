@@ -49,7 +49,7 @@ const Login = (props) => {
     <Header />
     <main className="loginMain">
      
-          <h4 className="">Login</h4>
+          <h2 >Login</h2>
           <div className="">
             {data ? (
               <p>
