@@ -1,7 +1,23 @@
-// button {
-//     box-shadow: 2px 2px black;
-//     width: 75px;
-//     position: relative;
-//     font-weight: bolder;
-//     margin: auto;
-// }
+
+.countryCard {
+   display: flex;
+   justify-content:space-around;
+   align-items: flex-start;
+   width: 28%;
+   height: 300px;
+   overflow: hidden;
+   border: solid 5px var(--lightBorder);
+   background-color: var(--darkBackground);
+   color: var(--light);
+   margin-bottom: 3em;
+   border-radius: 30px;
+   padding:20px;
+   transition:box-shadow .2s;
+   cursor:pointer;
+};
+.cardTitle {
+   display:flex;
+   flex-direction:column;
+   justify-content:space-between;
+   width:45%;
+}

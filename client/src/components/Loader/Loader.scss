@@ -1,0 +1,28 @@
+.loader {
+    /*     border: 16px solid var(--dark); */
+    /*     border-top: 16px solid var(--darkBackground); */
+        border-radius: 50%;
+    /*     border-style: dashed; */
+        width: 120px;
+        height: 120px;
+        box-shadow:10px -10px 10px var(--lightBorder), -10px 10px 5px var(--lightBorder),  -10px -10px 5px var(--darkBackground), 10px 10px 5px var(--darkBackground);
+        animation: rotate 2s linear infinite;
+      }
+    
+    .loaderContainer {
+      width: 120px;
+      height: 120px;
+      margin:auto;
+      text-align:center;
+      
+    }
+    
+    .loaderText {
+      position:relative;
+      top:55%;
+    }
+      
+      @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }

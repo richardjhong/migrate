@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -12,6 +11,11 @@ import AboutUs from './pages/AboutUs';
 import SingleCountryCont from './pages/SingleCountryCont';
 import Form from './pages/Form';
 import './App.scss';
+
+
+
+import { SearchProvider } from './utils/CountryContext';
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -41,49 +45,52 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-
-      
-      <Router>
-
-        <Routes>
-          <Route 
-            path='/about'
-            element={<AboutUs />}
-          />
-          <Route
-            path="/splash"
-            element={<Splash />}
+      <SearchProvider>
+        <Router>
+          <Routes>
+            <Route
+              path='/about'
+              element={<AboutUs />}
             />
-          <Route
+            <Route
+              index
+              element={<Splash />}
+            />
+            <Route
             path="/form"
             element={<Form />}
             />  
           <Route
-            path="/SingleCountry"
-            element={<SingleCountryCont />}
-          />
-          <Route
-            path="/listings"
-            element={<CountryListing />}
-          />
-          <Route
-            path="/login"
-            element={<Login />}
-          />
-          <Route
-            path="/signup"
-            element={<Signup />}
-          />
-          <Route
-            path="/dashboard"
-            element={<Dashboard />} />
-          <Route 
-             path="/dashboard/:username" 
-             element={<Dashboard />}
-           />
-        </Routes>
+              path="/SingleCountry"
+              element={<SingleCountryCont />}
+            />
+            <Route
+              path="/SingleCountry/:countryname"
+              element={<SingleCountryCont />}
+            />
+            <Route
+              path="/listings"
+              element={<CountryListing />}
+            />
+            <Route
+              path="/login"
+              element={<Login />}
+            />
+            <Route
+              path="/signup"
+              element={<Signup />}
+            />
+            <Route
+              path="/dashboard"
+              element={<Dashboard />} />
+            <Route 
+              path="/dashboard/:username" 
+              element={<Dashboard />}
+            />
+          </Routes>
+        </Router>
+      </SearchProvider>
 
-      </Router>
 
     </ApolloProvider>
   );
