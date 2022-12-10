@@ -1,7 +1,10 @@
 import React from 'react';
 import './Form.scss';
 import airplane from '../../images/airplaneArt.png';
- 
+
+let selectionOne = document.querySelector('.selectionOne');
+let selectionTwo = document.querySelector('.selectionTwo');
+let selectionThree = document.querySelector('.selectionThree');
 
   class Form extends React.Component {
     constructor(props) {
@@ -25,6 +28,18 @@ import airplane from '../../images/airplaneArt.png';
       });
     }
 
+
+    handleSubmit(event) {
+    event.preventDefault();
+     console.log(selectionOne.value);
+    //  console.log(selectionTwo.value);
+    //  console.log(selectionThree.value);
+
+      if (selectionOne.value==='Africa') {
+        return console.log('hello');
+      }
+    }
+
   
     render() {
       return (
@@ -33,7 +48,7 @@ import airplane from '../../images/airplaneArt.png';
         <form onSubmit={this.handleSubmit} className="form">
           <label className="region">
             Pick your desired region:
-            <select className="selectionOne" type="select" value={this.state.value} onChange={this.handleChange}>
+            <select className="selectionOne" type="select" value={this.state.selectionOne.value} onChange={this.handleInputChange}>
               <option value="North America">North America</option>
               <option value="South America">South America</option>
               <option value="Europe">Europe</option>
@@ -47,7 +62,7 @@ import airplane from '../../images/airplaneArt.png';
           <br></br>
           <label className="optionOne">
             What's most important to you?:
-            <select className="selectionTwo" type="select" value={this.state.value} onChange={this.handleChange}>
+            <select className="selectionTwo" type="select" value={this.state.selectionTwo.value} onChange={this.handleInputChange}>
               <option value="Food Quality">Food Quality</option>
               <option value="Clean Water">Clean Water</option>
               <option value="Access to Housing">Access to Housing</option>
@@ -65,7 +80,7 @@ import airplane from '../../images/airplaneArt.png';
           </label>
           <label className="optionTwo">
             What's most important to you?:
-            <select className="selectionThree" type="select" value={this.state.value} onChange={this.handleChange}>
+            <select className="selectionThree" type="select" value={this.state.selectionThree.value} onChange={this.handleInputChange}>
               <option value="Food Quality">Food Quality</option>
               <option value="Clean Water">Clean Water</option>
               <option value="Access to Housing">Access to Housing</option>

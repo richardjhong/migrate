@@ -1,109 +1,98 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Form.scss';
 import airplane from '../../images/airplaneArt.png';
+import SearchSelect from "../../components/SearchSelect";
+import { SummarySection } from "../../components/SummarySection";
 
-let selectionOne = document.querySelector('.selectionOne');
-let selectionTwo = document.querySelector('.selectionTwo');
-let selectionThree = document.querySelector('.selectionThree');
+function Form() {
+  const [selectionOneValue, setSelectionOneValue] = useState("North America");
+  const [selectionTwoValue, setSelectionTwoValue] = useState("Food Quality");
+  const [selectionThreeValue, setSelectionThreeValue] = useState("Food Quality");
+  const [formIsSubmitted, setFormIsSubmitted] = useState(false);
 
-  class Form extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        selectionOne: '',
-        selectionTwo: '',
-        selectionThree: ''
-        };
-  
-      this.handleInputChange = this.handleInputChange.bind(this);
-    }
-  
-    handleInputChange(event) {
-      const target = event.target;
-      const value = target.type === 'select' ? target.select : target.value;
-      const name = target.name;
-
-      this.setState({
-        [name]:value
-      });
-    }
-
-
-    handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
-     console.log(selectionOne.value);
-    //  console.log(selectionTwo.value);
-    //  console.log(selectionThree.value);
+    console.log(selectionOneValue);
+    console.log(selectionTwoValue);
+    console.log(selectionThreeValue);
 
-      if (selectionOne.value==='Africa') {
-        return console.log('hello');
-      }
-    }
 
-  
-    render() {
-      return (
-        <div>
-        <h1 className="title">FIND YOUR PERFECT COUNTRY MATCH</h1>
-        <form onSubmit={this.handleSubmit} className="form">
-          <label className="region">
-            Pick your desired region:
-            <select className="selectionOne" type="select" value={this.state.selectionOne.value} onChange={this.handleInputChange}>
-              <option value="North America">North America</option>
-              <option value="South America">South America</option>
-              <option value="Europe">Europe</option>
-              <option value="Asia">Asia</option>
-              <option value="Africa">Africa</option>
-              <option value="Oceania">Oceania</option>
-            </select>
-          </label>
-          <br></br>
-          <br></br>
-          <br></br>
-          <label className="optionOne">
-            What's most important to you?:
-            <select className="selectionTwo" type="select" value={this.state.selectionTwo.value} onChange={this.handleInputChange}>
-              <option value="Food Quality">Food Quality</option>
-              <option value="Clean Water">Clean Water</option>
-              <option value="Access to Housing">Access to Housing</option>
-              <option value="Safety">Safety</option>
-              <option value="Free Press">Free Press</option>
-              <option value="Healthcare">Healthcare</option>
-              <option value="Environmental Quality">Environmental Quality</option>
-              <option value="Individual Rights">Individual Rights</option>
-              <option value="Personal Freedom and Choice">Personal Freedom and Choice</option>
-              <option value="Inclusiveness">Inclusiveness (LGBTQ+ Friendly)</option>
-              <option value="Access to Advanced Education">Access to Advanced Education</option>
-            </select>
-            <br></br>
-            <br></br>
-          </label>
-          <label className="optionTwo">
-            What's most important to you?:
-            <select className="selectionThree" type="select" value={this.state.selectionThree.value} onChange={this.handleInputChange}>
-              <option value="Food Quality">Food Quality</option>
-              <option value="Clean Water">Clean Water</option>
-              <option value="Access to Housing">Access to Housing</option>
-              <option value="Safety">Safety</option>
-              <option value="Free Press">Free Press</option>
-              <option value="Healthcare">Healthcare</option>
-              <option value="Environmental Quality">Environmental Quality</option>
-              <option value="Individual Rights">Individual Rights</option>
-              <option value="Personal Freedom and Choice">Personal Freedom and Choice</option>
-              <option value="Inclusiveness">Inclusiveness (LGBTQ+ Friendly)</option>
-              <option value="Access to Advanced Education">Access to Advanced Education</option>
-            </select>
-          </label>
-          <br></br>
-          <br></br>
-          <input className="submitButton" type="submit" value="Submit" />
-        </form>
-
-        <img className="airplane" src={airplane} alt="airplane"/>
-        </div>
-      );
-    }
-
+    setFormIsSubmitted(true);
   }
 
-  export default Form;
+  return (
+    <div>
+    <h1 className="title">FIND YOUR PERFECT COUNTRY MATCH</h1>
+    <form onSubmit={handleSubmit} className="form">
+      <label className="region">
+        Pick your desired region:
+        <SearchSelect
+          options={[
+            { label: "North America", value: "North America" },
+            { label: "South America", value: "South America" },
+            { label: "Europe", value: "Europe" },
+            { label: "Asia", value: "Asia" },
+            { label: "Africa", value: "Africa" },
+            { label: "Oceania", value: "Oceania" },
+          ]}
+          value={selectionOneValue}
+          setValue={setSelectionOneValue}
+        />
+      </label>
+      <br></br>
+      <br></br>
+      <br></br>
+      <label className="optionOne">
+        What's most important to you?:
+        <SearchSelect
+          options={[
+            { label: "Food Quality", value: "Food Quality" },
+            { label: "Clean Water", value: "Clean Water" },
+            { label: "Access to Housing", value: "Access to Housing" },
+            { label: "Safety", value: "Safety" },
+            { label: "Free Press", value: "Free Press" },
+            { label: "Healthcare", value: "Healthcare" },
+            { label: "Environmental Quality", value: "Environmental Quality" },
+            { label: "Individual Rights", value: "Individual Rights" },
+            { label: "Personal Freedom and Choice", value: "Personal Freedom and Choice" },
+            { label: "Inclusiveness", value: "Inclusiveness (LGBTQ+ Friendly)" },
+            { label: "Access to Advanced Education", value: "Access to Advanced Education" }
+          ]}
+          value={selectionTwoValue}
+          setValue={setSelectionTwoValue}
+        />
+        <br></br>
+        <br></br>
+      </label>
+      <label className="optionTwo">
+        What's most important to you?:
+        <SearchSelect
+          options={[
+            { label: "Food Quality", value: "Food Quality" },
+            { label: "Clean Water", value: "Clean Water" },
+            { label: "Access to Housing", value: "Access to Housing" },
+            { label: "Safety", value: "Safety" },
+            { label: "Free Press", value: "Free Press" },
+            { label: "Healthcare", value: "Healthcare" },
+            { label: "Environmental Quality", value: "Environmental Quality" },
+            { label: "Individual Rights", value: "Individual Rights" },
+            { label: "Personal Freedom and Choice", value: "Personal Freedom and Choice" },
+            { label: "Inclusiveness", value: "Inclusiveness (LGBTQ+ Friendly)" },
+            { label: "Access to Advanced Education", value: "Access to Advanced Education" }
+          ]}
+          value={selectionThreeValue}
+          setValue={setSelectionThreeValue}
+        />
+      </label>
+      <br></br>
+      <br></br>
+      <input className="submitButton" type="submit" value="Submit" />
+    </form>
+
+    <img className="airplane" src={airplane} alt="airplane"/>
+    {formIsSubmitted && <SummarySection selections={{ first: selectionOneValue, second: selectionTwoValue, third: selectionThreeValue}} />}
+    </div>
+  );
+}
+
+export default Form;
