@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 import SearchCountry from '../../components/SearchCountry';
 import { useSearch } from '../../utils/CountryContext';
-import { QUERY_SINGLE_COMPILATION } from '../../utils/queries';
+import { QUERY_SINGLE_COMPILATION} from '../../utils/queries';
 import Auth from '../../utils/auth';
 import "./dashboard.scss";
 import Header from '../../components/Header';
@@ -22,10 +22,10 @@ const Dashboard = () => {
   const { searches } = useSearch();
   console.log(searches);
 
-  const { loading, data } = useQuery(QUERY_SINGLE_COMPILATION, {
-    variables: { countryname: searches[0] }
-  });
-  console.log(loading, data)
+  // const { loading, data } = useQuery(QUERY_SINGLE_COMPILATION, {
+  //   variables: { countryname: searches[0] }
+  // });
+  // console.log(loading, data)
 
   const handleLogout = async (e) => {
     e.preventDefault();
@@ -72,13 +72,13 @@ const Dashboard = () => {
             <h3>Your Most Recent Searches: </h3>
             <div className="dashboardContainer">
               <div className='savedSearchCard' >
-                {loading ? (
+                {loadingC ? (
                   <div>Loading...</div>
                 ) :
-                  searches && searches.map((search) => (
-                    <div>
+                  searches && searches.map((search, i) => (
+                    <div key={i}>
                       <h4 className="">
-                        <a href={`/singleCountry/${search}`}>{search}</a>
+                        <a href={`/singleCountry/${search.name}`}>{search.name}</a>
                       </h4>
                     </div>
                   ))}
