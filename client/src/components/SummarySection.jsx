@@ -4,6 +4,7 @@ import '../pages/Form/Form.scss';
 const food = 'The Global Food Security Index takes into account: affordability, availability, quality, safety, sustainability, and adaptation to provide a complete picture of a nations food security. ';
 const water = 'Millions of people around the globe struggle with access to clean water. This can be extremely important when choosing a new home. In fact, as many as 1 in 3 people globally do not have access to clean drinking water. An Environmental Performance Index can be applied to each country to measure their quality of drinking water. The EPI calculates a score out of 100, wiith 100 being the highest rank a country can receive. ';
 const housing = 'The housing affordability index takes into account the average income within a country and compares it to the average cost of housing. This index serves as an overview of housing availability for the average citizen. ';
+const safe = 'The Global Peace Index ranks the safest and most peaceful countries in the world. This report is published annually by the Institute for Economics and Peace, which defines itself as "an independent, non-partisan, non-profit organization dedicated to shifting the world\'s focus to peace as a positive, achievable and tangible measure of human wellbeing and progress." The report researches countries to determine which are the safest and which are the most dangerous. A total of 163 countries are featured in the GPI report, which ranks each country\'s level of safety or danger based upon 23 different indicators. The indicators used to compile the GPI include the number of internal and external violent conflicts, level of distrust, political instability, potential for terrorist acts, number of homicides, and military expenditures as a percentage of GDP. These indicators are grouped into three broad categories: Ongoing International Conflict, Societal Safety and Security, and Militarization, and a score is calculated for each of the 163 nations featured in the report. The lower the score, the higher the nation is ranked in terms of safety. ';
 
 export let SummarySection = ({ selections }) => {
     //North America -FOOD QUALITY
@@ -42,8 +43,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Safety') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>CANADA</h1>
+                <p>{safe} Canada has a GPI rating of 1.389</p>
             </div>
         )
     }
@@ -137,8 +138,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "South America" && selections.second === 'Safety') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>URUGUAY</h1>
+                <p>{safe} URUGUAY has a GPI rating of 1.795</p>
             </div>
         )
     }
@@ -229,8 +230,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Safety') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>Iceland</h1>
+                <p>{safe} Iceland has a GPI rating of 1.107, making it the safest country in the world.</p>
             </div>
         )
     }
@@ -324,8 +325,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Safety') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>SINGAPORE</h1>
+                <p>{safe} Singapore has a GPI rating of 1.326</p>
             </div>
         )
     }
@@ -418,8 +419,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Safety') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>MAURITIUS</h1>
+                <p>{safe} Mauritius has a GPI rating of 1.57.</p>
             </div>
         )
     }
@@ -511,8 +512,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Safety') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>NEW ZEALAND</h1>
+                <p>{safe} New Zealand has a GPI rating of 1.269, making it the second safest country in the world.</p>
             </div>
         )
     }
