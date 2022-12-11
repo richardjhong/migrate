@@ -1,7 +1,9 @@
 import Header from "../../components/Header";
+
 import Footer from "../../components/Footer";
 import visaImage from "../../images/global-residence-index-yMhTgr2zdVM-unsplash.jpg"
 import './Visa.scss'
+
 
 export default function Visa() {
 
@@ -41,6 +43,5 @@ export default function Visa() {
             </main>
             <Footer />
         </>
-
     )
 }
