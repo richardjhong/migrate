@@ -5,6 +5,7 @@ const food = 'The Global Food Security Index takes into account: affordability, 
 const water = 'Millions of people around the globe struggle with access to clean water. This can be extremely important when choosing a new home. In fact, as many as 1 in 3 people globally do not have access to clean drinking water. An Environmental Performance Index can be applied to each country to measure their quality of drinking water. The EPI calculates a score out of 100, wiith 100 being the highest rank a country can receive. ';
 const housing = 'The housing affordability index takes into account the average income within a country and compares it to the average cost of housing. This index serves as an overview of housing availability for the average citizen. ';
 const safe = 'The Global Peace Index ranks the safest and most peaceful countries in the world. This report is published annually by the Institute for Economics and Peace, which defines itself as "an independent, non-partisan, non-profit organization dedicated to shifting the world\'s focus to peace as a positive, achievable and tangible measure of human wellbeing and progress." The report researches countries to determine which are the safest and which are the most dangerous. A total of 163 countries are featured in the GPI report, which ranks each country\'s level of safety or danger based upon 23 different indicators. The indicators used to compile the GPI include the number of internal and external violent conflicts, level of distrust, political instability, potential for terrorist acts, number of homicides, and military expenditures as a percentage of GDP. These indicators are grouped into three broad categories: Ongoing International Conflict, Societal Safety and Security, and Militarization, and a score is calculated for each of the 163 nations featured in the report. The lower the score, the higher the nation is ranked in terms of safety. ';
+const press = 'The World Press Freedom Index is a publication by the Reporters without Borders (RSF) as an advocacy tool based on the principles of emulation between states. RSF has been ranking countries according to the degree of the freedom of the press since 2002. The influence of the RSF report is growing with many heads of states and governments taking note of the publication. The index ranks countries based on the evaluation of pluralism, independence of the media, the legislative framework in the country, and the safety of journalists. The degree of freedom is determined by analyzing the response of experts to the questions devised by the RSF. The data gathered is combined with the number of abuses and acts of violence meted on journalists. The complete tally of abuses and violence on journalists and media houses are kept by experts who are assigned to the different regions. In the interpretation of the freedom index result, the higher the figure, the worse the situation ';
 
 export let SummarySection = ({ selections }) => {
     //North America -FOOD QUALITY
@@ -52,8 +53,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Free Press') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>Costa Rica</h1>
+                <p>{press} Costa Rica has a PFI of 11.10, ranking 6th globally.</p>
             </div>
         )
     }
@@ -147,8 +148,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "South America" && selections.second === 'Free Press') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>URUGUAY</h1>
+                <p>{press} Uruguay has a PFI of 15.88, ranking 20th globally.</p>
             </div>
         )
     }
@@ -239,8 +240,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Free Press') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>Finland</h1>
+                <p>{press} Finland has a PFI of 8.59, ranking 1st globally.</p>
             </div>
         )
     }
@@ -334,8 +335,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Free Press') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>South Korea</h1>
+                <p>{press} South Korea has a PFI of 28.58, ranking 70th globally.</p>
             </div>
         )
     }
@@ -428,8 +429,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Free Press') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+               <h1>Namibia</h1>
+                <p>{press} Namibia has a PFI of 15.15, ranking 17th globally.</p>
             </div>
         )
     }
@@ -521,8 +522,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Free Press') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>Samoa</h1>
+                <p>{press} Samoa has a FPI of 18.80, ranking 29th globally.</p>
             </div>
         )
     }
