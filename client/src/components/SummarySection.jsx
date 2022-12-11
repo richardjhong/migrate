@@ -3,6 +3,7 @@ import '../pages/Form/Form.scss';
 
 const food = 'The Global Food Security Index takes into account: affordability, availability, quality, safety, sustainability, and adaptation to provide a complete picture of a nations food security. ';
 const water = 'Millions of people around the globe struggle with access to clean water. This can be extremely important when choosing a new home. In fact, as many as 1 in 3 people globally do not have access to clean drinking water. An Environmental Performance Index can be applied to each country to measure their quality of drinking water. The EPI calculates a score out of 100, wiith 100 being the highest rank a country can receive. ';
+const housing = 'The housing affordability index takes into account the average income within a country and compares it to the average cost of housing. This index serves as an overview of housing availability for the average citizen. ';
 
 export let SummarySection = ({ selections }) => {
     //North America -FOOD QUALITY
@@ -32,8 +33,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Access to Housing') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>PUERTO RICO</h1>
+                <p>{housing} Puerto Rico has the most affordable housing in North America.</p>
             </div>
         )
     }
@@ -127,8 +128,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "South America" && selections.second === 'Access to Housing') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>BOLIVIA</h1>
+                <p>{housing} Bolivia has the most affordable housing in South America.</p>
             </div>
         )
     }
@@ -219,8 +220,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Access to Housing') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>DENMARK</h1>
+                <p>{housing} Denmark has the most affordable housing in Europe. However, it is important to note that there are protections against purchasing property if you are not a citizen.</p>
             </div>
         )
     }
@@ -314,8 +315,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Access to Housing') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>SAUDI ARABIA</h1>
+                <p>{housing} Saudi Arabia has the most affordable housing in the world.</p>
             </div>
         )
     }
@@ -408,8 +409,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Access to Housing') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>South Africa</h1>
+                <p>{housing} South Africa has the most affordable housing in Africa and is the second most affordable country to buy a home in the world.</p>
             </div>
         )
     }
@@ -501,8 +502,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Access to Housing') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>AUSTRALIA</h1>
+                <p>{housing} Australia has the most affordable housing in Oceania and ranks 15th globally for housing affordability.</p>
             </div>
         )
     }
