@@ -64,14 +64,12 @@ const SearchCountry = () => {
   };
   const onChangeHandler = (text) => {
     let matches = [];
-    console.log(matches);
     if (text.length > 0) {
       matches = countries.filter(country => {
         const regex = new RegExp(`${text}`, "gi");
         return country.countryname.match(regex)
       })
     }
-    console.log('matches', matches);
     setSuggestions(matches);
     setSearchImgInput(text);
 

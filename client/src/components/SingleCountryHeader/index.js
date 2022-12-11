@@ -12,15 +12,19 @@ const SingleCountryHeader = () => {
 
   const { searches } = useSearch();
   const { countryname: countryParam } = useParams();
+  const navigate = useNavigate();
+
+  let index='';
+  console.log(countryParam);
+  console.log(searches);
   if(countryParam){
-   
-    const index=searches.indexOf(countryParam);
+
+    index=searches.findIndex(country =>country.name===countryParam);
     console.log(index);
-
   }
-
-
-
+  // if(index===-1){
+  //   navigate('/', { replace: true });    
+  // }
 
 
   return (
@@ -28,7 +32,7 @@ const SingleCountryHeader = () => {
       {/* <div className='singleCountHeadCont'> */}
         <div className="singleCountryHead">
 
-        {searches[0].imgs.map((val,i) => {
+        {searches[index].imgs.map((val,i) => {
               return (
                 <img
                   key={i}
@@ -40,7 +44,7 @@ const SingleCountryHeader = () => {
             })}
           </div>
           <div className='singleCountryHeadTitle'>
-        <h2 >{searches[0].name}</h2>
+        <h2 >{searches[index].name}</h2>
           </div>
         </>
   );
