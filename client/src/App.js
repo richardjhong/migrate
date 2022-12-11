@@ -55,10 +55,10 @@ function App() {
               index
               element={<Splash />}
             />
-            <Route
+            {/* <Route
               path="/SingleCountry"
               element={<SingleCountryCont />}
-            />
+            /> */}
             <Route
               path="/SingleCountry/:countryname"
               element={<SingleCountryCont />}

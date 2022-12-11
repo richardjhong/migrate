@@ -4,21 +4,18 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_COMPILATION } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
+import {capitalizeFirstLetter} from '../../utils/helper'
 
 export default function SingleCountry({ countryYearIndex }) {
-  const { searches, countryImgs} = useSearch();
+
+  const { searches } = useSearch();
   const { countryname: countryParam } = useParams();
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+    console.log(countryYearIndex);
 
   // account for transforming manual entries that do not have a capital letter
-  // in each word of searched country
-  let caseTransformedCountryParam = countryParam.split(' ')
+  const caseTransformedCountryParam = capitalizeFirstLetter(countryParam);
 
-  for (let i = 0; i < caseTransformedCountryParam.length; i++) {
-    caseTransformedCountryParam[i] = caseTransformedCountryParam[i][0].toUpperCase() + caseTransformedCountryParam[i].substring(1)
-  }
-
-  caseTransformedCountryParam = caseTransformedCountryParam.join(' ')
 
   const { loading, data } = useQuery(QUERY_SINGLE_COMPILATION,{
     variables:{countryname : caseTransformedCountryParam}
