@@ -9,7 +9,7 @@ import './SingleCountryCont.scss'
 
 function SingleCountryCont() {
     const [countryYearIndex, setCountryYearIndex] = useState(4);
-    const [chartTypeIndex, setChartTypeIndex] = useState('Line');
+    const [chartTypeIndex, setChartTypeIndex] = useState('Bar');
 
     return (
         <>
@@ -39,8 +39,8 @@ function SingleCountryCont() {
                                 options={
                                     [
                                         {value: '', text: 'Select chart type', disabled: true},
-                                        {value: 'Line', text: 'Line'},
                                         {value: 'Bar', text: 'Bar'},
+                                        {value: 'Line', text: 'Line'},
                                       ]
                                 }
                                 affectedState={"chart"}
