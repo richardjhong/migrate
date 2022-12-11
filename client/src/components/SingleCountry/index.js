@@ -2,10 +2,9 @@ import CountryCards from "../CountryCards";
 import "./SingleCountry.scss";
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_SINGLE_COMPILATION, QUERY_VALID_COUNTRY } from '../../utils/queries';
+import { QUERY_SINGLE_COMPILATION } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
 import {capitalizeFirstLetter} from '../../utils/helper'
-
 
 export default function SingleCountry({ countryYearIndex }) {
 
@@ -30,13 +29,18 @@ export default function SingleCountry({ countryYearIndex }) {
   const { loading, data } = useQuery(QUERY_SINGLE_COMPILATION,{
     variables:{countryname : caseTransformedCountryParam}
   });
+  
+  if (data && data?.singleCompileCountry === null) {
+    navigate('/', { replace: true });
+  }
 
-  const singleCountry = data?.singleCompileCountry.year_catalog || [];
+  const singleCountry = data?.singleCompileCountry?.year_catalog || [];
 
   return(
     <div className='containerCenter'>
         <div className='countryCardContainer'>
-        {loading ? (
+        {/* accounts for letting asynchronous conditional check of navigate to homepage to assess before possibly passing year_catalog that is undefined */}
+        {(loading || data.singleCompileCountry === null )? (
             <div>Loading...</div>
           ) : (
             <>
