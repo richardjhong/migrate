@@ -6,7 +6,7 @@ import { QUERY_SINGLE_COMPILATION } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
 import {capitalizeFirstLetter} from '../../utils/helper'
 
-export default function SingleCountry({ countryYearIndex }) {
+export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
 
   const { searches } = useSearch();
   const { countryname: countryParam } = useParams();
@@ -36,7 +36,7 @@ export default function SingleCountry({ countryYearIndex }) {
           ) : (
             <>
               <CountryCards
-                  countryProperties={singleCountry} countryYearIndex={countryYearIndex}
+                  countryProperties={singleCountry} countryYearIndex={countryYearIndex} chartTypeIndex={chartTypeIndex}
               /> 
             </>
           )}
