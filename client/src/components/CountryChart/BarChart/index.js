@@ -18,10 +18,10 @@ const BarChart = ({
             
           }}
           size={5}
-          animate={{
-            duration: 2000,
-            onLoad: { duration: 1000 }
-          }}
+          // animate={{
+          //   duration: 2000,
+          //   onLoad: { duration: 1000 }
+          // }}
           domain={{y: [0, 100]}}
           labels={({ datum }) => datum.y}
           data={[

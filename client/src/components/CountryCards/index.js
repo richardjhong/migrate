@@ -104,7 +104,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
 
                         </section>
                         <div className='expandedChartArea'>
-                            {chartTypeIndex === 0 ? 
+                            {chartTypeIndex === 'Line' ? 
                                 (<LineChart
                                     fields={
                                         {
@@ -173,7 +173,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            {chartTypeIndex === 0 ? 
+                            {chartTypeIndex === 'Line' ? 
                                 (<LineChart
                                     fields={
                                         {
@@ -242,7 +242,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            {chartTypeIndex === 0 ? 
+                            {chartTypeIndex === 'Line' ? 
                                 (<LineChart
                                     fields={
                                         {
@@ -308,7 +308,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            {chartTypeIndex === 0 ? 
+                            {chartTypeIndex === 'Line' ? 
                                 (<LineChart
                                     fields={
                                         {
@@ -375,7 +375,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                                 <p className='clickHere'>Click to close...</p>
                             </section>
                             <div className='expandedChartArea'>
-                            {chartTypeIndex === 0 ? 
+                            {chartTypeIndex === 'Line' ? 
                                 (<LineChart
                                     fields={
                                         {
@@ -441,7 +441,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            {chartTypeIndex === 0 ? 
+                            {chartTypeIndex === 'Line' ? 
                                 (<LineChart
                                     fields={
                                         {
@@ -507,7 +507,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            {chartTypeIndex === 0 ? 
+                            {chartTypeIndex === 'Line' ? 
                                 (<LineChart
                                     fields={
                                         {
@@ -572,7 +572,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            {chartTypeIndex === 0 ? 
+                            {chartTypeIndex === 'Line' ? 
                                 (<LineChart
                                     fields={
                                         {
@@ -639,7 +639,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            {chartTypeIndex === 0 ? 
+                            {chartTypeIndex === 'Line' ? 
                                 (<LineChart
                                     fields={
                                         {
@@ -707,7 +707,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            {chartTypeIndex === 0 ? 
+                            {chartTypeIndex === 'Line' ? 
                                 (<LineChart
                                     fields={
                                         {
@@ -774,7 +774,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            {chartTypeIndex === 0 ? 
+                            {chartTypeIndex === 'Line' ? 
                                 (<LineChart
                                     fields={
                                         {
@@ -840,7 +840,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            {chartTypeIndex === 0 ? 
+                            {chartTypeIndex === 'Line' ? 
                                 (<LineChart
                                     fields={
                                         {

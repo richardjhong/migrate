@@ -9,7 +9,7 @@ import './SingleCountryCont.scss'
 
 function SingleCountryCont() {
     const [countryYearIndex, setCountryYearIndex] = useState(4);
-    const [chartTypeIndex, setChartTypeIndex] = useState(0);
+    const [chartTypeIndex, setChartTypeIndex] = useState('Line');
 
     return (
         <>
@@ -32,15 +32,15 @@ function SingleCountryCont() {
                                         {value: 4, text: '2022'},
                                       ]
                                 }
-                                affectedStates={"year"}
+                                affectedState={"year"}
                             />
                             <Dropdown 
                                 chartTypeIndex={chartTypeIndex} setChartTypeIndex={setChartTypeIndex} 
                                 options={
                                     [
                                         {value: '', text: 'Select chart type', disabled: true},
-                                        {value: 0, text: 'Line'},
-                                        {value: 1, text: 'Bar'},
+                                        {value: 'Line', text: 'Line'},
+                                        {value: 'Bar', text: 'Bar'},
                                       ]
                                 }
                                 affectedState={"chart"}

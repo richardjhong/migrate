@@ -38,7 +38,7 @@ export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
       rank_score_spi: data.singleCompileCountry.year_catalog[4].rank_score_spi,
       score_spi: data.singleCompileCountry.year_catalog[4].score_spi,
     }
-    updateSearch(newData);
+  updateSearch(newData);
   }
 
 

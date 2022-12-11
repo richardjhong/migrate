@@ -6,7 +6,7 @@ const Dropdown = ({ countryYearIndex, chartTypeIndex, setCountryYearIndex, setCh
    
   return (
     <>
-      
+
       <select className='alignSelect'
         onChange={
           ((e) => {
