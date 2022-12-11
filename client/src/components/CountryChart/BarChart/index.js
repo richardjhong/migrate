@@ -1,8 +1,8 @@
 import React from "react";
-import { VictoryChart, VictoryAxis, VictoryLabel, VictoryLine, VictoryContainer, VictoryScatter } from "victory";
-import './CountryChart.scss';
+import { VictoryChart, VictoryAxis, VictoryLabel, VictoryBar, VictoryContainer, VictoryScatter } from "victory";
+import '../CountryChart.scss';
 
-const Chart = ({
+const BarChart = ({
   fields
 }) => {
   return (
@@ -10,7 +10,7 @@ const Chart = ({
       <VictoryChart height={600} width={1000}
         containerComponent={<VictoryContainer responsive={true}/>}
       >
-        <VictoryLine
+        <VictoryBar
           labelComponent={<VictoryLabel renderInPortal dy={-20}/>}
           style={{
             data: { stroke: "#022831" },
@@ -54,5 +54,5 @@ const Chart = ({
   )
 };
 
-export default Chart;
+export default BarChart
  
