@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 import SearchCountry from '../../components/SearchCountry';
 import { useSearch } from '../../utils/CountryContext';
-import { QUERY_SINGLE_COMPILATION } from '../../utils/queries';
+import { QUERY_SINGLE_COMPILATION} from '../../utils/queries';
 import Auth from '../../utils/auth';
 import "./dashboard.scss";
 import Header from '../../components/Header';
@@ -46,6 +46,7 @@ const Dashboard = () => {
     return (
       <>
         <Header />
+        <main class='dashMain'>
         <div>
           <h4>
             You need to be logged in to see this. Use the navigation links below to
@@ -53,6 +54,7 @@ const Dashboard = () => {
           </h4>
           <button><a href="/login">Login</a></button>
         </div>
+        </main>
         <Footer />
       </>
     );
@@ -62,31 +64,31 @@ const Dashboard = () => {
 
       <Header />
       <main class='dashMain'>
-        <div className="flex-row justify-center mb-3">
-          <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+        <div className="">
+          <h2 className="">
             Welcome {userParam ? `back, ${user.username} continue where you left off.. !` : `back, ${user.username}!`}
           </h2>
           <div>
             <h3>Your Most Recent Searches: </h3>
-            {/* <div className='countryCard' id="col2row1"> */}
-            {loading ? (
-              <div>Loading...</div>
-            ) :
-              searches && searches.map((search) => (
-                <div className='countryCard' id="col2row1">
-                  <div>
-                    <h4 className="card-header bg-primary text-light p-2 m-0">
-                      <a href={`/singleCountry/${search.name}`}>{search.name}</a>
-                    </h4>
-                  </div>
-                </div>
-              ))}
-            {/* </div> */}
-            <div>
-              <h3>Start a new search here: <SearchCountry className="button" /></h3>
+            <div className="dashboardContainer">
+              <div className='savedSearchCard' >
+                {loading ? (
+                  <div>Loading...</div>
+                ) :
+                  searches && searches.map((search) => (
+                    <div>
+                      <h4 className="">
+                        <a href={`/singleCountry/${search}`}>{search}</a>
+                      </h4>
+                    </div>
+                  ))}
+              </div>
+              <div className='dashSearch'>
+                <h3>Start a new search here: <SearchCountry className="button" /></h3>
+              </div>
             </div>
+            <button type="submit" onClick={handleLogout}>Log Out</button>
           </div>
-          {/* <button type="submit" onClick={handleLogout}>Log Out</button> */}
         </div>
       </main>
       <Footer />

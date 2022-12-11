@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
-
+import './Signup.scss';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import Auth from '../../utils/auth';
 
 const Signup = () => {
@@ -40,11 +42,12 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-          <div className="card-body">
+    <>
+    <Header />
+    <main>
+     
+          <h2>Sign Up</h2>
+          <div className="signupForm">
             {data ? (
               <p>
                 Success! You may now head{' '}
@@ -70,15 +73,14 @@ const Signup = () => {
                 />
                 <input
                   className="form-input"
-                  placeholder="******"
+                  placeholder="Your password"
                   name="password"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
+                  
                   type="submit"
                 >
                   Submit
@@ -87,14 +89,15 @@ const Signup = () => {
             )}
 
             {error && (
-              <div className="my-3 p-3 bg-danger text-white">
+              <div className="">
                 {error.message}
               </div>
             )}
           </div>
-        </div>
-      </div>
+       
     </main>
+    <Footer />
+    </>
   );
 };
 
