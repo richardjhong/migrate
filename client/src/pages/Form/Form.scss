@@ -1,11 +1,11 @@
 .form{
-    background-color: #04566e;
-    color: #eff2f6;
+    background-color: var(--darkBackground);
+    color: var(--light);
     margin: auto;
     margin-top: 10%;
     width: 50%;
     padding: 2%;
-    border: 4px solid #b4d340;
+    border: 4px solid var(--lightBorder);
 }
 
 .region {
@@ -36,19 +36,17 @@
 }
 
 .title {
-    color: #022831;
-    // position: fixed;
-    margin-left: 34%;
-    margin-right: 34%;
     margin-top: 5%;
     margin-bottom: -10%;
-    width: 100vw;
 }
 
 h1{
-    color: red;
+    color: var(--dark);
+    text-align: center;
+    width: 100vw;
 }
 
 p {
-    color: red;
+    color: var(--dark);
+    padding: 0px 20px;
 }
