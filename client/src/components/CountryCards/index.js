@@ -2,7 +2,8 @@ import React, { useState, useRef } from "react";
 import './CountryCards.scss';
 import { gsap } from 'gsap'
 import { Flip } from "gsap/Flip";
-import Chart from '../CountryChart/'
+import LineChart from '../CountryChart/LineChart'
+import BarChart from '../CountryChart/BarChart'
 import {columnData} from "../../utils/countryCardData";
 import { valueFromAST } from "graphql";
 
@@ -50,7 +51,7 @@ const expand = (event) => {
 }
 
 
-export default function CountryCards({ countryProperties, countryYearIndex }) {
+export default function CountryCards({ countryProperties, countryYearIndex, chartTypeIndex }) {
     let ref1 = useRef(null);
     let ref2 = useRef(null);
     let ref3 = useRef(null);

@@ -17,7 +17,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Food Quality') {
         return (
             <div>
-                <h1>CANADA</h1>
+                <h1><a href="/SingleCountry/canada">CANADA</a></h1>
                 <p>If food quality is the most important factor in selecting a new home, Canada would be the best fit for you. {food} 
                 Canada ranks 7th in the world overall and 1st in North America in terms of food security. 
                 Not only does Canada have an extremely stable supply of food, but The Canadian Food Inspection Agency 
@@ -31,7 +31,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Clean Water') {
         return (
             <div>
-                <h1>CANADA</h1>
+                <h1><a href="/SingleCountry/canada">CANADA</a></h1>
                 <p>{water} Canada has an overall EPI ranking of 88/100. Canada has the best drinking water in North America and 24th globally.</p>
             </div>
         )
@@ -40,7 +40,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Access to Housing') {
         return (
             <div>
-                <h1>PUERTO RICO</h1>
+                <h1><a href="/SingleCountry/Puerto%20Rico">PUERTO RICO</a></h1>
                 <p>{housing} Puerto Rico has the most affordable housing in North America.</p>
             </div>
         )
@@ -49,7 +49,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Safety') {
         return (
             <div>
-                <h1>CANADA</h1>
+                <h1><a href="/SingleCountry/canada">CANADA</a></h1>
                 <p>{safe} Canada has a GPI rating of 1.389</p>
             </div>
         )
@@ -58,7 +58,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Free Press') {
         return (
             <div>
-                <h1>COSTA RICA</h1>
+                <h1><a href="/SingleCountry/Costa%20Rica">COSTA RICA</a></h1>
                 <p>{press} Costa Rica has a PFI of 11.10, ranking 6th globally.</p>
             </div>
         )
@@ -67,7 +67,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Healthcare') {
         return (
             <div>
-                <h1>CANADA</h1>
+                <h1><a href="/SingleCountry/Canada">CANADA</a></h1>
                 <p>{health} Canada ranks 14th in the world on the Health Care Index.</p>
             </div>
         )
@@ -76,7 +76,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Environmental Quality') {
         return (
             <div>
-                <h1>CANADA</h1>
+                <h1><a href="/SingleCountry/Canada">CANADA</a></h1>
                 <p>{enviro} Canada has an EPI of 71.00, ranking 20th globally.</p>
             </div>
         )
@@ -85,7 +85,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Personal Freedom and Choice') {
         return (
             <div>
-                <h1>CANADA</h1>
+                <h1><a href="/singleCountry/Canada">CANADA</a></h1>
                 <p>{free} Canada has a Human Freedom Index of 8.85, making them the 6th freest country in the world.</p>
             </div>
         )
@@ -94,7 +94,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Inclusiveness') {
         return (
             <div>
-                <h1>CANADA</h1>
+                <h1><a href="/SingleCountry/Canada">CANADA</a></h1>
                 <p>{include} Canada has an inclusiveness index of 69.42/100</p>
             </div>
         )
@@ -103,7 +103,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Access to Advanced Education') {
         return (
             <div>
-                <h1>CANADA</h1>
+                <h1><a href="/SingleCountry/Canada">CANADA</a></h1>
                 <p>{edu} Canada is the most educated country globally, with 56.71% of adults meeting the OECD criteria.</p>
             </div>
         )
@@ -112,7 +112,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "South America" && selections.second === 'Food Quality') {
         return (
             <div>
-                <h1>CHILE</h1>
+                <h1><a href="/SingleCountry/Chile">CHILE</a></h1>
                 <p>If food quality is the most important factor in selecting a new home, Chile would be the best fit for you. {food} 
                 Chile ranks 25th in the world overall and 1st in South America in terms of food security.
                 Due to Chile's high income level- less than 3% of the population suffers from undernourishment.
@@ -126,7 +126,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "South America" && selections.second === 'Clean Water') {
         return (
             <div>
-                <h1>CHILE</h1>
+                <h1><a href="/SingleCountry/Chile">CHILE</a></h1>
                 <p>{water} Chile has an overall EPI ranking of 68.1/100. Chile has the best drinking water in South America and 38th globally.</p>
             </div>
         )
@@ -135,7 +135,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "South America" && selections.second === 'Access to Housing') {
         return (
             <div>
-                <h1>BOLIVIA</h1>
+                <h1><a href="/SingleCountry/Bolivia">BOLIVIA</a></h1>
                 <p>{housing} Bolivia has the most affordable housing in South America.</p>
             </div>
         )
@@ -144,7 +144,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "South America" && selections.second === 'Safety') {
         return (
             <div>
-                <h1>URUGUAY</h1>
+                <h1><a href="/SingleCountry/uruguay">URUGUAY</a></h1>
                 <p>{safe} URUGUAY has a GPI rating of 1.795</p>
             </div>
         )
@@ -153,7 +153,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "South America" && selections.second === 'Free Press') {
         return (
             <div>
-                <h1>URUGUAY</h1>
+                <h1><a href="/SingleCountry/uruguay">URUGUAY</a></h1>
                 <p>{press} Uruguay has a PFI of 15.88, ranking 20th globally.</p>
             </div>
         )
@@ -162,7 +162,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "South America" && selections.second === 'Healthcare') {
         return (
             <div>
-                <h1>CHILE</h1>
+                <h1><a href="/SingleCountry/Chile">CHILE</a></h1>
                 <p>{health} Chile ranks 37th in the world on the Health Care Index.</p>
             </div>
         )
@@ -171,7 +171,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "South America" && selections.second === 'Environmental Quality') {
         return (
             <div>
-                <h1>CHILE</h1>
+                <h1><a href="/SingleCountry/Chile">CHILE</a></h1>
                 <p>{enviro} Chile has an EPI of 55.3, ranking 58.2 globally.</p>
             </div>
         )
@@ -180,7 +180,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "South America" && selections.second === 'Personal Freedom and Choice') {
         return (
             <div>
-                <h1>CHILE</h1>
+                <h1><a href="/SingleCountry/Chile">CHILE</a></h1>
                 <p>{free} Chile has a Human Freedom Index of 8.44, making them the 28th freest country in the world.</p>
             </div>
         )
@@ -198,7 +198,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "South America" && selections.second === 'Access to Advanced Education') {
         return (
             <div>
-                <h1>CHILE</h1>
+                <h1><a href="/SingleCountry/Chile">CHILE</a></h1>
                 <p>{edu} Chile and Uruguay continue to lead the ranking as the best education systems in Latin America, but their performance is on average two years behind of OECD students.</p>
             </div>
         )
@@ -207,7 +207,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Food Quality') {
         return (
             <div>
-                <h1>FINLAND</h1>
+                <h1><a href="/SingleCountry/Finand">FINLAND</a></h1>
                 <p>Finland not only ranks 1st in Europe in overall food security, but first in the globe. {food} 
                 Finland has extraordinarily high nutrition standards and imports quite a few products.
                 In addition to their high quality of food, Finland also teaches nutrition in their school systems to ensure a food educated populous.</p>
@@ -218,7 +218,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Clean Water') {
         return (
             <div>
-                <h1>SWITZERLAND</h1>
+                <h1><a href="/SingleCountry/switzerland">SWITZERLAND</a></h1>
                 <p>{water} Luckily,Switzerland has some of the cleanest water in the world. Switzerland boasts an impressive 100/100 EPI score, tied with Finland, Iceland, the Netherlands, Norway, and the United Kingdom. </p>
             </div>
         )
@@ -227,7 +227,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Access to Housing') {
         return (
             <div>
-                <h1>DENMARK</h1>
+                <h1><a href="/SingleCountry/denmark">DENMARK</a></h1>
                 <p>{housing} Denmark has the most affordable housing in Europe. However, it is important to note that there are protections against purchasing property if you are not a citizen.</p>
             </div>
         )
@@ -236,7 +236,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Safety') {
         return (
             <div>
-                <h1>ICELAND</h1>
+                <h1><a href="/SingleCountry/Iceland">ICELAND</a></h1>
                 <p>{safe} Iceland has a GPI rating of 1.107, making it the safest country in the world.</p>
             </div>
         )
@@ -245,7 +245,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Free Press') {
         return (
             <div>
-                <h1>FINLAND</h1>
+                <h1><a href="/SingleCountry/Finand">FINLAND</a></h1>
                 <p>{press} Finland has a PFI of 8.59, ranking 1st globally.</p>
             </div>
         )
@@ -254,7 +254,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Healthcare') {
         return (
             <div>
-                <h1>Denmark</h1>
+                <h1><a href="/SingleCountry/denmark">DENMARK</a></h1>
                 <p>{health} Denmark ranks first in the world on the Health Care Index.</p>
             </div>
         )
@@ -263,7 +263,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Environmental Quality') {
         return (
             <div>
-                <h1>DENMARK</h1>
+                <h1><a href="/SingleCountry/denmark">DENMARK</a></h1>
                 <p>{enviro} Denmark has an EPI of 82.50, ranking 1st globally.</p>
             </div>
         )
@@ -272,7 +272,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Personal Freedom and Choice') {
         return (
             <div>
-                <h1>SWITZERLAND</h1>
+                <h1><a href="/SingleCountry/switzerland">SWITZERLAND</a></h1>
                 <p>{free} Switzerland has a Human Freedom Index of 9.11, making them the freest country in the world.</p>
             </div>
         )
@@ -281,7 +281,7 @@ export let SummarySection = ({ selections }) => {
    if (selections.first === "Europe" && selections.second === 'Inclusiveness') {
         return (
             <div>
-                <h1>THE NETHERLANDS</h1>
+                <h1><a href="/SingleCountry/Netherlands">NETHERLANDS</a></h1>
                 <p>{include} The Netherlands has an inclusiveness index of 100/100, making it the most inclusive country in the world.</p>
             </div>
         )
@@ -290,7 +290,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Access to Advanced Education') {
         return (
             <div>
-                <h1>FINLAND</h1>
+                <h1><a href="/SingleCountry/Finand">FINLAND</a></h1>
                 <p>{edu} 43.6% of Finish residents meet this criteria, placing them 8th on the list globally.</p>
             </div>
         )
@@ -299,7 +299,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Food Quality') {
         return (
             <div>
-                <h1>JAPAN</h1>
+                <h1><a href="/SingleCountry/Japan">JAPAN</a></h1>
                 <p>Japan ranks 1st in Asia and 6th globally in terms of food security. {food} 
                 Pollution is the largest issue that Japan faces in terms of food security.
                 The country's food education programs, however, are some of the best in the world.
@@ -313,7 +313,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Clean Water') {
         return (
             <div>
-                <h1>JAPAN</h1>
+                <h1><a href="/SingleCountry/Japan">JAPAN</a></h1>
                 <p>{water} Japan has an EPI ranking of 95.0 out of 100.</p>
             </div>
         )
@@ -322,7 +322,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Access to Housing') {
         return (
             <div>
-                <h1>SAUDI ARABIA</h1>
+                <h1><a href="/SingleCountry/Saudi%20Arabia">SAUDI ARABIA</a></h1>
                 <p>{housing} Saudi Arabia has the most affordable housing in the world.</p>
             </div>
         )
@@ -331,7 +331,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Safety') {
         return (
             <div>
-                <h1>SINGAPORE</h1>
+                <h1><a href="/SingleCountry/Singapore">SINGAPORE</a></h1>
                 <p>{safe} Singapore has a GPI rating of 1.326</p>
             </div>
         )
@@ -340,7 +340,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Free Press') {
         return (
             <div>
-                <h1>SOUTH KOREA</h1>
+                <h1><a href="/SingleCountry/South%20Korea">SOUTH KOREA</a></h1>
                 <p>{press} South Korea has a PFI of 28.58, ranking 70th globally.</p>
             </div>
         )
@@ -349,7 +349,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Healthcare') {
         return (
             <div>
-                <h1>SINGAPORE</h1>
+                <h1><a href="/SingleCountry/Singapore">SINGAPORE</a></h1>
                 <p>{health} Singapore ranks 15th in the world on the Health Care Index.</p>
             </div>
         )
@@ -358,7 +358,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Environmental Quality') {
         return (
             <div>
-                <h1>JAPAN</h1>
+                <h1><a href="/SingleCountry/Japan">JAPAN</a></h1>
                 <p>{enviro} Japan has an EPI of 75.1, ranking 12th globally.</p>
             </div>
         )
@@ -367,7 +367,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Personal Freedom and Choice') {
         return (
             <div>
-                <h1>JAPAN</h1>
+                <h1><a href="/SingleCountry/Japan">JAPAN</a></h1>
                 <p>{free} Japan has a Human Freedom Index of 8.73, making them the 15th freest country in the world.</p>
             </div>
         )
@@ -376,7 +376,7 @@ export let SummarySection = ({ selections }) => {
    if (selections.first === "Asia" && selections.second === 'Inclusiveness') {
     return (
         <div>
-            <h1>JAPAN</h1>
+            <h1><a href="/SingleCountry/Japan">JAPAN</a></h1>
             <p>{include} South Africa has an inclusiveness index of 59.93/100.</p>
         </div>
     )
@@ -385,7 +385,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Access to Advanced Education') {
         return (
             <div>
-                <h1>JAPAN</h1>
+                <h1><a href="/SingleCountry/Japan">JAPAN</a></h1>
                 <p>{edu} Japan has the second-highest percentage of 51.44% globally.</p>
             </div>
         )
@@ -394,7 +394,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Food Quality') {
         return (
             <div>
-                <h1>MOROCCO</h1>
+                <h1><a href="/SingleCountry/Morocco">MOROCCO</a></h1>
                 <p>Morocco ranks first in Africa in terms of food security, however, 57th globally. {food}
                 The obesity rating in Morocco is close to a quarter of the population.
                 Generally, people of lower economic status can have difficulty securing food.
@@ -407,7 +407,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Clean Water') {
         return (
             <div>
-                <h1>MAURITIUS</h1>
+                <h1><a href="/SingleCountry/Mauritius">MAURITIUS</a></h1>
                 <p>{water} Mauritius has an overall EPI ranking of 65.5/100. Mauritius has the best drinking water in Africa and 44th globally.</p>
             </div>
         )
@@ -416,7 +416,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Access to Housing') {
         return (
             <div>
-                <h1>SOUTH AFRICA</h1>
+                <h1><a href="/SingleCountry/South%20Africa">SOUTH AFRICA</a></h1>
                 <p>{housing} South Africa has the most affordable housing in Africa and is the second most affordable country to buy a home in the world.</p>
             </div>
         )
@@ -425,7 +425,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Safety') {
         return (
             <div>
-                <h1>MAURITIUS</h1>
+                <h1><a href="/SingleCountry/Mauritius">MAURITIUS</a></h1>
                 <p>{safe} Mauritius has a GPI rating of 1.57.</p>
             </div>
         )
@@ -434,7 +434,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Free Press') {
         return (
             <div>
-               <h1>NAMIBIA</h1>
+               <h1><a href="/SingleCountry/Namibia">NAMIBIA</a></h1>
                 <p>{press} Namibia has a PFI of 15.15, ranking 17th globally.</p>
             </div>
         )
@@ -443,7 +443,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Healthcare') {
         return (
             <div>
-                <h1>MAURITIUS</h1>
+                <h1><a href="/SingleCountry/Mauritius">MAURITIUS</a></h1>
                 <p>{health} MAURITIUS ranks 44th in the world on the Health Care Index.</p>
             </div>
         )
@@ -452,7 +452,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Environmental Quality') {
         return (
             <div>
-                <h1>SEYCHELLES</h1>
+                <h1><a href="/SingleCountry/Seychelles">Seychelles</a></h1>
                 <p>{enviro} Seychelles has an EPI of 58.2, ranking 38th globally.</p>
             </div>
         )
@@ -461,7 +461,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Personal Freedom and Choice') {
         return (
             <div>
-                <h1>MAURITIUS</h1>
+                <h1><a href="/SingleCountry/Mauritius">MAURITIUS</a></h1>
                 <p>{free} Mauritius has a Human Freedom Index of 8.07, making them the 46th freest country in the world.</p>
             </div>
         )
@@ -470,7 +470,7 @@ export let SummarySection = ({ selections }) => {
    if (selections.first === "Africa" && selections.second === 'Inclusiveness') {
     return (
         <div>
-            <h1>SOUTH AFRICA</h1>
+            <h1><a href="/SingleCountry/South%20Africa">SOUTH AFRICA</a></h1>
             <p>{include} South Africa has an inclusiveness index of 63.70/100.</p>
         </div>
     )
@@ -479,7 +479,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Access to Advanced Education') {
         return (
             <div>
-                <h1>MAURITIUS</h1>
+                <h1><a href="/SingleCountry/Mauritius">Mauritius</a></h1>
                 <p>{edu} Mauritius has a 44% tertiary enrollment, making it the most educated country on the continent.</p>
             </div>
         )
@@ -489,7 +489,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Food Quality') {
         return (
             <div>
-                <h1>NEW ZEALAND</h1>
+                <h1><a href="/SingleCountry/New%20Zealand">NEW ZEALAND</a></h1>
                 <p>New Zealand ranks 14th globally and 1st in the Oceania region in terms of food security. {food}
                 New Zealand actively works to make their food affordable and sustainable, however, they fall
                 slightly behind on nutritional standards.</p>
@@ -500,7 +500,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Clean Water') {
         return (
             <div>
-                <h1>AUSTRALIA</h1>
+                <h1><a href="/SingleCountry/Australia">AUSTRALIA</a></h1>
                 <p>{water} Australia has an overall EPI ranking of 87/100. Australia has the best drinking water in Oceania and 25th globally.</p>
             </div>
         )
@@ -509,7 +509,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Access to Housing') {
         return (
             <div>
-                <h1>AUSTRALIA</h1>
+                <h1><a href="/SingleCountry/Australia">AUSTRALIA</a></h1>
                 <p>{housing} Australia has the most affordable housing in Oceania and ranks 15th globally for housing affordability.</p>
             </div>
         )
@@ -518,7 +518,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Safety') {
         return (
             <div>
-                <h1>NEW ZEALAND</h1>
+                <h1><a href="/SingleCountry/New%20Zealand">NEW ZEALAND</a></h1>
                 <p>{safe} New Zealand has a GPI rating of 1.269, making it the second safest country in the world.</p>
             </div>
         )
@@ -527,7 +527,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Free Press') {
         return (
             <div>
-                <h1>SAMOA</h1>
+                <h1><a href="/SingleCountry/Samoa">SAMOA</a></h1>
                 <p>{press} Samoa has a FPI of 18.80, ranking 29th globally.</p>
             </div>
         )
@@ -536,7 +536,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Healthcare') {
         return (
             <div>
-                <h1>NEW ZEALAND</h1>
+                <h1><a href="/SingleCountry/New%20Zealand">NEW ZEALAND</a></h1>
                 <p>{health} New Zealand ranks 6th in the world on the Health Care Index.</p>
             </div>
         )
@@ -545,7 +545,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Environmental Quality') {
         return (
             <div>
-                <h1>AUSTRALIA</h1>
+                <h1><a href="/SingleCountry/Australia">AUSTRALIA</a></h1>
                 <p>{enviro} Australia has an EPI of 74.9, ranking 13th globally.</p>
             </div>
         )
@@ -554,7 +554,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Personal Freedom and Choice') {
         return (
             <div>
-                <h1>NEW ZEALAND</h1>
+                <h1><a href="/SingleCountry/New%20Zealand">NEW ZEALAND</a></h1>
                 <p>{free} New Zealand has a Human Freedom Index of 9.01, making them the 2nd freest country in the world.</p>
             </div>
         )
@@ -563,8 +563,8 @@ export let SummarySection = ({ selections }) => {
    if (selections.first === "Oceania" && selections.second === 'Inclusiveness') {
     return (
         <div>
-            <h1>AUSTRALIA</h1>
-            <p>{include} South Africa has an inclusiveness index of 63.61/100.</p>
+            <h1><a href="/SingleCountry/Australia">AUSTRALIA</a></h1>
+            <p>{include} Australia has an inclusiveness index of 63.61/100.</p>
         </div>
     )
     }
@@ -572,7 +572,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Access to Advanced Education') {
         return (
             <div>
-                <h1>AUSTRALIA</h1>
+                <h1><a href="/SingleCountry/Australia">AUSTRALIA</a></h1>
                 <p>{edu} 43.74% of Australians meet this criteria, placing them 7th on the list.</p>
             </div>
         )
