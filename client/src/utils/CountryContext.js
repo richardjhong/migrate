@@ -17,12 +17,17 @@ export const SearchProvider= ({children})=>{
         saveCountries(searches);
         
     }
+    const updateSearch = (search)=>{
+      const index=searches.findIndex(val=>val.name===search.name);
+      searches[index]=search;
+      saveCountries(searches);
+    }
 
 
   // The provider component will wrap all other components inside of it that need access to our global state
   return (
 
-    <SearchContext.Provider value={{ searches, addSearch}}>
+    <SearchContext.Provider value={{ searches, addSearch,updateSearch }}>
       {children}
     </SearchContext.Provider>
   );
