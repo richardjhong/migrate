@@ -3,15 +3,12 @@ import './Form.scss';
 import airplane from '../../images/airplaneArt.png';
 import SearchSelect from "../../components/SearchSelect";
 import { SummarySection } from "../../components/SummarySection";
-import { useSearch } from "../../utils/CountryContext";
 
 function Form() {
   const [selectionOneValue, setSelectionOneValue] = useState("North America");
   const [selectionTwoValue, setSelectionTwoValue] = useState("Food Quality");
   // const [selectionThreeValue, setSelectionThreeValue] = useState("Food Quality");
   const [formIsSubmitted, setFormIsSubmitted] = useState(false);
-
-  const { searches, addSearch } = useSearch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
