@@ -1,10 +1,13 @@
 import React from 'react';
 import "./Splash.scss";
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import SearchCountry from '../../components/SearchCountry';
 
 function Splash() {
     return (
+        <>
+        <Header />
 
             <main className="splash">
                 <p className='tag'>Looking to relocate? Start your search here.</p>
@@ -19,6 +22,8 @@ function Splash() {
                     and safety.
                 </p> 
             </main>
+<Footer />
+            </>
         )
 }
 

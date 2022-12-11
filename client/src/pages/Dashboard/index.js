@@ -9,6 +9,7 @@ import Auth from '../../utils/auth';
 import "./dashboard.scss";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import PolarChart from '../../components/CountryPolarChart'
 
 const Dashboard = () => {
 
@@ -27,13 +28,13 @@ const Dashboard = () => {
   // });
   // console.log(loading, data)
 
-  const handleLogout = async (e) => {
-    e.preventDefault();
-    if (Auth.loggedIn()) {
-      localStorage.removeItem("id_token");
-      <Navigate to="/splash" />;
-    }
-  };
+  // const handleLogout = async (e) => {
+  //   e.preventDefault();
+  //   if (Auth.loggedIn()) {
+  //     localStorage.removeItem("id_token");
+  //     <Navigate to="/splash" />;
+  //   }
+  // };
 
   // navigate to personal dashboard page if username matches param
   if (Auth.loggedIn() && Auth.getDashboard().data.username === userParam) {
@@ -71,23 +72,37 @@ const Dashboard = () => {
           <div>
             <h3>Your Most Recent Searches: </h3>
             <div className="dashboardContainer">
-              <div className='savedSearchCard' >
+              {/* <div className='savedSearchCard' > */}
                 {loadingC ? (
                   <div>Loading...</div>
                 ) :
                   searches && searches.map((search, i) => (
+                    <div className='savedSearchCard' onClick={()=> window.open(`/singleCountry/${search.name}`)}>
                     <div key={i}>
-                      <h4 className="">
+                      <h2 className="">
                         <a href={`/singleCountry/${search.name}`}>{search.name}</a>
-                      </h4>
+                      </h2>
+                      <div className='dashCountryScore'>
+                      <p>Rank:{search.rank_score_spi}</p> <p>Score:{search.score_spi}</p>
+                      </div>
+                      <PolarChart
+                      fields={
+                        {"opp":search.score_opp,
+                        "fow":search.score_fow,
+                        "bhn":search.score_bhn,
+                      }
+                      } 
+                      
+                      />
+                    </div>
                     </div>
                   ))}
-              </div>
+              {/* </div> */}
               <div className='dashSearch'>
-                <h3>Start a new search here: <SearchCountry className="button" /></h3>
+                <SearchCountry className="button" />
               </div>
             </div>
-            <button type="submit" onClick={handleLogout}>Log Out</button>
+            {/* <button type="submit" onClick={handleLogout}>Log Out</button> */}
           </div>
         </div>
       </main>
