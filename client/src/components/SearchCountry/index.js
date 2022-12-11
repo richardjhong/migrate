@@ -6,11 +6,10 @@ import { useSearch } from '../../utils/CountryContext';
 import "./SearchCountry.scss";
 import { useNavigate } from 'react-router-dom';
 const SearchCountry = () => {
-  // const { searches, countryImgs, addSearch, addCountryImgs } = useSearch();
+
   const { searches, addSearch } = useSearch();
   //For Search country
   const [searchImgInput, setSearchImgInput] = useState("");
-  // const [searchedImgs, setSearchedImgs] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
 
   const { loading, data } = useQuery(QUERY_COMPILATIONS);
@@ -21,7 +20,7 @@ const SearchCountry = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
+    
     if (!searchImgInput) {
 
       return false;
