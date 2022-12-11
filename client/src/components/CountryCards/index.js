@@ -245,7 +245,7 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
             </div>
             <div className='countryCard' ref={ref4} id="col1row2" data-name={'col1row2'} onClick={(event) => {
                 expand(event)
-
+                setToggle(!toggle);
             }} data-column='4'>
                 {(ref4?.current?.classList?.contains('wide')) ?
                     (<>
