@@ -4,6 +4,7 @@ import { gsap } from 'gsap'
 import { Flip } from "gsap/Flip";
 import LineChart from '../CountryChart/LineChart'
 import BarChart from '../CountryChart/BarChart'
+
 import {columnData} from "../../utils/countryCardData";
 import { valueFromAST } from "graphql";
 
@@ -113,7 +114,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
 
                                         </section>
                                         <div className='expandedChartArea'>
-                                            <Chart
+                                            <LineChart
                                                 fields={
                                                     {
                                                         "2018": countryProperties[0][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
