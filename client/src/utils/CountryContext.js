@@ -12,7 +12,7 @@ export const SearchProvider= ({children})=>{
     });
 
     const addSearch = (search)=>{
-        
+      
         setSearches([search,...searches]);
         saveCountries(searches);
         

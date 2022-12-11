@@ -10,7 +10,7 @@ const SearchCountry = () => {
   const { searches, addSearch } = useSearch();
   //For Search country
   const [searchImgInput, setSearchImgInput] = useState("");
-  const [searchedImgs, setSearchedImgs] = useState([]);
+  // const [searchedImgs, setSearchedImgs] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
 
   const { loading, data } = useQuery(QUERY_COMPILATIONS);
@@ -47,12 +47,11 @@ const SearchCountry = () => {
         name : searchImgInput,
         imgs : newImgs
       }
+      //if data isn't exist in localStorage, save it to localStorage
+      if(searches.findIndex(country=>country.name===searchImgInput) == -1){
+        await addSearch(newSearch);
+      }
     
-      
-      await addSearch(newSearch);
-      // await addCountryImgs(newImgs);
-      // console.log(newImgs);
-      // console.log('search', searches);
       navigate(`/SingleCountry/${searchImgInput}`);
 
 
