@@ -53,7 +53,6 @@ function Form() {
             { label: "Free Press", value: "Free Press" },
             { label: "Healthcare", value: "Healthcare" },
             { label: "Environmental Quality", value: "Environmental Quality" },
-            { label: "Individual Rights", value: "Individual Rights" },
             { label: "Personal Freedom and Choice", value: "Personal Freedom and Choice" },
             { label: "Inclusiveness", value: "Inclusiveness" },
             { label: "Access to Advanced Education", value: "Access to Advanced Education" }

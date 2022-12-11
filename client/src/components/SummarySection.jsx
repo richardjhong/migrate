@@ -6,6 +6,11 @@ const water = 'Millions of people around the globe struggle with access to clean
 const housing = 'The housing affordability index takes into account the average income within a country and compares it to the average cost of housing. This index serves as an overview of housing availability for the average citizen. ';
 const safe = 'The Global Peace Index ranks the safest and most peaceful countries in the world. This report is published annually by the Institute for Economics and Peace, which defines itself as "an independent, non-partisan, non-profit organization dedicated to shifting the world\'s focus to peace as a positive, achievable and tangible measure of human wellbeing and progress." The report researches countries to determine which are the safest and which are the most dangerous. A total of 163 countries are featured in the GPI report, which ranks each country\'s level of safety or danger based upon 23 different indicators. The indicators used to compile the GPI include the number of internal and external violent conflicts, level of distrust, political instability, potential for terrorist acts, number of homicides, and military expenditures as a percentage of GDP. These indicators are grouped into three broad categories: Ongoing International Conflict, Societal Safety and Security, and Militarization, and a score is calculated for each of the 163 nations featured in the report. The lower the score, the higher the nation is ranked in terms of safety. ';
 const press = 'The World Press Freedom Index is a publication by the Reporters without Borders (RSF) as an advocacy tool based on the principles of emulation between states. RSF has been ranking countries according to the degree of the freedom of the press since 2002. The influence of the RSF report is growing with many heads of states and governments taking note of the publication. The index ranks countries based on the evaluation of pluralism, independence of the media, the legislative framework in the country, and the safety of journalists. The degree of freedom is determined by analyzing the response of experts to the questions devised by the RSF. The data gathered is combined with the number of abuses and acts of violence meted on journalists. The complete tally of abuses and violence on journalists and media houses are kept by experts who are assigned to the different regions. In the interpretation of the freedom index result, the higher the figure, the worse the situation ';
+const include = 'The Othering & Belonging Institute\’s Inclusiveness Index measures equity without regard for national wealth or economic conditions by focusing on policies, laws, and outcomes. The inclusiveness index takes into account: outgroup violence, political representation, income inequality, anti-discrimination laws, rates of incarceration, and immigration. ';
+const edu = 'The OECD measures education level by comparing the percentage of each country\'s residents ages 25 to 64 who have completed some form of tertiary education: a two-year or four-year degree or a vocational program. ';
+const health = 'CEOWorld Magazine\'s Health Care Index "is a statistical analysis of the overall quality of the health care system, including health care infrastructure; health care professionals (doctors, nursing staff, and other health workers) competencies; cost (USD p.a.per capita); quality medicine availability, and government readiness." Each country is given a score for each of the above factors and then a total score out of 100. ';
+const enviro = 'Compiled annually by Yale University\'s Center for Environmental Law & Policy, the Environmental Performance Index (EPI) is a statistical method of computing the collective environmental impact of all of a country\’s policies combined. The 2020 Environmental Performance Index ranks 180 countries across 32 performance indicators related to environmental health and ecosystem vitality, from the amount of particulate pollution in the air and the purity of drinking water to the health of fish stocks and the management of wetlands. Each country is scored out of 100. ';
+const free = 'The Cato Institute in Washington D.C. and the Fraser Institute in Vancouver, Canada co-published the annual Human Freedom Index Report for 2021, which helps observe relationships between freedom and other social and economic phenomena. The Human Freedom Index Report for 2021 ranked 165 countries and territories in two distinct categories: Personal Freedom and Economic Freedom, which are then combined to form the final Human Freedom score. '
 
 export let SummarySection = ({ selections }) => {
     //North America -FOOD QUALITY
@@ -53,7 +58,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Free Press') {
         return (
             <div>
-                <h1>Costa Rica</h1>
+                <h1>COSTA RICA</h1>
                 <p>{press} Costa Rica has a PFI of 11.10, ranking 6th globally.</p>
             </div>
         )
@@ -62,8 +67,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Healthcare') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>CANADA</h1>
+                <p>{health} Canada ranks 14th in the world on the Health Care Index.</p>
             </div>
         )
     }
@@ -71,8 +76,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Environmental Quality') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>CANADA</h1>
+                <p>{enviro} Canada has an EPI of 71.00, ranking 20th globally.</p>
             </div>
         )
     }
@@ -80,17 +85,17 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Individual Rights') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>CANADA</h1>
+                <p>{free} Canada has a Human Freedom Index of 8.85, making them the 6th freest country in the world.</p>
             </div>
         )
     }
-    //North America -Personal Freedom and Choice
-    if (selections.first === "North America" && selections.second === 'Personal Freedom and Choice') {
+    //North America -Inclusiveness
+    if (selections.first === "North America" && selections.second === 'Inclusiveness') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>CANADA</h1>
+                <p>{include} Canada has an inclusiveness index of 69.42/100</p>
             </div>
         )
     }
@@ -98,8 +103,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "North America" && selections.second === 'Access to Advanced Education') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>CANADA</h1>
+                <p>{edu} Canada is the most educated country globally, with 56.71% of adults meeting the OECD criteria.</p>
             </div>
         )
     }
@@ -157,8 +162,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "South America" && selections.second === 'Healthcare') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>CHILE</h1>
+                <p>{health} Chile ranks 37th in the world on the Health Care Index.</p>
             </div>
         )
     }
@@ -166,8 +171,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "South America" && selections.second === 'Environmental Quality') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>CHILE</h1>
+                <p>{enviro} Chile has an EPI of 55.3, ranking 58.2 globally.</p>
             </div>
         )
     }
@@ -175,26 +180,26 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "South America" && selections.second === 'Individual Rights') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>CHILE</h1>
+                <p>{free} Chile has a Human Freedom Index of 8.44, making them the 28th freest country in the world.</p>
             </div>
         )
     }
-    //South America -Personal Freedom and Choice
-    if (selections.first === "South America" && selections.second === 'Personal Freedom and Choice') {
-        return (
-            <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
-            </div>
-        )
+   //South America -Inclusiveness
+   if (selections.first === "South America" && selections.second === 'Inclusiveness') {
+    return (
+        <div>
+            <h1>ARGENTINA</h1>
+            <p>{include} Argentina has an inclusiveness index of 62.8/100.</p>
+        </div>
+    )
     }
     //South America -Access to Advanced Education
     if (selections.first === "South America" && selections.second === 'Access to Advanced Education') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>CHILE</h1>
+                <p>{edu} Chile and Uruguay continue to lead the ranking as the best education systems in Latin America, but their performance is on average two years behind of OECD students.</p>
             </div>
         )
     }
@@ -231,7 +236,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Safety') {
         return (
             <div>
-                <h1>Iceland</h1>
+                <h1>ICELAND</h1>
                 <p>{safe} Iceland has a GPI rating of 1.107, making it the safest country in the world.</p>
             </div>
         )
@@ -240,7 +245,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Free Press') {
         return (
             <div>
-                <h1>Finland</h1>
+                <h1>FINLAND</h1>
                 <p>{press} Finland has a PFI of 8.59, ranking 1st globally.</p>
             </div>
         )
@@ -249,8 +254,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Healthcare') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>Denmark</h1>
+                <p>{health} Denmark ranks first in the world on the Health Care Index.</p>
             </div>
         )
     }
@@ -258,8 +263,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Environmental Quality') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>DENMARK</h1>
+                <p>{enviro} Denmark has an EPI of 82.50, ranking 1st globally.</p>
             </div>
         )
     }
@@ -267,17 +272,17 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Individual Rights') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>SWITZERLAND</h1>
+                <p>{free} Switzerland has a Human Freedom Index of 9.11, making them the freest country in the world.</p>
             </div>
         )
     }
-    //Europe -Personal Freedom and Choice
-    if (selections.first === "Europe" && selections.second === 'Personal Freedom and Choice') {
+   //Europe -Inclusiveness
+   if (selections.first === "Europe" && selections.second === 'Inclusiveness') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>THE NETHERLANDS</h1>
+                <p>{include} The Netherlands has an inclusiveness index of 100/100, making it the most inclusive country in the world.</p>
             </div>
         )
     }
@@ -285,8 +290,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Access to Advanced Education') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>FINLAND</h1>
+                <p>{edu} 43.6% of Finish residents meet this criteria, placing them 8th on the list globally.</p>
             </div>
         )
     }
@@ -335,7 +340,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Free Press') {
         return (
             <div>
-                <h1>South Korea</h1>
+                <h1>SOUTH KOREA</h1>
                 <p>{press} South Korea has a PFI of 28.58, ranking 70th globally.</p>
             </div>
         )
@@ -344,8 +349,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Healthcare') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>SINGAPORE</h1>
+                <p>{health} Singapore ranks 15th in the world on the Health Care Index.</p>
             </div>
         )
     }
@@ -353,8 +358,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Environmental Quality') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>JAPAN</h1>
+                <p>{enviro} Japan has an EPI of 75.1, ranking 12th globally.</p>
             </div>
         )
     }
@@ -362,26 +367,26 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Asia" && selections.second === 'Individual Rights') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>JAPAN</h1>
+                <p>{free} Japan has a Human Freedom Index of 8.73, making them the 15th freest country in the world.</p>
             </div>
         )
     }
-    //Asia -Personal Freedom and Choice
-    if (selections.first === "Asia" && selections.second === 'Personal Freedom and Choice') {
-        return (
-            <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
-            </div>
-        )
+     //Asia -Inclusiveness
+   if (selections.first === "Asia" && selections.second === 'Inclusiveness') {
+    return (
+        <div>
+            <h1>JAPAN</h1>
+            <p>{include} South Africa has an inclusiveness index of 59.93/100.</p>
+        </div>
+    )
     }
     //Asia -Access to Advanced Education
     if (selections.first === "Asia" && selections.second === 'Access to Advanced Education') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>JAPAN</h1>
+                <p>{edu} Japan has the second-highest percentage of 51.44% globally.</p>
             </div>
         )
     }
@@ -411,7 +416,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Access to Housing') {
         return (
             <div>
-                <h1>South Africa</h1>
+                <h1>SOUTH AFRICA</h1>
                 <p>{housing} South Africa has the most affordable housing in Africa and is the second most affordable country to buy a home in the world.</p>
             </div>
         )
@@ -429,7 +434,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Free Press') {
         return (
             <div>
-               <h1>Namibia</h1>
+               <h1>NAMIBIA</h1>
                 <p>{press} Namibia has a PFI of 15.15, ranking 17th globally.</p>
             </div>
         )
@@ -438,8 +443,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Healthcare') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>MAURITIUS</h1>
+                <p>{health} MAURITIUS ranks 44th in the world on the Health Care Index.</p>
             </div>
         )
     }
@@ -447,8 +452,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Environmental Quality') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>SEYCHELLES</h1>
+                <p>{enviro} Seychelles has an EPI of 58.2, ranking 38th globally.</p>
             </div>
         )
     }
@@ -456,26 +461,26 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Africa" && selections.second === 'Individual Rights') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>MAURITIUS</h1>
+                <p>{free} Mauritius has a Human Freedom Index of 8.07, making them the 46th freest country in the world.</p>
             </div>
         )
-    }
-    //AFRICA -Personal Freedom and Choice
-    if (selections.first === "Africa" && selections.second === 'Personal Freedom and Choice') {
-        return (
-            <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
-            </div>
-        )
-    }
+        }
+     //Africa -Inclusiveness
+   if (selections.first === "Africa" && selections.second === 'Inclusiveness') {
+    return (
+        <div>
+            <h1>SOUTH AFRICA</h1>
+            <p>{include} South Africa has an inclusiveness index of 63.70/100.</p>
+        </div>
+    )
+}
     //AFRICA -Access to Advanced Education
     if (selections.first === "Africa" && selections.second === 'Access to Advanced Education') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>MAURITIUS</h1>
+                <p>{edu} Mauritius has a 44% tertiary enrollment, making it the most educated country on the continent.</p>
             </div>
         )
     }
@@ -522,7 +527,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Free Press') {
         return (
             <div>
-                <h1>Samoa</h1>
+                <h1>SAMOA</h1>
                 <p>{press} Samoa has a FPI of 18.80, ranking 29th globally.</p>
             </div>
         )
@@ -531,8 +536,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Healthcare') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>NEW ZEALAND</h1>
+                <p>{health} New Zealand ranks 6th in the world on the Health Care Index.</p>
             </div>
         )
     }
@@ -540,8 +545,8 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Environmental Quality') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>AUSTRALIA</h1>
+                <p>{enviro} Australia has an EPI of 74.9, ranking 13th globally.</p>
             </div>
         )
     }
@@ -549,26 +554,26 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Oceania" && selections.second === 'Individual Rights') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>NEW ZEALAND</h1>
+                <p>{free} New Zealand has a Human Freedom Index of 9.01, making them the 2nd freest country in the world.</p>
             </div>
         )
     }
-    //Oceania -Personal Freedom and Choice
-    if (selections.first === "Oceania" && selections.second === 'Personal Freedom and Choice') {
-        return (
-            <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
-            </div>
-        )
+     //Oceania -Inclusiveness
+   if (selections.first === "Oceania" && selections.second === 'Inclusiveness') {
+    return (
+        <div>
+            <h1>AUSTRALIA</h1>
+            <p>{include} South Africa has an inclusiveness index of 63.61/100.</p>
+        </div>
+    )
     }
     //Oceania -Access to Advanced Education
     if (selections.first === "Oceania" && selections.second === 'Access to Advanced Education') {
         return (
             <div>
-                <h1>Ghana</h1>
-                <p>Ghana is a beautiful country in West Africa</p>
+                <h1>AUSTRALIA</h1>
+                <p>{edu} 43.74% of Australians meet this criteria, placing them 7th on the list.</p>
             </div>
         )
     }
