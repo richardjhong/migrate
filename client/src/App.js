@@ -9,6 +9,7 @@ import CountryListing from './pages/CountryListing';
 import Splash from './pages/Splash/index'
 import AboutUs from './pages/AboutUs';
 import SingleCountryCont from './pages/SingleCountryCont';
+import Visa from './pages/Visa';
 import './App.scss';
 
 
@@ -74,6 +75,10 @@ function App() {
             <Route
               path="/signup"
               element={<Signup />}
+            />
+            <Route
+              path="/visa"
+              element={<Visa />}
             />
             <Route
               path="/dashboard"
