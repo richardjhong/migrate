@@ -29,6 +29,12 @@ const Header = () => {
             <Link className="navLink" to='/AboutUs'>
               About
             </Link>
+            <Link className="navLink" to='/form'>
+              Helper
+            </Link>
+            <Link className="navLink" to='/visa'>
+              Next Steps
+            </Link>
             <Link className="navLink" to="/dashboard">
               Dashboard
             </Link>
@@ -40,6 +46,12 @@ const Header = () => {
           <>
             <Link className="navLink" to='/AboutUs'>
               About
+            </Link>
+            <Link className="navLink" to='/form'>
+              Helper
+            </Link>
+            <Link className="navLink" to='/visa'>
+              Next Steps
             </Link>
             <Link className="navLink" to="/login">
               Login
