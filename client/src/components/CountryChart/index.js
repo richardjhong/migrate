@@ -8,13 +8,14 @@ const Chart = ({
   return (
     <div className="chartContainer">
       <VictoryChart height={600} width={1000}
-        containerComponent={<VictoryContainer responsive={false}/>}
+        containerComponent={<VictoryContainer responsive={true}/>}
       >
         <VictoryLine
           labelComponent={<VictoryLabel renderInPortal dy={-20}/>}
           style={{
             data: { stroke: "#022831" },
             parent: { border: "1px solid #ccc"},
+            
           }}
           size={5}
           animate={{
