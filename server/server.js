@@ -13,7 +13,8 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
-  introspection: true
+  introspection: true,
+  playground: true
 });
 
 const { url } = await startStandaloneServer(server, { listen: { port } });
