@@ -66,8 +66,6 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
     let ref12 = useRef(null);
     const [toggle, setToggle] = useState(false);
     console.log(columnData[1].description);
-    
-
 
     return (
         <>
@@ -113,17 +111,29 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
 
                                         </section>
                                         <div className='expandedChartArea'>
-                                            <Chart
-                                                fields={
-                                                    {
-                                                        "2018": countryProperties[0][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
-                                                        "2019": countryProperties[1][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
-                                                        "2020": countryProperties[2][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
-                                                        "2021": countryProperties[3][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
-                                                        "2022": countryProperties[4][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
-                                                    }
+                                            
+                                            {(() => {
+                                                const fields = {
+                                                    "2018": countryProperties[0][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2019": countryProperties[1][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2020": countryProperties[2][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2021": countryProperties[3][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2022": countryProperties[4][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
                                                 }
-                                            />
+                                                
+                                                switch(chartTypeIndex) {
+                                                    case('Bar'):
+                                                        return (
+                                                            <BarChart fields={fields}/>
+                                                        )
+                                                    case('Line'):
+                                                        return (
+                                                            <LineChart fields={fields}/>
+                                                        )
+                                                    default: 
+                                                        return;
+                                                }
+                                            })()}
                                         </div>
                                     </>)
                                     :
