@@ -1,5 +1,5 @@
 const express = require('express');
-let { ApolloServer } = require('apollo-server-express');
+const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
 
@@ -16,8 +16,6 @@ const server = new ApolloServer({
   introspection: true,
   playground: true
 });
-
-const { url } = await startStandaloneServer(server, { listen: { port } });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
