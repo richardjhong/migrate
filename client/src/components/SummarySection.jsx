@@ -82,7 +82,7 @@ export let SummarySection = ({ selections }) => {
         )
     }
     //North America -Individual Rights
-    if (selections.first === "North America" && selections.second === 'Individual Rights') {
+    if (selections.first === "North America" && selections.second === 'Personal Freedom and Choice') {
         return (
             <div>
                 <h1>CANADA</h1>
@@ -177,7 +177,7 @@ export let SummarySection = ({ selections }) => {
         )
     }
     //South America -Individual Rights
-    if (selections.first === "South America" && selections.second === 'Individual Rights') {
+    if (selections.first === "South America" && selections.second === 'Personal Freedom and Choice') {
         return (
             <div>
                 <h1>CHILE</h1>
@@ -269,7 +269,7 @@ export let SummarySection = ({ selections }) => {
         )
     }
     //Europe -Individual Rights
-    if (selections.first === "Europe" && selections.second === 'Individual Rights') {
+    if (selections.first === "Europe" && selections.second === 'Personal Freedom and Choice') {
         return (
             <div>
                 <h1>SWITZERLAND</h1>
@@ -364,7 +364,7 @@ export let SummarySection = ({ selections }) => {
         )
     }
     //Asia -Individual Rights
-    if (selections.first === "Asia" && selections.second === 'Individual Rights') {
+    if (selections.first === "Asia" && selections.second === 'Personal Freedom and Choice') {
         return (
             <div>
                 <h1>JAPAN</h1>
@@ -458,7 +458,7 @@ export let SummarySection = ({ selections }) => {
         )
     }
     //AFRICA -Individual Rights
-    if (selections.first === "Africa" && selections.second === 'Individual Rights') {
+    if (selections.first === "Africa" && selections.second === 'Personal Freedom and Choice') {
         return (
             <div>
                 <h1>MAURITIUS</h1>
@@ -551,7 +551,7 @@ export let SummarySection = ({ selections }) => {
         )
     }
     //Oceania -Individual Rights
-    if (selections.first === "Oceania" && selections.second === 'Individual Rights') {
+    if (selections.first === "Oceania" && selections.second === 'Personal Freedom and Choice') {
         return (
             <div>
                 <h1>NEW ZEALAND</h1>
