@@ -1,11 +1,20 @@
 .dashboardContainer {
    display:flex;
    justify-content:flex-start;
+   flex-wrap:wrap;
 
 }
 
 .dashSearch {
-   margin-left:2em;
+   display:flex;
+   height:300px;
+ margin:0 0 2em 2em;
+   width:90%;
+}
+
+.dashCountryScore {
+   display:flex;
+   justify-content:space-between;
 }
 
 .dashSearch .singleCountryInput {
@@ -18,18 +27,19 @@
    justify-content:space-around;
    align-items: flex-start;
    width: 28%;
-   height: 300px;
+   height: auto;
    overflow: hidden;
    border: solid 5px var(--lightBorder);
    background-color: var(--darkBackground);
    color: var(--light);
-   margin-bottom: 3em;
+   margin:0 1em 3em 1em;
    border-radius: 30px;
    padding:20px;
    transition:box-shadow .2s;
    color:var(--light);
    overflow:hidden;
    flex-wrap:wrap;
+   cursor:pointer;
 };
 
 .savedSearchCard a{
@@ -55,3 +65,7 @@
    margin-left:5%;
 }
 
+
+.savedSearchCard:hover {
+box-shadow: 10px 10px 10px var(--dark);
+}
