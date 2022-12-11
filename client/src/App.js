@@ -9,6 +9,11 @@ import CountryListing from './pages/CountryListing';
 import Splash from './pages/Splash/index'
 import AboutUs from './pages/AboutUs';
 import SingleCountryCont from './pages/SingleCountryCont';
+
+import Form from './pages/Form';
+
+import Visa from './pages/Visa';
+
 import './App.scss';
 
 
@@ -55,6 +60,12 @@ function App() {
               index
               element={<Splash />}
             />
+
+            <Route
+            path="/form"
+            element={<Form />}
+            />  
+
             {/* <Route
               path="/SingleCountry"
               element={<SingleCountryCont />}
@@ -74,6 +85,10 @@ function App() {
             <Route
               path="/signup"
               element={<Signup />}
+            />
+            <Route
+              path="/visa"
+              element={<Visa />}
             />
             <Route
               path="/dashboard"
