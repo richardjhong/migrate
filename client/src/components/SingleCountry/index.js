@@ -16,15 +16,6 @@ export default function SingleCountry({ countryYearIndex }) {
   // account for transforming manual entries that do not have a capital letter
   const caseTransformedCountryParam = capitalizeFirstLetter(countryParam);
 
-  const { loading: validCountryLoading, data: validCountryData } = useQuery(QUERY_VALID_COUNTRY, {
-    variables: {country: caseTransformedCountryParam}
-  })
-
-  // tests if the validCountryData is indeed a match to a valid country
-  // via a graphql query
-  if (validCountryData && validCountryData.validCountryName === null) {
-    navigate('/', { replace: true });                 
-  }
 
   const { loading, data } = useQuery(QUERY_SINGLE_COMPILATION,{
     variables:{countryname : caseTransformedCountryParam}
