@@ -47,7 +47,7 @@ const SearchCountry = () => {
       await addCountryImgs(newImgs);
       console.log(newImgs);
       console.log('search',searches);
-      navigate(`/SingleCountry/${searchImgInput}`);
+      navigate(`/singlecountry/${searchImgInput}`);
 
       // <Navigate to="/SingleCountry" replace={true} />
       
