@@ -2,7 +2,8 @@ import React, { useState, useRef } from "react";
 import './CountryCards.scss';
 import { gsap } from 'gsap'
 import { Flip } from "gsap/Flip";
-import Chart from '../CountryChart/'
+import LineChart from '../CountryChart/LineChart'
+import BarChart from '../CountryChart/BarChart'
 import nutritionIcon from '../../images/Nutrition-Basic-Needs.png';
 import waterIcon from '../../images/Water-Sanitation.png';
 import shelterIcon from '../../images/Shelter.png';
@@ -54,7 +55,7 @@ const expand = (event) => {
 }
 
 
-export default function CountryCards({ countryProperties, countryYearIndex }) {
+export default function CountryCards({ countryProperties, countryYearIndex, chartTypeIndex }) {
     let ref1 = useRef(null);
     let ref2 = useRef(null);
     let ref3 = useRef(null);
@@ -103,7 +104,19 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
 
                         </section>
                         <div className='expandedChartArea'>
-                            <Chart
+                            {chartTypeIndex === 'Line' ? 
+                                (<LineChart
+                                    fields={
+                                        {
+                                            "2018": countryProperties[0].bhn.score_nbmc,
+                                            "2019": countryProperties[1].bhn.score_nbmc,
+                                            "2020": countryProperties[2].bhn.score_nbmc,
+                                            "2021": countryProperties[3].bhn.score_nbmc,
+                                            "2022": countryProperties[4].bhn.score_nbmc,
+                                        }
+                                    }
+                                />) 
+                            : (<BarChart
                                 fields={
                                     {
                                         "2018": countryProperties[0].bhn.score_nbmc,
@@ -113,7 +126,8 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                                         "2022": countryProperties[4].bhn.score_nbmc,
                                     }
                                 }
-                            />
+                            />) 
+                            }
                         </div>
                     </>)
                     :
@@ -159,7 +173,19 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            <Chart
+                            {chartTypeIndex === 'Line' ? 
+                                (<LineChart
+                                    fields={
+                                        {
+                                            "2018": countryProperties[0].bhn.score_ws,
+                                            "2019": countryProperties[1].bhn.score_ws,
+                                            "2020": countryProperties[2].bhn.score_ws,
+                                            "2021": countryProperties[3].bhn.score_ws,
+                                            "2022": countryProperties[4].bhn.score_ws,
+                                        }
+                                    }
+                                />) 
+                            : (<BarChart
                                 fields={
                                     {
                                         "2018": countryProperties[0].bhn.score_ws,
@@ -169,7 +195,8 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                                         "2022": countryProperties[4].bhn.score_ws,
                                     }
                                 }
-                            />
+                            />) 
+                            }
                         </div>
                     </>
                     ) : (
@@ -215,7 +242,19 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            <Chart
+                            {chartTypeIndex === 'Line' ? 
+                                (<LineChart
+                                    fields={
+                                        {
+                                            "2018": countryProperties[0].bhn.score_sh,
+                                            "2019": countryProperties[1].bhn.score_sh,
+                                            "2020": countryProperties[2].bhn.score_sh,
+                                            "2021": countryProperties[3].bhn.score_sh,
+                                            "2022": countryProperties[4].bhn.score_sh,
+                                        }
+                                    }
+                                />) 
+                            : (<BarChart
                                 fields={
                                     {
                                         "2018": countryProperties[0].bhn.score_sh,
@@ -225,7 +264,8 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                                         "2022": countryProperties[4].bhn.score_sh,
                                     }
                                 }
-                            />
+                            />) 
+                            }
                         </div>
                     </>
 
@@ -268,7 +308,19 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            <Chart
+                            {chartTypeIndex === 'Line' ? 
+                                (<LineChart
+                                    fields={
+                                        {
+                                            "2018": countryProperties[0].bhn.score_ps,
+                                            "2019": countryProperties[1].bhn.score_ps,
+                                            "2020": countryProperties[2].bhn.score_ps,
+                                            "2021": countryProperties[3].bhn.score_ps,
+                                            "2022": countryProperties[4].bhn.score_ps,
+                                        }
+                                    }
+                                />) 
+                            : (<BarChart
                                 fields={
                                     {
                                         "2018": countryProperties[0].bhn.score_ps,
@@ -278,7 +330,8 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                                         "2022": countryProperties[4].bhn.score_ps,
                                     }
                                 }
-                            />
+                            />) 
+                            }
                         </div>
                     </>
 
@@ -322,7 +375,8 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                                 <p className='clickHere'>Click to close...</p>
                             </section>
                             <div className='expandedChartArea'>
-                                <Chart
+                            {chartTypeIndex === 'Line' ? 
+                                (<LineChart
                                     fields={
                                         {
                                             "2018": countryProperties[0].fow.score_abk,
@@ -332,8 +386,20 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                                             "2022": countryProperties[4].fow.score_abk,
                                         }
                                     }
-                                />
-                            </div>
+                                />) 
+                            : (<BarChart
+                                fields={
+                                    {
+                                        "2018": countryProperties[0].fow.score_abk,
+                                        "2019": countryProperties[1].fow.score_abk,
+                                        "2020": countryProperties[2].fow.score_abk,
+                                        "2021": countryProperties[3].fow.score_abk,
+                                        "2022": countryProperties[4].fow.score_abk,
+                                    }
+                                }
+                            />) 
+                            }
+                        </div>
                         </>
 
                     ) : (
@@ -375,7 +441,19 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            <Chart
+                            {chartTypeIndex === 'Line' ? 
+                                (<LineChart
+                                    fields={
+                                        {
+                                            "2018": countryProperties[0].fow.score_aic,
+                                            "2019": countryProperties[1].fow.score_aic,
+                                            "2020": countryProperties[2].fow.score_aic,
+                                            "2021": countryProperties[3].fow.score_aic,
+                                            "2022": countryProperties[4].fow.score_aic,
+                                        }
+                                    }
+                                />) 
+                            : (<BarChart
                                 fields={
                                     {
                                         "2018": countryProperties[0].fow.score_aic,
@@ -385,7 +463,8 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                                         "2022": countryProperties[4].fow.score_aic,
                                     }
                                 }
-                            />
+                            />) 
+                            }
                         </div>
                     </>
                     ) : (
@@ -428,17 +507,30 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            <Chart
+                            {chartTypeIndex === 'Line' ? 
+                                (<LineChart
+                                    fields={
+                                        {
+                                            "2018": countryProperties[0].fow.score_hw,
+                                            "2019": countryProperties[1].fow.score_hw,
+                                            "2020": countryProperties[2].fow.score_hw,
+                                            "2021": countryProperties[3].fow.score_hw,
+                                            "2022": countryProperties[4].fow.score_hw,
+                                        }
+                                    }
+                                />) 
+                            : (<BarChart
                                 fields={
                                     {
                                         "2018": countryProperties[0].fow.score_hw,
                                         "2019": countryProperties[1].fow.score_hw,
                                         "2020": countryProperties[2].fow.score_hw,
                                         "2021": countryProperties[3].fow.score_hw,
-                                        "2022": countryProperties[4].fow.score_hw
+                                        "2022": countryProperties[4].fow.score_hw,
                                     }
                                 }
-                            />
+                            />) 
+                            }
                         </div>
                     </>
                     ) : (
@@ -480,7 +572,19 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            <Chart
+                            {chartTypeIndex === 'Line' ? 
+                                (<LineChart
+                                    fields={
+                                        {
+                                            "2018": countryProperties[0].fow.score_eq,
+                                            "2019": countryProperties[1].fow.score_eq,
+                                            "2020": countryProperties[2].fow.score_eq,
+                                            "2021": countryProperties[3].fow.score_eq,
+                                            "2022": countryProperties[4].fow.score_eq,
+                                        }
+                                    }
+                                />) 
+                            : (<BarChart
                                 fields={
                                     {
                                         "2018": countryProperties[0].fow.score_eq,
@@ -490,7 +594,8 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                                         "2022": countryProperties[4].fow.score_eq,
                                     }
                                 }
-                            />
+                            />) 
+                            }
                         </div>
                     </>
                     ) : (
@@ -534,7 +639,19 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            <Chart
+                            {chartTypeIndex === 'Line' ? 
+                                (<LineChart
+                                    fields={
+                                        {
+                                            "2018": countryProperties[0].opp.score_pr,
+                                            "2019": countryProperties[1].opp.score_pr,
+                                            "2020": countryProperties[2].opp.score_pr,
+                                            "2021": countryProperties[3].opp.score_pr,
+                                            "2022": countryProperties[4].opp.score_pr,
+                                        }
+                                    }
+                                />) 
+                            : (<BarChart
                                 fields={
                                     {
                                         "2018": countryProperties[0].opp.score_pr,
@@ -544,7 +661,8 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                                         "2022": countryProperties[4].opp.score_pr,
                                     }
                                 }
-                            />
+                            />) 
+                            }
                         </div>
                     </>
 
@@ -589,7 +707,19 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            <Chart
+                            {chartTypeIndex === 'Line' ? 
+                                (<LineChart
+                                    fields={
+                                        {
+                                            "2018": countryProperties[0].opp.score_pfc,
+                                            "2019": countryProperties[1].opp.score_pfc,
+                                            "2020": countryProperties[2].opp.score_pfc,
+                                            "2021": countryProperties[3].opp.score_pfc,
+                                            "2022": countryProperties[4].opp.score_pfc,
+                                        }
+                                    }
+                                />) 
+                            : (<BarChart
                                 fields={
                                     {
                                         "2018": countryProperties[0].opp.score_pfc,
@@ -599,7 +729,8 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                                         "2022": countryProperties[4].opp.score_pfc,
                                     }
                                 }
-                            />
+                            />) 
+                            }
                         </div>
                     </>
                     ) : (
@@ -643,7 +774,19 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            <Chart
+                            {chartTypeIndex === 'Line' ? 
+                                (<LineChart
+                                    fields={
+                                        {
+                                            "2018": countryProperties[0].opp.score_incl,
+                                            "2019": countryProperties[1].opp.score_incl,
+                                            "2020": countryProperties[2].opp.score_incl,
+                                            "2021": countryProperties[3].opp.score_incl,
+                                            "2022": countryProperties[4].opp.score_incl,
+                                        }
+                                    }
+                                />) 
+                            : (<BarChart
                                 fields={
                                     {
                                         "2018": countryProperties[0].opp.score_incl,
@@ -653,7 +796,8 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                                         "2022": countryProperties[4].opp.score_incl,
                                     }
                                 }
-                            />
+                            />) 
+                            }
                         </div>
                     </>
                     ) : (
@@ -696,7 +840,19 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                             <p className='clickHere'>Click to close...</p>
                         </section>
                         <div className='expandedChartArea'>
-                            <Chart
+                            {chartTypeIndex === 'Line' ? 
+                                (<LineChart
+                                    fields={
+                                        {
+                                            "2018": countryProperties[0].opp.score_aae,
+                                            "2019": countryProperties[1].opp.score_aae,
+                                            "2020": countryProperties[2].opp.score_aae,
+                                            "2021": countryProperties[3].opp.score_aae,
+                                            "2022": countryProperties[4].opp.score_aae,
+                                        }
+                                    }
+                                />) 
+                            : (<BarChart
                                 fields={
                                     {
                                         "2018": countryProperties[0].opp.score_aae,
@@ -706,7 +862,8 @@ export default function CountryCards({ countryProperties, countryYearIndex }) {
                                         "2022": countryProperties[4].opp.score_aae,
                                     }
                                 }
-                            />
+                            />) 
+                            }
                         </div>
                     </>
                     ) : (

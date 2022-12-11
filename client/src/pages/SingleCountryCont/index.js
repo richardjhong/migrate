@@ -9,6 +9,7 @@ import './SingleCountryCont.scss'
 
 function SingleCountryCont() {
     const [countryYearIndex, setCountryYearIndex] = useState(4);
+    const [chartTypeIndex, setChartTypeIndex] = useState('Line');
 
     return (
         <>
@@ -18,11 +19,41 @@ function SingleCountryCont() {
                     <SingleCountryHeader />
                     <div className="searchdropdownContainer">
                         <SearchCountry />
-                        <Dropdown countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex} />
+                        <div className="dropdownContainer">
+                            <Dropdown 
+                                countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex} 
+                                options={
+                                    [
+                                        {value: '', text: 'Select year', disabled: true},
+                                        {value: 0, text: '2018'},
+                                        {value: 1, text: '2019'},
+                                        {value: 2, text: '2020'},
+                                        {value: 3, text: '2021'},
+                                        {value: 4, text: '2022'},
+                                      ]
+                                }
+                                affectedState={"year"}
+                            />
+                            <Dropdown 
+                                chartTypeIndex={chartTypeIndex} setChartTypeIndex={setChartTypeIndex} 
+                                options={
+                                    [
+                                        {value: '', text: 'Select chart type', disabled: true},
+                                        {value: 'Line', text: 'Line'},
+                                        {value: 'Bar', text: 'Bar'},
+                                      ]
+                                }
+                                affectedState={"chart"}
+                            />
+                        </div>
+                        
                     </div>
                 </div>
                 <div>
-                    <SingleCountry countryYearIndex={countryYearIndex}/>
+                    <SingleCountry 
+                        countryYearIndex={countryYearIndex} 
+                        chartTypeIndex={chartTypeIndex}
+                    />
                 </div>
             </main>
             <Footer />
