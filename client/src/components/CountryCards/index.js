@@ -113,7 +113,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
 
                                         </section>
                                         <div className='expandedChartArea'>
-                                            <Chart
+                                            <LineChart
                                                 fields={
                                                     {
                                                         "2018": countryProperties[0][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
