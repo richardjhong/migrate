@@ -79,10 +79,12 @@ const Dashboard = () => {
                   searches && searches.filter((search,i)=>i>=searches.length-5&&i<=searches.length).map((search, i) => (
                     <div className='savedSearchCard' >
                     <div key={i}>
-                      <h4 className="">
+                      <h2 className="">
                         <a href={`/singleCountry/${search.name}`}>{search.name}</a>
-                      </h4>
-                      <p>Rank:{search.rank_score_spi} Score:{search.score_spi}</p>
+                      </h2>
+                      <div className='dashCountryScore'>
+                      <p>Rank:{search.rank_score_spi}</p> <p>Score:{search.score_spi}</p>
+                      </div>
                       <PolarChart
                       fields={
                         {"opp":search.score_opp,
@@ -97,7 +99,7 @@ const Dashboard = () => {
                   ))}
               {/* </div> */}
               <div className='dashSearch'>
-                <h3>Start a new search here: <SearchCountry className="button" /></h3>
+                <SearchCountry className="button" />
               </div>
             </div>
             {/* <button type="submit" onClick={handleLogout}>Log Out</button> */}

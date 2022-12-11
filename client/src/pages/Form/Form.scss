@@ -1,0 +1,42 @@
+.form{
+    background-color: var(--darkBackground);
+    color: var(--light);
+    margin: auto;
+    margin-top: 10%;
+    width: 50%;
+    padding: 2%;
+    border: 4px solid var(--lightBorder);
+}
+
+.region {
+    font-size: 2vw;
+}
+
+.optionOne {
+    font-size: 2vw;
+}
+
+.optionTwo {
+    font-size: 2vw;
+}
+
+.airplane {
+    margin: auto;
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+    width: 60vw;
+}
+
+.submitButton {
+    display: block;
+    margin: 0 auto;
+    width: 10%;
+    margin-top: 2%;
+}
+
+.title {
+    margin-top: 5%;
+    margin-bottom: -10%;
+}
+

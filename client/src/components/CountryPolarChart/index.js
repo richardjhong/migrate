@@ -1,5 +1,5 @@
 import React from "react";
-import { VictoryChart, VictoryPolarAxis, VictoryTheme, VictoryBar } from "victory";
+import { VictoryChart, VictoryPolarAxis, VictoryStack,VictoryTheme, VictoryBar } from "victory";
 
 
 const PolarChart = ({
@@ -23,6 +23,7 @@ const PolarChart = ({
                         );
                     })
                 }
+                
                 <VictoryBar
                     style={{ 
                         data: { fill: "#b4d330", width: 130 },
