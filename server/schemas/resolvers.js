@@ -27,9 +27,14 @@ const resolvers = {
     countries: async () => {
       return await Country.find({});
     },
+    
     singleCompileCountry: async (parent, { countryname }) => {
-      return CompileCountry.findOne({ countryname }).populate('year_catalog')
+      return CompileCountry.findOne({ countryname :{
+        //case insensitive
+        $regex : new RegExp(countryname, "i") }
+       }).populate('year_catalog')
     },
+
   },
 
   Mutation: {

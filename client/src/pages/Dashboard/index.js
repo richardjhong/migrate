@@ -76,8 +76,8 @@ const Dashboard = () => {
                 {loadingC ? (
                   <div>Loading...</div>
                 ) :
-                  searches && searches.map((search, i) => (
-                    <div className='savedSearchCard' onClick={()=> window.open(`/singleCountry/${search.name}`)}>
+                  searches && searches.filter((search,i)=>i>=searches.length-5&&i<=searches.length).map((search, i) => (
+                    <div className='savedSearchCard' >
                     <div key={i}>
                       <h2 className="">
                         <a href={`/singleCountry/${search.name}`}>{search.name}</a>
