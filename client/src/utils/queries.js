@@ -144,10 +144,3 @@ export const QUERY_SINGLE_COMPILATION = gql`
     }
   }
 `
-export const QUERY_VALID_COUNTRY = gql`
-  query ValidCountry($country: String!) {
-    validCountryName(country: $country) {
-      country
-    }
-  }
-`
