@@ -15,12 +15,8 @@ const SingleCountryHeader = () => {
   const navigate = useNavigate();
 
   let index='';
-  console.log(countryParam);
-  console.log(searches);
   if(countryParam){
-
     index=searches.findIndex(country =>country.name===countryParam);
-    console.log(index);
   }
   // if(index===-1){
   //   navigate('/', { replace: true });    
