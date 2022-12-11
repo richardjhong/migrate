@@ -70,8 +70,6 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
     let ref12 = useRef(null);
     const [toggle, setToggle] = useState(false);
 
-    console.log("countryProperties: ", countryProperties)
-
     return (
         <>
             <div className='countryCard' ref={ref1} id="col1row1" data-name={'col1row1'} onClick={(event) => {
