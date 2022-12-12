@@ -25,7 +25,7 @@ export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
   }
 
   const singleCountry = data?.singleCompileCountry?.year_catalog || [];
-console.log(data);
+  console.log(data);
   //Save more data from country to LocalStorage
   if (data) {
     const countryIndex = searches.findIndex(country => country.name === caseTransformedCountryParam)
