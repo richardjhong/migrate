@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { VictoryChart, VictoryAxis, VictoryLabel, VictoryBar, VictoryContainer, VictorySelectionContainer } from "victory";
+import React from "react";
+import { VictoryChart, VictoryAxis, VictoryLabel, VictoryBar, VictoryContainer } from "victory";
 import '../CountryChart.scss';
 
 const BarChart = ({

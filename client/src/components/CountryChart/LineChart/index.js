@@ -1,5 +1,5 @@
 import React from "react";
-import { VictoryChart, VictoryAxis, VictoryLabel, VictoryLine, VictoryContainer, VictoryScatter, VictoryArea } from "victory";
+import { VictoryChart, VictoryAxis, VictoryLabel, VictoryLine, VictoryContainer, VictoryScatter } from "victory";
 import '../CountryChart.scss';
 
 const LineChart = ({
