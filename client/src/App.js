@@ -8,6 +8,7 @@ import Signup from './pages/Signup';
 import CountryListing from './pages/CountryListing';
 import Splash from './pages/Splash/index'
 import AboutUs from './pages/AboutUs';
+import HowTo from './pages/HowTo';
 import SingleCountryCont from './pages/SingleCountryCont';
 
 import Form from './pages/Form';
@@ -57,10 +58,13 @@ function App() {
               element={<AboutUs />}
             />
             <Route
+              path='/HowTo'
+              element={<HowTo />}
+            />
+            <Route
               index
               element={<Splash />}
             />
-
             <Route
             path="/form"
             element={<Form />}
