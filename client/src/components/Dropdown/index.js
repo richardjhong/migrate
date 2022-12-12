@@ -43,5 +43,3 @@ const Dropdown = ({ countryYearIndex, chartTypeIndex, setCountryYearIndex, setCh
 };
 
 export default Dropdown;
-
-// Remember to credit the following: https://www.robinwieruch.de/react-dropdown/
