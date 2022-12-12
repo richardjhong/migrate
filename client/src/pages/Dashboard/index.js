@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 import SearchCountry from '../../components/SearchCountry';
@@ -17,6 +17,7 @@ const Dashboard = () => {
   const { loading: loadingC, data: dataC } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam }
   });
+  let navigate = useNavigate();
 
   const user = dataC?.me || dataC?.user || {};
 
@@ -63,7 +64,12 @@ const Dashboard = () => {
                     <div className='savedSearchCard' >
                     <div key={i}>
                       <h2 className="">
-                        <a href={`/singleCountry/${search.name}`}>{search.name}</a>
+                        <button onClick={()=>{
+                          console.log('clicked');
+                         navigate(`/SingleCountry/${search.name}`);
+                        }
+                        }>{search.name}</button>
+                        {/* <a href={`/sin=>{gleCountry/${search.name}`}>{search.name}</a> */}
                       </h2>
                       <div className='dashCountryScore'>
                       <p>Rank:{search.rank_score_spi}</p> <p>Score:{search.score_spi}</p>
