@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import airplane from '../../images/airplaneArt.png'
 import './Login.scss'
 
 import Auth from '../../utils/auth.js';
@@ -49,15 +50,19 @@ const Login = (props) => {
     <Header />
     <main >
      
-          <h2 >Login</h2>
+         
           <div className="loginForm">
+            <p>Login to see your saved searches so you can review them and also to manage your personal information.</p>
             {data ? (
               <p>
                 Success! You may now head{' '}
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
+              
+              
               <form onSubmit={handleFormSubmit}>
+                 <h2 >Login</h2>
                 <input
                   className="form-input"
                   placeholder="Your email"
@@ -82,6 +87,7 @@ const Login = (props) => {
                   Submit
                 </button>
               </form>
+             
             )}
 
             {error && (
@@ -89,6 +95,9 @@ const Login = (props) => {
                 {error.message}
               </div>
             )}
+          </div>
+          <div className='airplaneHangar'>
+            <img src={airplane} alt='airplane illustration flying away'></img>
           </div>
        
     </main>
