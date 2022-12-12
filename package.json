@@ -9,7 +9,8 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "build": " cd client && npm run build",
     "seed": "cd server && npm run seed",
-    "heroku-prebuild": "npm install --dev"
+    "heroku-prebuild": "npm install --dev",
+    "heroku-postbuild": "cd server && npm run seed"
   },
   "repository": {
     "type": "git",
