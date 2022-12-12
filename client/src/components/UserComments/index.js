@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_COUNTRY_COMMENTS } from '../../utils/queries'
-
+//imports
 
 
 export default function UserComments() {
