@@ -6,6 +6,7 @@ import { QUERY_SINGLE_COMPILATION } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
 import { capitalizeFirstLetter } from '../../utils/helper'
 
+
 export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
 
   const { searches, updateSearch } = useSearch();
@@ -25,17 +26,17 @@ export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
   }
 
   const singleCountry = data?.singleCompileCountry?.year_catalog || [];
-console.log(data);
+  console.log(data);
   //Save more data from country to LocalStorage
   if (data) {
     const countryIndex = searches.findIndex(country => country.name === caseTransformedCountryParam)
     const newData = {
       ...searches[countryIndex],
-      score_bhn: data.singleCompileCountry.year_catalog[4].score_bhn,
-      score_fow: data.singleCompileCountry.year_catalog[4].score_fow,
-      score_opp: data.singleCompileCountry.year_catalog[4].score_opp,
-      rank_score_spi: data.singleCompileCountry.year_catalog[4].rank_score_spi,
-      score_spi: data.singleCompileCountry.year_catalog[4].score_spi,
+      score_bhn: data.singleCompileCountry.year_catalog[9].score_bhn,
+      score_fow: data.singleCompileCountry.year_catalog[9].score_fow,
+      score_opp: data.singleCompileCountry.year_catalog[9].score_opp,
+      rank_score_spi: data.singleCompileCountry.year_catalog[9].rank_score_spi,
+      score_spi: data.singleCompileCountry.year_catalog[9].score_spi,
     }
   updateSearch(newData);
   }

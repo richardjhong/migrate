@@ -16,6 +16,7 @@ let navigate = useNavigate();
   const { loading: loadingC, data: dataC } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam }
   });
+  let navigate = useNavigate();
 
   const user = dataC?.me || dataC?.user || {};
 
@@ -61,13 +62,13 @@ let navigate = useNavigate();
                   searches && searches.filter((search,i)=>i>=searches.length-5&&i<=searches.length).map((search, i) => (
                     <div className='savedSearchCard' >
                     <div key={i}>
-                    <h2 className="">
+                      <h2 className="">
                         <button onClick={()=>{
                           console.log('clicked');
-                         navigate(`SingleCountry/${search.name}`);
+                         navigate(`/SingleCountry/${search.name}`);
                         }
                         }>{search.name}</button>
-                  
+                        {/* <a href={`/sin=>{gleCountry/${search.name}`}>{search.name}</a> */}
                       </h2>
                       <div className='dashCountryScore'>
                       <p>Rank:{search.rank_score_spi}</p> <p>Score:{search.score_spi}</p>
