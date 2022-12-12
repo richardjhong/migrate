@@ -18,5 +18,30 @@
     "username": "Kent",
     "email": "kent@techfriends.dev",
     "password": "password04"
+  },
+  {
+    "username": "Richard",
+    "email": "Richard@techfriends.dev",
+    "password": "password01"
+  },
+  {
+    "username": "Sarah",
+    "email": "Sarah@techfriends.dev",
+    "password": "password02"
+  },
+  {
+    "username": "Paris",
+    "email": "Paris@techfriends.dev",
+    "password": "password03"
+  },
+  {
+    "username": "Yeon",
+    "email": "Yeon@techfriends.dev",
+    "password": "password04"
+  },
+  {
+    "username": "Mark",
+    "email": "Mark@techfriends.dev",
+    "password": "password04"
   }
 ]
