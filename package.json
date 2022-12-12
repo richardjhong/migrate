@@ -33,6 +33,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.7.4",
     "react-autocomplete": "^1.8.1",
+    "react-infinite-ticker": "^2.1.1",
     "sass": "^1.56.1",
     "victory": "^36.6.8"
   },
