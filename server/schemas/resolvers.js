@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, SearchHistory, Country, CompileCountry } = require('../models');
+const { User, SearchHistory, Country, CompileCountry, Comment } = require('../models');
 const { signToken } = require('../utils/auth');
 
 
@@ -36,7 +36,7 @@ const resolvers = {
     },
 
     countryComments: async (parent, {countryname}) => {
-      return await Comment.find({});
+      return await Comment.findOne({country: countryname});
     }
 
   },

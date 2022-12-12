@@ -13,12 +13,12 @@ const commentSchema = new Schema(
             trim: true,
           },
         commentAuthor: {
-            type: Schema.Types.ObjectId,
-            ref: User.username,
+            type: String,
+            ref: 'User',
         },
         country: {
-            type: Schema.Types.ObjectId,
-            ref: compile,
+            type: String,
+            ref: 'country',
         }
     }
 )

@@ -13,8 +13,8 @@ const typeDefs = gql`
  type Comment {
     _id:ID
     commentText: String
-    username: User
-    country: compile
+    commentAuthor: String
+    country: String
  }
 
 
@@ -33,7 +33,7 @@ const typeDefs = gql`
   type Country {
     _id: ID
     spiyear: String
-    country: String 
+    country: String
     rank_score_spi:Float
     status: String
     score_spi:Float
@@ -79,7 +79,7 @@ const typeDefs = gql`
     countries: [Country]
     countryCompilations: [CountryCompilation]
     singleCompileCountry(countryname: String!): CountryCompilation
-    comments(country:string): [Comment]
+    countryComments: [Comment]
   }
 
   type Mutation {
