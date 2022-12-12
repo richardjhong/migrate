@@ -7,8 +7,13 @@ const LineChart = ({
 }) => {
   return (
     <div className="chartContainer">
-      <VictoryChart height={600} width={1000} 
-        containerComponent={<VictoryContainer responsive={true}/>}
+      <VictoryChart 
+        height={600} 
+        width={1000} 
+        containerComponent={
+          <VictoryContainer responsive={true}
+        />
+      }
       >
         <VictoryLine
           labelComponent={
