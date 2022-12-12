@@ -1,5 +1,5 @@
 {
-  "name": "project-3",
+  "name": "migrate",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,19 +9,20 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "build": " cd client && npm run build",
     "seed": "cd server && npm run seed",
-    "heroku-prebuild": "npm install --dev"
+    "heroku-prebuild": "npm install --dev",
+    "heroku-postbuild": "cd server && npm run seed"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/richardjhong/project-3.git"
+    "url": "git+https://github.com/richardjhong/migrate.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/richardjhong/project-3/issues"
+    "url": "https://github.com/richardjhong/migrate/issues"
   },
-  "homepage": "https://github.com/richardjhong/project-3#readme",
+  "homepage": "https://github.com/richardjhong/migrate#readme",
   "dependencies": {
     "axios": "^1.2.0",
     "csvtojson": "^2.0.10",

@@ -1,5 +1,5 @@
 import React from 'react';
-import Chart from '../CountryChart/index.js'
+import LineChart from '../CountryChart/LineChart'
 
 const CountryList = ({ compilations, title }) => {
   if (!compilations.length) {
@@ -22,7 +22,7 @@ const CountryList = ({ compilations, title }) => {
           return (
             <>
               <p>{name}</p>
-            <Chart fields={chartData}/> 
+            <LineChart fields={chartData}/> 
             </>
           )
         })

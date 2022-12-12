@@ -4,11 +4,12 @@ import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 import SearchCountry from '../../components/SearchCountry';
 import { useSearch } from '../../utils/CountryContext';
-import { QUERY_SINGLE_COMPILATION } from '../../utils/queries';
+import { QUERY_SINGLE_COMPILATION} from '../../utils/queries';
 import Auth from '../../utils/auth';
 import "./dashboard.scss";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import PolarChart from '../../components/CountryPolarChart'
 
 const Dashboard = () => {
 
@@ -22,18 +23,18 @@ const Dashboard = () => {
   const { searches } = useSearch();
   console.log(searches);
 
-  const { loading, data } = useQuery(QUERY_SINGLE_COMPILATION, {
-    variables: { countryname: searches[0] }
-  });
-  console.log(loading, data)
+  // const { loading, data } = useQuery(QUERY_SINGLE_COMPILATION, {
+  //   variables: { countryname: searches[0] }
+  // });
+  // console.log(loading, data)
 
-  const handleLogout = async (e) => {
-    e.preventDefault();
-    if (Auth.loggedIn()) {
-      localStorage.removeItem("id_token");
-      <Navigate to="/splash" />;
-    }
-  };
+  // const handleLogout = async (e) => {
+  //   e.preventDefault();
+  //   if (Auth.loggedIn()) {
+  //     localStorage.removeItem("id_token");
+  //     <Navigate to="/splash" />;
+  //   }
+  // };
 
   // navigate to personal dashboard page if username matches param
   if (Auth.loggedIn() && Auth.getDashboard().data.username === userParam) {
@@ -71,23 +72,37 @@ const Dashboard = () => {
           <div>
             <h3>Your Most Recent Searches: </h3>
             <div className="dashboardContainer">
-              <div className='savedSearchCard' >
-                {loading ? (
+              {/* <div className='savedSearchCard' > */}
+                {loadingC ? (
                   <div>Loading...</div>
                 ) :
-                  searches && searches.map((search) => (
-                    <div>
-                      <h4 className="">
-                        <a href={`/singleCountry/${search}`}>{search}</a>
-                      </h4>
+                  searches && searches.filter((search,i)=>i>=searches.length-5&&i<=searches.length).map((search, i) => (
+                    <div className='savedSearchCard' >
+                    <div key={i}>
+                      <h2 className="">
+                        <a href={`/singleCountry/${search.name}`}>{search.name}</a>
+                      </h2>
+                      <div className='dashCountryScore'>
+                      <p>Rank:{search.rank_score_spi}</p> <p>Score:{search.score_spi}</p>
+                      </div>
+                      <PolarChart
+                      fields={
+                        {"opp":search.score_opp,
+                        "fow":search.score_fow,
+                        "bhn":search.score_bhn,
+                      }
+                      } 
+                      
+                      />
+                    </div>
                     </div>
                   ))}
-              </div>
+              {/* </div> */}
               <div className='dashSearch'>
-                <h3>Start a new search here: <SearchCountry className="button" /></h3>
+                <SearchCountry className="button" />
               </div>
             </div>
-            <button type="submit" onClick={handleLogout}>Log Out</button>
+            {/* <button type="submit" onClick={handleLogout}>Log Out</button> */}
           </div>
         </div>
       </main>

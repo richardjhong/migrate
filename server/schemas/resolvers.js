@@ -2,6 +2,7 @@ const { AuthenticationError } = require('apollo-server-express');
 const { User, SearchHistory, Country, CompileCountry } = require('../models');
 const { signToken } = require('../utils/auth');
 
+
 const resolvers = {
   Query: {
     users: async () => {
@@ -26,9 +27,14 @@ const resolvers = {
     countries: async () => {
       return await Country.find({});
     },
+    
     singleCompileCountry: async (parent, { countryname }) => {
-      return CompileCountry.findOne({ countryname }).populate('year_catalog')
+      return CompileCountry.findOne({ countryname :{
+        //case insensitive
+        $regex : new RegExp(countryname, "i") }
+       }).populate('year_catalog')
     },
+
   },
 
   Mutation: {
@@ -41,7 +47,8 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('No user found with this email address');
+        throw new AuthenticationError(`No user found with this email address. Please sign up with a new account.`);
+
       }
 
       const correctPw = await user.isCorrectPassword(password);
