@@ -28,10 +28,12 @@ const BarChart = ({
           style={{
             data: { 
               fill: ({ index }) => {
-                  return parseInt(index) === parseInt(countryYearIndex) ? "#04566e" : "#022831"
+                  return parseInt(index) === parseInt(countryYearIndex) ? "#b4d330" : "#022831"
                 },
                  
-              stroke: "#b4d330",
+              stroke: ({ index }) => {
+                return parseInt(index) === parseInt(countryYearIndex) ? "#022831" : "#b4d330"
+              },
               strokeWidth: 3
             },
             parent: { border: "1px solid #ccc"},
