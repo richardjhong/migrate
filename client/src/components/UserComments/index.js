@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_COUNTRY_COMMENTS } from '../../utils/queries'
+import { HorizontalTicker } from 'react-infinite-ticker';
 
 
 
@@ -31,22 +32,20 @@ export default function UserComments() {
           <div>Loading...</div>
         ) : (
           <>
+
             {data.commentCountry.map((comment, i) => {
               return (
-                <div
-                  key={i}
-                  className='tickerText'
-                >
+                
                   <div
                   className='tickerText' key={i}>
-                    {comment.commentText} - 
+                    {comment._id} - 
                     <span
                     className='tickerAuthor' key={i}
                     >
                       {comment.commentAuthor}
                     </span>
                   </div>
-                </div>
+                // </div>
               );
             })}
 
