@@ -41,6 +41,7 @@ function SingleCountryCont() {
                                         {value: '', text: 'Select chart type', disabled: true},
                                         {value: 'Bar', text: 'Bar'},
                                         {value: 'Line', text: 'Line'},
+                                        {value: 'Area', text: 'Area'}
                                       ]
                                 }
                                 affectedState={"chart"}
