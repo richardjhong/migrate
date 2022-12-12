@@ -143,4 +143,40 @@ export const QUERY_SINGLE_COMPILATION = gql`
       }
     }
   }
+
+  
+`
+
+export const QUERY_USER_COMMENTS = gql`
+  query comments($username: String!) {
+    comments(username: $username) {
+      _id:
+      commentText
+      commentAuthor
+      country     
+    }
+  }
+`
+
+
+export const QUERY_COUNTRY_COMMENTS = gql`
+  query commentCountry($country: String!) {
+    commentCountry(country: $country) {
+      _id:
+      commentText
+      commentAuthor
+      country     
+    }
+  }
+`
+
+export const QUERY_SINGLE_COMMENT = gql`
+  query comment($commentId: String!) {
+    comment(commentId: $country) {
+      _id:
+      commentText
+      commentAuthor
+      country     
+    }
+  }
 `

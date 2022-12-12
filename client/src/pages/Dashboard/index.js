@@ -21,25 +21,19 @@ const Dashboard = () => {
   const user = dataC?.me || dataC?.user || {};
 
   const { searches } = useSearch();
-  console.log(searches);
 
-  // const { loading, data } = useQuery(QUERY_SINGLE_COMPILATION, {
-  //   variables: { countryname: searches[0] }
-  // });
-  // console.log(loading, data)
+  console.log(Auth.loggedIn());
+  console.log(Auth.getDashboard().data.username);
+  console.log(user);
+console.log(!user?.username)
+console.log(loadingC)
 
-  // const handleLogout = async (e) => {
-  //   e.preventDefault();
-  //   if (Auth.loggedIn()) {
-  //     localStorage.removeItem("id_token");
-  //     <Navigate to="/splash" />;
-  //   }
-  // };
 
-  // navigate to personal dashboard page if username matches param
-  if (Auth.loggedIn() && Auth.getDashboard().data.username === userParam) {
-    return <Navigate to={`/dashboard`} />;
-  }
+  // // navigate to personal dashboard page if username matches param
+  // if (Auth.loggedIn() && Auth.getDashboard().data.username === userParam) {
+  //   console.log("here I am");
+  //   return <Navigate to={`/dashboard`} />;
+  // }
   if (loadingC) {
     return <div>Loading...</div>;
   }
