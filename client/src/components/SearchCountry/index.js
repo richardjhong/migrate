@@ -82,7 +82,7 @@ const SearchCountry = () => {
 
     <div className="singleCountryInput">
       <input
-        className=""
+        className="going"
         type="text"
         placeholder="Search Country"
         value={searchImgInput}
@@ -91,7 +91,7 @@ const SearchCountry = () => {
       <button
         type="submit"
         onClick={handleFormSubmit}
-        className=""
+        className="go"
       >
         Search
       </button>
