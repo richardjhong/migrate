@@ -32,7 +32,7 @@ export default function UserComments() {
         }
         );
  
-
+//testing
     console.log(data)
     
     const ticker = !loading && data.map(({commentText, commentAuthor}) => 
