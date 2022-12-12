@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import "./UserComments.scss"
-
 import SearchCountry from '../SearchCountry';
 import { useSearch } from '../../utils/CountryContext';
 import { useNavigate } from 'react-router-dom';
@@ -24,9 +23,7 @@ export default function UserComments() {
 
   }
 
-
   return (
-
 
     <div className='tickerWrapper'>
       <div className='tickerContent'>
@@ -53,13 +50,10 @@ export default function UserComments() {
               );
             })}
 
-
           </>
         )}
 
       </div>
     </div>
-
   )
-
 }
