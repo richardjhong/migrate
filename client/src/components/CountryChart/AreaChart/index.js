@@ -1,21 +1,26 @@
 import React from "react";
-import { VictoryChart, VictoryAxis, VictoryLabel, VictoryLine, VictoryContainer, VictoryScatter, VictoryArea } from "victory";
+import { VictoryChart, VictoryAxis, VictoryLabel, VictoryContainer, VictoryScatter, VictoryArea } from "victory";
 import '../CountryChart.scss';
 
-const LineChart = ({
+const AreaChart = ({
   fields
 }) => {
   return (
     <div className="chartContainer">
-      <VictoryChart 
-        height={600} 
-        width={1000} 
-        containerComponent={
-          <VictoryContainer responsive={true}
-        />
-      }
+      <svg style={{ height: 0 }}>
+          <defs>
+              <linearGradient id="verticalGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#b4d330" />
+                  <stop offset="34%" stopColor="#689368" />
+                  <stop offset="67%" stopColor="#04566e" />
+                  <stop offset="100%" stopColor="#022831" />
+              </linearGradient>
+          </defs>
+      </svg>
+      <VictoryChart height={600} width={1000} 
+        containerComponent={<VictoryContainer responsive={true}/>}
       >
-        <VictoryLine
+        <VictoryArea
           labelComponent={
             <VictoryLabel 
               renderInPortal 
@@ -25,8 +30,9 @@ const LineChart = ({
             />
           }
           style={{
-            data: { stroke: "#022831" },
+            // data: { stroke: "#022831" },
             parent: { border: "1px solid #ccc"},
+            data: { fill: "url(#verticalGradient)" }
           }}
           alignment="start"
           size={5}
@@ -75,5 +81,5 @@ const LineChart = ({
   )
 };
 
-export default LineChart
+export default AreaChart
  
