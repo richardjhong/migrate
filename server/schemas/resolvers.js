@@ -35,6 +35,10 @@ const resolvers = {
        }).populate('year_catalog')
     },
 
+    countryComments: async (parent, {countryname}) => {
+      return await Comment.find({});
+    }
+
   },
 
   Mutation: {

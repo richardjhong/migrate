@@ -14,7 +14,7 @@ function SingleCountryCont() {
     return (
         <>
             <Header />
-            <main>
+            <main class="clearMargin">
                 <div className='singleCountHeadCont'>
                     <SingleCountryHeader />
                     <div className="searchdropdownContainer">

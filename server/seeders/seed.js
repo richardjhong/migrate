@@ -1,8 +1,8 @@
 
 const db = require('../config/connection');
-const { Country, Bhn, User, Comment, CompileCountry } = require('../models');
+const { Country, Bhn, Comment, User,  CompileCountry } = require('../models');
 const userSeeds = require('./userSeeds.json');
-// const commentSeeds = require('./commentSeeds.js');
+const commentSeeds = require('./commentSeeds.json');
 const countrySeed = require('./2011-2022 SPI data-Table 1.json');
 
 
@@ -10,12 +10,14 @@ db.once('open', async () => {
   try {
     await User.deleteMany({});
     await User.create(userSeeds);
+    // await Comment.deleteMany({});
+    // await Comment.create(commentSeeds);
 
     // for (let i = 0; i < commentSeeds.length; i++) {
     //   const { _id, commentAuthor } = await Comment.create(commentSeeds[i]);
     //   const user = await User.findOneAndUpdate(
     //     { username: commentAuthor },
-    //     { $push: { comments: comment._id}},
+    //     { $push: { comments: Comment.commentText}},
     //   );
     // }
   } catch (err) {
