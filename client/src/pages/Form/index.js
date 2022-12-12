@@ -28,7 +28,7 @@ function Form() {
   return (
     <>
     <Header />
-    <main>
+    <main className="formMain">
     <h1 className="title">FIND YOUR PERFECT COUNTRY MATCH</h1>
     <form onSubmit={handleSubmit} className="form">
       <label className="region">

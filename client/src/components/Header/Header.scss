@@ -7,8 +7,7 @@ header {
     display:flex;
     justify-content:space-between;
     padding:20px;
-    margin-bottom:2em;
-    
+   
 }
 
 header h1 {
@@ -29,11 +28,20 @@ header h1 {
     color:var(--light);
     margin-right:1em;
     transition:all .3s;
+    border-radius:10px;
+    padding:.3em;
 }
 
 .navLink:hover {
     color:var(--lightBorder);
     scale:1.2;
+   
+
+}
+
+.navLink:active {
+    color:var(--light);
+    
 }
 
 

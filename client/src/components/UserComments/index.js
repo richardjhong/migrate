@@ -12,47 +12,51 @@ import { HorizontalTicker } from 'react-infinite-ticker';
 
 export default function UserComments() {
 
-  const { countryname } = useParams();
-  const { loading, data } = useQuery(QUERY_COUNTRY_COMMENTS, {
-    variables: { country: countryname },
-  }
-  );
+
+    const { countryname } = useParams();
+    const { loading, data } = useQuery(QUERY_COUNTRY_COMMENTS, {
+        variables: { country: countryname },
+    }
+    );
 
 
-  if (data) {
-    console.log(data);
+    if (data) {
+        console.log(data);
 
-  }
+    }
 
-  return (
+    return (
 
-    <div className='tickerWrapper'>
-      <div className='tickerContent'>
-        {(loading || data.commentCountry === null) ? (
-          <div>Loading...</div>
-        ) : (
-          <>
+        <div className='tickerWrapper'>
+            <div className='tickerContent'>
+                {(loading || data.commentCountry === null) ? (
+                    <div>Loading...</div>
+                ) : (
+                    <>
+                        {data.commentCountry.map((comment, i) => {
+                            return (
+                                <div
+                                    key={i}
+                                    className='tickerTextContain'
+                                >
+                                    <div
+                                        className='tickerText' key={i}>
+                                        {comment._id} -
+                                        <span
+                                            className='tickerAuthor' key={i}
+                                        >
+                                            {comment.commentAuthor}
+                                        </span>
+                                    </div>
+                                </div>
+                            );
+                        })}
 
-            {data.commentCountry.map((comment, i) => {
-              return (
-                
-                  <div
-                  className='tickerText' key={i}>
-                    {comment._id} - 
-                    <span
-                    className='tickerAuthor' key={i}
-                    >
-                      {comment.commentAuthor}
-                    </span>
-                  </div>
-                // </div>
-              );
-            })}
+                    </>
+                )}
 
-          </>
-        )}
+            </div>
+        </div>
+    )
 
-      </div>
-    </div>
-  )
 }

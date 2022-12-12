@@ -48,7 +48,7 @@ const Signup = () => {
      
           
           <div className="signupForm">
-            <p>Signup and your last five searches will be saved so you can easily revisit a country to look at their information.</p>
+            <h2>Signup and your last five searches will be saved so you can easily revisit a country to look at their information.</h2>
             {data ? (
               <p>
                 Success! You may now head{' '}

@@ -11,7 +11,8 @@
     display:flex;
     justify-content:space-between;
     overflow:hidden;
-    animation: tickerAnimate 15s linear infinite;
+    animation: tickerAnimate 30s linear infinite;
+    margin-right:2em;
 
 }
 
@@ -20,10 +21,7 @@
     
 }
 
-.tickerText {
-  
-    
-}
+
 
 .tickerAuthor {
     font-style:italic;
