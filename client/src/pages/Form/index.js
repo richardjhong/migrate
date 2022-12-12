@@ -6,11 +6,14 @@ import { SummarySection } from "../../components/SummarySection";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
+
 function Form() {
   const [selectionOneValue, setSelectionOneValue] = useState("North America");
   const [selectionTwoValue, setSelectionTwoValue] = useState("Food Quality");
   // const [selectionThreeValue, setSelectionThreeValue] = useState("Food Quality");
   const [formIsSubmitted, setFormIsSubmitted] = useState(false);
+
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
