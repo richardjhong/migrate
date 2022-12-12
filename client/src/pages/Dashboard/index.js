@@ -22,18 +22,7 @@ const Dashboard = () => {
 
   const { searches } = useSearch();
 
-  console.log(Auth.loggedIn());
-  console.log(Auth.getDashboard().data.username);
-  console.log(user);
-console.log(!user?.username)
-console.log(loadingC)
-
-
-  // // navigate to personal dashboard page if username matches param
-  // if (Auth.loggedIn() && Auth.getDashboard().data.username === userParam) {
-  //   console.log("here I am");
-  //   return <Navigate to={`/dashboard`} />;
-  // }
+  
   if (loadingC) {
     return <div>Loading...</div>;
   }
