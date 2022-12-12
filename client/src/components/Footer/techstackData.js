@@ -4,12 +4,24 @@ import { FaNode, FaSass, FaChartBar } from "react-icons/fa";
 export const websiteTechStack = {
   devicons: [
     {
-      icon: SiJavascript,
-      tooltipMessage: "JavaScript"
+      icon: SiMongodb,
+      tooltipMessage: "MongoDB"
+    },
+    {
+      icon: SiExpress,
+      tooltipMessage: "Express"
     },
     {
       icon: SiReact,
       tooltipMessage: "React"
+    },
+    {
+      icon: FaNode,
+      tooltipMessage: "Node"
+    },
+    {
+      icon: SiJavascript,
+      tooltipMessage: "JavaScript"
     },
     {
       icon: SiHtml5,
@@ -24,22 +36,6 @@ export const websiteTechStack = {
       tooltipMessage: "GreenSock"
     },
     {
-      icon: SiMongodb,
-      tooltipMessage: "MongoDB"
-    },
-    {
-      icon: FaSass,
-      tooltipMessage: "Sass"
-    },
-    {
-      icon: FaNode,
-      tooltipMessage: "Node"
-    },
-    {
-      icon: SiExpress,
-      tooltipMessage: "Express"
-    },
-    {
       icon: SiHeroku,
       tooltipMessage: "Heroku"
     },
@@ -50,6 +46,10 @@ export const websiteTechStack = {
     {
       icon: SiApollographql,
       tooltipMessage: "GraphQL"
-    }
+    },
+    {
+      icon: FaSass,
+      tooltipMessage: "Sass"
+    },
   ]
 }
