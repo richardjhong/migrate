@@ -2,6 +2,16 @@
     display:flex;
     flex-direction:column;
     width:30%;
+    background-color: var(--darkBackground);
+    color: var(--light);
+    margin: auto;
+    padding: 2%;
+    border: 5px solid var(--lightBorder);
+    border-radius:20px
     
-    
+}
+
+.airplaneHangar {
+    display:flex;
+    justify-content:center;
 }
