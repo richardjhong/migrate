@@ -1,15 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Header.scss'
 import heroImage from '../../images/homeBackground.png'
 
 import Auth from '../../utils/auth';
 
 const Header = () => {
+  const navigate = useNavigate();
 
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
+    navigate(`/`);
   };
 
 
