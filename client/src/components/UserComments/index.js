@@ -11,6 +11,7 @@ import { QUERY_COUNTRY_COMMENTS } from '../../utils/queries'
 
 export default function UserComments() {
 
+
     const { countryname } = useParams();
     const { loading, data } = useQuery(QUERY_COUNTRY_COMMENTS, {
         variables: { country: countryname },
@@ -56,4 +57,5 @@ export default function UserComments() {
             </div>
         </div>
     )
+
 }

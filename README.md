@@ -69,11 +69,18 @@ To deploy the application locally run ``npm run develop`` in the terminal from t
 ![landing-page]()
 _<p align="center">Landing Page</p>_
 
-
 ## Challenges
 
 
 ## Future Development
+
+- [ ] Check results of image search to avoid duplicate images
+- [ ] Transparent and equal-sized icons
+- [ ] Add user location, weather comparison and currency conversion
+- [ ] Add images to login page
+- [ ] Add RFS component and redeclare font sizes for responsiveness
+- [ ] Add a "compare" feature to compare countries
+- [ ] Refactor Helper component to use mapping 
 
 ## License
 
@@ -82,6 +89,7 @@ Click the badge to learn more about the license used for this project.
 
 ## Questions?
 
+If you have any questions about the repo, open an issue or contact any of the collaborators through github.
 
 ## Credits
 
