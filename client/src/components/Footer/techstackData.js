@@ -1,4 +1,4 @@
-import { SiJavascript, SiReact, SiExpress, SiHtml5, SiCss3, SiHeroku, SiMongodb, SiGreensock } from "react-icons/si";
+import { SiJavascript, SiReact, SiExpress, SiHtml5, SiCss3, SiHeroku, SiMongodb, SiGreensock, SiApollographql } from "react-icons/si";
 import { FaNode, FaSass, FaChartBar } from "react-icons/fa";
 
 export const websiteTechStack = {
@@ -46,6 +46,10 @@ export const websiteTechStack = {
     {
       icon: FaChartBar,
       tooltipMessage: "Victory"
+    },
+    {
+      icon: SiApollographql,
+      tooltipMessage: "GraphQL"
     }
   ]
 }
