@@ -15,7 +15,7 @@ This app is designed to provide data on countries and their social performance s
 
 **Deployment Date:**  12/11/22 <br>
  
-**Deployed Site:** [Migrate](https://migrate-abroad.herokuapp.com/) <br>
+**Deployed Site:** [https://migrate-abroad.herokuapp.com/](https://migrate-abroad.herokuapp.com/) <br>
 
 
   ## Table of Contents
@@ -48,7 +48,7 @@ This app is designed to provide data on countries and their social performance s
  
 ## Usage 
 
-To use this program, simply visit the [deployed site](https://migrate-abroad.herokuapp.com/).                
+To use this application, simply visit the [deployed site](https://migrate-abroad.herokuapp.com/).                
 
 Start a search with a country in mind. Are you curious about the stats of a particular country? Type the name of the country into any search bar and hit search.
 <ul>
@@ -66,9 +66,9 @@ Not set on a destination, yet? Use our [Helper]() to pinpoint a destination.
 To deploy the application locally run ``npm run develop`` in the terminal from the ``root`` folder.
 
 ## Deployed Screenshots
-![landing-page](./public/assets/portfolio-landing.png)
+![landing-page]()
 _<p align="center">Landing Page</p>_
-</br>
+
 
 ## Challenges
 
