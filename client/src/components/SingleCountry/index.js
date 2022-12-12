@@ -11,12 +11,11 @@ export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
   const { searches, updateSearch } = useSearch();
   const { countryname: countryParam } = useParams();
   const navigate = useNavigate();
-  console.log(countryYearIndex);
+
 
   // account for transforming manual entries that do not have a capital letter
   const caseTransformedCountryParam = capitalizeFirstLetter(countryParam);
 
-  console.log(caseTransformedCountryParam);
   const { loading, data } = useQuery(QUERY_SINGLE_COMPILATION, {
     variables: { countryname: caseTransformedCountryParam }
   });
@@ -47,15 +46,15 @@ console.log(data);
       <div className='countryCardContainer'>
         {/* accounts for letting asynchronous conditional check of navigate to homepage to assess before possibly passing year_catalog that is undefined */}
         {(loading || data.singleCompileCountry === null )? (
-            <div>Loading...</div>
-          ) : (
-            <>
-              <CountryCards
-                  countryProperties={singleCountry} countryYearIndex={countryYearIndex} chartTypeIndex={chartTypeIndex}
-              /> 
-            </>
-          )}
-        </div>
+          <div>Loading...</div>
+        ) : (
+          <>
+            <CountryCards
+              countryProperties={singleCountry} countryYearIndex={countryYearIndex} chartTypeIndex={chartTypeIndex}
+            />
+          </>
+        )}
+      </div>
     </div>
   )
 }

@@ -40,7 +40,7 @@ const SearchCountry = () => {
           alt: item.alt_description,
         };
         newImgs.push(newImg);
-
+      
       });
       const newSearch ={
         name : searchImgInput,
