@@ -3,6 +3,8 @@ import './Form.scss';
 import airplane from '../../images/airplaneArt.png';
 import SearchSelect from "../../components/SearchSelect";
 import { SummarySection } from "../../components/SummarySection";
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 function Form() {
   const [selectionOneValue, setSelectionOneValue] = useState("North America");
@@ -21,7 +23,9 @@ function Form() {
   }
 
   return (
-    <div>
+    <>
+    <Header />
+    <main>
     <h1 className="title">FIND YOUR PERFECT COUNTRY MATCH</h1>
     <form onSubmit={handleSubmit} className="form">
       <label className="region">
@@ -85,12 +89,14 @@ function Form() {
       </label>
       <br></br>
       <br></br> */}
-      <input className="submitButton" type="submit" value="Submit" />
+      <input className="submitButton button" type="submit" value="Submit" />
     </form>
 
     <img className="airplane" src={airplane} alt="airplane"/>
     {formIsSubmitted && <SummarySection selections={{ first: selectionOneValue, second: selectionTwoValue}} />}
-    </div>
+    </main>
+    <Footer />
+    </>
   );
 }
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import airplane from '../../images/airplaneArt.png'
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
 import './Signup.scss';
@@ -46,8 +46,9 @@ const Signup = () => {
     <Header />
     <main>
      
-          <h2>Sign Up</h2>
+          
           <div className="signupForm">
+            <p>Signup and your last five searches will be saved so you can easily revisit a country to look at their information.</p>
             {data ? (
               <p>
                 Success! You may now head{' '}
@@ -55,6 +56,7 @@ const Signup = () => {
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
+                <h2>Sign Up</h2>
                 <input
                   className="form-input"
                   placeholder="Your username"
@@ -93,6 +95,9 @@ const Signup = () => {
                 {error.message}
               </div>
             )}
+          </div>
+          <div className='airplaneHangar'>
+            <img src={airplane} alt='airplane illustration flying away'></img>
           </div>
        
     </main>
