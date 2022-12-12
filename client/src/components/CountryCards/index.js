@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import './CountryCards.scss';
 import { gsap } from 'gsap'
 import { Flip } from "gsap/Flip";
@@ -67,8 +67,6 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
     let ref11 = useRef(null);
     let ref12 = useRef(null);
     const [toggle, setToggle] = useState(false);
-  
-
 
     return (
         <>
@@ -132,7 +130,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                                                 switch(chartTypeIndex) {
                                                     case('Bar'):
                                                         return (
-                                                            <BarChart fields={fields}/>
+                                                            <BarChart fields={fields} countryYearIndex={countryYearIndex}/>
                                                         )
                                                     case('Line'):
                                                         return (
@@ -144,7 +142,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                                                         )
                                                     default: 
                                                         return;
-
+                                        
                                                 }
                                             })()}
                                         </div>
