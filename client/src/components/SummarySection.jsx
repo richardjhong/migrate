@@ -1,5 +1,7 @@
 import React from "react"
 import '../pages/Form/Form.scss';
+import { useNavigate } from 'react-router-dom';
+
 
 const food = 'The Global Food Security Index takes into account: affordability, availability, quality, safety, sustainability, and adaptation to provide a complete picture of a nations food security. ';
 const water = 'Millions of people around the globe struggle with access to clean water. This can be extremely important when choosing a new home. In fact, as many as 1 in 3 people globally do not have access to clean drinking water. An Environmental Performance Index can be applied to each country to measure their quality of drinking water. The EPI calculates a score out of 100, wiith 100 being the highest rank a country can receive. ';
@@ -12,12 +14,20 @@ const health = 'CEOWorld Magazine\'s Health Care Index "is a statistical analysi
 const enviro = 'Compiled annually by Yale University\'s Center for Environmental Law & Policy, the Environmental Performance Index (EPI) is a statistical method of computing the collective environmental impact of all of a country\’s policies combined. The 2020 Environmental Performance Index ranks 180 countries across 32 performance indicators related to environmental health and ecosystem vitality, from the amount of particulate pollution in the air and the purity of drinking water to the health of fish stocks and the management of wetlands. Each country is scored out of 100. ';
 const free = 'The Cato Institute in Washington D.C. and the Fraser Institute in Vancouver, Canada co-published the annual Human Freedom Index Report for 2021, which helps observe relationships between freedom and other social and economic phenomena. The Human Freedom Index Report for 2021 ranked 165 countries and territories in two distinct categories: Personal Freedom and Economic Freedom, which are then combined to form the final Human Freedom score. '
 
+
+
 export let SummarySection = ({ selections }) => {
+    let navigate = useNavigate();
+
     //North America -FOOD QUALITY
     if (selections.first === "North America" && selections.second === 'Food Quality') {
         return (
             <div>
-                <h1><a href="/SingleCountry/canada">CANADA</a></h1>
+                <h1><button onClick={()=>{
+                          console.log('clicked');
+                         navigate(`/SingleCountry/Canada`);
+                        }}>CANADA</button>
+                  </h1>
                 <p>If food quality is the most important factor in selecting a new home, Canada would be the best fit for you. {food} 
                 Canada ranks 7th in the world overall and 1st in North America in terms of food security. 
                 Not only does Canada have an extremely stable supply of food, but The Canadian Food Inspection Agency 
@@ -207,7 +217,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Food Quality') {
         return (
             <div>
-                <h1><a href="/SingleCountry/Finand">FINLAND</a></h1>
+                <h1><a href="/SingleCountry/Finland">FINLAND</a></h1>
                 <p>Finland not only ranks 1st in Europe in overall food security, but first in the globe. {food} 
                 Finland has extraordinarily high nutrition standards and imports quite a few products.
                 In addition to their high quality of food, Finland also teaches nutrition in their school systems to ensure a food educated populous.</p>
@@ -245,7 +255,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Free Press') {
         return (
             <div>
-                <h1><a href="/SingleCountry/Finand">FINLAND</a></h1>
+                <h1><a href="/SingleCountry/Finland">FINLAND</a></h1>
                 <p>{press} Finland has a PFI of 8.59, ranking 1st globally.</p>
             </div>
         )
@@ -290,7 +300,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Access to Advanced Education') {
         return (
             <div>
-                <h1><a href="/SingleCountry/Finand">FINLAND</a></h1>
+                <h1><a href="/SingleCountry/Finland">FINLAND</a></h1>
                 <p>{edu} 43.6% of Finish residents meet this criteria, placing them 8th on the list globally.</p>
             </div>
         )

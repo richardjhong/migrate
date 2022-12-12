@@ -1,18 +1,17 @@
 import React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 import SearchCountry from '../../components/SearchCountry';
 import { useSearch } from '../../utils/CountryContext';
-import { QUERY_SINGLE_COMPILATION} from '../../utils/queries';
-import Auth from '../../utils/auth';
+
 import "./dashboard.scss";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import PolarChart from '../../components/CountryPolarChart'
 
 const Dashboard = () => {
-
+let navigate = useNavigate();
   const { username: userParam } = useParams();
   const { loading: loadingC, data: dataC } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam }
@@ -62,8 +61,13 @@ const Dashboard = () => {
                   searches && searches.filter((search,i)=>i>=searches.length-5&&i<=searches.length).map((search, i) => (
                     <div className='savedSearchCard' >
                     <div key={i}>
-                      <h2 className="">
-                        <a href={`/singleCountry/${search.name}`}>{search.name}</a>
+                    <h2 className="">
+                        <button onClick={()=>{
+                          console.log('clicked');
+                         navigate(`SingleCountry/${search.name}`);
+                        }
+                        }>{search.name}</button>
+                  
                       </h2>
                       <div className='dashCountryScore'>
                       <p>Rank:{search.rank_score_spi}</p> <p>Score:{search.score_spi}</p>
