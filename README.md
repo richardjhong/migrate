@@ -57,7 +57,7 @@ Start a search with a country in mind. Are you curious about the stats of a part
 <li>There are currently 12 tiles available per country which show how a country ranks on matters like Access to Basic Knowledge, Personal Safety, and Health and Wellness. Click them all or only the ones pertinent to you for a better understanding of the country you might one day call home.</li>
 </ul>
 
-Not set on a destination, yet? Use our [Helper]() to pinpoint a destination.
+Not set on a destination, yet? Use our [Helper](https://migrate-abroad.herokuapp.com/form) to pinpoint a destination.
 <ul>
 <li>Simply choose what’s most important to you and Migrate's Helper will suggest a country based on your selection. </li>
 <li>Click on the country name to see more information about the country.</li>
