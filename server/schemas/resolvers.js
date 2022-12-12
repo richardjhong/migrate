@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, SearchHistory, Country, CompileCountry } = require('../models');
+const { User, SearchHistory, Country, CompileCountry,Comment } = require('../models');
 const { signToken } = require('../utils/auth');
 
 
@@ -9,7 +9,7 @@ const resolvers = {
       return User.find()
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username })
+      return User.findOne({ username }).populate('comments');
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -34,6 +34,17 @@ const resolvers = {
         $regex : new RegExp(countryname, "i") }
        }).populate('year_catalog')
     },
+    comments: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Comment.find(params).sort({ createdAt: -1 });
+    },
+    comment: async (parent, { commentId }) => {
+      return Comment.findOne({ _id: commentId });
+    },
+    commentCountry:async(parent,{country})=>{
+      const params = country ? { country } : {};
+      return Comment.find(params).sort({createdAt: -1})
+    }
 
   },
 
@@ -42,6 +53,16 @@ const resolvers = {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
       return { token, user };
+    },
+    addComment: async (parent, { commentText, commentAuthor, country }) => {
+      const comment = await Comment.create({ commentText, commentAuthor,country });
+
+      await User.findOneAndUpdate(
+        { username: commentAuthor },
+        { $addToSet: { comments: comment._id } }
+      );
+
+      return comment;
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });

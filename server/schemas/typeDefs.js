@@ -6,7 +6,7 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    searchHistory: [SearchHistory]!
+    comments: [Comment]
     
   }
 
@@ -70,12 +70,24 @@ const typeDefs = gql`
     countries: [Country]
     countryCompilations: [CountryCompilation]
     singleCompileCountry(countryname: String!): CountryCompilation
+    comments(username: String): [Comment]
+    comment(commentId: ID!): Comment
+    commentCountry(country:String):[Comment]
+
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addSearchHistory(userId: ID!, searchedCountry: String!): User
+    addComment(commentText: String!, commentAuthor: String!,country: String): Comment
+      }
+
+  type Comment {
+    _id:ID
+    commentText: String
+    commentAuthor: String
+    country: String
   }
 `
 

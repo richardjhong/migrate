@@ -67,6 +67,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
     let ref11 = useRef(null);
     let ref12 = useRef(null);
     const [toggle, setToggle] = useState(false);
+  
 
 
     return (
