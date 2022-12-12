@@ -74,6 +74,10 @@ function App() {
               path="/SingleCountry/:countryname"
               element={<SingleCountryCont />}
             />
+            {/* <Route
+              path="/listings"
+              element={<CountryListing />}
+            /> */}
             <Route
               path="/login"
               element={<Login />}
