@@ -6,6 +6,7 @@ import SingleCountry from '../../components/SingleCountry';
 import SearchCountry from '../../components/SearchCountry';
 import Dropdown from '../../components/Dropdown'
 import './SingleCountryCont.scss'
+import UserComments from '../../components/UserComments';
 
 function SingleCountryCont() {
     const [countryYearIndex, setCountryYearIndex] = useState(4);
@@ -16,7 +17,9 @@ function SingleCountryCont() {
             <Header />
             <main>
                 <div className='singleCountHeadCont'>
+                    
                     <SingleCountryHeader />
+                    <UserComments />
                     <div className="searchdropdownContainer">
                         <SearchCountry />
                         <div className="dropdownContainer">
