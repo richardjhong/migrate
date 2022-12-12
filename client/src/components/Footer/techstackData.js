@@ -1,5 +1,5 @@
 import { SiJavascript, SiReact, SiExpress, SiHtml5, SiCss3, SiHeroku, SiMongodb, SiGreensock } from "react-icons/si";
-import { FaNode, FaSass } from "react-icons/fa";
+import { FaNode, FaSass, FaChartBar } from "react-icons/fa";
 
 export const websiteTechStack = {
   devicons: [
@@ -42,6 +42,10 @@ export const websiteTechStack = {
     {
       icon: SiHeroku,
       tooltipMessage: "Heroku"
+    },
+    {
+      icon: FaChartBar,
+      tooltipMessage: "Victory"
     }
   ]
 }
