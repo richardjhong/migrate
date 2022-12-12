@@ -35,8 +35,10 @@
     "mongoose": "^6.7.4",
     "npm": "^9.2.0",
     "react-autocomplete": "^1.8.1",
+
     "react-icons": "^4.7.1",
     "react-tooltip": "4.5",
+
     "sass": "^1.56.1",
     "victory": "^36.6.8"
   },
