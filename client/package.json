@@ -14,6 +14,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.7.1",
+    "react-infinite-ticker": "^2.1.1",
     "react-router-dom": "^6.4.4",
     "react-scripts": "5.0.1",
     "react-tooltip": "^4.5.1",

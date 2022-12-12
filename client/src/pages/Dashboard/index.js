@@ -16,7 +16,6 @@ let navigate = useNavigate();
   const { loading: loadingC, data: dataC } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam }
   });
-  let navigate = useNavigate();
 
   const user = dataC?.me || dataC?.user || {};
 
