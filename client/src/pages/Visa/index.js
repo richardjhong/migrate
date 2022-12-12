@@ -11,7 +11,7 @@ export default function Visa() {
 
         <>
             <Header />
-            <main>
+            <main className='visaMain'>
                 <div className="visaContainer">
                     <section className="visaInfo">
                         <h2>Next steps...</h2>

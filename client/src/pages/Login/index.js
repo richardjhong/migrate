@@ -54,7 +54,7 @@ const Login = (props) => {
 
 
         <div className="loginForm">
-          <p>Login to see your saved searches so you can review them and also to manage your personal information.</p>
+          <h2>Login to see your saved searches so you can review them and also to manage your personal information.</h2>
           {data ? (
             <p>
               Success! You may now head{' '}
