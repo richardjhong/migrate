@@ -11,7 +11,8 @@
     display:flex;
     justify-content:space-between;
     overflow:hidden;
-    animation: tickerAnimate 15s linear infinite;
+    animation: tickerAnimate 30s linear infinite;
+    margin-right:2em;
 
 }
 
@@ -19,8 +20,9 @@
     animation-play-state: paused;
 }
 
-.tickerText {
-    margin-right:10em;
+.tickerTextContain {
+
+
 }
 
 .tickerAuthor {

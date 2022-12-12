@@ -7,11 +7,15 @@
     margin: auto;
     padding: 2%;
     border: 5px solid var(--lightBorder);
-    border-radius:20px
-    
+    border-radius:20px;
+    text-align:left;
 }
 
 .airplaneHangar {
     display:flex;
     justify-content:center;
+}
+
+.signupForm {
+    text-align:center;
 }
