@@ -56,7 +56,7 @@ const AreaChart = ({
           ]}
           style={{
             data: {
-              fill: "#b4d330",
+              fill: "red",
             },
           }}
         />
