@@ -4,15 +4,14 @@ import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 import SearchCountry from '../../components/SearchCountry';
 import { useSearch } from '../../utils/CountryContext';
-import { QUERY_SINGLE_COMPILATION} from '../../utils/queries';
-import Auth from '../../utils/auth';
+
 import "./dashboard.scss";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import PolarChart from '../../components/CountryPolarChart'
 
 const Dashboard = () => {
-
+let navigate = useNavigate();
   const { username: userParam } = useParams();
   const { loading: loadingC, data: dataC } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam }
