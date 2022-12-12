@@ -4,6 +4,7 @@ import { gsap } from 'gsap'
 import { Flip } from "gsap/Flip";
 import LineChart from '../CountryChart/LineChart'
 import BarChart from '../CountryChart/BarChart'
+
 import {columnData} from "../../utils/countryCardData";
 import { valueFromAST } from "graphql";
 
@@ -111,18 +112,29 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                                             <p className='clickHere'>Click to close...</p>
 
                                         </section>
-                                        <div className='expandedChartArea'>
-                                            <LineChart
-                                                fields={
-                                                    {
-                                                        "2018": countryProperties[0][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
-                                                        "2019": countryProperties[1][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
-                                                        "2020": countryProperties[2][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
-                                                        "2021": countryProperties[3][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
-                                                        "2022": countryProperties[4][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
-                                                    }
+                                        <div className='expandedChartArea'>     
+                                            {(() => {
+                                                const fields = {
+                                                    "2018": countryProperties[0][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2019": countryProperties[1][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2020": countryProperties[2][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2021": countryProperties[3][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2022": countryProperties[4][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
                                                 }
-                                            />
+                                                
+                                                switch(chartTypeIndex) {
+                                                    case('Bar'):
+                                                        return (
+                                                            <BarChart fields={fields}/>
+                                                        )
+                                                    case('Line'):
+                                                        return (
+                                                            <LineChart fields={fields}/>
+                                                        )
+                                                    default: 
+                                                        return;
+                                                }
+                                            })()}
                                         </div>
                                     </>)
                                     :
