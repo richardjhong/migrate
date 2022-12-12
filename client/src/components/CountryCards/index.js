@@ -66,7 +66,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
     let ref11 = useRef(null);
     let ref12 = useRef(null);
     const [toggle, setToggle] = useState(false);
-    console.log(columnData[1].description);
+
 
     return (
         <>
@@ -111,6 +111,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                                             <p className='clickHere'>Click to close...</p>
 
                                         </section>
+
                                         <div className='expandedChartArea'>     
                                             {(() => {
                                                 const fields = {
@@ -132,6 +133,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                                                         )
                                                     default: 
                                                         return;
+
                                                 }
                                             })()}
                                         </div>
