@@ -1,6 +1,12 @@
-# project-3
+# Migrate
+
+## Collaborators
+<a href="https://github.com/richardjhong/migrate/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=richardjhong/migrate" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
 
 ## Resources/Links 
-[Module 21 Challenge Starter Code](https://github.com/coding-boot-camp/solid-broccoli)
 
-[Transform a React App into a Progressive Web App (PWA)](https://medium.com/@toricpope/transform-a-react-app-into-a-progressive-web-app-pwa-dea336bd96e6)
+[How to create a React Dropdown](https://www.robinwieruch.de/react-dropdown/)

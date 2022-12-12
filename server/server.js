@@ -6,13 +6,15 @@ const { authMiddleware } = require('./utils/auth');
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
-const PORT = process.env.PORT || 3001;
+const PORT = Number.parseInt(process.env.PORT) || 3001;
 const app = express();
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
+  introspection: true,
+  playground: true
 });
 
 app.use(express.urlencoded({ extended: false }));
