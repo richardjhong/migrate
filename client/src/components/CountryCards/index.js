@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import './CountryCards.scss';
 import { gsap } from 'gsap'
 import { Flip } from "gsap/Flip";
@@ -130,19 +130,24 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                                                 switch(chartTypeIndex) {
                                                     case('Bar'):
                                                         return (
-                                                            <BarChart fields={fields} countryYearIndex={countryYearIndex}/>
+                                                            <BarChart 
+                                                            fields={fields} countryYearIndex={countryYearIndex}
+                                                            />
                                                         )
                                                     case('Line'):
                                                         return (
-                                                            <LineChart fields={fields}/>
+                                                            <LineChart 
+                                                            fields={fields} countryYearIndex={countryYearIndex}
+                                                            />
                                                         )
                                                     case('Area'):
                                                         return (
-                                                            <AreaChart fields={fields}/>
+                                                            <AreaChart 
+                                                            fields={fields} countryYearIndex={countryYearIndex}
+                                                            />
                                                         )
                                                     default: 
                                                         return;
-                                        
                                                 }
                                             })()}
                                         </div>

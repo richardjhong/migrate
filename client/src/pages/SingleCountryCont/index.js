@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import SingleCountryHeader from '../../components/SingleCountryHeader'
@@ -12,12 +12,6 @@ function SingleCountryCont() {
     const [countryYearIndex, setCountryYearIndex] = useState(9);
     const [chartTypeIndex, setChartTypeIndex] = useState('Bar');
 
-    useEffect(() => {
-        console.log("ajkl;sdfjal;skdfjk##$#$: ", countryYearIndex)        
-
-    }, [countryYearIndex])
-
-    console.log('countryYearIndex at parent level: ', countryYearIndex)
     return (
         <>
             <Header />

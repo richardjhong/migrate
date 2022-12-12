@@ -8,7 +8,6 @@ const BarChart = ({
 
   return (
     <div className="chartContainer">
-      {console.log('countryYearIndex within chart: ', countryYearIndex)}
       <VictoryChart 
         height={600} 
         width={1000}
@@ -23,13 +22,15 @@ const BarChart = ({
             <VictoryLabel 
               renderInPortal 
               dy={-20} 
-            
               textAnchor={({ text }) => text.length > 1 ? "start" : "middle"}
             />
           }
           style={{
             data: { 
-              fill: "#04566e",
+              fill: ({ index }) => {
+                  return parseInt(index) === parseInt(countryYearIndex) ? "#04566e" : "#022831"
+                },
+                 
               stroke: "#b4d330",
               strokeWidth: 3
             },
@@ -68,8 +69,4 @@ const BarChart = ({
 export default BarChart
 
 
-//fill: ({ index }) => {
-//   console.log('index: ', index)
-//   return index === countryYearIndex ? "tomato" : "gray"
-// },
- 
+//
