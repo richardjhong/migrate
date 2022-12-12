@@ -14,11 +14,17 @@ const commentSchema = new Schema(
           },
         commentAuthor: {
             type: String,
-            ref: 'User',
+            required:true,
+            trim: true,
         },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            get: (timestamp) => dateFormat(timestamp),
+          },
         country: {
             type: String,
-            ref: 'country',
+            required:true,
         }
     }
 )

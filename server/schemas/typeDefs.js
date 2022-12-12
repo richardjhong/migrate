@@ -10,10 +10,11 @@ const typeDefs = gql`
     
   }
 
- type Comment {
+  type Comment {
     _id:ID
     commentText: String
     commentAuthor: String
+    createdAt: String
     country: String
  }
 
@@ -79,7 +80,9 @@ const typeDefs = gql`
     countries: [Country]
     countryCompilations: [CountryCompilation]
     singleCompileCountry(countryname: String!): CountryCompilation
-    countryComments: [Comment]
+    comments: [Comment]
+    comment: Comment
+    commentCountry(country: String!): [Comment]
   }
 
   type Mutation {

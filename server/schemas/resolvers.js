@@ -35,8 +35,16 @@ const resolvers = {
        }).populate('year_catalog')
     },
 
-    countryComments: async (parent, {countryname}) => {
-      return await Comment.findOne({country: countryname});
+    comments: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Comment.find(params).sort({ createdAt: -1 });
+    },
+    comment: async (parent, { commentId }) => {
+      return Comment.findOne({ _id: commentId });
+    },
+    commentCountry:async(parent,{country})=>{
+      const params = country ? { country } : {};
+      return Comment.find(params).sort({createdAt: -1})
     }
 
   },
@@ -73,6 +81,16 @@ const resolvers = {
         });
         throw new AuthenticationError('You need to be logged in!');
       }
+  },
+  addComment: async (parent, { commentText, commentAuthor, country }) => {
+    const comment = await Comment.create({ commentText, commentAuthor,country });
+
+    await User.findOneAndUpdate(
+      { username: commentAuthor },
+      { $addToSet: { comments: comment._id } }
+    );
+
+    return comment;
   },
 }};
 
