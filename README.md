@@ -75,13 +75,12 @@ _<p align="center">Landing Page</p>_
 
 ## Future Development
 
+## License
 
-  ## License
+Click the badge to learn more about the license used for this project.
+<br>[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-  Click the badge to learn more about the license used for this project.
-  <br>[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-  ## Questions?
+## Questions?
 
 
 ## Credits
