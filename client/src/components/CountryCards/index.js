@@ -117,11 +117,16 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                                         <div className='expandedChartArea'>     
                                             {(() => {
                                                 const fields = {
-                                                    "2018": countryProperties[0][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
-                                                    "2019": countryProperties[1][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
-                                                    "2020": countryProperties[2][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
-                                                    "2021": countryProperties[3][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
-                                                    "2022": countryProperties[4][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2013": countryProperties[0][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2014": countryProperties[1][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2015": countryProperties[2][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2016": countryProperties[3][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2017": countryProperties[4][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2018": countryProperties[5][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2019": countryProperties[6][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2020": countryProperties[7][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2021": countryProperties[8][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    "2022": countryProperties[9][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
                                                 }
                                                 
                                                 switch(chartTypeIndex) {
