@@ -83,16 +83,14 @@ _<p align="center">Landing Page</p>_
 
   ## Questions?
 
-  Find me on GitHub at: https://github.com/sarahthoorens
-
-  You can also send any questions about this project to: s.thoorens@gmail.com
 
 ## Credits
-<a target="_blank" href="https://icons8.com/icon/62856/github">GitHub</a> Icons by <a target="_blank" href="https://icons8.com">Icons8</a>
 
-<a target="_blank" href="https://coolors.co/">Coolors</a> Color Scheme Generator
+None of our work would have been possible without the invaluable data resources provided by [Social Progress Imperative](https://www.socialprogress.org/).
+
 
 
 ## Resources/Links 
 
 [How to create a React Dropdown](https://www.robinwieruch.de/react-dropdown/)
+
