@@ -2,7 +2,7 @@
 const db = require('../config/connection');
 const { Country, Bhn, User, Comment, CompileCountry } = require('../models');
 const userSeeds = require('./userSeeds.json');
-// const commentSeeds = require('./commentSeeds.js');
+const commentSeeds = require('./commentSeeds.js');
 const countrySeed = require('./2011-2022 SPI data-Table 1.json');
 
 
