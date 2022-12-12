@@ -5,6 +5,7 @@ import SingleCountryHeader from '../../components/SingleCountryHeader'
 import SingleCountry from '../../components/SingleCountry';
 import SearchCountry from '../../components/SearchCountry';
 import Dropdown from '../../components/Dropdown'
+import UserComments from '../../components/UserComments'
 import './SingleCountryCont.scss'
 
 function SingleCountryCont() {
@@ -23,6 +24,7 @@ function SingleCountryCont() {
             <main>
                 <div className='singleCountHeadCont'>
                     <SingleCountryHeader />
+                    <UserComments />
                     <div className="searchdropdownContainer">
                         <SearchCountry />
                         <div className="dropdownContainer">

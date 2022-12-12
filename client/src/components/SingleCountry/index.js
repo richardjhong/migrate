@@ -6,6 +6,7 @@ import { QUERY_SINGLE_COMPILATION } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
 import { capitalizeFirstLetter } from '../../utils/helper'
 
+
 export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
 
   const { searches, updateSearch } = useSearch();
