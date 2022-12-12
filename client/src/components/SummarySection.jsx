@@ -254,11 +254,7 @@ export let SummarySection = ({ selections }) => {
     if (selections.first === "Europe" && selections.second === 'Healthcare') {
         return (
             <div>
-<<<<<<< HEAD
-                <h1>DENMARK</h1>
-=======
                 <h1><a href="/SingleCountry/denmark">DENMARK</a></h1>
->>>>>>> 0c3f42ccf364fff2d634311626d46c6a70a2d61f
                 <p>{health} Denmark ranks first in the world on the Health Care Index.</p>
             </div>
         )
