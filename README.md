@@ -22,6 +22,7 @@ This app is designed to provide data on countries and their social performance s
 - [Project Description](#Description)
 - [Technologies](#Technologies)
 - [Usage](#Usage)
+- [Images](#Images)
 - [Challenges Encounted](#Challenges)
 - [Future Development](#Future-Development)
 - [Resources/Links](#Resources/Links)
@@ -65,31 +66,60 @@ Not set on a destination, yet? Use our [Helper](https://migrate-abroad.herokuapp
 
 To deploy the application locally run ``npm run develop`` in the terminal from the ``root`` folder.
 
-## Deployed Screenshots
-![landing-page]()
-_<p align="center">Landing Page</p>_
+## Images
+![splash-page](./assets/splash.png)
+_<p align="center">Deployed Landing Page</p>_
+</br>
+![helper](./assets/helper.png)
+_<p align="center">Deployed Helper Page</p>_
+</br>
+![country-page](./assets/singlecountry.png)
+_<p align="center">Deployed Country Page</p>_
+</br>
+![data-details](./assets/graph.png)
+_<p align="center">Deployed Data Details</p>_
+</br>
+![wireframe](./assets/wireframe.png)
+_<p align="center">Process: Wireframe</p>_
+</br>
+![ColorStory](./assets/colorstory.png)
+_<p align="center">Process: Style Guide </p>_
+</br>
+![MockUpParis](./assets/mockup-paris.png)
+_<p align="center">Process: Mockup v1</p>_
+</br>
+![MockUpMark](./assets/mockup-mark.png)
+_<p align="center">Process: Mockup v2</p>_
+</br>
+
 
 ## Challenges
+Because we each took on specific components of the app to produce, an overarching challenge was understanding the functionality of other components and how they interacted with each other. 
 
+Independently, we each had our own set of challenges within our own components. Integration of the search bar functionality and the ability to capture the results in separate places within the app required a great deal of collaborative troubleshooting. The functionality of the intake form involved many moving parts that eventually led to it being rewritten entirely. Victory charts were a new technology that required a great deal of research and experimentation to affect visual data presentation.
 
 ## Future Development
 
-- [ ] Check results of image search to avoid duplicate images
-- [ ] Transparent and equal-sized icons
-- [ ] Add user location, weather comparison and currency conversion
-- [ ] Add images to login page
-- [ ] Add RFS component and redeclare font sizes for responsiveness
-- [ ] Add a "compare" feature to compare countries
-- [ ] Refactor Helper component to use mapping 
+- Check results of image search to avoid duplicate images
+- Add a "compare" feature to compare countries
+- Refactor Helper component to use mapping 
+- Transparent and equal-sized icons
+- Add user location, weather comparison and currency conversion
+- Add images to login page
+- Add RFS component and redeclare font sizes for responsiveness
 
 ## License
 
 Click the badge to learn more about the license used for this project.
-<br>[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
+
 
 ## Questions?
 
-If you have any questions about the repo, open an issue or contact any of the collaborators through github.
+If you have any questions about the repo, open an issue or contact any of the collaborators through github (linked above).
 
 ## Credits
 
