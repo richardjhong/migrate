@@ -78,10 +78,10 @@ function App() {
               path="/SingleCountry/:countryname"
               element={<SingleCountryCont />}
             />
-            <Route
+            {/* <Route
               path="/listings"
               element={<CountryListing />}
-            />
+            /> */}
             <Route
               path="/login"
               element={<Login />}
@@ -100,6 +100,10 @@ function App() {
             <Route 
               path="/dashboard/:username" 
               element={<Dashboard />}
+            />
+            <Route
+              path="/*"
+              element={<Splash />}
             />
           </Routes>
         </Router>

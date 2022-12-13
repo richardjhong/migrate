@@ -7,7 +7,7 @@ header {
     display:flex;
     justify-content:space-between;
     padding:20px;
-    
+
 }
 
 header h1 {
@@ -18,7 +18,7 @@ header h1 {
 
 .navbar {
     display:flex;
-    justify-content:end;
+    justify-content:flex-end;
     align-items:center;
     font-size:1.2em;
 
@@ -28,12 +28,37 @@ header h1 {
     color:var(--light);
     margin-right:1em;
     transition:all .3s;
+    border-radius:10px;
+    padding:.3em;
 }
 
 .navLink:hover {
     color:var(--lightBorder);
     scale:1.2;
+   
+
 }
 
+.navLink:active {
+    color:var(--light);
+    
+}
 
+@media screen and (max-width: 1200px) {
+    .navbar {
+        width:100%;
+        justify-content:flex-start;
+        
+    }
+    header {
+        justify-content:flex-start;
+        flex-wrap:wrap;
+    }
 
+} 
+@media screen and (max-width: 700px) {
+    .navbar {
+        font-size:.8em;
+    }
+
+}

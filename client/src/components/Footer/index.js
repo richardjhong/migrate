@@ -6,12 +6,12 @@ import ReactTooltip from 'react-tooltip';
 const Footer = () => {
   return (
     <footer >
-      <div >
-        This site created by 
-        Paris Bland, Mark Gardner, Richard Hong, Yeon Seo, Sarah Thoorens
+      <div className='authors'>
+        <div className="authorContain">This site created by </div>
+        <div className="authorName"><a href="https://github.com/pariselectra">Paris Bland</a></div> <div className="authorName"><a href="https://github.com/MarkGATX">Mark Gardner</a></div>  <div className="authorName"><a href="https://github.com/richardjhong">Richard Hong</a></div>  <div className="authorName"><a href="https://github.com/rogseo">Yeon Seo</a></div> <div className="authorName"><a href="https://github.com/sarahthoorens">Sarah Thoorens</a></div>
       </div>
       <div className="techstackContainer">
-        <p>Made with: </p>
+        <div className="madeWith">Made with: </div>
         {websiteTechStack.devicons.map(skill => {
           const Icon = skill.icon;
           return (

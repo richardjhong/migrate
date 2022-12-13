@@ -5,6 +5,11 @@ import safetyIcon from '../images/Safety.png';
 import basicKnowIcon from '../images/Access-Knowledge.png';
 import healthWellIcon from '../images/Health-Wellness.png';
 import enivronQualityIcon from '../images/Environmental-Quality.png';
+import accessInfoIcon from '../images/Access-to-Information.png';
+import personalRightIcon from '../images/Personal-Rights.png';
+import personalFreedomIcon from '../images/Personal-Freedom.png';
+import inclusiveIcon from '../images/Inclusiveness.png';
+import accessAdvEdIcon from '../images/Access-to-advanced-education.png';
 
 export const columnData = [
     {
@@ -80,9 +85,9 @@ export const columnData = [
     },
     {
         ImgSrc: basicKnowIcon,
-        ImgAlt: "personal safety",
+        ImgAlt: "basic knowledge",
         src: {
-            h3: "Personal Safety",
+            h3: "Basic Knowledge",
             category: "fow",
             fieldName: "score_abk",
         },
@@ -96,7 +101,7 @@ export const columnData = [
 
     },
     {
-        ImgSrc: basicKnowIcon,
+        ImgSrc: accessInfoIcon,
         ImgAlt: "access to information and communications",
         src: {
             h3: "Access to Information and Communications",
@@ -144,7 +149,7 @@ export const columnData = [
             ],
     },
     {
-        ImgSrc: enivronQualityIcon,
+        ImgSrc: personalRightIcon,
         ImgAlt: "personal rights",
         src: {
             h3: "Personal Rights",
@@ -161,7 +166,7 @@ export const columnData = [
         ,
     },
     {
-        ImgSrc: basicKnowIcon,
+        ImgSrc: personalFreedomIcon,
         ImgAlt: "personal freedom and choice",
         src: {
             h3: "Personal Freedom and Choice ",
@@ -178,7 +183,7 @@ export const columnData = [
         ,
     },
     {
-        ImgSrc: basicKnowIcon,
+        ImgSrc: inclusiveIcon,
         ImgAlt: "inclusiveness",
         src: {
             h3: "Inclusiveness",
@@ -195,7 +200,7 @@ export const columnData = [
         ,
     },
     {
-        ImgSrc: basicKnowIcon,
+        ImgSrc: accessAdvEdIcon,
         ImgAlt: "access to advanced education",
         src: {
             h3: "Access to Advanced Education",

@@ -1,21 +1,28 @@
 .visaContainer {
     display:flex;
-    justify-content:space-around;
+    justify-content:space-between;
     flex-wrap:wrap;
 }
 
 
 .visaInfo {
     width:47%;
-
 }
 
-
-
 .visaImage {
-    width:47%;
+    width:50%;
 }
 
 .visaInfoRecs {
     width:100%;
+}
+
+.visaMain {
+    margin-left:5%;
+}
+
+@media screen and (max-width: 800px) {
+    .visaImage {
+        width:40%;
+    }
 }

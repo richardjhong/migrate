@@ -1,16 +1,26 @@
 .loginForm form {
         display:flex;
         flex-direction:column;
-        width:30%;
+        width:80%;
         background-color: var(--darkBackground);
         color: var(--light);
         margin: auto;
         padding: 2%;
         border: 5px solid var(--lightBorder);
-        border-radius:20px
+        border-radius:20px;
+        text-align:left;
         
 }
 .airplaneHangar {
     display:flex;
     justify-content:center;
 }
+
+.airplaneHangar img {
+    width:90%;
+}
+
+.loginForm {
+    text-align:center;
+}
+

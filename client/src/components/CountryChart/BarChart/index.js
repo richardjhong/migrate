@@ -1,10 +1,11 @@
 import React from "react";
-import { VictoryChart, VictoryAxis, VictoryLabel, VictoryBar, VictoryContainer, VictoryScatter } from "victory";
+import { VictoryChart, VictoryAxis, VictoryLabel, VictoryBar, VictoryContainer } from "victory";
 import '../CountryChart.scss';
 
 const BarChart = ({
-  fields
+  fields, countryYearIndex
 }) => {
+
   return (
     <div className="chartContainer">
       <VictoryChart 
@@ -14,20 +15,25 @@ const BarChart = ({
           <VictoryContainer responsive={true}/>
         }
         domainPadding={50}
+       
       >
         <VictoryBar
           labelComponent={
             <VictoryLabel 
               renderInPortal 
               dy={-20} 
-            
               textAnchor={({ text }) => text.length > 1 ? "start" : "middle"}
             />
           }
           style={{
             data: { 
-              fill: "#04566e",
-              stroke: "#b4d330",
+              fill: ({ index }) => {
+                  return parseInt(index) === parseInt(countryYearIndex) ? "#b4d330" : "#022831"
+                },
+                 
+              stroke: ({ index }) => {
+                return parseInt(index) === parseInt(countryYearIndex) ? "#022831" : "#b4d330"
+              },
               strokeWidth: 3
             },
             parent: { border: "1px solid #ccc"},
@@ -37,7 +43,12 @@ const BarChart = ({
           domain={{y: [0, 100]}}
           labels={({ datum }) => datum.y}
           data={[
-            { x: "2018", y: fields["2018"]},
+            { x: "2013", y: fields["2013"] },
+            { x: "2014", y: fields["2014"] },
+            { x: "2015", y: fields["2015"] },
+            { x: "2016", y: fields["2016"] },
+            { x: "2017", y: fields["2017"] },
+            { x: "2018", y: fields["2018"] },
             { x: "2019", y: fields["2019"] },
             { x: "2020", y: fields["2020"] },
             { x: "2021", y: fields["2021"] },
@@ -58,4 +69,6 @@ const BarChart = ({
 };
 
 export default BarChart
- 
+
+
+//

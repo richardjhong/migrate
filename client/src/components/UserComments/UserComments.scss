@@ -1,0 +1,42 @@
+.tickerWrapper {
+    display:flex;
+    justify-content:space-between;
+    overflow:hidden;
+    flex-direction:row;
+    flex-wrap:nowrap;
+}
+
+.tickerContent {
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    overflow:hidden;
+    animation: tickerAnimate 30s linear infinite;
+    margin-right:2em;
+
+}
+
+.tickerContent:hover {
+    animation-play-state: paused;
+    
+}
+
+
+
+.tickerAuthor {
+    font-style:italic;
+    color:var(--lightBorder);
+}
+
+  @keyframes tickerAnimate {
+    0% {
+
+      transform: translate3d(100%, 0, 0);
+      visibility: visible;
+    }
+
+    100% {
+
+      transform: translate3d(-100%, 0, 0);
+    }
+  }

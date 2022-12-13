@@ -20,7 +20,7 @@ const SearchCountry = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!searchImgInput) {
 
       return false;
@@ -40,17 +40,17 @@ const SearchCountry = () => {
           alt: item.alt_description,
         };
         newImgs.push(newImg);
-      
+
       });
-      const newSearch ={
-        name : searchImgInput,
-        imgs : newImgs
+      const newSearch = {
+        name: searchImgInput,
+        imgs: newImgs
       }
       //if data isn't exist in localStorage, save it to localStorage
-      if(searches.findIndex(country=>country.name===searchImgInput) == -1){
+      if (searches.findIndex(country => country.name === searchImgInput) == -1) {
         await addSearch(newSearch);
       }
-    
+
       navigate(`/SingleCountry/${searchImgInput}`);
 
 
@@ -80,30 +80,32 @@ const SearchCountry = () => {
 
   return (
 
-    <div className="singleCountryInput">
-      <input
-        className="going"
-        type="text"
-        placeholder="Search Country"
-        value={searchImgInput}
-        onChange={(e) => onChangeHandler(e.target.value)}
-      />
-      <button
-        type="submit"
-        onClick={handleFormSubmit}
-        className="go"
-      >
-        Search
-      </button>
-      {suggestions && suggestions.map((suggestions, i) =>
-        <div className='suggestion'
-          key={i}
-          onClick={() => onSuggestHandler(suggestions.countryname)}
+    <div>
+      <div className="singleCountryInput">
+        <input
+          className=""
+          type="text"
+          placeholder="Search Country"
+          value={searchImgInput}
+          onChange={(e) => onChangeHandler(e.target.value)}
+        />
+        <button
+          type="submit"
+          onClick={handleFormSubmit}
+          className=""
+        >
+          Search
+        </button>
+        {suggestions && suggestions.map((suggestions, i) =>
+          <div className='suggestion'
+            key={i}
+            onClick={() => onSuggestHandler(suggestions.countryname)}
 
-        >{suggestions.countryname}</div>
-      )}
+          >{suggestions.countryname}</div>
+        )}
+      </div>
+
     </div>
-
   );
 };
 

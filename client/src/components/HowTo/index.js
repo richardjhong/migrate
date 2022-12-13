@@ -5,7 +5,7 @@ export default function HowToContent() {
 
     return (
      <>
-      
+      <main>
          <div className='howto'>
             <h1>How to Use Migrate</h1>
                <p>Migrate is a resource for the would-be emigrant, wanderer, nomad. Here are some tips on how you can use Migrate to get the information you need about your potential new home:</p>
@@ -35,6 +35,7 @@ export default function HowToContent() {
                <p>We hope this helps you find your way around. Where in the world will you go next? </p>
            
       </div>
+      </main>
 </>
     )
    }

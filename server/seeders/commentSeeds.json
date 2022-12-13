@@ -1,32 +1,37 @@
 [
   {
-    "commentText": "I really love living in Macedonia!",
+    "commentText": "I really love living in here!",
     "commentAuthor": "Brian",
     "country": "Macedonia"
   },
   {
-    "commentText": "Italy has some of the best beaches.",
+    "commentText": "This country has some of the best beaches.",
     "commentAuthor": "Maximus",
     "country": "Italy"
   },
   {
-    "commentText": "I love the food and exciting life in Greece.",
+    "commentText": "I love the food and exciting.",
     "commentAuthor": "Lucky",
     "country": "Greece"
   },
   {
-    "commentText": "Ireland is a magical place to live!",
+    "commentText": "This is a magical place to live!",
     "commentAuthor": "Kent",
     "country": "Ireland"
   },
   {
-   "commentText": "The festivals in Galway are amazing!",
+   "commentText": "The festivals are amazing!",
    "commentAuthor": "Maximus",
    "country": "Ireland"
  },
  {
-   "commentText": "Checkout Hogmanay for New Years in Edinburgh!",
+   "commentText": "Checkout here for New Years!",
    "commentAuthor": "Lucky",
    "country": "United Kingdom"
- }
+ },
+ {
+  "commentText": "Checkout Hogmanay for New Years in Edinburgh!",
+  "commentAuthor": "Lucky",
+  "country": "United Kingdom"
+}
 ]

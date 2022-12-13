@@ -9,20 +9,24 @@ const countrySeed = require('./2011-2022 SPI data-Table 1.json');
 db.once('open', async () => {
   try {
     await User.deleteMany({});
-    // await Comment.deleteMany({});
+    await Comment.deleteMany({});
     await User.create(userSeeds);
 
-    // for (let i = 0; i < commentSeeds.length; i++) {
-    //   const { _id, commentAuthor } = await Comment.create(commentSeeds[i]);
-    //   const user = await User.findOneAndUpdate(
-    //     { username: commentAuthor },
-    //     {
-    //       $addToSet: {
-    //         comments: _id,
-    //       },
-    //     }
-    //   );
-    // }
+    for (let i = 0; i < countrySeed.length; i++) {
+      const { _id, commentAuthor, commentText } = await Comment.create({
+        commentAuthor :userSeeds[Math.floor(Math.random() * userSeeds.length)].username,
+        commentText : commentSeeds[Math.floor(Math.random() * commentSeeds.length)].commentText,
+        country : countrySeed[Math.floor(Math.random() * countrySeed.length)].country,
+      });
+      const user = await User.findOneAndUpdate(
+        { username: commentAuthor },
+        {
+          $addToSet: {
+            comments: _id,
+          },
+        }
+      );
+    }
 
   
   } catch (err) {
@@ -38,7 +42,7 @@ db.once('open', async () => {
    
 
     for (let i = 0; i < countrySeed.length; i++) {
-        if (parseInt(countrySeed[i].spiyear) >= 2018 && countrySeed[i].country !== "World") { // greater than 2017 
+        if (parseInt(countrySeed[i].spiyear) >= 2013 && countrySeed[i].country !== "World") { // greater than 2017 
             const newData = await Country.create(
               {
                 country: countrySeed[i].country,
