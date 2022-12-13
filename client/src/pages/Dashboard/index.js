@@ -64,7 +64,6 @@ let navigate = useNavigate();
                     <div key={i}>
                       <h2 className="">
                         <button onClick={()=>{
-                          console.log('clicked');
                          navigate(`/SingleCountry/${search.name}`);
                         }
                         }>{search.name}</button>

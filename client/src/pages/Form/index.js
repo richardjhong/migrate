@@ -17,10 +17,6 @@ function Form() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(selectionOneValue);
-    console.log(selectionTwoValue);
-    // console.log(selectionThreeValue);
-
 
     setFormIsSubmitted(true);
   }

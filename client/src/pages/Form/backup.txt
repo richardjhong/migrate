@@ -31,14 +31,6 @@ let selectionThree = document.querySelector('.selectionThree');
 
     handleSubmit(event) {
     event.preventDefault();
-     console.log(selectionOne.value);
-    //  console.log(selectionTwo.value);
-    //  console.log(selectionThree.value);
-
-      if (selectionOne.value==='Africa') {
-        return console.log('hello');
-      }
-    }
 
   
     render() {

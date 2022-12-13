@@ -14,13 +14,8 @@ gsap.registerPlugin(Flip);
 const expand = (event) => {
     let box = event.target.closest('.countryCard');
     const flipTargets = document.querySelectorAll(".flex-container, .countryCard");
-    console.log(flipTargets)
     const state = Flip.getState(flipTargets);
-    console.log()
-
-    console.log(box);
     let boxOrder = box.dataset.column;
-    console.log('boxOrder: ', boxOrder);
     // All of the positioning logic to set the end state
     const lastExpanded = document.querySelector(".wide");
     if (lastExpanded) {
@@ -37,7 +32,6 @@ const expand = (event) => {
     }
     //move scroll bar with  selected box
     let jumpY = box.getBoundingClientRect();
-    console.log(jumpY.y)
     window.scroll({ top: jumpY.y, left: 0, behavior: 'smooth' });
 
 

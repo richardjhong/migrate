@@ -14,7 +14,6 @@ const SingleCountryHeader = () => {
      fetch(`https://api.unsplash.com/search/photos?page=1&orientation=squarish&query=${countryParam}&client_id=${process.env.REACT_APP_ACCESS_KEY}`)
         .then((response) => response.json())
         .then((items) => {
-           console.log(items);
            const newImgs = [];
            items.results.forEach(item => {
              const newImg = {
