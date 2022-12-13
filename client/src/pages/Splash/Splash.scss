@@ -47,3 +47,27 @@
     font-size: 1.1vw;
 
 }
+
+@media screen and (max-width:1200px) {
+    .searchRespCenter {
+        display: flex;
+        justify-content: center;
+    }
+    .searchRespCenter .singleCountryInput{
+    margin: 0 0 3em -160px;
+}
+}
+
+@media screen and (max-width:900px) {
+    .searchRespCenter {
+        display: flex;
+        justify-content: center;
+    }
+    .searchRespCenter .singleCountryInput{
+    margin: 100px 0 3em -160px;
+
+}
+.overview {
+    margin-top:40%;
+}
+}
