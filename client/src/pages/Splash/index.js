@@ -12,7 +12,7 @@ function Splash() {
             <main className="splash">
                 <p className='tag'>Looking to relocate? Start your search here.</p>
                 <h1 className='migrate'>MIGRATE</h1>
-                <SearchCountry className="button"
+                <SearchCountry
                 
                 />
                 {/* <button class="button">Where are you going?...</button> */}
