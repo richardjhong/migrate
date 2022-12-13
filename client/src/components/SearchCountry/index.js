@@ -79,6 +79,7 @@ const SearchCountry = () => {
   }
 
   return (
+
     <div>
       <div className="singleCountryInput">
         <input
@@ -103,6 +104,7 @@ const SearchCountry = () => {
           >{suggestions.countryname}</div>
         )}
       </div>
+
     </div>
   );
 };
