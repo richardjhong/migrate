@@ -26,7 +26,7 @@
    display: flex;
    justify-content:space-around;
    align-items: flex-start;
-   width: 28%;
+   width: 25%;
    height: auto;
    overflow: hidden;
    border: solid 5px var(--lightBorder);
@@ -68,4 +68,16 @@
 
 .savedSearchCard:hover {
 box-shadow: 10px 10px 10px var(--dark);
+}
+
+@media screen and (max-width:1200px) {
+.savedSearchCard {
+   width:40%;
+}
+}
+
+@media screen and (max-width:960px) {
+   .savedSearchCard {
+      width:90%;
+   }
 }
