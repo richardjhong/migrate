@@ -45,6 +45,8 @@ This app is designed to provide data on countries and their social performance s
 - [Victory Charts](https://formidable.com/open-source/victory/)
 - [GreenSock](https://greensock.com/gsap/)
 - [SASS](https://sass-lang.com/)
+- [Canva](https://www.canva.com/)
+- [MindMeister](https://www.mindmeister.com/)
 
  
 ## Usage 
