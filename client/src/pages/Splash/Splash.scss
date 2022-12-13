@@ -1,12 +1,12 @@
 .splash{
     background-image: url("../../../public/images/homeBackground.png");
     background-size: contain;
-    background-color: #04566e;
+    background-color: var(--darkBackground);
     background-repeat: no-repeat;
     width: 100%;
     margin: 0 auto;
     background-position: center top;
-    position:fixed;
+    // position:fixed;
 }
 
 .splashContain {
@@ -34,7 +34,7 @@
 }
 
 .overview {
-    color: #eff2f6;
+    color: var(--light);
     margin-top: 20%;
     margin-right: 10%;
     margin-left: 10%;
@@ -42,9 +42,10 @@
 }
 
 .tag {
-    color: #eff2f6;
+    color: var(--light);
     margin-left: 38%;
     font-size: 1.1vw;
+    margin-top:0;
 
 }
 
