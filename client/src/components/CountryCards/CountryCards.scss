@@ -1,3 +1,5 @@
+@import "../node_modules/rfs/scss";
+
 .countryCard {
     display: flex;
     justify-content:space-around;
@@ -8,9 +10,9 @@
     border: solid 5px var(--lightBorder);
     background-color: var(--darkBackground);
     color: var(--light);
-    margin-bottom: 3em;
-    border-radius: 30px;
-    padding:20px;
+    @include margin-bottom(3em);
+    border-radius: 20px;
+    @include padding(1em);
     transition:box-shadow .2s;
     cursor:pointer;
 }
@@ -60,7 +62,7 @@
 }
 
 .cardValue {
-    font-size:3em;
+    @include font-size(2.7em);
     margin:10px 0 10px 0;
     
 }
@@ -87,3 +89,41 @@
         order: $i;
     }
 }
+
+@media screen and (max-width: 1100px) {
+    .countryCard {
+      width:40%;
+      flex-wrap:wrap;
+      justify-content: flex-start;;
+    }
+    .wide {
+        width:96.7%;
+    }
+    .cardIcon {
+        width:30%;
+    
+    }
+    .cardTitle {
+        width:100%;
+    }
+    .cardValue {
+        font-size:2em;
+    }
+    h3 {
+        margin-bottom:.5em;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .countryCard {
+      width:100%;
+      flex-direction:column;
+      height:auto;
+    }
+    .wide {
+        width:100%;
+    }
+    .expandedCardInfo {
+        width:100%;
+    }
+  }

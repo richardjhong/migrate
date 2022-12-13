@@ -24,10 +24,20 @@
 
 .familyAboutPic {
     margin-left:-160px;
+    transition:all .3s;
 }
 
 .landscapeAboutPic {
     z-index:5;
+    transition: all .3s;
+}
+
+.spiLogo {
+    width:50%;
+}
+
+.spiLogo img {
+    width:100%;
 }
 
 .spiSection {
@@ -37,6 +47,7 @@
 
 .spiText {
     margin:0 5% 0 5%;
+    width:47%;
 }
 
 figure {
@@ -52,4 +63,51 @@ figcaption {
     background-color:var(--light);
     padding:2px;
  
+}
+
+@media screen and (max-width: 1000px) {
+    .familyAboutPic {
+        margin-left:-110px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .aboutPics {
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .familyAboutPic {
+        width:50%;
+        margin-left: 233px;
+        order: 1;
+        z-index: 10;
+    }
+    .landscapeAboutPic {
+        order:2;
+        position:relative;
+        top:-100px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .aboutPics {
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .familyAboutPic {
+     
+        margin-left: 220px;
+        order: 1;
+        z-index: 10;
+    }
+    .landscapeAboutPic {
+        order:2;
+        position:relative;
+        top:-100px;
+    }
+
 }

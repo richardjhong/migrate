@@ -54,6 +54,7 @@ let navigate = useNavigate();
           </h2>
           <div>
             <h3>Your Most Recent Searches: </h3>
+            <p>Key: bhn = "Basic Human Needs", opp = "Opportunity", fow = "Foundations of Wellness"</p>
             <div className="dashboardContainer">
               {/* <div className='savedSearchCard' > */}
                 {loadingC ? (
@@ -71,7 +72,7 @@ let navigate = useNavigate();
                         {/* <a href={`/sin=>{gleCountry/${search.name}`}>{search.name}</a> */}
                       </h2>
                       <div className='dashCountryScore'>
-                      <p>Rank:{search.rank_score_spi}</p> <p>Score:{search.score_spi}</p>
+                      <p>Overall Rank:{search.rank_score_spi}</p> <p>Score:{search.score_spi}</p>
                       </div>
                       <PolarChart
                       fields={

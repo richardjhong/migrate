@@ -1,3 +1,7 @@
+.dropdownContainer .alignSelect {
+    left:0;
+}
+
 .singleCountryHead {
     height:12em;
     display:flex;
@@ -39,7 +43,6 @@
     position: absolute;
 }
 
-/////////////////// Feel free to delete @Mark
 .suggestion{
     cursor: pointer;
     background-color:var(--light);
@@ -52,4 +55,14 @@
     background-color:var(--darkBackground);
     color:var(--light)
 }
-///////////////////
+ @media screen and (max-width: 700px) {
+    .dropdownContainer .alignSelect {
+        left:0;
+        top:15px;
+    }
+
+    .dropdownContainer {
+        display:flex;
+        flex-direction:column;
+    }
+ }

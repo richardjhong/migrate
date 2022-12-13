@@ -20,3 +20,9 @@
 .visaMain {
     margin-left:5%;
 }
+
+@media screen and (max-width: 800px) {
+    .visaImage {
+        width:40%;
+    }
+}

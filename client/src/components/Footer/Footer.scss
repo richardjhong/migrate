@@ -10,7 +10,7 @@ footer {
 
 .authors {
     display:flex;
-    width:30%;
+    width:40%;
     flex-wrap:wrap;
 }
 
@@ -38,5 +38,18 @@ footer {
     display: flex;
     flex-wrap:wrap;
     align-items: center;;
+
+}
+
+@media screen and (max-width: 1200px) {
+    .authorName {
+        width:47%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .authorName {
+        width:100%;
+    }
 
 }
