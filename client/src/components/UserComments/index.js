@@ -15,14 +15,7 @@ export default function UserComments() {
     const { countryname } = useParams();
     const { loading, data } = useQuery(QUERY_COUNTRY_COMMENTS, {
         variables: { country: countryname },
-    }
-    );
-
-
-    if (data) {
-        console.log(data);
-
-    }
+    });
 
     return (
 
