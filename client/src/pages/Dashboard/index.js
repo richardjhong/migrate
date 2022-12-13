@@ -17,7 +17,6 @@ let navigate = useNavigate();
     variables: { username: userParam }
   });
 
-
   const user = dataC?.me || dataC?.user || {};
 
   const { searches } = useSearch();

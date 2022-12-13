@@ -3,7 +3,7 @@ import { VictoryChart, VictoryAxis, VictoryLabel, VictoryContainer, VictoryScatt
 import '../CountryChart.scss';
 
 const AreaChart = ({
-  fields
+  fields, countryYearIndex
 }) => {
   return (
     <div className="chartContainer">
@@ -30,7 +30,6 @@ const AreaChart = ({
             />
           }
           style={{
-            // data: { stroke: "#022831" },
             parent: { border: "1px solid #ccc"},
             data: { fill: "url(#verticalGradient)" }
           }}
@@ -66,24 +65,24 @@ const AreaChart = ({
           ]}
           style={{
             data: {
-              fill: "red",
+              fill: ({ index }) => {
+                return parseInt(index) === parseInt(countryYearIndex) ? "red" : "#022831"
+              },
+              stroke: ({ index }) => {
+                return parseInt(index) === parseInt(countryYearIndex) ? "red" : "#022831"
+              },
+              strokeWidth: ({ index }) => {
+                return parseInt(index) === parseInt(countryYearIndex) ? 10 : 1
+              },
             },
           }}
         />
         <VictoryAxis crossAxis
           label="Year"
-          // style={{
-          //   grid: {
-          //     stroke: "red",
-          //   }
-          // }}
         />
         <VictoryAxis dependentAxis crossAxis
           label="Score"
           tickValues={[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]}
-          // style={{
-          //   grid: {stroke: "red" }
-          // }}
         />
         
       </VictoryChart>

@@ -67,8 +67,6 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
     let ref11 = useRef(null);
     let ref12 = useRef(null);
     const [toggle, setToggle] = useState(false);
-  
-
 
     return (
         <>
@@ -132,19 +130,24 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                                                 switch(chartTypeIndex) {
                                                     case('Bar'):
                                                         return (
-                                                            <BarChart fields={fields}/>
+                                                            <BarChart 
+                                                            fields={fields} countryYearIndex={countryYearIndex}
+                                                            />
                                                         )
                                                     case('Line'):
                                                         return (
-                                                            <LineChart fields={fields}/>
+                                                            <LineChart 
+                                                            fields={fields} countryYearIndex={countryYearIndex}
+                                                            />
                                                         )
                                                     case('Area'):
                                                         return (
-                                                            <AreaChart fields={fields}/>
+                                                            <AreaChart 
+                                                            fields={fields} countryYearIndex={countryYearIndex}
+                                                            />
                                                         )
                                                     default: 
                                                         return;
-
                                                 }
                                             })()}
                                         </div>
