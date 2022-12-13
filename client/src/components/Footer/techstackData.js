@@ -1,5 +1,6 @@
-import { SiJavascript, SiReact, SiExpress, SiHtml5, SiCss3, SiHeroku, SiMongodb, SiGreensock, SiApollographql } from "react-icons/si";
+import { SiJavascript, SiReact, SiExpress, SiHtml5, SiCss3, SiHeroku, SiMongodb, SiGreensock, SiApollographql, SiCanva } from "react-icons/si";
 import { FaNode, FaSass, FaChartBar } from "react-icons/fa";
+import { RiMindMap } from "react-icons/ri";
 
 export const websiteTechStack = {
   devicons: [
@@ -22,6 +23,14 @@ export const websiteTechStack = {
     {
       icon: SiJavascript,
       tooltipMessage: "JavaScript"
+    },
+    {
+      icon: SiCanva,
+      tooltipMessage: "Canva"
+    },
+    {
+      icon: RiMindMap,
+      tooltipMessage: "MindMeister"
     },
     {
       icon: SiHtml5,
