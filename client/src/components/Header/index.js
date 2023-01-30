@@ -14,8 +14,7 @@ const Header = () => {
     navigate(`/`);
   };
 
-
-
+  const mediaQuery = window.matchMedia('(max-width: 500px)')  
 
   return (
     <header >
@@ -26,6 +25,7 @@ const Header = () => {
         </h1>
       </Link>
       <nav className='navbar'>
+        
         {Auth.loggedIn() ? (
           <>
             <Link className="navLink" to='/AboutUs'>
