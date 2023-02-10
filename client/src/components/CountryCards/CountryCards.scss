@@ -42,6 +42,7 @@
 .wide {
     width: 96.5%;
     height: 700px;
+    transition:all .3s;
 }
 
 .cardIcon {
@@ -125,5 +126,11 @@
     }
     .expandedCardInfo {
         width:100%;
+    }
+  }
+
+  @media screen and (min-width: 2500px) {
+    .wide {
+        height:1100px;
     }
   }

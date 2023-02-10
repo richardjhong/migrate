@@ -1,15 +1,15 @@
-import nutritionIcon from '../images/Nutrition-Basic-Needs.png';
-import waterIcon from '../images/Water-Sanitation.png';
-import shelterIcon from '../images/Shelter.png';
-import safetyIcon from '../images/Safety.png';
-import basicKnowIcon from '../images/Access-Knowledge.png';
-import healthWellIcon from '../images/Health-Wellness.png';
-import enivronQualityIcon from '../images/Environmental-Quality.png';
-import accessInfoIcon from '../images/Access-to-Information.png';
-import personalRightIcon from '../images/Personal-Rights.png';
-import personalFreedomIcon from '../images/Personal-Freedom.png';
-import inclusiveIcon from '../images/Inclusiveness.png';
-import accessAdvEdIcon from '../images/Access-to-advanced-education.png';
+import nutritionIcon from '../images/Nutrition-Basic-Needs.svg';
+import waterIcon from '../images/Water-Sanitation.svg';
+import shelterIcon from '../images/Shelter.svg';
+import safetyIcon from '../images/Safety.svg';
+import basicKnowIcon from '../images/Access-Knowledge.svg';
+import healthWellIcon from '../images/Health-Wellness.svg';
+import enivronQualityIcon from '../images/Environmental-Quality.svg';
+import accessInfoIcon from '../images/Access-to-Information.svg';
+import personalRightIcon from '../images/Personal-Rights.svg';
+import personalFreedomIcon from '../images/Personal-Freedom.svg';
+import inclusiveIcon from '../images/Inclusiveness.svg';
+import accessAdvEdIcon from '../images/Access-to-advanced-education.svg';
 
 export const columnData = [
     {

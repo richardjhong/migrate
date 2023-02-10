@@ -80,7 +80,7 @@ const SearchCountry = () => {
 
   return (
 
-    <div>
+    <>
       <div className="singleCountryInput">
         <input
           className=""
@@ -105,7 +105,7 @@ const SearchCountry = () => {
         )}
       </div>
 
-    </div>
+    </>
   );
 };
 

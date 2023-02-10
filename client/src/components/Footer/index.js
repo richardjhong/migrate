@@ -12,10 +12,11 @@ const Footer = () => {
       </div>
       <div className="techstackContainer">
         <div className="madeWith">Made with: </div>
-        {websiteTechStack.devicons.map(skill => {
+        {websiteTechStack.devicons.map((skill,i) => {
           const Icon = skill.icon;
+          console.log(i)
           return (
-            <>
+            <div key={i}>
               <Icon 
                 size={28}
                 style={{ margin: 5}} 
@@ -24,7 +25,7 @@ const Footer = () => {
                 data-place='bottom'
               />
               <ReactTooltip id="skillTooltip" />
-            </>
+            </div>
           )
         })}
       </div>

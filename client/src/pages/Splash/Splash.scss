@@ -1,5 +1,5 @@
 .splash{
-    background-image: url("../../../public/images/homeBackground.png");
+    background-image: url("../../images/homeBackground.svg");
     background-size: contain;
     background-color: var(--darkBackground);
     background-repeat: no-repeat;
@@ -27,7 +27,8 @@
 }
 
 .migrate {
-    margin-left: 33%;
+    // margin-left: 33%;
+    text-align:center;
     font-family: TRANSAT;
     font-size: 8vw;
     margin-top: 18%;
@@ -38,38 +39,49 @@
     margin-top: 20%;
     margin-right: 10%;
     margin-left: 10%;
-    font-size: 1.1vw;
+    // font-size: 1.1vw;
     margin-bottom:0;
+    text-align:center;
+}
+
+.searchRespCenter {
+    display: flex;
+    justify-content: center;
 }
 
 .tag {
     color: var(--light);
-    margin-left: 38%;
-    font-size: 1.1vw;
+    // margin-left: 38%;
+    // font-size: 1.1vw;
     margin-top:0;
+    text-align:center;
 
 }
 
-@media screen and (max-width:1200px) {
-    .searchRespCenter {
-        display: flex;
-        justify-content: center;
-    }
-    .searchRespCenter .singleCountryInput{
-    margin: 0 0 3em -160px;
-}
-}
+// @media screen and (max-width:1200px) {
+//     .searchRespCenter {
+//         display: flex;
+//         justify-content: center;
+//     }
+//     .searchRespCenter .singleCountryInput{
+//     margin: 0 0 3em -160px;
+// }
+// }
 
 @media screen and (max-width:900px) {
-    .searchRespCenter {
-        display: flex;
-        justify-content: center;
-    }
-    .searchRespCenter .singleCountryInput{
-    margin: 100px 0 3em -160px;
+    // .searchRespCenter {
+    //     display: flex;
+    //     justify-content: center;
+    // }
+//     .searchRespCenter .singleCountryInput{
+//     margin: 100px 0 3em -160px;
 
-}
+// }
 .overview {
     margin-top:40%;
+}
+
+.singleCountryInput {
+    // margin-top:4em;
 }
 }
