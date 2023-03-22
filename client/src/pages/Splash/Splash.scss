@@ -1,18 +1,24 @@
-.splash{
-    background-image: url("../../images/homeBackground.svg");
+.darkBg {
+    background-color:var(--darkBackground);
+}
+
+.splash {
+    background-image: url("../../images/homeBackground2.svg");
     background-size: contain;
     background-color: var(--darkBackground);
     background-repeat: no-repeat;
     width: 100%;
     margin: 0 auto;
     background-position: center top;
-    // position:fixed;
+    height:40vh;
+    display:flex;
+    justify-content:center;
+    align-items: center;
 }
 
 .splashContain {
-    height:100%;
-    display:flex;
-    // flex-direction: column;
+    height: 100%;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -21,67 +27,74 @@
     margin-top: -10%;
     margin-left: 47%;
 }
+
 .going {
     margin-top: -40%;
     margin-left: 44%;
 }
 
 .migrate {
-    // margin-left: 33%;
-    text-align:center;
+    text-align: center;
     font-family: TRANSAT;
     font-size: 8vw;
-    margin-top: 18%;
+    margin:0;
+
 }
 
 .overview {
     color: var(--light);
-    margin-top: 20%;
-    margin-right: 10%;
-    margin-left: 10%;
-    // font-size: 1.1vw;
-    margin-bottom:0;
-    text-align:center;
+    margin:0 10%;
+    text-align: center;
 }
 
 .searchRespCenter {
     display: flex;
     justify-content: center;
+    top:-20px;
 }
 
 .tag {
     color: var(--light);
-    // margin-left: 38%;
-    // font-size: 1.1vw;
-    margin-top:0;
-    text-align:center;
+    margin-top: 0;
+    text-align: center;
 
 }
 
-// @media screen and (max-width:1200px) {
-//     .searchRespCenter {
-//         display: flex;
-//         justify-content: center;
-//     }
-//     .searchRespCenter .singleCountryInput{
-//     margin: 0 0 3em -160px;
-// }
-// }
+@media screen and (min-width:2560px) {
+    .searchRespCenter {
+        padding-top:5%;
+    }
+}
+
+@media screen and (min-width:1451px) and (max-width:1700px) {
+  
+}
+
+@media screen and (min-width:1151px) and (max-width:1450px) {
+   
+}
+
+@media screen and (min-width:1024px) and (max-width:1150px) {
+   
+}
 
 @media screen and (max-width:900px) {
-    // .searchRespCenter {
-    //     display: flex;
-    //     justify-content: center;
+    // .overview {
+    //     margin-top: 40%;
     // }
-//     .searchRespCenter .singleCountryInput{
-//     margin: 100px 0 3em -160px;
 
-// }
-.overview {
-    margin-top:40%;
 }
 
-.singleCountryInput {
-    // margin-top:4em;
+@media screen and (min-width:768px) and (max-width:880px) {
+    // .searchRespCenter {
+    //     position:relative;
+    //     top:-50px;
+    // }
 }
+
+@media screen and (max-width:767px) {
+    // .searchRespCenter {
+    //     position:relative;
+    //     top:50px;
+    // }
 }
