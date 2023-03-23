@@ -67,7 +67,7 @@ export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
           ) : (
             <>
               <CountryCards
-                countryProperties={singleCountry} countryYearIndex={countryYearIndex} chartTypeIndex={chartTypeIndex}
+                countryProperties={singleCountry} countryYearIndex={countryYearIndex} chartTypeIndex={chartTypeIndex} comparedCountryProperties={comparedCountryData}
               />
             </>
           )}
