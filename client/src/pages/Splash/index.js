@@ -19,9 +19,8 @@ function Splash() {
                         />
                     </div>
                 </div>
-                <p className="overview"> Get the hard data about your dream country.
-                    Migrate compiles years of information to present a general overview of any country. There are so many factors that
-                    play into choosing a new home. Get information about education levels, sanitation, resource access, quality of life,
+                <p className="overview"> 
+                    Migrate compiles years of information to present a general overview of any country. There are so many factors that play into choosing a new home. Get information about education levels, sanitation, resource access, quality of life,
                     and safety.
                 </p>
             </main>

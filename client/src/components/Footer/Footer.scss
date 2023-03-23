@@ -1,43 +1,59 @@
 footer {
     display:flex;
-    justify-content:space-around;
+    justify-content:center;
     background-color:var(--darkBackground);
     color:var(--light);
     width:100%;
-    height: 200px;
+    height: auto;
     padding-top:1em;
+    flex-wrap:wrap;
 }
 
 .authors {
     display:flex;
-    width:40%;
+    width:95%;
     flex-wrap:wrap;
+    justify-content: space-around;
+    padding-bottom:1em;
 }
 
 .authorContain {
     width:100%;
+    padding-bottom:1em;
 }
 .authors a {
     color:var(--lightBorder);
+    text-decoration: underline;
 }
 
 .authorName {
     width:30%;
     transition:all .3s;
+    text-align: center;
+    padding-bottom:1em;
 }
 
 .authorName:hover {
     scale:1.2;
 }
 
+.copyright {
+    width:100%;
+    text-align: center;
+    padding:1em 0; 
+}
+
 .madeWith {
     width:100%;
+    padding-bottom: 1em;
 }
 
 .techstackContainer {
     display: flex;
     flex-wrap:wrap;
-    align-items: center;;
+    align-items: center;
+    width:95%;
+    justify-content: space-between;
 
 }
 
@@ -48,8 +64,8 @@ footer {
 }
 
 @media screen and (max-width: 700px) {
-    .authorName {
-        width:100%;
+    .authors {
+        width:90%;
     }
 
 }

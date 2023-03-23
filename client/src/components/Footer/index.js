@@ -5,23 +5,23 @@ import ReactTooltip from 'react-tooltip';
 
 const Footer = () => {
   return (
-    <footer >
+    <footer>
       <div className='authors'>
-        <div className="authorContain">This site created by </div>
+        <div className="authorContain">This site created by ... </div>
         <div className="authorName"><a href="https://github.com/pariselectra">Paris Bland</a></div> <div className="authorName"><a href="https://github.com/MarkGATX">Mark Gardner</a></div>  <div className="authorName"><a href="https://github.com/richardjhong">Richard Hong</a></div>  <div className="authorName"><a href="https://github.com/rogseo">Yeon Seo</a></div> <div className="authorName"><a href="https://github.com/sarahthoorens">Sarah Thoorens</a></div>
       </div>
       <div className="techstackContainer">
         <div className="madeWith">Made with: </div>
-        {websiteTechStack.devicons.map((skill,i) => {
+        {websiteTechStack.devicons.map((skill, i) => {
           const Icon = skill.icon;
           console.log(i)
           return (
             <div key={i}>
-              <Icon 
+              <Icon
                 size={28}
-                style={{ margin: 5}} 
-                data-tip={skill.tooltipMessage} 
-                data-for='skillTooltip' 
+                style={{ margin: 5 }}
+                data-tip={skill.tooltipMessage}
+                data-for='skillTooltip'
                 data-place='bottom'
               />
               <ReactTooltip id="skillTooltip" />
@@ -29,7 +29,7 @@ const Footer = () => {
           )
         })}
       </div>
-      <div>
+      <div className='copyright'>
         Copyright 2022
       </div>
     </footer>
