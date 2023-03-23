@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Form.scss';
-import airplane from '../../images/airplaneArt.png';
-import SearchSelect from "../../components/SearchSelect";
+import airplane from '../../images/airplaneDest.svg';
+import SearchSelect from '../../components/SearchSelect';
 import { SummarySection } from "../../components/SummarySection";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -27,9 +27,10 @@ function Form() {
     <main className="formMain">
     <h1 className="title">FIND YOUR PERFECT COUNTRY MATCH</h1>
     <form onSubmit={handleSubmit} className="form">
-      <label className="region">
-        Pick your desired region:
-        <SearchSelect
+      <label className="region" for="regionOptions">
+        Pick your desired region:</label>
+        <br/>
+        <SearchSelect id='regionOptions'
           options={[
             { label: "North America", value: "North America" },
             { label: "South America", value: "South America" },
@@ -41,13 +42,11 @@ function Form() {
           value={selectionOneValue}
           setValue={setSelectionOneValue}
         />
-      </label>
-      <br></br>
-      <br></br>
-      <br></br>
-      <label className="optionOne">
-        What's most important to you?:
-        <SearchSelect
+      <br/>
+      <label className="optionOne" for="choiceOption">
+        What's most important to you?:</label>
+        <br/>
+        <SearchSelect id="choiceOption"
           options={[
             { label: "Food Quality", value: "Food Quality" },
             { label: "Clean Water", value: "Clean Water" },
@@ -63,9 +62,7 @@ function Form() {
           value={selectionTwoValue}
           setValue={setSelectionTwoValue}
         />
-        <br></br>
-        <br></br>
-      </label>
+      
       {/* <label className="optionTwo">
         What's most important to you?:
         <SearchSelect
