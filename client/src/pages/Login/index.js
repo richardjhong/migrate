@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import airplane from '../../images/airplaneArt.png'
+import airplane from '../../images/airplaneDest.svg'
 import './Login.scss'
 
 import Auth from '../../utils/auth.js';
@@ -53,7 +53,7 @@ const Login = (props) => {
 
 
         <div className="loginForm">
-          <h2>Login to see your saved searches so you can review them and also to manage your personal information.</h2>
+          <h1 >Login to see your saved searches and manage your personal information.</h1>
           {data ? (
             <p>
               Success! You may now head{' '}

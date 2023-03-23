@@ -2,7 +2,8 @@ import React from "react";
 import './about.scss';
 import happyFamily from '../../images/family_outside.jpg';
 import retiredCruise from '../../images/watching_the_boats.jpg'
-import spiLogo from '../../images/SPI_logo.jpg'
+import spiLogo from '../../images/SPI_logo.jpg';
+import Image from "mui-image";
 
 export default function About() {
 
@@ -18,11 +19,11 @@ export default function About() {
                         </div>
                         <div className='aboutPics'>
                             <figure class='landscapeAboutPic'>
-                                <img src={retiredCruise} alt='retirees looking at large cruise ship' />
+                                <Image width='100%' height='auto' src={retiredCruise} alt='retirees looking at large cruise ship' />
                                 <figcaption>Photo by <a href="https://unsplash.com/@juliusyls">Julius Yls</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
                             </figure>
                             <figure className="familyAboutPic">
-                                <img src={happyFamily} alt='happy family portrait' />
+                                <Image width='100%' height='auto' src={happyFamily} alt='happy family portrait' />
                                 <figcaption>Photo by <a href="https://unsplash.com/@josuemichelphotography">Josue Michel</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
                             </figure>
 
@@ -33,7 +34,7 @@ export default function About() {
                     <h2>The Data</h2>
                     <div className="spiSection">
                         <div className='spiLogo'>
-                            <img src={spiLogo} alt='logo for Social Progress Imperative' />
+                            <Image width='100%' height='auto' src={spiLogo} alt='logo for Social Progress Imperative' />
                         </div>
                         <div className='spiText'>
                             <p>The raw data you see here is adapted from the work of the <a href="https://www.socialprogress.org/" target="_blank" rel="noreferrer">Social Progress Imperative.</a> They are a non-profit organization based in Washington, D.C. that works to provide communities and leaders with information they need to deal with major challenges from disease to climate change. They use this data to compile ratings in 36 different categories.</p>

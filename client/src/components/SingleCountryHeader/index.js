@@ -41,9 +41,11 @@ const SingleCountryHeader = () => {
               return (
                 <img
                   key={i}
-                  className=""
+                  
                   src={val.src}
                   alt={val.alt}
+                  
+                 
                 />
               );
             })}

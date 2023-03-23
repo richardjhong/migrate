@@ -23,47 +23,45 @@ function Form() {
 
   return (
     <>
-    <Header />
-    <main className="formMain">
-    <h1 className="title">FIND YOUR PERFECT COUNTRY MATCH</h1>
-    <form onSubmit={handleSubmit} className="form">
-      <label className="region" for="regionOptions">
-        Pick your desired region:</label>
-        <br/>
-        <SearchSelect id='regionOptions'
-          options={[
-            { label: "North America", value: "North America" },
-            { label: "South America", value: "South America" },
-            { label: "Europe", value: "Europe" },
-            { label: "Asia", value: "Asia" },
-            { label: "Africa", value: "Africa" },
-            { label: "Oceania", value: "Oceania" },
-          ]}
-          value={selectionOneValue}
-          setValue={setSelectionOneValue}
-        />
-      <br/>
-      <label className="optionOne" for="choiceOption">
-        What's most important to you?:</label>
-        <br/>
-        <SearchSelect id="choiceOption"
-          options={[
-            { label: "Food Quality", value: "Food Quality" },
-            { label: "Clean Water", value: "Clean Water" },
-            { label: "Access to Housing", value: "Access to Housing" },
-            { label: "Safety", value: "Safety" },
-            { label: "Free Press", value: "Free Press" },
-            { label: "Healthcare", value: "Healthcare" },
-            { label: "Environmental Quality", value: "Environmental Quality" },
-            { label: "Personal Freedom and Choice", value: "Personal Freedom and Choice" },
-            { label: "Inclusiveness", value: "Inclusiveness" },
-            { label: "Access to Advanced Education", value: "Access to Advanced Education" }
-          ]}
-          value={selectionTwoValue}
-          setValue={setSelectionTwoValue}
-        />
-      
-      {/* <label className="optionTwo">
+      <Header />
+      <main>
+        <div className="formMain">
+          <h1 >Find your country match...</h1>
+          <form onSubmit={handleSubmit} >
+            <label className="region" for="regionOptions">
+              <h2>Pick your desired region:</h2></label>
+            <SearchSelect id='regionOptions'
+              options={[
+                { label: "North America", value: "North America" },
+                { label: "South America", value: "South America" },
+                { label: "Europe", value: "Europe" },
+                { label: "Asia", value: "Asia" },
+                { label: "Africa", value: "Africa" },
+                { label: "Oceania", value: "Oceania" },
+              ]}
+              value={selectionOneValue}
+              setValue={setSelectionOneValue}
+            />
+            <label className="optionOne" for="choiceOption">
+              <h2>What's most important to you?:</h2></label>
+            <SearchSelect id="choiceOption"
+              options={[
+                { label: "Food Quality", value: "Food Quality" },
+                { label: "Clean Water", value: "Clean Water" },
+                { label: "Access to Housing", value: "Access to Housing" },
+                { label: "Safety", value: "Safety" },
+                { label: "Free Press", value: "Free Press" },
+                { label: "Healthcare", value: "Healthcare" },
+                { label: "Environmental Quality", value: "Environmental Quality" },
+                { label: "Personal Freedom and Choice", value: "Personal Freedom and Choice" },
+                { label: "Inclusiveness", value: "Inclusiveness" },
+                { label: "Access to Advanced Education", value: "Access to Advanced Education" }
+              ]}
+              value={selectionTwoValue}
+              setValue={setSelectionTwoValue}
+            />
+
+            {/* <label className="optionTwo">
         What's most important to you?:
         <SearchSelect
           options={[
@@ -85,13 +83,14 @@ function Form() {
       </label>
       <br></br>
       <br></br> */}
-      <input className="submitButton button" type="submit" value="Submit" />
-    </form>
+            <input className="submitButton button" type="submit" value="Submit" />
+          </form>
 
-    <img className="airplane" src={airplane} alt="airplane"/>
-    {formIsSubmitted && <SummarySection selections={{ first: selectionOneValue, second: selectionTwoValue}} />}
-    </main>
-    <Footer />
+          <img className="airplane" src={airplane} alt="airplane" />
+          {formIsSubmitted && <SummarySection selections={{ first: selectionOneValue, second: selectionTwoValue }} />}
+        </div>
+      </main>
+      <Footer />
     </>
   );
 }

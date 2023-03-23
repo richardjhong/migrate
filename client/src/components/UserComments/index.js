@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
+import React from "react";
 import "./UserComments.scss"
-import SearchCountry from '../SearchCountry';
-import { useSearch } from '../../utils/CountryContext';
-import { useNavigate } from 'react-router-dom';
+// import SearchCountry from '../SearchCountry';
+// import { useSearch } from '../../utils/CountryContext';
+// import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_COUNTRY_COMMENTS } from '../../utils/queries'

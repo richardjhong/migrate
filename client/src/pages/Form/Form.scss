@@ -1,21 +1,26 @@
-.form{
+.formMain form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
     background-color: var(--darkBackground);
     color: var(--light);
     margin: auto;
-    width: 50%;
     padding: 2%;
     border: 5px solid var(--lightBorder);
-    border-radius:20px
+    border-radius: 20px;
+    text-align: left;
 }
 
 .region {
-    font-size: 2vw;
-    margin:1em 0;
+    display:block;
+    // font-size: 2vw;
+    // margin: 1em 0;
 }
 
 .optionOne {
-    font-size: 2vw;
-    margin:1em 0;
+    display:block;
+    // font-size: 2vw;
+    // margin: 1em 0;
 }
 
 .optionTwo {
@@ -29,9 +34,10 @@
     width: 60vw;
 }
 
-.formMain h1 {
+.formMain {
     text-align: center;
-    margin-bottom:1em;
+    margin-bottom: 1em;
+    margin-top: 5%;
 }
 
 .submitButton {
@@ -45,4 +51,3 @@
     margin-top: 5%;
     margin-bottom: -10%;
 }
-
