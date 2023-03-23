@@ -3,7 +3,7 @@ import { VictoryChart, VictoryAxis, VictoryLabel, VictoryLine, VictoryContainer,
 import '../CountryChart.scss';
 
 const LineChart = ({
-  fields, countryYearIndex, comparedCountryFields
+  fields, countryYearIndex, comparedCountryFields, enabled
 }) => {
   return (
     <div className="chartContainer">
@@ -75,7 +75,7 @@ const LineChart = ({
         {/* 
         Conditional logic for loading additional line graph for comparison country
          */}
-        {comparedCountryFields && <VictoryLine
+        {comparedCountryFields && enabled && <VictoryLine
           labelComponent={
             <VictoryLabel 
               renderInPortal 
@@ -105,7 +105,7 @@ const LineChart = ({
             { x: "2022", y: comparedCountryFields["2022"] },
           ]}
         />}
-        {comparedCountryFields && <VictoryScatter
+        {comparedCountryFields && enabled && <VictoryScatter
           style={{
             data: {
               fill: ({ index }) => {

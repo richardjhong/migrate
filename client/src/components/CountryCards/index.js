@@ -47,7 +47,13 @@ const expand = (event) => {
 }
 
 
-export default function CountryCards({ countryProperties, countryYearIndex, chartTypeIndex, comparedCountryProperties }) {
+export default function CountryCards({ 
+        countryProperties, 
+        countryYearIndex, 
+        chartTypeIndex, 
+        comparedCountryProperties,
+        enabled
+    }) {
     let ref1 = useRef(null);
     let ref2 = useRef(null);
     let ref3 = useRef(null);
@@ -150,6 +156,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                                                                 fields={fields} 
                                                                 countryYearIndex={countryYearIndex}
                                                                 comparedCountryFields={comparedFields}
+                                                                enabled={enabled}
                                                             />
                                                         )
                                                     case('Area'):
