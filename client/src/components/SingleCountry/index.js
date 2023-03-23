@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import CountryCards from "../CountryCards";
 import "./SingleCountry.scss";
 import { useParams, useNavigate } from 'react-router-dom';
@@ -28,10 +28,6 @@ export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
   if (data && data?.singleCompileCountry === null) {
     navigate('/', { replace: true });
   }
-
-  useEffect(() => {
-    console.log('compared to: ', comparedCountryData)
-  }, [comparedCountryData, setComparedCountryData]);
 
   const singleCountry = data?.singleCompileCountry?.year_catalog || [];
   
