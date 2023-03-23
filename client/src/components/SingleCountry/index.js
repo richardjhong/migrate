@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CountryCards from "../CountryCards";
 import "./SingleCountry.scss";
 import { useParams, useNavigate } from 'react-router-dom';
@@ -8,13 +8,13 @@ import { useSearch } from '../../utils/CountryContext';
 import { capitalizeFirstLetter } from '../../utils/helper'
 import CompareCountry from '../Comparison';
 
-
-
 export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
 
   const [enabled, setEnabled] = useState(false) // used for comparison toggle
+  const [comparedCountryData, setComparedCountryData] = useState([]);
   const { searches, updateSearch } = useSearch();
   const { countryname: countryParam } = useParams();
+  const [comparedCountry, setComparedCountry] = useState("");
   const navigate = useNavigate();
 
 
@@ -28,6 +28,10 @@ export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
   if (data && data?.singleCompileCountry === null) {
     navigate('/', { replace: true });
   }
+
+  useEffect(() => {
+    console.log('compared to: ', comparedCountryData)
+  }, [comparedCountryData, setComparedCountryData]);
 
   const singleCountry = data?.singleCompileCountry?.year_catalog || [];
   
@@ -45,10 +49,16 @@ export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
   updateSearch(newData);
   }
 
-
   return (
     <>
-      <CompareCountry enabled={enabled} setEnabled={setEnabled}/>
+      <CompareCountry 
+        enabled={enabled} 
+        setEnabled={setEnabled} 
+        baseCountry={countryParam} 
+        comparedCountry={comparedCountry}
+        setComparedCountry={setComparedCountry}
+        setComparedCountryData={setComparedCountryData}
+      />
       <div className='containerCenter'>
         <div className='countryCardContainer'>
           {/* accounts for letting asynchronous conditional check of navigate to homepage to assess before possibly passing year_catalog that is undefined */}
