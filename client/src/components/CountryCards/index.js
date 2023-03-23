@@ -134,7 +134,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                                                         "2021": comparedCountryProperties[8][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
                                                         "2022": comparedCountryProperties[9][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
                                                     } :
-                                                    {}
+                                                    null
                                                 
                                                 
                                                 switch(chartTypeIndex) {

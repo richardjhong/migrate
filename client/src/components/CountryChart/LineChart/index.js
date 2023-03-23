@@ -72,7 +72,10 @@ const LineChart = ({
             { x: "2022", y: fields["2022"] },
           ]}
         />
-        {comparedCountryFields.length !== 0 && <VictoryLine
+        {/* 
+        Conditional logic for loading additional line graph for comparison country
+         */}
+        {comparedCountryFields && <VictoryLine
           labelComponent={
             <VictoryLabel 
               renderInPortal 
@@ -102,7 +105,7 @@ const LineChart = ({
             { x: "2022", y: comparedCountryFields["2022"] },
           ]}
         />}
-        {comparedCountryFields.length !== 0 && <VictoryScatter
+        {comparedCountryFields && <VictoryScatter
           style={{
             data: {
               fill: ({ index }) => {
