@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Form.scss';
 import airplane from '../../images/airplaneDest.svg';
 import SearchSelect from '../../components/SearchSelect';
-import { SummarySection } from "../../components/SummarySection";
+import SummarySection from '../../components/SummarySection';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
