@@ -1,5 +1,5 @@
 import Header from "../../components/Header";
-
+import Image from 'mui-image';
 import Footer from "../../components/Footer";
 import visaImage from "../../images/global-residence-index-yMhTgr2zdVM-unsplash.jpg"
 import './Visa.scss'
@@ -18,13 +18,13 @@ export default function Visa() {
                         <p>Remember, you can't just pick up and move to another country without their permission. You will need to get a Visa if you want to live or work in another country that you're not a citizen of. </p>
                         <p>Visa requirements vary by nation and change on a yearly basis, so keeping you up-to-date with accurate information is beyond the scope of what we can do here. This is just a source to help you make decisions.</p>
                     </section>
-                        <div className="visaImage">
+                    <div className="visaImage">
                         <figure>
-                            <img src={visaImage} alt="open visa with stamps" />
+                            <Image src={visaImage} alt="open visa with stamps" />
                             <figcaption>Photo by <a href="https://unsplash.com/@globalresidenceindex">Global Residence Index</a> on <a href="https://unsplash.com">Unsplash</a>
                             </figcaption>
                         </figure>
-                        </div>
+                    </div>
                     <section className="visaInfoRecs">
                         <h2>The next step is up to you.</h2>
                         <p>There are many options for work visas and permanent residence visas. If you're get a job with a company in another country, they can often sponsor you to live there with a work visa. Sometimes you may qualify for a Visa is one of your direct relatives was a citizen of a country. There are even Golden Visas in some countries that will provide you with a Permanent Residence Visa if you simply invest in the country or buy a home there as your new primary residence. Then again if you have a European Union Passport, you can live and work in any of the Schengen Countries.</p>
@@ -37,8 +37,8 @@ export default function Visa() {
                             <li><a href="https://www.irishimmigration.ie/registering-your-immigration-permission/information-on-registering/irish-residence-permit/" target="_blank" rel="noreferrer">Irish Residence</a></li>
                             <li><a href="https://internationalliving.com/" target="_blank" rel="noreferrer">International Living</a></li>
                         </ul>
-                   </section>
-                    
+                    </section>
+
                 </div>
             </main>
             <Footer />

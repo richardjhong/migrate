@@ -5,7 +5,6 @@ import { Flip } from "gsap/Flip";
 import LineChart from '../CountryChart/LineChart'
 import BarChart from '../CountryChart/BarChart'
 import AreaChart from '../CountryChart/AreaChart'
-
 import {columnData} from "../../utils/countryCardData";
 import { valueFromAST } from "graphql";
 
@@ -74,7 +73,7 @@ export default function CountryCards({
                 {
                     [ref1, ref2, ref3, ref4, ref5, ref6, ref7, ref8, ref9, ref10, ref11, ref12].map((d, i) => {
                         return (
-                            <div
+                            <div key={i}
                                 className="countryCard"
                                 ref={d}
                                 id={`col${i%3 + 1}row${Math.floor(i/3) + 1}`}
