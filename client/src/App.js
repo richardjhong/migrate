@@ -10,6 +10,7 @@ import Splash from './pages/Splash/index'
 import AboutUs from './pages/AboutUs';
 import HowTo from './pages/HowTo';
 import SingleCountryCont from './pages/SingleCountryCont';
+import Wizard from './pages/Wizard';
 
 import Form from './pages/Form';
 
@@ -69,6 +70,10 @@ function App() {
             path="/form"
             element={<Form />}
             />  
+            <Route
+            path="/Wizard"
+            element={<Wizard />}
+            />
 
             {/* <Route
               path="/SingleCountry"

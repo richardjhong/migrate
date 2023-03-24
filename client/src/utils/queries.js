@@ -24,7 +24,7 @@ export const QUERY_ME = gql`
   }
  `;
 
- export const QUERY_SEARCH_HISTORY = gql`
+export const QUERY_SEARCH_HISTORY = gql`
   query searchHistory($username: String!) {
     searchHistory(username: $username) {
       _id
@@ -107,7 +107,34 @@ export const QUERY_COMPILATIONS = gql`
       }
     }
   }
+`;
+
+export const QUERY_COUNTRY_ADJUST = gql`
+query countriesAdjust($spiyear: String) {
+  spiyear
+  country
+  bhn {
+    score_nbmc
+    score_ws
+    score_sh
+    score_ps
+  }
+  fow {
+    score_abk
+    score_aic
+    score_hw
+    score_eq
+  }
+  opp {
+    score_pr
+    score_pfc
+    score_incl
+    score_aae
+  }
+}
+
 `
+
 export const QUERY_SINGLE_COMPILATION = gql`
   query SingleCompileCountry($countryname: String!) {
     singleCompileCountry(countryname: $countryname) {
