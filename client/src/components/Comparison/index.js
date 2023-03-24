@@ -89,10 +89,10 @@ const CompareCountry = ({
            )}
          </div>
          <button onClick={() => setModalOpen(true)}>Open Map</button>
-         <Modal 
+         {/* <Modal 
           isOpen={modalOpen} 
           onClose={() => setModalOpen(false)}
-          />
+          /> */}
        </>
       }
     </div>
