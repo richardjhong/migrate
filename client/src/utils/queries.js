@@ -111,8 +111,10 @@ export const QUERY_COMPILATIONS = gql`
 
 export const QUERY_COUNTRY_ADJUST = gql`
 query countriesAdjust($spiyear: String) {
+  countriesAdjust(spiyear: $spiyear) {
   spiyear
   country
+  score_spi
   bhn {
     score_nbmc
     score_ws
@@ -131,6 +133,7 @@ query countriesAdjust($spiyear: String) {
     score_incl
     score_aae
   }
+}
 }
 
 `
