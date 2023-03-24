@@ -30,11 +30,21 @@
 //     border: none;
 //   }
 
+label {
+    text-align: center;
+}
+
+input[type='range'] {
+    margin-bottom:2em;
+}
+
 #wizContainer {
     display:flex;
     justify-content: center;
     flex-wrap: wrap;
 }
+
+
 
 .calcButton {
     width:95%;
@@ -42,15 +52,23 @@
 }
 
 .revCountryResult {
-    display: flex;
-    justify-content: space-around;
-    width:90%;
+    // display: flex;
+    // justify-content: space-around;
+    width:75%;
+    margin:0 auto;
 }
 
-.topFiveResults {
-    display:flex;
-    justify-content: space-around;
-    flex-wrap:wrap;
+.topCountryButton {
+    width:80%;
+}
+
+.topTenResults {
+    // display:flex;
+    // justify-content: space-around;
+    // flex-wrap:wrap;
+    width:95%;
+    text-align: center;
+    margin-bottom:2em;
 }
 
 .wizDirections {
@@ -70,6 +88,7 @@
     display:flex;
     flex-direction:column;
     width:30%;
+    align-items:center;
 }
 
 

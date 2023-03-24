@@ -3,6 +3,7 @@
   --light:#eff2f6;
   --lightBorder: #b4d330;
   --dark:#022831;
+  --darkHover:rgba(2,40,49,.3);
 
 }
 
@@ -30,7 +31,7 @@ button, .button {
 }
 
 button:hover, .button:hover {
-  box-shadow:0px 0px 15px var(--dark);
+  box-shadow:0px 0px 5px 2px var(--darkHover);
 }
 
 button:active, .button:active {
@@ -50,8 +51,6 @@ html {
   background-color:var(--light);
   font-family: 'rigid-square', sans-serif;
 }
-
-
 
 main {
   min-height:100vh;
