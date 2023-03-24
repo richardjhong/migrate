@@ -1,6 +1,7 @@
 import React from "react"
-import '../pages/Form/Form.scss';
+// import '../pages/Form/Form.scss';
 import { useNavigate } from 'react-router-dom';
+import './SummarySection.scss'
 
 
 const food = 'The Global Food Security Index takes into account: affordability, availability, quality, safety, sustainability, and adaptation to provide a complete picture of a nations food security. ';
@@ -8,21 +9,21 @@ const water = 'Millions of people around the globe struggle with access to clean
 const housing = 'The housing affordability index takes into account the average income within a country and compares it to the average cost of housing. This index serves as an overview of housing availability for the average citizen. ';
 const safe = 'The Global Peace Index ranks the safest and most peaceful countries in the world. This report is published annually by the Institute for Economics and Peace, which defines itself as "an independent, non-partisan, non-profit organization dedicated to shifting the world\'s focus to peace as a positive, achievable and tangible measure of human wellbeing and progress." The report researches countries to determine which are the safest and which are the most dangerous. A total of 163 countries are featured in the GPI report, which ranks each country\'s level of safety or danger based upon 23 different indicators. The indicators used to compile the GPI include the number of internal and external violent conflicts, level of distrust, political instability, potential for terrorist acts, number of homicides, and military expenditures as a percentage of GDP. These indicators are grouped into three broad categories: Ongoing International Conflict, Societal Safety and Security, and Militarization, and a score is calculated for each of the 163 nations featured in the report. The lower the score, the higher the nation is ranked in terms of safety. ';
 const press = 'The World Press Freedom Index is a publication by the Reporters without Borders (RSF) as an advocacy tool based on the principles of emulation between states. RSF has been ranking countries according to the degree of the freedom of the press since 2002. The influence of the RSF report is growing with many heads of states and governments taking note of the publication. The index ranks countries based on the evaluation of pluralism, independence of the media, the legislative framework in the country, and the safety of journalists. The degree of freedom is determined by analyzing the response of experts to the questions devised by the RSF. The data gathered is combined with the number of abuses and acts of violence meted on journalists. The complete tally of abuses and violence on journalists and media houses are kept by experts who are assigned to the different regions. In the interpretation of the freedom index result, the higher the figure, the worse the situation ';
-const include = 'The Othering & Belonging Institute\’s Inclusiveness Index measures equity without regard for national wealth or economic conditions by focusing on policies, laws, and outcomes. The inclusiveness index takes into account: outgroup violence, political representation, income inequality, anti-discrimination laws, rates of incarceration, and immigration. ';
+const include = 'The Othering & Belonging Institute\'s Inclusiveness Index measures equity without regard for national wealth or economic conditions by focusing on policies, laws, and outcomes. The inclusiveness index takes into account: outgroup violence, political representation, income inequality, anti-discrimination laws, rates of incarceration, and immigration. ';
 const edu = 'The OECD measures education level by comparing the percentage of each country\'s residents ages 25 to 64 who have completed some form of tertiary education: a two-year or four-year degree or a vocational program. ';
 const health = 'CEOWorld Magazine\'s Health Care Index "is a statistical analysis of the overall quality of the health care system, including health care infrastructure; health care professionals (doctors, nursing staff, and other health workers) competencies; cost (USD p.a.per capita); quality medicine availability, and government readiness." Each country is given a score for each of the above factors and then a total score out of 100. ';
-const enviro = 'Compiled annually by Yale University\'s Center for Environmental Law & Policy, the Environmental Performance Index (EPI) is a statistical method of computing the collective environmental impact of all of a country\’s policies combined. The 2020 Environmental Performance Index ranks 180 countries across 32 performance indicators related to environmental health and ecosystem vitality, from the amount of particulate pollution in the air and the purity of drinking water to the health of fish stocks and the management of wetlands. Each country is scored out of 100. ';
+const enviro = 'Compiled annually by Yale University\'s Center for Environmental Law & Policy, the Environmental Performance Index (EPI) is a statistical method of computing the collective environmental impact of all of a country\'s policies combined. The 2020 Environmental Performance Index ranks 180 countries across 32 performance indicators related to environmental health and ecosystem vitality, from the amount of particulate pollution in the air and the purity of drinking water to the health of fish stocks and the management of wetlands. Each country is scored out of 100. ';
 const free = 'The Cato Institute in Washington D.C. and the Fraser Institute in Vancouver, Canada co-published the annual Human Freedom Index Report for 2021, which helps observe relationships between freedom and other social and economic phenomena. The Human Freedom Index Report for 2021 ranked 165 countries and territories in two distinct categories: Personal Freedom and Economic Freedom, which are then combined to form the final Human Freedom score. '
 
 
 
-export let SummarySection = ({ selections }) => {
+let SummarySection = ({ selections }) => {
     let navigate = useNavigate();
 
     //North America -FOOD QUALITY
     if (selections.first === "North America" && selections.second === 'Food Quality') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Canada`);
                         }}>CANADA</button>
@@ -39,7 +40,7 @@ export let SummarySection = ({ selections }) => {
     //North America -CLEAN WATER
     if (selections.first === "North America" && selections.second === 'Clean Water') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Canada`);
                         }}>CANADA</button>
@@ -51,7 +52,7 @@ export let SummarySection = ({ selections }) => {
     //North America -ACCESS TO HOUSING
     if (selections.first === "North America" && selections.second === 'Access to Housing') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Puerto%20Rico`);
                         }}>PUERTO RICO</button>
@@ -63,7 +64,7 @@ export let SummarySection = ({ selections }) => {
     //North America -SAFETY
     if (selections.first === "North America" && selections.second === 'Safety') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Canada`);
                         }}>CANADA</button>
@@ -75,7 +76,7 @@ export let SummarySection = ({ selections }) => {
     //North America -Free Press
     if (selections.first === "North America" && selections.second === 'Free Press') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Costa%20Rica`);
                         }}>COSTA RICA</button>
@@ -87,7 +88,7 @@ export let SummarySection = ({ selections }) => {
     //North America -Healthcare
     if (selections.first === "North America" && selections.second === 'Healthcare') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Canada`);
                         }}>CANADA</button>
@@ -99,7 +100,7 @@ export let SummarySection = ({ selections }) => {
     //North America -Environmental Quality
     if (selections.first === "North America" && selections.second === 'Environmental Quality') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Canada`);
                         }}>CANADA</button>
@@ -111,7 +112,7 @@ export let SummarySection = ({ selections }) => {
     //North America -Individual Rights
     if (selections.first === "North America" && selections.second === 'Personal Freedom and Choice') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Canada`);
                         }}>CANADA</button>
@@ -123,7 +124,7 @@ export let SummarySection = ({ selections }) => {
     //North America -Inclusiveness
     if (selections.first === "North America" && selections.second === 'Inclusiveness') {
         return (
-            <div>
+            <div className='nationDetails'>
               <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Canada`);
                         }}>CANADA</button>
@@ -135,7 +136,7 @@ export let SummarySection = ({ selections }) => {
     //North America -Access to Advanced Education
     if (selections.first === "North America" && selections.second === 'Access to Advanced Education') {
         return (
-            <div>
+            <div className='nationDetails'>
                <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Canada`);
                         }}>CANADA</button>
@@ -147,7 +148,7 @@ export let SummarySection = ({ selections }) => {
     //South America -FOOD QUALITY
     if (selections.first === "South America" && selections.second === 'Food Quality') {
         return (
-            <div>
+            <div className='nationDetails'>
                    <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Chile`);
                         }}>CHILE</button>
@@ -164,7 +165,7 @@ export let SummarySection = ({ selections }) => {
     //South America -CLEAN WATER
     if (selections.first === "South America" && selections.second === 'Clean Water') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Chile`);
                         }}>CHILE</button>
@@ -176,7 +177,7 @@ export let SummarySection = ({ selections }) => {
     //South America -ACCESS TO HOUSING
     if (selections.first === "South America" && selections.second === 'Access to Housing') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Bolivia`);
                         }}>BOLIVIA</button>
@@ -188,7 +189,7 @@ export let SummarySection = ({ selections }) => {
     //South America -SAFETY
     if (selections.first === "South America" && selections.second === 'Safety') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Uruguay`);
                         }}>URUGUAY</button>
@@ -200,7 +201,7 @@ export let SummarySection = ({ selections }) => {
     //South America -Free Press
     if (selections.first === "South America" && selections.second === 'Free Press') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Uruguay`);
                         }}>URUGUAY</button>
@@ -212,7 +213,7 @@ export let SummarySection = ({ selections }) => {
     //South America -Healthcare
     if (selections.first === "South America" && selections.second === 'Healthcare') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Chile`);
                         }}>CHILE</button>
@@ -224,7 +225,7 @@ export let SummarySection = ({ selections }) => {
     //South America -Environmental Quality
     if (selections.first === "South America" && selections.second === 'Environmental Quality') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Chile`);
                         }}>CHILE</button>
@@ -236,7 +237,7 @@ export let SummarySection = ({ selections }) => {
     //South America -Individual Rights
     if (selections.first === "South America" && selections.second === 'Personal Freedom and Choice') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Chile`);
                         }}>CHILE</button>
@@ -248,7 +249,7 @@ export let SummarySection = ({ selections }) => {
    //South America -Inclusiveness
    if (selections.first === "South America" && selections.second === 'Inclusiveness') {
     return (
-        <div>
+        <div className='nationDetails'>
             <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Argentina`);
                         }}>ARGENTINA</button>
@@ -260,7 +261,7 @@ export let SummarySection = ({ selections }) => {
     //South America -Access to Advanced Education
     if (selections.first === "South America" && selections.second === 'Access to Advanced Education') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Chile`);
                         }}>CHILE</button>
@@ -272,7 +273,7 @@ export let SummarySection = ({ selections }) => {
     //Europe -FOOD QUALITY
     if (selections.first === "Europe" && selections.second === 'Food Quality') {
         return (
-            <div>
+            <div className='nationDetails'>
                   <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Finland`);
                         }}>FINLAND</button>
@@ -286,7 +287,7 @@ export let SummarySection = ({ selections }) => {
     //Europe -CLEAN WATER
     if (selections.first === "Europe" && selections.second === 'Clean Water') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Switzerland`);
                         }}>SWITZERLAND</button>
@@ -298,7 +299,7 @@ export let SummarySection = ({ selections }) => {
     //Europe -ACCESS TO HOUSING
     if (selections.first === "Europe" && selections.second === 'Access to Housing') {
         return (
-            <div>
+            <div className='nationDetails'>
                   <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Denmark`);
                         }}>DENMARK</button>
@@ -310,7 +311,7 @@ export let SummarySection = ({ selections }) => {
     //Europe -SAFETY
     if (selections.first === "Europe" && selections.second === 'Safety') {
         return (
-            <div>
+            <div className='nationDetails'>
                   <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Iceland`);
                         }}>ICELAND</button>
@@ -322,7 +323,7 @@ export let SummarySection = ({ selections }) => {
     //Europe -Free Press
     if (selections.first === "Europe" && selections.second === 'Free Press') {
         return (
-            <div>
+            <div className='nationDetails'>
                    <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Finland`);
                         }}>FINLAND</button>
@@ -334,7 +335,7 @@ export let SummarySection = ({ selections }) => {
     //Europe -Healthcare
     if (selections.first === "Europe" && selections.second === 'Healthcare') {
         return (
-            <div>
+            <div className='nationDetails'>
                  <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Denmark`);
                         }}>DENMARK</button>
@@ -346,7 +347,7 @@ export let SummarySection = ({ selections }) => {
     //Europe -Environmental Quality
     if (selections.first === "Europe" && selections.second === 'Environmental Quality') {
         return (
-            <div>
+            <div className='nationDetails'>
                  <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Denmark`);
                         }}>DENMARK</button>
@@ -358,7 +359,7 @@ export let SummarySection = ({ selections }) => {
     //Europe -Individual Rights
     if (selections.first === "Europe" && selections.second === 'Personal Freedom and Choice') {
         return (
-            <div>
+            <div className='nationDetails'>
                   <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Switzerland`);
                         }}>SWITZERLAND</button>
@@ -370,7 +371,7 @@ export let SummarySection = ({ selections }) => {
    //Europe -Inclusiveness
    if (selections.first === "Europe" && selections.second === 'Inclusiveness') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Netherlands`);
                         }}>THE NETHERLANDS</button>
@@ -382,7 +383,7 @@ export let SummarySection = ({ selections }) => {
     //Europe -Access to Advanced Education
     if (selections.first === "Europe" && selections.second === 'Access to Advanced Education') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Finland`);
                         }}>FINLAND</button>
@@ -394,7 +395,7 @@ export let SummarySection = ({ selections }) => {
     //Asia -FOOD QUALITY
     if (selections.first === "Asia" && selections.second === 'Food Quality') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Japan`);
                         }}>JAPAN</button>
@@ -411,7 +412,7 @@ export let SummarySection = ({ selections }) => {
     //Asia -CLEAN WATER
     if (selections.first === "Asia" && selections.second === 'Clean Water') {
         return (
-            <div>
+            <div className='nationDetails'>
                  <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Japan`);
                         }}>JAPAN</button>
@@ -423,7 +424,7 @@ export let SummarySection = ({ selections }) => {
     //Asia -ACCESS TO HOUSING
     if (selections.first === "Asia" && selections.second === 'Access to Housing') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Saudi%20Arabia`);
                         }}>SAUDI ARABIA</button>
@@ -435,7 +436,7 @@ export let SummarySection = ({ selections }) => {
     //Asia -SAFETY
     if (selections.first === "Asia" && selections.second === 'Safety') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Singapore`);
                         }}>SINGAPORE</button>
@@ -447,7 +448,7 @@ export let SummarySection = ({ selections }) => {
     //Asia -Free Press
     if (selections.first === "Asia" && selections.second === 'Free Press') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/South%20Korea`);
                         }}>SOUTH KOREA</button>
@@ -459,7 +460,7 @@ export let SummarySection = ({ selections }) => {
     //Asia -Healthcare
     if (selections.first === "Asia" && selections.second === 'Healthcare') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Singapore`);
                         }}>SINGAPORE</button>
@@ -471,7 +472,7 @@ export let SummarySection = ({ selections }) => {
     //Asia -Environmental Quality
     if (selections.first === "Asia" && selections.second === 'Environmental Quality') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Japan`);
                         }}>JAPAN</button>
@@ -483,7 +484,7 @@ export let SummarySection = ({ selections }) => {
     //Asia -Individual Rights
     if (selections.first === "Asia" && selections.second === 'Personal Freedom and Choice') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Japan`);
                         }}>JAPAN</button>
@@ -495,7 +496,7 @@ export let SummarySection = ({ selections }) => {
      //Asia -Inclusiveness
    if (selections.first === "Asia" && selections.second === 'Inclusiveness') {
     return (
-        <div>
+        <div className='nationDetails'>
             <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Japan`);
                         }}>JAPAN</button>
@@ -507,7 +508,7 @@ export let SummarySection = ({ selections }) => {
     //Asia -Access to Advanced Education
     if (selections.first === "Asia" && selections.second === 'Access to Advanced Education') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Japan`);
                         }}>JAPAN</button>
@@ -519,7 +520,7 @@ export let SummarySection = ({ selections }) => {
     //AFRICA -FOOD QUALITY
     if (selections.first === "Africa" && selections.second === 'Food Quality') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Morocco`);
                         }}>MOROCCO</button>
@@ -535,7 +536,7 @@ export let SummarySection = ({ selections }) => {
     //AFRICA -CLEAN WATER
     if (selections.first === "Africa" && selections.second === 'Clean Water') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Mauritius`);
                         }}>MAURITIUS</button>
@@ -547,7 +548,7 @@ export let SummarySection = ({ selections }) => {
     //AFRICA -ACCESS TO HOUSING
     if (selections.first === "Africa" && selections.second === 'Access to Housing') {
         return (
-            <div>
+            <div className='nationDetails'>
                  <h1><button onClick={()=>{
                          navigate(`/SingleCountry/South%20Africa`);
                         }}>SOUTH AFRICA</button>
@@ -559,7 +560,7 @@ export let SummarySection = ({ selections }) => {
     //AFRICA -SAFETY
     if (selections.first === "Africa" && selections.second === 'Safety') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Mauritius`);
                         }}>MAURITIUS</button>
@@ -571,7 +572,7 @@ export let SummarySection = ({ selections }) => {
     //AFRICA -Free Press
     if (selections.first === "Africa" && selections.second === 'Free Press') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Namibia`);
                         }}>NAMIBIA</button>
@@ -583,7 +584,7 @@ export let SummarySection = ({ selections }) => {
     //AFRICA -Healthcare
     if (selections.first === "Africa" && selections.second === 'Healthcare') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Mauritius`);
                         }}>MAURITIUS</button>
@@ -595,7 +596,7 @@ export let SummarySection = ({ selections }) => {
     //AFRICA -Environmental Quality
     if (selections.first === "Africa" && selections.second === 'Environmental Quality') {
         return (
-            <div>
+            <div className='nationDetails'>
                  <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Seychelles`);
                         }}>SEYCHELLES</button>
@@ -607,7 +608,7 @@ export let SummarySection = ({ selections }) => {
     //AFRICA -Individual Rights
     if (selections.first === "Africa" && selections.second === 'Personal Freedom and Choice') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Mauritius`);
                         }}>MAURITIUS</button>
@@ -619,7 +620,7 @@ export let SummarySection = ({ selections }) => {
      //Africa -Inclusiveness
    if (selections.first === "Africa" && selections.second === 'Inclusiveness') {
     return (
-        <div>
+        <div className='nationDetails'>
             <h1><button onClick={()=>{
                          navigate(`/SingleCountry/South%20Africa`);
                         }}>SOUTH AFRICA</button>
@@ -631,7 +632,7 @@ export let SummarySection = ({ selections }) => {
     //AFRICA -Access to Advanced Education
     if (selections.first === "Africa" && selections.second === 'Access to Advanced Education') {
         return (
-            <div>
+            <div className='nationDetails'>
                <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Mauritius`);
                         }}>MAURITIUS</button>
@@ -644,7 +645,7 @@ export let SummarySection = ({ selections }) => {
     //Oceania -FOOD QUALITY
     if (selections.first === "Oceania" && selections.second === 'Food Quality') {
         return (
-            <div>
+            <div className='nationDetails'>
                  <h1><button onClick={()=>{
                          navigate(`/SingleCountry/New%20Zealand`);
                         }}>NEW ZEALAND</button>
@@ -658,7 +659,7 @@ export let SummarySection = ({ selections }) => {
     //Oceania -CLEAN WATER
     if (selections.first === "Oceania" && selections.second === 'Clean Water') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Australia`);
                         }}>AUSTRALIA</button>
@@ -670,7 +671,7 @@ export let SummarySection = ({ selections }) => {
     //Oceania -ACCESS TO HOUSING
     if (selections.first === "Oceania" && selections.second === 'Access to Housing') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Australia`);
                         }}>AUSTRALIA</button>
@@ -682,7 +683,7 @@ export let SummarySection = ({ selections }) => {
     //Oceania -SAFETY
     if (selections.first === "Oceania" && selections.second === 'Safety') {
         return (
-            <div>
+            <div className='nationDetails'>
                      <h1><button onClick={()=>{
                          navigate(`/SingleCountry/New%20Zealand`);
                         }}>NEW ZEALAND</button>
@@ -694,7 +695,7 @@ export let SummarySection = ({ selections }) => {
     //Oceania -Free Press
     if (selections.first === "Oceania" && selections.second === 'Free Press') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Samoa`);
                         }}>SAMOA</button>
@@ -706,7 +707,7 @@ export let SummarySection = ({ selections }) => {
     //Oceania -Healthcare
     if (selections.first === "Oceania" && selections.second === 'Healthcare') {
         return (
-            <div>
+            <div className='nationDetails'>
                     <h1><button onClick={()=>{
                          navigate(`/SingleCountry/New%20Zealand`);
                         }}>NEW ZEALAND</button>
@@ -718,7 +719,7 @@ export let SummarySection = ({ selections }) => {
     //Oceania -Environmental Quality
     if (selections.first === "Oceania" && selections.second === 'Environmental Quality') {
         return (
-            <div>
+            <div className='nationDetails'>
                 <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Australia`);
                         }}>AUSTRALIA</button>
@@ -730,7 +731,7 @@ export let SummarySection = ({ selections }) => {
     //Oceania -Individual Rights
     if (selections.first === "Oceania" && selections.second === 'Personal Freedom and Choice') {
         return (
-            <div>
+            <div className='nationDetails'>
                      <h1><button onClick={()=>{
                          navigate(`/SingleCountry/New%20Zealand`);
                         }}>NEW ZEALAND</button>
@@ -742,7 +743,7 @@ export let SummarySection = ({ selections }) => {
      //Oceania -Inclusiveness
    if (selections.first === "Oceania" && selections.second === 'Inclusiveness') {
     return (
-        <div>
+        <div className='nationDetails'>
             <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Australia`);
                         }}>AUSTRALIA</button>
@@ -754,7 +755,7 @@ export let SummarySection = ({ selections }) => {
     //Oceania -Access to Advanced Education
     if (selections.first === "Oceania" && selections.second === 'Access to Advanced Education') {
         return (
-            <div>
+            <div className='nationDetails'>
                      <h1><button onClick={()=>{
                          navigate(`/SingleCountry/Australia`);
                         }}>AUSTRALIA</button>
@@ -764,3 +765,5 @@ export let SummarySection = ({ selections }) => {
         )
     }
 }
+
+export default SummarySection
