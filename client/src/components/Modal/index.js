@@ -6,7 +6,7 @@ import Dropdown from '../Dropdown';
 
 import './Modal.scss';
 
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, countryYearIndex, setCountryYearIndex, children }) => {
   useEffect(() => {
     const closeOnEscapeKey = e => e.key === 'Escape' ? onClose() : null;
     document.body.addEventListener("keydown", closeOnEscapeKey);
@@ -19,6 +19,7 @@ const Modal = ({ isOpen, onClose, children }) => {
   return ReactDOM.createPortal(    
     <div className="modal">
       <Dropdown 
+        countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex} 
         options={
             [
                 {value: '', text: 'Select year', disabled: true},
@@ -34,8 +35,9 @@ const Modal = ({ isOpen, onClose, children }) => {
                 {value: 9, text: '2022'},
               ]
         }
+        affectedState={"year"}
     />
-      <GeoChart onClose={onClose}/>
+      <GeoChart onClose={onClose} countryYearIndex={countryYearIndex}/>
       <button onClick={onClose}>Close</button>
     </div>,
     document.getElementById('portal-container'));

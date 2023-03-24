@@ -5,13 +5,15 @@ import { QUERY_COMPILATIONS } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
 import "./SearchCountry.scss";
 import { useNavigate } from 'react-router-dom';
+import Modal from '../Modal';
 
-const SearchCountry = () => {
+const SearchCountry = ({ countryYearIndex, setCountryYearIndex }) => {
 
   const { searches, addSearch } = useSearch();
   //For Search country
   const [searchImgInput, setSearchImgInput] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const { loading, data } = useQuery(QUERY_COMPILATIONS);
   const countries = data?.countryCompilations || [];
@@ -80,7 +82,6 @@ const SearchCountry = () => {
   }
 
   return (
-
     <div>
       <div className="singleCountryInput">
         <input
@@ -105,7 +106,13 @@ const SearchCountry = () => {
           >{suggestions.countryname}</div>
         )}
       </div>
-
+      <button onClick={() => setModalOpen(true)}>Open Map</button>
+      <Modal 
+          isOpen={modalOpen} 
+          onClose={() => setModalOpen(false)}
+          countryYearIndex={countryYearIndex} 
+          setCountryYearIndex={setCountryYearIndex} 
+      />
     </div>
   );
 };
