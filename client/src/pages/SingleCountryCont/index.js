@@ -6,11 +6,13 @@ import SingleCountry from '../../components/SingleCountry';
 import SearchCountry from '../../components/SearchCountry';
 import Dropdown from '../../components/Dropdown'
 import UserComments from '../../components/UserComments'
+import Modal from '../../components/Modal';
 import './SingleCountryCont.scss'
 
 function SingleCountryCont() {
     const [countryYearIndex, setCountryYearIndex] = useState(9);
     const [chartTypeIndex, setChartTypeIndex] = useState('Bar');
+    const [modalOpen, setModalOpen] = useState(false);
 
     return (
         <>
@@ -21,6 +23,11 @@ function SingleCountryCont() {
                     <UserComments />
                     <div className="searchdropdownContainer">
                         <SearchCountry />
+                        <button onClick={() => setModalOpen(true)}>Open Map</button>
+                        <Modal 
+                            isOpen={modalOpen} 
+                            onClose={() => setModalOpen(false)}
+                        />
                         <div className="dropdownContainer">
                             <Dropdown 
                                 countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex} 

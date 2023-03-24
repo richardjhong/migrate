@@ -23,7 +23,7 @@ const CompareCountry = ({
     if (!comparedCountryLoading && comparedCountryData) {
       setComparedCountryData(comparedCountryData?.singleCompileCountry?.year_catalog || [])
     }
-  }, [comparedCountryLoading, comparedCountryData]);
+  }, [comparedCountryLoading, comparedCountryData, setComparedCountryData]);
 
   const onChangeHandler = (text) => {
     let matches = []
