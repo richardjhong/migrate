@@ -85,7 +85,7 @@ export default function CountryCards({
                                 }}
                                 data-column={`${i+1}`}
                             >
-                                { d ?.current?.classList?.contains('wide') ?
+                                { d?.current?.classList?.contains('wide') ?
                                
                                     (<>
                                         <section className='expandedCardInfo'>

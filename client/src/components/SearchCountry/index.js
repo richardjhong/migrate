@@ -47,7 +47,7 @@ const SearchCountry = () => {
         imgs: newImgs
       }
       //if data isn't exist in localStorage, save it to localStorage
-      if (searches.findIndex(country => country.name === searchImgInput) == -1) {
+      if (searches.findIndex(country => country.name === searchImgInput) === -1) {
         await addSearch(newSearch);
       }
 

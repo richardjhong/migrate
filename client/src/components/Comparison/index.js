@@ -3,6 +3,8 @@ import SwitchToggle from '../SwitchToggle';
 import { useQuery, useLazyQuery } from '@apollo/client';
 import { QUERY_COMPILATIONS, QUERY_SINGLE_COMPILATION } from '../../utils/queries';
 import { capitalizeFirstLetter } from '../../utils/helper';
+import GeoChart from '../GeoChart';
+import Modal from '../Modal';
 
 
 const CompareCountry = ({ 
@@ -13,6 +15,7 @@ const CompareCountry = ({
   setComparedCountry, 
   setComparedCountryData }) => {
   const [suggestions, setSuggestions] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
   const { loading, data } = useQuery(QUERY_COMPILATIONS);
   const [delayedCompare, { loading: comparedCountryLoading, data: comparedCountryData }] = useLazyQuery(QUERY_SINGLE_COMPILATION);
 
@@ -52,7 +55,6 @@ const CompareCountry = ({
     catch (err) {
       console.error(err);
     }
-
   };
   
   return (
@@ -88,9 +90,15 @@ const CompareCountry = ({
              >{suggestions.countryname}</div>
            )}
          </div>
+         <button onClick={() => setModalOpen(true)}>Open Map</button>
+         <Modal 
+          message="Hello World!" 
+          isOpen={modalOpen} 
+          onClose={() => setModalOpen(false)}
+          />
        </>
       }
-
+      <GeoChart />
     </div>
   )
 }
