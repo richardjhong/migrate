@@ -3,9 +3,7 @@ import SwitchToggle from '../SwitchToggle';
 import { useQuery, useLazyQuery } from '@apollo/client';
 import { QUERY_COMPILATIONS, QUERY_SINGLE_COMPILATION } from '../../utils/queries';
 import { capitalizeFirstLetter } from '../../utils/helper';
-import GeoChart from '../GeoChart';
 import Modal from '../Modal';
-
 
 const CompareCountry = ({ 
   enabled, 
@@ -92,13 +90,11 @@ const CompareCountry = ({
          </div>
          <button onClick={() => setModalOpen(true)}>Open Map</button>
          <Modal 
-          message="Hello World!" 
           isOpen={modalOpen} 
           onClose={() => setModalOpen(false)}
           />
        </>
       }
-      <GeoChart />
     </div>
   )
 }
