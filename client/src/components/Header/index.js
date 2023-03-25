@@ -34,6 +34,9 @@ const Header = () => {
             <Link className="navLink" to='/form'>
               Helper
             </Link>
+            <Link className="navLink" to='/Wizard'>
+              Wizard
+            </Link>
             <Link className="navLink" to='/HowTo'>
               HowTo
             </Link>
@@ -54,6 +57,9 @@ const Header = () => {
             </Link>
             <Link className="navLink" to='/form'>
               Helper
+            </Link>
+            <Link className="navLink" to='/Wizard'>
+              Wizard
             </Link>
             <Link className="navLink" to='/HowTo'>
               HowTo

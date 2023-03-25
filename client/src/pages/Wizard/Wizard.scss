@@ -1,0 +1,149 @@
+@import "../node_modules/rfs/scss";
+
+// For custom colors on sliders.... need to implement js listeners to dynamically change the color to left of button
+
+// input[type="range"] {
+//     -webkit-appearance: none;
+//     width: 100%;
+//     height: 10px;
+//     border-radius: 5px;
+//     background: linear-gradient(to right, var(--dark) 0%, var(--dark) calc(50%), #ddd calc(50%), #ddd 100%);
+//     outline: none;
+//     margin: 0;
+//     padding: 0;
+//   }
+  
+//   input[type="range"]::-webkit-slider-thumb {
+//     -webkit-appearance: none;
+//     width: 20px;
+//     height: 20px;
+//     border-radius: 50%;
+//     background: var(--darkBackground);
+//     cursor: pointer;
+//     border: none;
+//   }
+  
+//   input[type="range"]::-moz-range-thumb {
+//     width: 20px;
+//     height: 20px;
+//     border-radius: 50%;
+//     background: var(--darkBackground);
+//     cursor: pointer;
+//     border: none;
+//   }
+
+label {
+    text-align: center;
+}
+
+input[type='range'] {
+    margin-bottom:2em;
+}
+
+#wizContainer {
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+
+.calcButton {
+    width:95%;
+    text-align:center;
+}
+
+.revCountryResult {
+    // display: flex;
+    // justify-content: space-around;
+    width:75%;
+    margin:0 auto;
+}
+
+.topCountryButton {
+    width:80%;
+    cursor:pointer;
+}
+
+.topCountryButton h2 {
+    margin-bottom:.5em;
+}
+
+.topTenCard {
+    display: flex;
+    justify-content:space-around;
+    align-items: flex-start;
+    width: 28%;
+    height: 300px;
+    overflow: hidden;
+    border: solid 5px var(--lightBorder);
+    background-color: var(--darkBackground);
+    color: var(--light);
+    @include margin-bottom(3em);
+    border-radius: 20px;
+    @include padding(1em);
+    transition:box-shadow .2s;
+    flex-wrap:wrap;
+}
+
+.topTenResults {
+    display:flex;
+    justify-content: space-around;
+    flex-wrap:wrap;
+    width:95%;
+    text-align: center;
+    margin-bottom:2em;
+}
+
+.topTenResults h2 {
+    width:95%;
+}
+
+.wizDirections {
+    width:95%;
+    margin-bottom:2em;
+}
+
+.revSPI, .origSPI, .clickDirections {
+    width:95%;
+}
+
+.clickDirections {
+    font-style: italic;
+}
+
+.wizSliders {
+    display:flex;
+    width:100%;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    margin-bottom:2em;
+}
+
+.humanNeeds, .wellbeing, .opportunity {
+    display:flex;
+    flex-direction:column;
+    width:30%;
+    align-items:center;
+}
+
+
+.humanNeeds input, .wellbeing input, .opportunity input {
+    width:75%;
+}
+
+@media screen and (max-width: 750px) {
+    .humanNeeds, .wellbeing, .opportunity {
+        width:80%;
+    }
+
+    .topTenCard {
+        width:90%;
+    }
+}
+
+@media screen and (min-width:751px) and (max-width:1180px) {
+    .topTenCard {
+        width:40%;
+    }
+}

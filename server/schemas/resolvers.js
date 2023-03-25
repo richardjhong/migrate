@@ -27,6 +27,9 @@ const resolvers = {
     countries: async () => {
       return await Country.find({});
     },
+    countriesAdjust: async (parent, {spiyear}) => {
+      return await Country.find({spiyear: '2022'});
+    },
     
     singleCompileCountry: async (parent, { countryname }) => {
       return CompileCountry.findOne({ countryname :{
