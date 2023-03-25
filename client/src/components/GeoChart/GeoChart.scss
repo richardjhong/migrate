@@ -7,3 +7,12 @@
   transform:rotate(90deg);
 }
 
+.chart-title {
+  display: flex;
+  justify-content: center;
+  color: var(--lightBorder);
+}
+
+#rangeYearText {
+  color: var(--lightBorder);
+}

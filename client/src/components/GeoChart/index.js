@@ -113,7 +113,7 @@ const GeoChart = ({ onClose, countryYearIndex, setCountryYearIndex }) => {
 
   return (
     <div className="container">
-      <h2>Country SPI Rankings {countryYearIndexToYearMap[countryYearIndex]}</h2>
+      <h2 className="chart-title">Country SPI Rankings {countryYearIndexToYearMap[countryYearIndex]}</h2>
       <div className="chart-container">
         <div className="range">
           <input 
@@ -127,7 +127,7 @@ const GeoChart = ({ onClose, countryYearIndex, setCountryYearIndex }) => {
             orient="vertical"
             onChange={(e) => setCountryYearIndex(e.target.value)}
           />
-          <p id="rangeValue">{countryYearIndexToYearMap[countryYearIndex]}</p> 
+          <p id="rangeYearText">{countryYearIndexToYearMap[countryYearIndex]}</p> 
         </div> 
         <Chart
           width={'2000px'}
