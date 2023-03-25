@@ -68,6 +68,7 @@ const typeDefs = gql`
     me: User
     searchHistory(username: String): [SearchHistory]
     countries: [Country]
+    countriesAdjust(spiyear: String): [Country]
     countryCompilations: [CountryCompilation]
     singleCompileCountry(countryname: String!): CountryCompilation
     comments(username: String): [Comment]
