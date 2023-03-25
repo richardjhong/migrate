@@ -3,7 +3,7 @@ import { VictoryChart, VictoryAxis, VictoryLabel, VictoryLine, VictoryContainer,
 import '../CountryChart.scss';
 
 const LineChart = ({
-  fields, countryYearIndex
+  fields, countryYearIndex, comparedCountryFields, enabled
 }) => {
   return (
     <div className="chartContainer">
@@ -19,7 +19,7 @@ const LineChart = ({
           labelComponent={
             <VictoryLabel 
               renderInPortal 
-              dy={-20} 
+              dy={20} 
               dx={20} 
               textAnchor={({ text }) => text.length > 1 ? "start" : "middle"}
             />
@@ -72,6 +72,66 @@ const LineChart = ({
             { x: "2022", y: fields["2022"] },
           ]}
         />
+        {/* 
+        Conditional logic for loading additional line graph for comparison country
+         */}
+        {comparedCountryFields && enabled && <VictoryLine
+          labelComponent={
+            <VictoryLabel 
+              renderInPortal 
+              dy={-20} 
+              dx={20} 
+              textAnchor={({ text }) => text.length > 1 ? "start" : "middle"}
+            />
+          }
+          style={{
+            data: { stroke: "#022831" },
+            parent: { border: "1px solid #ccc"},
+          }}
+          alignment="start"
+          size={5}
+          domain={{y: [0, 100]}}
+          labels={({ datum }) => datum.y}
+          data={[
+            { x: "2013", y: comparedCountryFields["2013"]},
+            { x: "2014", y: comparedCountryFields["2014"] },
+            { x: "2015", y: comparedCountryFields["2015"] },
+            { x: "2016", y: comparedCountryFields["2016"] },
+            { x: "2017", y: comparedCountryFields["2017"] },
+            { x: "2018", y: comparedCountryFields["2018"]},
+            { x: "2019", y: comparedCountryFields["2019"] },
+            { x: "2020", y: comparedCountryFields["2020"] },
+            { x: "2021", y: comparedCountryFields["2021"] },
+            { x: "2022", y: comparedCountryFields["2022"] },
+          ]}
+        />}
+        {comparedCountryFields && enabled && <VictoryScatter
+          style={{
+            data: {
+              fill: ({ index }) => {
+                return parseInt(index) === parseInt(countryYearIndex) ? "#b4d330" : "#022831"
+              },
+              stroke: ({ index }) => {
+                return parseInt(index) === parseInt(countryYearIndex) ? "#b4d330" : "#022831"
+              },
+              strokeWidth: ({ index }) => {
+                return parseInt(index) === parseInt(countryYearIndex) ? 10 : 1
+              },
+            },
+          }}
+          data={[
+            { x: "2013", y: comparedCountryFields["2013"]},
+            { x: "2014", y: comparedCountryFields["2014"] },
+            { x: "2015", y: comparedCountryFields["2015"] },
+            { x: "2016", y: comparedCountryFields["2016"] },
+            { x: "2017", y: comparedCountryFields["2017"] },
+            { x: "2018", y: comparedCountryFields["2018"]},
+            { x: "2019", y: comparedCountryFields["2019"] },
+            { x: "2020", y: comparedCountryFields["2020"] },
+            { x: "2021", y: comparedCountryFields["2021"] },
+            { x: "2022", y: comparedCountryFields["2022"] },
+          ]}
+        />}
         <VictoryAxis crossAxis
           label="Year"
         />

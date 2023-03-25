@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { searchImage } from '../../utils/API';
 import { useQuery } from '@apollo/client';
 import { QUERY_COMPILATIONS } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
 import "./SearchCountry.scss";
 import { useNavigate } from 'react-router-dom';
-const SearchCountry = () => {
+import Modal from '../Modal';
+
+const SearchCountry = ({ countryYearIndex, setCountryYearIndex }) => {
 
   const { searches, addSearch } = useSearch();
   //For Search country
   const [searchImgInput, setSearchImgInput] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const { loading, data } = useQuery(QUERY_COMPILATIONS);
   const countries = data?.countryCompilations || [];
@@ -22,9 +25,9 @@ const SearchCountry = () => {
     e.preventDefault();
 
     if (!searchImgInput) {
-
       return false;
     }
+
     try {
       const response = await searchImage(searchImgInput);
       if (!response.ok) {
@@ -47,7 +50,7 @@ const SearchCountry = () => {
         imgs: newImgs
       }
       //if data isn't exist in localStorage, save it to localStorage
-      if (searches.findIndex(country => country.name === searchImgInput) == -1) {
+      if (searches.findIndex(country => country.name === searchImgInput) === -1) {
         await addSearch(newSearch);
       }
 
@@ -79,11 +82,9 @@ const SearchCountry = () => {
   }
 
   return (
-
-    <>
+    <div>
       <div className="singleCountryInput">
         <input
-          className=""
           type="text"
           placeholder="Search Country"
           value={searchImgInput}
@@ -92,7 +93,6 @@ const SearchCountry = () => {
         <button
           type="submit"
           onClick={handleFormSubmit}
-          className=""
         >
           Search
         </button>
@@ -104,8 +104,14 @@ const SearchCountry = () => {
           >{suggestions.countryname}</div>
         )}
       </div>
-
-    </>
+      <button onClick={() => setModalOpen(true)}>Open Map</button>
+      <Modal 
+          isOpen={modalOpen} 
+          onClose={() => setModalOpen(false)}
+          countryYearIndex={countryYearIndex} 
+          setCountryYearIndex={setCountryYearIndex} 
+      />
+    </div>
   );
 };
 

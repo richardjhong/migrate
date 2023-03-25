@@ -132,4 +132,5 @@ None of our work would have been possible without the invaluable data resources 
 ## Resources/Links 
 
 [How to create a React Dropdown](https://www.robinwieruch.de/react-dropdown/)
+[How to Create Google Geo or Region Chart in React Js](https://www.positronx.io/how-to-create-google-geo-or-region-chart-in-react-js/)
 

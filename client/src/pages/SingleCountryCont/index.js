@@ -8,8 +8,7 @@ import Dropdown from '../../components/Dropdown'
 import UserComments from '../../components/UserComments'
 import './SingleCountryCont.scss'
 
-function SingleCountryCont() {
-    const [countryYearIndex, setCountryYearIndex] = useState(9);
+function SingleCountryCont({ countryYearIndex, setCountryYearIndex}) {
     const [chartTypeIndex, setChartTypeIndex] = useState('Bar');
 
     return (
@@ -20,7 +19,7 @@ function SingleCountryCont() {
                     <SingleCountryHeader />
                     <UserComments />
                     <div className="searchdropdownContainer">
-                        <SearchCountry />
+                        <SearchCountry countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex} />
                         <div className="dropdownContainer">
                             <Dropdown 
                                 countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex} 

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import CountryCards from "../CountryCards";
 import "./SingleCountry.scss";
 import { useParams, useNavigate } from 'react-router-dom';
@@ -5,12 +6,15 @@ import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_COMPILATION } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
 import { capitalizeFirstLetter } from '../../utils/helper'
-
+import CompareCountry from '../Comparison';
 
 export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
 
+  const [enabled, setEnabled] = useState(false) // used for comparison toggle
+  const [comparedCountryData, setComparedCountryData] = useState([]);
   const { searches, updateSearch } = useSearch();
   const { countryname: countryParam } = useParams();
+  const [comparedCountry, setComparedCountry] = useState("");
   const navigate = useNavigate();
 
 
@@ -41,21 +45,30 @@ export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
   updateSearch(newData);
   }
 
-
   return (
-    <div className='containerCenter'>
-      <div className='countryCardContainer'>
-        {/* accounts for letting asynchronous conditional check of navigate to homepage to assess before possibly passing year_catalog that is undefined */}
-        {(loading || data.singleCompileCountry === null )? (
-          <div>Loading...</div>
-        ) : (
-          <>
-            <CountryCards
-              countryProperties={singleCountry} countryYearIndex={countryYearIndex} chartTypeIndex={chartTypeIndex}
-            />
-          </>
-        )}
+    <>
+      <CompareCountry 
+        enabled={enabled} 
+        setEnabled={setEnabled} 
+        baseCountry={countryParam} 
+        comparedCountry={comparedCountry}
+        setComparedCountry={setComparedCountry}
+        setComparedCountryData={setComparedCountryData}
+      />
+      <div className='containerCenter'>
+        <div className='countryCardContainer'>
+          {/* accounts for letting asynchronous conditional check of navigate to homepage to assess before possibly passing year_catalog that is undefined */}
+          {(loading || data.singleCompileCountry === null )? (
+            <div>Loading...</div>
+          ) : (
+            <>
+              <CountryCards
+                countryProperties={singleCountry} countryYearIndex={countryYearIndex} chartTypeIndex={chartTypeIndex} comparedCountryProperties={comparedCountryData} enabled={enabled}
+              />
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   )
 }

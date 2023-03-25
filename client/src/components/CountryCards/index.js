@@ -46,7 +46,13 @@ const expand = (event) => {
 }
 
 
-export default function CountryCards({ countryProperties, countryYearIndex, chartTypeIndex }) {
+export default function CountryCards({ 
+        countryProperties, 
+        countryYearIndex, 
+        chartTypeIndex, 
+        comparedCountryProperties,
+        enabled
+    }) {
     let ref1 = useRef(null);
     let ref2 = useRef(null);
     let ref3 = useRef(null);
@@ -78,7 +84,7 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                                 }}
                                 data-column={`${i+1}`}
                             >
-                                { d ?.current?.classList?.contains('wide') ?
+                                { d?.current?.classList?.contains('wide') ?
                                
                                     (<>
                                         <section className='expandedCardInfo'>
@@ -119,6 +125,22 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                                                     "2021": countryProperties[8][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
                                                     "2022": countryProperties[9][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
                                                 }
+
+                                                const comparedFields = comparedCountryProperties.length > 0 ? 
+                                                    {
+                                                        "2013": comparedCountryProperties[0][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                        "2014": comparedCountryProperties[1][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                        "2015": comparedCountryProperties[2][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                        "2016": comparedCountryProperties[3][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                        "2017": comparedCountryProperties[4][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                        "2018": comparedCountryProperties[5][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                        "2019": comparedCountryProperties[6][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                        "2020": comparedCountryProperties[7][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                        "2021": comparedCountryProperties[8][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                        "2022": comparedCountryProperties[9][`${columnData[i].src.category}`][`${columnData[i].src.fieldName}`],
+                                                    } :
+                                                    null
+                                                
                                                 
                                                 switch(chartTypeIndex) {
                                                     case('Bar'):
@@ -130,7 +152,10 @@ export default function CountryCards({ countryProperties, countryYearIndex, char
                                                     case('Line'):
                                                         return (
                                                             <LineChart 
-                                                            fields={fields} countryYearIndex={countryYearIndex}
+                                                                fields={fields} 
+                                                                countryYearIndex={countryYearIndex}
+                                                                comparedCountryFields={comparedFields}
+                                                                enabled={enabled}
                                                             />
                                                         )
                                                     case('Area'):

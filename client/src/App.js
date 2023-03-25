@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -17,8 +17,6 @@ import Form from './pages/Form';
 import Visa from './pages/Visa';
 
 import './App.scss';
-
-
 
 import { SearchProvider } from './utils/CountryContext';
 
@@ -49,6 +47,8 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [countryYearIndex, setCountryYearIndex] = useState(9);
+
   return (
     <ApolloProvider client={client}>
       <SearchProvider>
@@ -64,7 +64,7 @@ function App() {
             />
             <Route
               index
-              element={<Splash />}
+              element={<Splash countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex} />}
             />
             <Route
             path="/form"
@@ -81,7 +81,7 @@ function App() {
             /> */}
             <Route
               path="/SingleCountry/:countryname"
-              element={<SingleCountryCont />}
+              element={<SingleCountryCont countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex} />}
             />
             {/* <Route
               path="/listings"

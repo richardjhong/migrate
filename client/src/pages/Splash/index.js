@@ -4,19 +4,15 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import SearchCountry from '../../components/SearchCountry';
 
-function Splash() {
+function Splash({ countryYearIndex, setCountryYearIndex} ) {
     return (
         <>
             <Header />
-
             <main className="darkBg">
                 <p className='tag'>Looking to relocate? Start your search here.</p>
                 <div className='splash'>
-                    
                     <div className="searchRespCenter">
-                        <SearchCountry
-
-                        />
+                        <SearchCountry countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex}/>
                     </div>
                 </div>
                 <p className="overview"> 

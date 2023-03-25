@@ -14,7 +14,6 @@ const Footer = () => {
         <div className="madeWith">Made with: </div>
         {websiteTechStack.devicons.map((skill, i) => {
           const Icon = skill.icon;
-          console.log(i)
           return (
             <div key={i}>
               <Icon

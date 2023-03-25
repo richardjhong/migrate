@@ -39,8 +39,6 @@ db.once('open', async () => {
     await Country.deleteMany({});
     await CompileCountry.deleteMany({});
 
-   
-
     for (let i = 0; i < countrySeed.length; i++) {
         if (parseInt(countrySeed[i].spiyear) >= 2013 && countrySeed[i].country !== "World") { // greater than 2017 
             const newData = await Country.create(
