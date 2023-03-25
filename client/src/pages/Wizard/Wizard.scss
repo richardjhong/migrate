@@ -1,3 +1,5 @@
+@import "../node_modules/rfs/scss";
+
 // For custom colors on sliders.... need to implement js listeners to dynamically change the color to left of button
 
 // input[type="range"] {
@@ -60,20 +62,54 @@ input[type='range'] {
 
 .topCountryButton {
     width:80%;
+    cursor:pointer;
+}
+
+.topCountryButton h2 {
+    margin-bottom:.5em;
+}
+
+.topTenCard {
+    display: flex;
+    justify-content:space-around;
+    align-items: flex-start;
+    width: 28%;
+    height: 300px;
+    overflow: hidden;
+    border: solid 5px var(--lightBorder);
+    background-color: var(--darkBackground);
+    color: var(--light);
+    @include margin-bottom(3em);
+    border-radius: 20px;
+    @include padding(1em);
+    transition:box-shadow .2s;
+    flex-wrap:wrap;
 }
 
 .topTenResults {
-    // display:flex;
-    // justify-content: space-around;
-    // flex-wrap:wrap;
+    display:flex;
+    justify-content: space-around;
+    flex-wrap:wrap;
     width:95%;
     text-align: center;
     margin-bottom:2em;
 }
 
+.topTenResults h2 {
+    width:95%;
+}
+
 .wizDirections {
     width:95%;
     margin-bottom:2em;
+}
+
+.revSPI, .origSPI, .clickDirections {
+    width:95%;
+}
+
+.clickDirections {
+    font-style: italic;
 }
 
 .wizSliders {
@@ -99,5 +135,15 @@ input[type='range'] {
 @media screen and (max-width: 750px) {
     .humanNeeds, .wellbeing, .opportunity {
         width:80%;
+    }
+
+    .topTenCard {
+        width:90%;
+    }
+}
+
+@media screen and (min-width:751px) and (max-width:1180px) {
+    .topTenCard {
+        width:40%;
     }
 }

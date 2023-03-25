@@ -8,19 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import './Wizard.scss'
 
 export default function Wizard() {
-    
-    const [buttonClicked, setButtonClicked] = useState(false);
-    // const performQuery = async () => {
-    //     // code to perform the query and retrieve data
-    //     const response = await fetch('http://example.com/data');
-    //     const jsonData = await response.json();
 
-    //     // update the state with the retrieved data
-    //     setData(jsonData);
-    //   };
-    // const { loading, error, data} = useQuery(QUERY_COUNTRY_ADJUST,{
-    //     variables: { spiyear: "2022" }
-    //   });
+    const [buttonClicked, setButtonClicked] = useState(false);
 
     const handleClick = () => {
         setButtonClicked(true);
@@ -103,14 +92,14 @@ function CountryRecs() {
 
     });
 
+
     let countryData = null;
 
     if (data) {
         countryData = data.countriesAdjust;
 
-        // const countryData = data.countriesAdjust;
         for (let i = 0; i < countryData.length; i++) {
-            
+
             let revNmbc = (countryData[i].bhn.score_nbmc) * nbmcUser.value;
             let revPs = (countryData[i].bhn.score_ps) * psUser.value;
             let revSh = (countryData[i].bhn.score_sh) * shUser.value;
@@ -128,15 +117,13 @@ function CountryRecs() {
 
         }
         revisedCountryRanks.sort((a, b) => b.revisedSPI - a.revisedSPI);
-        topTen = revisedCountryRanks.slice(0, 10)
-        console.log(topTen)
-        // setButtonClicked(false)
+        topTen = revisedCountryRanks.slice(0, 10);
 
 
         return (
             <div className='topTenResults'>
                 <h2>Revised Country Rankings</h2>
-                <table className='revCountryResult'>
+                {/* <table className='revCountryResult'>
                     <tr>
                         <th></th>
                         <th>Revised Score</th>
@@ -151,7 +138,17 @@ function CountryRecs() {
                             <td>{country.origSPI}</td>
                         </tr>
                     ))}
-                </table>
+                </table> */}
+                {topTen.map((country, i) => (
+                    <div className='topTenCard'>
+
+                        <button className='topCountryButton' onClick={() => navigate(`/SingleCountry/${country.countryName}`)} ><h2>{country.countryName}</h2><span className='clickDirections'>Click for more information...</span></button>
+
+
+                        <div className='revSPI'><h3>Revised score: {country.revisedSPI}</h3></div>
+                        <div className='origSPI'><h3>Original score: {country.origSPI}</h3></div>
+                    </div>
+                ))}
             </div>
         )
 
@@ -165,10 +162,4 @@ function CountryRecs() {
         return <div>Error: {error.message}</div>;
     }
 
-    // return (
-    //     <div>
-    //         <h2>Data:</h2>
-    //         <pre>{JSON.stringify(data, null, 2)}</pre>
-    //     </div>
-    // );
 }
