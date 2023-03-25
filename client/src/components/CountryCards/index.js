@@ -98,9 +98,9 @@ export default function CountryCards({
                                             <h4 className="expandedDivider">Scores based on...</h4>
                                             <ul>
                                                 {
-                                                    columnData[i].description.map(val=>{
+                                                    columnData[i].description.map((val,i) =>{
                                                         return(
-                                                            <li>{val}</li>
+                                                            <li key={i}>{val}</li>
                                                         )
                                                     })
                                                 }

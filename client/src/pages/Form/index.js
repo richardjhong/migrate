@@ -28,7 +28,7 @@ function Form() {
         <div className="formMain">
           <h1 >Find your country match...</h1>
           <form onSubmit={handleSubmit} >
-            <label className="region" for="regionOptions">
+            <label className="region" htmlFor="regionOptions">
               <h2>Pick your desired region:</h2></label>
             <SearchSelect id='regionOptions'
               options={[
@@ -42,7 +42,7 @@ function Form() {
               value={selectionOneValue}
               setValue={setSelectionOneValue}
             />
-            <label className="optionOne" for="choiceOption">
+            <label className="optionOne" htmlFor="choiceOption">
               <h2>What's most important to you?:</h2></label>
             <SearchSelect id="choiceOption"
               options={[
