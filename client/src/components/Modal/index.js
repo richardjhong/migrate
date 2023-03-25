@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import GeoChart from '../GeoChart';
-import Dropdown from '../Dropdown';
-
-
 import './Modal.scss';
 
 const Modal = ({ isOpen, onClose, countryYearIndex, setCountryYearIndex, children }) => {

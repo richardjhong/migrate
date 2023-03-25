@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { searchImage } from '../../utils/API';
 import { useQuery } from '@apollo/client';
 import { QUERY_COMPILATIONS } from '../../utils/queries';
@@ -8,61 +8,44 @@ import { useNavigate } from 'react-router-dom';
 import Modal from '../Modal';
 
 const SearchCountry = ({ countryYearIndex, setCountryYearIndex }) => {
-
   const { searches, addSearch } = useSearch();
   //For Search country
   const [searchImgInput, setSearchImgInput] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
-
+  
   const { loading, data } = useQuery(QUERY_COMPILATIONS);
   const countries = data?.countryCompilations || [];
   const countryName = countries.map(data => data.countryname);
   let navigate = useNavigate();
 
+  const [width, setWidth] = useState(window.innerWidth);
+  const breakPoint = 2000;
+
+  useEffect(() => {
+    const handleResizeWindow = () => setWidth(window.innerWidth);
+     window.addEventListener("resize", handleResizeWindow);
+     return () => {
+       window.removeEventListener("resize", handleResizeWindow);
+     };
+   }, []);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     if (!searchImgInput) {
       return false;
+    } 
+    const searchedImages = await searchImage(searchImgInput);
+      
+    //if data isn't exist in localStorage, save it to localStorage
+    if (searches.findIndex(country => country.name === searchImgInput) === -1) {
+      await addSearch(searchedImages);
     }
-
-    try {
-      const response = await searchImage(searchImgInput);
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
-
-      const items = await response.json();
-
-      const newImgs = [];
-      items.results.forEach(item => {
-        const newImg = {
-          src: item.urls.regular,
-          alt: item.alt_description,
-        };
-        newImgs.push(newImg);
-
-      });
-      const newSearch = {
-        name: searchImgInput,
-        imgs: newImgs
-      }
-      //if data isn't exist in localStorage, save it to localStorage
-      if (searches.findIndex(country => country.name === searchImgInput) === -1) {
-        await addSearch(newSearch);
-      }
-
-      navigate(`/SingleCountry/${searchImgInput}`);
-
-
-    }
-    catch (err) {
-      console.error(err);
-    }
-
+    setSuggestions([]);
+    navigate(`/SingleCountry/${searchImgInput}`);
   };
+
   const onChangeHandler = (text) => {
     let matches = [];
     if (text.length > 0) {
@@ -103,8 +86,8 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex }) => {
 
           >{suggestions.countryname}</div>
         )}
+        {width > breakPoint && <button onClick={() => setModalOpen(true)}>Open Map</button>}
       </div>
-      <button onClick={() => setModalOpen(true)}>Open Map</button>
       <Modal 
           isOpen={modalOpen} 
           onClose={() => setModalOpen(false)}
