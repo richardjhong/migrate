@@ -10,9 +10,11 @@ import './Wizard.scss'
 export default function Wizard() {
 
     const [buttonClicked, setButtonClicked] = useState(false);
+    const [refreshData, setRefreshData] = useState(false)
 
     const handleClick = () => {
         setButtonClicked(true);
+        setRefreshData(!refreshData);
     };
 
     return (
@@ -89,17 +91,13 @@ function CountryRecs() {
     console.log(spiyear)
     const { loading, error, data } = useQuery(QUERY_COUNTRY_ADJUST, {
         variables: { spiyear: spiyear },
-
     });
-
 
     let countryData = null;
 
     if (data) {
         countryData = data.countriesAdjust;
-
         for (let i = 0; i < countryData.length; i++) {
-
             let revNmbc = (countryData[i].bhn.score_nbmc) * nbmcUser.value;
             let revPs = (countryData[i].bhn.score_ps) * psUser.value;
             let revSh = (countryData[i].bhn.score_sh) * shUser.value;
@@ -123,24 +121,9 @@ function CountryRecs() {
         return (
             <div className='topTenResults'>
                 <h2>Revised Country Rankings</h2>
-                {/* <table className='revCountryResult'>
-                    <tr>
-                        <th></th>
-                        <th>Revised Score</th>
-                        <th>Original Score</th>
-                    </tr>
-                    {topTen.map((country, i) => (
-                        <tr key={i}>
-                            <td>
-                                <button className='topCountryButton' onClick={() => navigate(`/SingleCountry/${country.countryName}`)} >{country.countryName}</button>
-                            </td>
-                            <td>{country.revisedSPI}</td>
-                            <td>{country.origSPI}</td>
-                        </tr>
-                    ))}
-                </table> */}
+                
                 {topTen.map((country, i) => (
-                    <div className='topTenCard'>
+                    <div className='topTenCard' key={i}>
 
                         <button className='topCountryButton' onClick={() => navigate(`/SingleCountry/${country.countryName}`)} ><h2>{country.countryName}</h2><span className='clickDirections'>Click for more information...</span></button>
 
