@@ -36,41 +36,45 @@ const GeoChart = ({ onClose, countryYearIndex }) => {
     '9': '2022'
   }
 
+  const columns = ["Country", "SPI Rank"];
+
   countries.forEach(country => {
     country.year_catalog.forEach(individualYear => {
-      switch(individualYear.spiyear) {
-        case '2013':
-          geoDataObj['2013'].push([country.countryname, country.year_catalog[0].rank_score_spi])
-          break;
-        case '2014':
-          geoDataObj['2014'].push([country.countryname, country.year_catalog[1].rank_score_spi])
-          break;
-        case '2015':
-          geoDataObj['2015'].push([country.countryname, country.year_catalog[2].rank_score_spi])
-          break;
-        case '2016':
-          geoDataObj['2016'].push([country.countryname, country.year_catalog[3].rank_score_spi])
-          break;
-        case '2017':
-          geoDataObj['2017'].push([country.countryname, country.year_catalog[4].rank_score_spi])
-          break;
-        case '2018':
-          geoDataObj['2018'].push([country.countryname, country.year_catalog[5].rank_score_spi])
-          break;
-        case '2019':
-          geoDataObj['2019'].push([country.countryname, country.year_catalog[6].rank_score_spi])
-          break;
-        case '2020':
-          geoDataObj['2020'].push([country.countryname, country.year_catalog[7].rank_score_spi])
-          break;
-        case '2021':
-          geoDataObj['2021'].push([country.countryname, country.year_catalog[8].rank_score_spi])
-          break;
-        case '2022':
-          geoDataObj['2022'].push([country.countryname, country.year_catalog[9].rank_score_spi])
-          break;
-        default: 
-          break;
+      if (individualYear.status === "Ranked") {
+        switch(individualYear.spiyear) {
+          case '2013':
+            geoDataObj['2013'].push([country.countryname, country.year_catalog[0].rank_score_spi])
+            break;
+          case '2014':
+            geoDataObj['2014'].push([country.countryname, country.year_catalog[1].rank_score_spi])
+            break;
+          case '2015':
+            geoDataObj['2015'].push([country.countryname, country.year_catalog[2].rank_score_spi])
+            break;
+          case '2016':
+            geoDataObj['2016'].push([country.countryname, country.year_catalog[3].rank_score_spi])
+            break;
+          case '2017':
+            geoDataObj['2017'].push([country.countryname, country.year_catalog[4].rank_score_spi])
+            break;
+          case '2018':
+            geoDataObj['2018'].push([country.countryname, country.year_catalog[5].rank_score_spi])
+            break;
+          case '2019':
+            geoDataObj['2019'].push([country.countryname, country.year_catalog[6].rank_score_spi])
+            break;
+          case '2020':
+            geoDataObj['2020'].push([country.countryname, country.year_catalog[7].rank_score_spi])
+            break;
+          case '2021':
+            geoDataObj['2021'].push([country.countryname, country.year_catalog[8].rank_score_spi])
+            break;
+          case '2022':
+            geoDataObj['2022'].push([country.countryname, country.year_catalog[9].rank_score_spi])
+            break;
+          default: 
+            break;
+        }
       }
     })
   })
@@ -82,11 +86,14 @@ const GeoChart = ({ onClose, countryYearIndex }) => {
         width={'2000px'}
         height={'1500px'}
         chartType="GeoChart"
+        // data={geoDataObj[countryYearIndexToYearMap[countryYearIndex]]}
         data={geoDataObj[countryYearIndexToYearMap[countryYearIndex]]}
         // Note: you will need to get a mapsApiKey for your project.
         // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
         mapsApiKey={process.env.REACT_APP_GOOGLE_CHART_API_KEY}
         rootProps={{ 'data-testid': '1' }}
+        // columns={columns}
+        // rows={geoDataObj[countryYearIndexToYearMap["9"]]}
         chartEvents={[
           {
             eventName: "select",

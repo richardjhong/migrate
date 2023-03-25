@@ -8,8 +8,7 @@ import Dropdown from '../../components/Dropdown'
 import UserComments from '../../components/UserComments'
 import './SingleCountryCont.scss'
 
-function SingleCountryCont() {
-    const [countryYearIndex, setCountryYearIndex] = useState(9);
+function SingleCountryCont({ countryYearIndex, setCountryYearIndex}) {
     const [chartTypeIndex, setChartTypeIndex] = useState('Bar');
 
     return (

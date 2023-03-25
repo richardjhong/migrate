@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { searchImage } from '../../utils/API';
 import { useQuery } from '@apollo/client';
 import { QUERY_COMPILATIONS } from '../../utils/queries';
@@ -25,9 +25,9 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex }) => {
     e.preventDefault();
 
     if (!searchImgInput) {
-
       return false;
     }
+
     try {
       const response = await searchImage(searchImgInput);
       if (!response.ok) {
@@ -85,7 +85,6 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex }) => {
     <div>
       <div className="singleCountryInput">
         <input
-          className=""
           type="text"
           placeholder="Search Country"
           value={searchImgInput}
@@ -94,7 +93,6 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex }) => {
         <button
           type="submit"
           onClick={handleFormSubmit}
-          className=""
         >
           Search
         </button>
