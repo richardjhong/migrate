@@ -18,26 +18,7 @@ const Modal = ({ isOpen, onClose, countryYearIndex, setCountryYearIndex, childre
   if (!isOpen) return null;
   return ReactDOM.createPortal(    
     <div className="modal">
-      <Dropdown 
-        countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex} 
-        options={
-            [
-                {value: '', text: 'Select year', disabled: true},
-                {value: 0, text: '2013'},
-                {value: 1, text: '2014'},
-                {value: 2, text: '2015'},
-                {value: 3, text: '2016'},
-                {value: 4, text: '2017'},
-                {value: 5, text: '2018'},
-                {value: 6, text: '2019'},
-                {value: 7, text: '2020'},
-                {value: 8, text: '2021'},
-                {value: 9, text: '2022'},
-              ]
-        }
-        affectedState={"year"}
-    />
-      <GeoChart onClose={onClose} countryYearIndex={countryYearIndex}/>
+      <GeoChart onClose={onClose} countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex}/>
       <button onClick={onClose}>Close</button>
     </div>,
     document.getElementById('portal-container'));

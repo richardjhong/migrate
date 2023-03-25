@@ -1,0 +1,9 @@
+.chart-container {
+  display: flex;
+  align-items: center;
+}
+
+.range input[orient=vertical] {
+  transform:rotate(90deg);
+}
+
