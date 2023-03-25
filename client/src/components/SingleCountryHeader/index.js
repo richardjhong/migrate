@@ -3,10 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './SingleCountryHeader.scss';
 import { useParams } from 'react-router-dom';
 
-
-
 const SingleCountryHeader = () => {
-
   const { countryname: countryParam } = useParams();
 
   const [imgs, setImgs] = useState([]);
@@ -28,32 +25,27 @@ const SingleCountryHeader = () => {
         .catch((err) => {
            console.log(err.message);
         });
-  }, []);
+  }, [countryParam]);
 
   
 
   return (
     <>
-      {/* <div className='singleCountHeadCont'> */}
-        <div className="singleCountryHead">
-
+      <div className="singleCountryHead">
         {imgs.map((val,i) => {
               return (
                 <img
                   key={i}
-                  
                   src={val.src}
                   alt={val.alt}
-                  
-                 
                 />
               );
             })}
           </div>
           <div className='singleCountryHeadTitle'>
         <h2 >{countryParam}</h2>
-          </div>
-        </>
+      </div>
+    </>
   );
 };
 

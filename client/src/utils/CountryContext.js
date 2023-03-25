@@ -12,7 +12,6 @@ export const SearchProvider= ({children})=>{
     });
 
     const addSearch = (search)=>{
-      
         setSearches([search,...searches]);
         saveCountries(searches);
         
@@ -26,7 +25,6 @@ export const SearchProvider= ({children})=>{
 
   // The provider component will wrap all other components inside of it that need access to our global state
   return (
-
     <SearchContext.Provider value={{ searches, addSearch,updateSearch }}>
       {children}
     </SearchContext.Provider>

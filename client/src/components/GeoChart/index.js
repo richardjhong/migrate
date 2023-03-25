@@ -3,10 +3,13 @@ import Chart from 'react-google-charts';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_COMPILATIONS } from '../../utils/queries';
+import { useSearch } from '../../utils/CountryContext';
+import { searchImage } from '../../utils/API';
 
 const GeoChart = ({ onClose, countryYearIndex }) => {
   let navigate = useNavigate();
   const { loading, data } = useQuery(QUERY_COMPILATIONS);
+  const { searches, addSearch } = useSearch();
 
   const countries = data?.countryCompilations || [];
 
@@ -36,7 +39,36 @@ const GeoChart = ({ onClose, countryYearIndex }) => {
     '9': '2022'
   }
 
-  const columns = ["Country", "SPI Rank"];
+  const searchCountryImages = async (region) => {
+    try {
+      const response = await searchImage(region);
+      if (!response.ok) {
+        throw new Error(`No images found for ${region}`);
+      }
+      const items = await response.json();
+
+      const newImgs = [];
+      items.results.forEach(item => {
+        const newImg = {
+          src: item.urls.regular,
+          alt: item.alt_description,
+        };
+        newImgs.push(newImg);
+      });
+      const newSearch = {
+        name: region,
+        imgs: newImgs
+      }
+
+      //if data doesn't exist in localStorage, save it to localStorage
+      if (searches.findIndex(country => country.name === region) === -1) {
+        await addSearch(newSearch);
+      }
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
 
   countries.forEach(country => {
     country.year_catalog.forEach(individualYear => {
@@ -92,8 +124,6 @@ const GeoChart = ({ onClose, countryYearIndex }) => {
         // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
         mapsApiKey={process.env.REACT_APP_GOOGLE_CHART_API_KEY}
         rootProps={{ 'data-testid': '1' }}
-        // columns={columns}
-        // rows={geoDataObj[countryYearIndexToYearMap["9"]]}
         chartEvents={[
           {
             eventName: "select",
@@ -101,9 +131,11 @@ const GeoChart = ({ onClose, countryYearIndex }) => {
               const chart = chartWrapper.getChart();
               const selection = chart.getSelection();
               if (selection.length === 0) return;
-              const [region, spi_score] = geoDataObj[countryYearIndexToYearMap[countryYearIndex]][selection[0].row + 1];              
+              const [region, spi_score] = geoDataObj[countryYearIndexToYearMap[countryYearIndex]][selection[0].row + 1]; 
+              searchCountryImages(region);
               navigate(`/SingleCountry/${region}`);
               onClose();
+             
             },
           },
         ]}    
