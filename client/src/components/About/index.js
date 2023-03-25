@@ -18,7 +18,7 @@ export default function About() {
                             <p>Whether you're curious about other cultures or just feel the need for a change, the potential options in this huge world can be daunting. Our goal is to provide you with information that can possibly help you make decisions about where you want to live, work, and maybe even raise a family.</p>
                         </div>
                         <div className='aboutPics'>
-                            <figure class='landscapeAboutPic'>
+                            <figure className='landscapeAboutPic'>
                                 <Image width='100%' height='auto' src={retiredCruise} alt='retirees looking at large cruise ship' />
                                 <figcaption>Photo by <a href="https://unsplash.com/@juliusyls">Julius Yls</a> on <a href="https://unsplash.com">Unsplash</a></figcaption>
                             </figure>
