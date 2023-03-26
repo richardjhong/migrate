@@ -7,7 +7,7 @@ import "./SearchCountry.scss";
 import { useNavigate } from 'react-router-dom';
 import Modal from '../Modal';
 
-const SearchCountry = ({ countryYearIndex, setCountryYearIndex }) => {
+const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) => {
   const { searches, addSearch } = useSearch();
   //For Search country
   const [searchImgInput, setSearchImgInput] = useState("");
@@ -43,6 +43,7 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex }) => {
       await addSearch(searchedImages);
     }
     setSuggestions([]);
+    setCurrentSearchedCountry(searchImgInput);
     navigate(`/SingleCountry/${searchImgInput}`);
   };
 
@@ -56,7 +57,6 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex }) => {
     }
     setSuggestions(matches);
     setSearchImgInput(text);
-
   }
 
   const onSuggestHandler = (text) => {
@@ -93,6 +93,8 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex }) => {
           onClose={() => setModalOpen(false)}
           countryYearIndex={countryYearIndex} 
           setCountryYearIndex={setCountryYearIndex} 
+          currentSearchedCountry={currentSearchedCountry}
+          setCurrentSearchedCountry={setCurrentSearchedCountry}
       />
     </div>
   );

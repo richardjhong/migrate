@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import GeoChart from '../GeoChart';
 import './Modal.scss';
 
-const Modal = ({ isOpen, onClose, countryYearIndex, setCountryYearIndex, children }) => {
+const Modal = ({ isOpen, onClose, countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry, children }) => {
   useEffect(() => {
     const closeOnEscapeKey = e => e.key === 'Escape' ? onClose() : null;
     document.body.addEventListener("keydown", closeOnEscapeKey);
@@ -15,7 +15,7 @@ const Modal = ({ isOpen, onClose, countryYearIndex, setCountryYearIndex, childre
   if (!isOpen) return null;
   return ReactDOM.createPortal(    
     <div className="modal">
-      <GeoChart onClose={onClose} countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex}/>
+      <GeoChart onClose={onClose} countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex} currentSearchedCountry={currentSearchedCountry} setCurrentSearchedCountry={setCurrentSearchedCountry}/>
       <button onClick={onClose}>Close</button>
     </div>,
     document.getElementById('portal-container'));

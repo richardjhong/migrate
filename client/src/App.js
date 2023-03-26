@@ -48,6 +48,7 @@ const client = new ApolloClient({
 
 function App() {
   const [countryYearIndex, setCountryYearIndex] = useState(9);
+  const [currentSearchedCountry, setCurrentSearchedCountry] = useState("");
 
   return (
     <ApolloProvider client={client}>
@@ -64,7 +65,12 @@ function App() {
             />
             <Route
               index
-              element={<Splash countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex} />}
+              element={<Splash 
+                          countryYearIndex={countryYearIndex} 
+                          setCountryYearIndex={setCountryYearIndex} 
+                          currentSearchedCountry={currentSearchedCountry} 
+                          setCurrentSearchedCountry={setCurrentSearchedCountry}
+                        />}
             />
             <Route
             path="/form"
@@ -81,7 +87,12 @@ function App() {
             /> */}
             <Route
               path="/SingleCountry/:countryname"
-              element={<SingleCountryCont countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex} />}
+              element={<SingleCountryCont 
+                          countryYearIndex={countryYearIndex} 
+                          setCountryYearIndex={setCountryYearIndex} 
+                          currentSearchedCountry={currentSearchedCountry} 
+                          setCurrentSearchedCountry={setCurrentSearchedCountry}
+                        />}
             />
             {/* <Route
               path="/listings"

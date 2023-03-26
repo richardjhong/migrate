@@ -7,7 +7,7 @@ import { QUERY_COMPILATIONS } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
 import { searchImage } from '../../utils/API';
 
-const GeoChart = ({ onClose, countryYearIndex, setCountryYearIndex }) => {
+const GeoChart = ({ onClose, countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) => {
   const geoCitiesInLocalStorage = localStorage.getItem('saved_geo_countries')
   let navigate = useNavigate();
   const { loading, data } = useQuery(QUERY_COMPILATIONS, {
@@ -29,7 +29,7 @@ const GeoChart = ({ onClose, countryYearIndex, setCountryYearIndex }) => {
     '9': '2022'
   }
 
-  const savedGeoCountries = geoCitiesInLocalStorage ? JSON.parse(localStorage.getItem('saved_geo_countries')) : 
+  const savedGeoCountries = geoCitiesInLocalStorage ? JSON.parse(geoCitiesInLocalStorage) : 
   {
     '2013': [['Country', `SPI Rank (${countryYearIndexToYearMap[countryYearIndex]})`]],
     '2014': [['Country', `SPI Rank (${countryYearIndexToYearMap[countryYearIndex]})`]],
@@ -47,40 +47,8 @@ const GeoChart = ({ onClose, countryYearIndex, setCountryYearIndex }) => {
     countries.forEach(country => {
       country.year_catalog.forEach(individualYear => {
         if (individualYear.status === "Ranked") {
-          switch(individualYear.spiyear) {
-            case '2013':
-              savedGeoCountries['2013'].push([country.countryname, country.year_catalog[0].rank_score_spi])
-              break;
-            case '2014':
-              savedGeoCountries['2014'].push([country.countryname, country.year_catalog[1].rank_score_spi])
-              break;
-            case '2015':
-              savedGeoCountries['2015'].push([country.countryname, country.year_catalog[2].rank_score_spi])
-              break;
-            case '2016':
-              savedGeoCountries['2016'].push([country.countryname, country.year_catalog[3].rank_score_spi])
-              break;
-            case '2017':
-              savedGeoCountries['2017'].push([country.countryname, country.year_catalog[4].rank_score_spi])
-              break;
-            case '2018':
-              savedGeoCountries['2018'].push([country.countryname, country.year_catalog[5].rank_score_spi])
-              break;
-            case '2019':
-              savedGeoCountries['2019'].push([country.countryname, country.year_catalog[6].rank_score_spi])
-              break;
-            case '2020':
-              savedGeoCountries['2020'].push([country.countryname, country.year_catalog[7].rank_score_spi])
-              break;
-            case '2021':
-              savedGeoCountries['2021'].push([country.countryname, country.year_catalog[8].rank_score_spi])
-              break;
-            case '2022':
-              savedGeoCountries['2022'].push([country.countryname, country.year_catalog[9].rank_score_spi])
-              break;
-            default: 
-              break;
-          }
+          const newGeoData = [country.countryname, individualYear.rank_score_spi]
+          savedGeoCountries[individualYear.spiyear].push(newGeoData);
         }
       })
     })
@@ -100,6 +68,13 @@ const GeoChart = ({ onClose, countryYearIndex, setCountryYearIndex }) => {
     colorAxis: { colors: ["#b4d330", "#6c998f"] },
     backgroundColor: "#81d4fa",
   };
+
+  const filteredCountries = () => {
+   return savedGeoCountries[countryYearIndexToYearMap[countryYearIndex]].filter(individualGeoData => {
+      const [name, spi_score] = individualGeoData;
+      return name !== currentSearchedCountry;
+    })
+  }
 
   return (
     <div className="container">
@@ -123,7 +98,7 @@ const GeoChart = ({ onClose, countryYearIndex, setCountryYearIndex }) => {
           width={'2000px'}
           height={'1500px'}
           chartType="GeoChart"
-          data={savedGeoCountries[countryYearIndexToYearMap[countryYearIndex]]}
+          data={filteredCountries()}
           // Note: you will need to get a mapsApiKey for your project.
           // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
           mapsApiKey={process.env.REACT_APP_GOOGLE_CHART_API_KEY}
@@ -136,7 +111,9 @@ const GeoChart = ({ onClose, countryYearIndex, setCountryYearIndex }) => {
                 const chart = chartWrapper.getChart();
                 const selection = chart.getSelection();
                 if (selection.length === 0) return;
-                const [region, spi_score] = savedGeoCountries[countryYearIndexToYearMap[countryYearIndex]][selection[0].row + 1]; 
+                const [region, spi_score] = filteredCountries()[selection[0].row + 1]; 
+
+                setCurrentSearchedCountry(region);
                 searchCountryImages(region);
                 navigate(`/SingleCountry/${region}`);
                 onClose();
