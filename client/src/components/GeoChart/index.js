@@ -96,7 +96,7 @@ const GeoChart =
   return (
     <div className="container">
       <h2 className="chart-title">
-       { comparisonEnabled ? `Comparing ${currentSearchedCountry} to...`
+       { comparisonEnabled ? `Comparing ${currentSearchedCountry} (${countryYearIndexToYearMap[countryYearIndex]}) to...`
         : `Country SPI Rankings ${countryYearIndexToYearMap[countryYearIndex]}`}
         </h2>
       <div className="chart-container">
