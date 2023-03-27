@@ -95,7 +95,7 @@ const GeoChart = ({ onClose, countryYearIndex, setCountryYearIndex, currentSearc
           <p id="rangeYearText">{countryYearIndexToYearMap[countryYearIndex]}</p> 
         </div> 
         <Chart
-          width={'2000px'}
+          width={'60vw'}
           height={'1500px'}
           chartType="GeoChart"
           data={filteredCountries()}

@@ -12,7 +12,7 @@ const LineChart = ({
         width={1000} 
         containerComponent={
           <VictoryContainer responsive={true}
-        />
+      />
       }
       >
         <VictoryLine

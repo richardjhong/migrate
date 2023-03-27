@@ -20,7 +20,7 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
   let navigate = useNavigate();
 
   const [width, setWidth] = useState(window.innerWidth);
-  const breakPoint = 2000;
+  const breakPoint = 1000;
 
   useEffect(() => {
     const handleResizeWindow = () => setWidth(window.innerWidth);
