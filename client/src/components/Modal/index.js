@@ -15,6 +15,7 @@ const Modal =
 }) => {
   const modalRef = useRef();
 
+  // collapses modal on pressing ESC key
   useEffect(() => {
     const closeOnEscapeKey = e => e.key === 'Escape' ? onClose() : null;
     document.body.addEventListener("keydown", closeOnEscapeKey);
@@ -23,12 +24,11 @@ const Modal =
     };
   }, [onClose]);
 
+  // collapses modal when clicking outside of geoChart/connected range input
   useEffect(() => {
     const outsideClick = e => {
-      if (isOpen) {
-        if (modalRef.current && !modalRef.current.contains(e.target)) {
-          onClose();
-        }
+      if (isOpen && !modalRef.current?.contains(e.target)) {
+        onClose();
       }
     }
     document.body.addEventListener("click", outsideClick);
