@@ -16,7 +16,7 @@ const Modal = ({ isOpen, onClose, countryYearIndex, setCountryYearIndex, current
   return ReactDOM.createPortal(    
     <div className="modal">
       <GeoChart onClose={onClose} countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex} currentSearchedCountry={currentSearchedCountry} setCurrentSearchedCountry={setCurrentSearchedCountry}/>
-      <button onClick={onClose}>Close</button>
+      <button className='modalClose' onClick={onClose}>Close</button>
     </div>,
     document.getElementById('portal-container'));
 };

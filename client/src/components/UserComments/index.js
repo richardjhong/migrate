@@ -34,7 +34,7 @@ export default function UserComments() {
                                 >
                                     <div
                                         className='tickerText' key={i}>
-                                        {comment._id} -
+                                        {comment._id} <br/> - 
                                         <span
                                             className='tickerAuthor' key={i}
                                         >

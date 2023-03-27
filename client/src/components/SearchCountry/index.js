@@ -6,6 +6,7 @@ import { useSearch } from '../../utils/CountryContext';
 import "./SearchCountry.scss";
 import { useNavigate } from 'react-router-dom';
 import Modal from '../Modal';
+import OpenModal from '../OpenModal';
 
 const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) => {
   const { searches, addSearch } = useSearch();
@@ -13,7 +14,7 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
   const [searchImgInput, setSearchImgInput] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
-  
+
   const { loading, data } = useQuery(QUERY_COMPILATIONS);
   const countries = data?.countryCompilations || [];
   const countryName = countries.map(data => data.countryname);
@@ -24,20 +25,20 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
 
   useEffect(() => {
     const handleResizeWindow = () => setWidth(window.innerWidth);
-     window.addEventListener("resize", handleResizeWindow);
-     return () => {
-       window.removeEventListener("resize", handleResizeWindow);
-     };
-   }, []);
+    window.addEventListener("resize", handleResizeWindow);
+    return () => {
+      window.removeEventListener("resize", handleResizeWindow);
+    };
+  }, []);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     if (!searchImgInput) {
       return false;
-    } 
+    }
     const searchedImages = await searchImage(searchImgInput);
-      
+
     //if data doesn't exist in localStorage, save it to localStorage
     if (searches.findIndex(country => country.name === searchImgInput) === -1) {
       await addSearch(searchedImages);
@@ -65,36 +66,47 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
   }
 
   return (
-    <div>
-      <div className="singleCountryInput">
-        <input
-          type="text"
-          placeholder="Search Country"
-          value={searchImgInput}
-          onChange={(e) => onChangeHandler(e.target.value)}
-        />
-        <button
-          type="submit"
-          onClick={handleFormSubmit}
-        >
-          Search
-        </button>
-        {suggestions && suggestions.map((suggestions, i) =>
-          <div className='suggestion'
-            key={i}
-            onClick={() => onSuggestHandler(suggestions.countryname)}
+    <div className='splashSearchCont'>
+      <div className='singleCountryCont'>
 
-          >{suggestions.countryname}</div>
-        )}
-        {width > breakPoint && <button onClick={() => setModalOpen(true)}>Open Map</button>}
+
+        <div className="singleCountryInput">
+          <div className='splashOpenMap'>
+            <button onClick={() => setModalOpen(true)}>Open Interactive Map</button>
+            {/* <OpenModal /> */}
+          </div>
+          <input
+            type="text"
+            placeholder="Search Country"
+            value={searchImgInput}
+            onChange={(e) => onChangeHandler(e.target.value)}
+          />
+          <button
+            type="submit"
+            onClick={handleFormSubmit}
+          >
+            Search
+          </button>
+        </div>
+        <div className='suggestionCont'>
+          {suggestions && suggestions.map((suggestions, i) =>
+            <div className='suggestion'
+              key={i}
+              onClick={() => onSuggestHandler(suggestions.countryname)}
+
+
+            >{suggestions.countryname}</div>
+          )}
+        </div>
       </div>
-      <Modal 
-          isOpen={modalOpen} 
-          onClose={() => setModalOpen(false)}
-          countryYearIndex={countryYearIndex} 
-          setCountryYearIndex={setCountryYearIndex} 
-          currentSearchedCountry={currentSearchedCountry}
-          setCurrentSearchedCountry={setCurrentSearchedCountry}
+
+      <Modal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        countryYearIndex={countryYearIndex}
+        setCountryYearIndex={setCountryYearIndex}
+        currentSearchedCountry={currentSearchedCountry}
+        setCurrentSearchedCountry={setCurrentSearchedCountry}
       />
     </div>
   );

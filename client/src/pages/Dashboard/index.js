@@ -10,7 +10,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import PolarChart from '../../components/CountryPolarChart'
 
-const Dashboard = () => {
+const Dashboard = ({ countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) => {
 let navigate = useNavigate();
   const { username: userParam } = useParams();
   const { loading: loadingC, data: dataC } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -29,7 +29,7 @@ let navigate = useNavigate();
     return (
       <>
         <Header />
-        <main class='dashMain'>
+        <main className='dashMain'>
         <div>
           <h4>
             You need to be logged in to see this. Use the navigation links below to
@@ -46,7 +46,7 @@ let navigate = useNavigate();
     <>
 
       <Header />
-      <main class='dashMain'>
+      <main className='dashMain'>
         <div className="">
           <h2 className="">
             Welcome {userParam ? `back, ${user.username} continue where you left off.. !` : `back, ${user.username}!`}
@@ -60,8 +60,8 @@ let navigate = useNavigate();
                   <div>Loading...</div>
                 ) :
                   searches && searches.filter((search,i)=>i>=searches.length-5&&i<=searches.length).map((search, i) => (
-                    <div className='savedSearchCard' >
-                    <div key={i}>
+                    <div className='savedSearchCard' key={i}>
+                    <div >
                       <h2 className="">
                         <button onClick={()=>{
                          navigate(`/SingleCountry/${search.name}`);
@@ -86,7 +86,10 @@ let navigate = useNavigate();
                   ))}
               {/* </div> */}
               <div className='dashSearch'>
-                <SearchCountry className="button" />
+                <SearchCountry countryYearIndex={countryYearIndex} 
+                            setCountryYearIndex={setCountryYearIndex}
+                            currentSearchedCountry={currentSearchedCountry}
+                            setCurrentSearchedCountry={setCurrentSearchedCountry} />
               </div>
             </div>
             {/* <button type="submit" onClick={handleLogout}>Log Out</button> */}

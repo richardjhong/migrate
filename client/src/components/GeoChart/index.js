@@ -65,12 +65,12 @@ const GeoChart = ({ onClose, countryYearIndex, setCountryYearIndex, currentSearc
   }
 
   const options = {
-    colorAxis: { colors: ["#b4d330", "#6c998f"] },
-    backgroundColor: "#81d4fa",
+    colorAxis: { colors: ["#b4d330", "#04566e"] },
+    backgroundColor: "#94b0da",
   };
 
   const filteredCountries = () => {
-   return savedGeoCountries[countryYearIndexToYearMap[countryYearIndex]].filter(individualGeoData => {
+   return savedGeoCountries[countryYearIndexToYearMap[countryYearIndex]]?.filter(individualGeoData => {
       const [name, spi_score] = individualGeoData;
       return name !== currentSearchedCountry;
     })
@@ -95,8 +95,8 @@ const GeoChart = ({ onClose, countryYearIndex, setCountryYearIndex, currentSearc
           <p id="rangeYearText">{countryYearIndexToYearMap[countryYearIndex]}</p> 
         </div> 
         <Chart
-          width={'2000px'}
-          height={'1500px'}
+          width={'60vw'}
+          height={'auto'}
           chartType="GeoChart"
           data={filteredCountries()}
           // Note: you will need to get a mapsApiKey for your project.

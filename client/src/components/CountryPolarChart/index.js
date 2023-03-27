@@ -1,11 +1,14 @@
 import React from "react";
-import { VictoryChart, VictoryPolarAxis, VictoryStack,VictoryTheme, VictoryBar } from "victory";
+import { VictoryChart, VictoryPolarAxis, VictoryStack, VictoryTheme, VictoryBar } from "victory";
 
 
-const PolarChart = ({
-    fields
-}) => {
+const PolarChart = ({fields}) => {
+    
     return (
+        !fields.fow || !fields.bhn || !fields.opp ? 
+        
+            <p>Incomplete data</p>
+         :
         <div className="chartContainer">
             <VictoryChart polar
                 theme={VictoryTheme.material}
@@ -17,20 +20,20 @@ const PolarChart = ({
                                 key={i}
                                 label={d}
                                 labelPlacement="perpendicular"
-                                style={{ tickLabels: { fill: "none", fontSize:30, padding:25  } }}
+                                style={{ tickLabels: { fill: "none", fontSize: 30, padding: 25 } }}
                                 axisValue={d}
                             />
                         );
                     })
                 }
-                
+
                 <VictoryBar
-                    style={{ 
+                    style={{
                         data: { fill: "#b4d330", width: 130 },
-                        labels:{
-                            fontSize:250
+                        labels: {
+                            fontSize: 250
                         }
-                 }}
+                    }}
                     data={[
                         { x: "bhn", y: fields.bhn },
                         { x: "opp", y: fields.opp },
@@ -39,11 +42,11 @@ const PolarChart = ({
                     animate={{
                         duration: 2000,
                         easing: "bounce"
-                      }}
+                    }}
                 />
             </VictoryChart>
         </div>
-    )
+                )
 };
 
 export default PolarChart;

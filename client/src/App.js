@@ -112,10 +112,16 @@ function App() {
             />
             <Route
               path="/dashboard"
-              element={<Dashboard />} />
+              element={<Dashboard countryYearIndex={countryYearIndex} 
+              setCountryYearIndex={setCountryYearIndex}
+              currentSearchedCountry={currentSearchedCountry}
+              setCurrentSearchedCountry={setCurrentSearchedCountry}/>} />
             <Route 
               path="/dashboard/:username" 
-              element={<Dashboard />}
+              element={<Dashboard countryYearIndex={countryYearIndex} 
+              setCountryYearIndex={setCountryYearIndex}
+              currentSearchedCountry={currentSearchedCountry}
+              setCurrentSearchedCountry={setCurrentSearchedCountry}/>}
             />
             <Route
               path="/*"

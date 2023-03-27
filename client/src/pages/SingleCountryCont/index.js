@@ -7,6 +7,7 @@ import SearchCountry from '../../components/SearchCountry';
 import Dropdown from '../../components/Dropdown'
 import UserComments from '../../components/UserComments'
 import './SingleCountryCont.scss'
+import OpenModal from '../../components/OpenModal';
 
 function SingleCountryCont({ countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) {
     const [chartTypeIndex, setChartTypeIndex] = useState('Bar');
@@ -57,6 +58,7 @@ function SingleCountryCont({ countryYearIndex, setCountryYearIndex, currentSearc
                                 }
                                 affectedState={"chart"}
                             />
+                            {/* <OpenModal /> */}
                         </div>
                         
                     </div>
