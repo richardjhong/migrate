@@ -79,6 +79,7 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
         >
           Search
         </button>
+        {width > breakPoint && <button onClick={() => setModalOpen(true)}>Open Map</button>}
         {suggestions && suggestions.map((suggestions, i) =>
           <div className='suggestion'
             key={i}
@@ -86,7 +87,6 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
 
           >{suggestions.countryname}</div>
         )}
-        {width > breakPoint && <button onClick={() => setModalOpen(true)}>Open Map</button>}
       </div>
       <Modal 
           isOpen={modalOpen} 
