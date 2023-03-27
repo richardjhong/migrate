@@ -4,7 +4,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import SearchCountry from '../../components/SearchCountry';
 
-function Splash({ countryYearIndex, setCountryYearIndex} ) {
+function Splash({ countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) {
     return (
         <>
             <Header />
@@ -12,7 +12,12 @@ function Splash({ countryYearIndex, setCountryYearIndex} ) {
                 <p className='tag'>Looking to relocate? Start your search here.</p>
                 <div className='splash'>
                     <div className="searchRespCenter">
-                        <SearchCountry countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex}/>
+                        <SearchCountry 
+                            countryYearIndex={countryYearIndex} 
+                            setCountryYearIndex={setCountryYearIndex}
+                            currentSearchedCountry={currentSearchedCountry}
+                            setCurrentSearchedCountry={setCurrentSearchedCountry}
+                        />
                     </div>
                 </div>
                 <p className="overview"> 

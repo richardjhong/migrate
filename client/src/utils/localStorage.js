@@ -13,5 +13,3 @@ export const getSavedCountries = () => {
       localStorage.removeItem('saved_countries');
     }
   };
-
-  
