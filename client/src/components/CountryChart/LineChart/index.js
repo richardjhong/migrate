@@ -3,7 +3,7 @@ import { VictoryChart, VictoryAxis, VictoryLabel, VictoryLine, VictoryContainer,
 import '../CountryChart.scss';
 
 const LineChart = ({
-  fields, countryYearIndex, comparedCountryFields, enabled
+  fields, countryYearIndex, comparedCountryFields, comparisonEnabled
 }) => {
   return (
     <div className="chartContainer">
@@ -75,7 +75,7 @@ const LineChart = ({
         {/* 
         Conditional logic for loading additional line graph for comparison country
          */}
-        {comparedCountryFields && enabled && <VictoryLine
+        {comparedCountryFields && comparisonEnabled && <VictoryLine
           labelComponent={
             <VictoryLabel 
               renderInPortal 
@@ -85,7 +85,7 @@ const LineChart = ({
             />
           }
           style={{
-            data: { stroke: "#022831" },
+            data: { stroke: "#b4d330" },
             parent: { border: "1px solid #ccc"},
           }}
           alignment="start"
@@ -105,14 +105,14 @@ const LineChart = ({
             { x: "2022", y: comparedCountryFields["2022"] },
           ]}
         />}
-        {comparedCountryFields && enabled && <VictoryScatter
+        {comparedCountryFields && comparisonEnabled && <VictoryScatter
           style={{
             data: {
               fill: ({ index }) => {
-                return parseInt(index) === parseInt(countryYearIndex) ? "#b4d330" : "#022831"
+                return parseInt(index) === parseInt(countryYearIndex) ? "#022831" : "#b4d330"
               },
               stroke: ({ index }) => {
-                return parseInt(index) === parseInt(countryYearIndex) ? "#b4d330" : "#022831"
+                return parseInt(index) === parseInt(countryYearIndex) ? "#022831" : "#b4d330"
               },
               strokeWidth: ({ index }) => {
                 return parseInt(index) === parseInt(countryYearIndex) ? 10 : 1

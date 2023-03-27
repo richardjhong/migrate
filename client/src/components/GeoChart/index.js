@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Chart from 'react-google-charts';
 import './GeoChart.scss';
 import { useNavigate } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_COMPILATIONS } from '../../utils/queries';
+import { useQuery, useLazyQuery } from '@apollo/client';
+import { QUERY_COMPILATIONS, QUERY_SINGLE_COMPILATION } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
 import { searchImage } from '../../utils/API';
 
-const GeoChart = ({ onClose, countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) => {
+const GeoChart = 
+({ 
+  onClose, 
+  comparisonEnabled,
+  countryYearIndex, 
+  setCountryYearIndex, 
+  currentSearchedCountry, 
+  setCurrentSearchedCountry,
+  setComparedCountry,
+  setComparedCountryData,
+}) => {
   const geoCitiesInLocalStorage = localStorage.getItem('saved_geo_countries')
   let navigate = useNavigate();
   const { loading, data } = useQuery(QUERY_COMPILATIONS, {
@@ -15,6 +25,13 @@ const GeoChart = ({ onClose, countryYearIndex, setCountryYearIndex, currentSearc
   });
   const { searches, addSearch } = useSearch();
   const countries = data?.countryCompilations || [];
+  const [delayedCompare, { loading: comparedCountryLoading, data: newComparedCountryData }] = useLazyQuery(QUERY_SINGLE_COMPILATION);
+
+  useEffect(() => {
+    if (!comparedCountryLoading && newComparedCountryData) {
+      setComparedCountryData(newComparedCountryData?.singleCompileCountry?.year_catalog || [])
+    }
+  }, [comparedCountryLoading, newComparedCountryData, setComparedCountryData]);
 
   const countryYearIndexToYearMap = {
     '0': '2013',
@@ -78,7 +95,10 @@ const GeoChart = ({ onClose, countryYearIndex, setCountryYearIndex, currentSearc
 
   return (
     <div className="container">
-      <h2 className="chart-title">Country SPI Rankings {countryYearIndexToYearMap[countryYearIndex]}</h2>
+      <h2 className="chart-title">
+       { comparisonEnabled ? `Comparing ${currentSearchedCountry} to...`
+        : `Country SPI Rankings ${countryYearIndexToYearMap[countryYearIndex]}`}
+        </h2>
       <div className="chart-container">
         <div className="range">
           <input 
@@ -113,10 +133,23 @@ const GeoChart = ({ onClose, countryYearIndex, setCountryYearIndex, currentSearc
                 if (selection.length === 0) return;
                 const [region, spi_score] = filteredCountries()[selection[0].row + 1]; 
 
-                setCurrentSearchedCountry(region);
-                searchCountryImages(region);
-                navigate(`/SingleCountry/${region}`);
-                onClose();
+                if (!comparisonEnabled) {
+                  setCurrentSearchedCountry(region);
+                  searchCountryImages(region);
+                  navigate(`/SingleCountry/${region}`);
+                  onClose();
+                } else {
+                  try {
+                    setComparedCountry(region);
+                    delayedCompare({ variables: { countryname: region }});
+                    if (!comparedCountryLoading) {
+                      onClose();
+                    }
+                  }
+                  catch (err) {
+                    console.error(err);
+                  }
+                }
               },
             },
           ]}    

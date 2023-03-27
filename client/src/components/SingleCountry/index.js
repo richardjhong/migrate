@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CountryCards from "../CountryCards";
 import "./SingleCountry.scss";
 import { useParams, useNavigate } from 'react-router-dom';
@@ -8,13 +8,12 @@ import { useSearch } from '../../utils/CountryContext';
 import { capitalizeFirstLetter } from '../../utils/helper'
 import CompareCountry from '../Comparison';
 
-export default function SingleCountry({ countryYearIndex, chartTypeIndex, enabled, setEnabled }) {
+export default function SingleCountry({ countryYearIndex, setCountryYearIndex, chartTypeIndex, currentSearchedCountry, setCurrentSearchedCountry, comparisonEnabled, setComparisonEnabled }) {
   const [comparedCountryData, setComparedCountryData] = useState([]);
   const { searches, updateSearch } = useSearch();
   const { countryname: countryParam } = useParams();
   const [comparedCountry, setComparedCountry] = useState("");
   const navigate = useNavigate();
-
 
   // account for transforming manual entries that do not have a capital letter
   const caseTransformedCountryParam = capitalizeFirstLetter(countryParam);
@@ -46,12 +45,17 @@ export default function SingleCountry({ countryYearIndex, chartTypeIndex, enable
   return (
     <>
       <CompareCountry 
-        enabled={enabled} 
-        setEnabled={setEnabled} 
+        comparisonEnabled={comparisonEnabled} 
+        setComparisonEnabled={setComparisonEnabled} 
         baseCountry={countryParam} 
         comparedCountry={comparedCountry}
         setComparedCountry={setComparedCountry}
+        comparedCountryData={comparedCountryData}
         setComparedCountryData={setComparedCountryData}
+        countryYearIndex={countryYearIndex}
+        setCountryYearIndex={setCountryYearIndex}
+        currentSearchedCountry={currentSearchedCountry}
+        setCurrentSearchedCountry={setCurrentSearchedCountry}
       />
       <div className='containerCenter'>
         <div className='countryCardContainer'>
@@ -61,7 +65,7 @@ export default function SingleCountry({ countryYearIndex, chartTypeIndex, enable
           ) : (
             <>
               <CountryCards
-                countryProperties={singleCountry} countryYearIndex={countryYearIndex} chartTypeIndex={chartTypeIndex} comparedCountryProperties={comparedCountryData} enabled={enabled}
+                countryProperties={singleCountry} countryYearIndex={countryYearIndex} chartTypeIndex={chartTypeIndex} comparedCountryProperties={comparedCountryData} comparisonEnabled={comparisonEnabled}
               />
             </>
           )}

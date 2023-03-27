@@ -6,24 +6,30 @@ import { capitalizeFirstLetter } from '../../utils/helper';
 import Modal from '../Modal';
 
 const CompareCountry = ({ 
-  enabled, 
-  setEnabled, 
+  comparisonEnabled, 
+  setComparisonEnabled, 
   baseCountry,
   comparedCountry, 
   setComparedCountry, 
-  setComparedCountryData }) => {
+  comparedCountryData,
+  setComparedCountryData,
+  countryYearIndex,
+  setCountryYearIndex,
+  currentSearchedCountry,
+  setCurrentSearchedCountry
+ }) => {
   const [suggestions, setSuggestions] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const { loading, data } = useQuery(QUERY_COMPILATIONS);
-  const [delayedCompare, { loading: comparedCountryLoading, data: comparedCountryData }] = useLazyQuery(QUERY_SINGLE_COMPILATION);
+  const [delayedCompare, { loading: comparedCountryLoading, data: newComparedCountryData }] = useLazyQuery(QUERY_SINGLE_COMPILATION);
 
   const countries = data?.countryCompilations || [];
 
   useEffect(() => {
-    if (!comparedCountryLoading && comparedCountryData) {
-      setComparedCountryData(comparedCountryData?.singleCompileCountry?.year_catalog || [])
+    if (!comparedCountryLoading && newComparedCountryData) {
+      setComparedCountryData(newComparedCountryData?.singleCompileCountry?.year_catalog || [])
     }
-  }, [comparedCountryLoading, comparedCountryData, setComparedCountryData]);
+  }, [comparedCountryLoading, newComparedCountryData, setComparedCountryData]);
 
   const onChangeHandler = (text) => {
     let matches = []
@@ -43,9 +49,8 @@ const CompareCountry = ({
     setSuggestions([]);
   }
 
-  const handleFormSubmit = async (e) => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log('submitted');
 
     try {
       delayedCompare({ variables: { countryname: capitalizeFirstLetter(comparedCountry) }});
@@ -59,13 +64,13 @@ const CompareCountry = ({
     <div>
       <span>Compare Countries</span>
       <SwitchToggle 
-        isOn={enabled}
-        handleToggle={() => setEnabled(!enabled)}
+        isOn={comparisonEnabled}
+        handleToggle={() => setComparisonEnabled(!comparisonEnabled)}
         onColor="#06D6A0"
         offColor="#EF476F"
       />
-      {enabled && 
-         <>
+      {comparisonEnabled && 
+        <>
          <div className="singleCountryInput">
            <input
              className=""
@@ -89,10 +94,19 @@ const CompareCountry = ({
              >{suggestions.countryname}</div>
            )}
          </div>
-         {/* <Modal 
+         <Modal 
           isOpen={modalOpen} 
           onClose={() => setModalOpen(false)}
-          /> */}
+          countryYearIndex={countryYearIndex} 
+          setCountryYearIndex={setCountryYearIndex} 
+          currentSearchedCountry={currentSearchedCountry}
+          setCurrentSearchedCountry={setCurrentSearchedCountry}
+          comparisonEnabled={true}
+          comparedCountry={comparedCountry} 
+          setComparedCountry={setComparedCountry} 
+          comparedCountryData={comparedCountryData}
+          setComparedCountryData={setComparedCountryData}
+        />
        </>
       }
     </div>

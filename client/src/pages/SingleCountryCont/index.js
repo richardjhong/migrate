@@ -10,11 +10,11 @@ import './SingleCountryCont.scss'
 
 function SingleCountryCont({ countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) {
     const [chartTypeIndex, setChartTypeIndex] = useState('Bar');
-    const [enabled, setEnabled] = useState(false) // used for comparison toggle
+    const [comparisonEnabled, setComparisonEnabled] = useState(false) // used for comparison toggle
 
     useEffect(() => {
-        enabled ? setChartTypeIndex('Line') : setChartTypeIndex('Bar');
-    }, [enabled])
+        comparisonEnabled ? setChartTypeIndex('Line') : setChartTypeIndex('Bar');
+    }, [comparisonEnabled])
 
     return (
         <>
@@ -56,8 +56,8 @@ function SingleCountryCont({ countryYearIndex, setCountryYearIndex, currentSearc
                                     [
                                         {value: '', text: 'Select chart type', disabled: true},
                                         {value: 'Line', text: 'Line'},
-                                        {value: 'Bar', text: 'Bar', disabled: enabled},
-                                        {value: 'Area', text: 'Area', disabled: enabled},
+                                        {value: 'Bar', text: 'Bar', disabled: comparisonEnabled},
+                                        {value: 'Area', text: 'Area', disabled: comparisonEnabled},
                                     ]
                                 }
                                 affectedState={"chart"}
@@ -69,9 +69,12 @@ function SingleCountryCont({ countryYearIndex, setCountryYearIndex, currentSearc
                 <div>
                     <SingleCountry 
                         countryYearIndex={countryYearIndex} 
+                        setCountryYearIndex={setCountryYearIndex}
                         chartTypeIndex={chartTypeIndex}
-                        enabled={enabled}
-                        setEnabled={setEnabled}
+                        currentSearchedCountry={currentSearchedCountry}
+                        setCurrentSearchedCountry={setCurrentSearchedCountry}
+                        comparisonEnabled={comparisonEnabled}
+                        setComparisonEnabled={setComparisonEnabled}
                     />
                 </div>
             </main>

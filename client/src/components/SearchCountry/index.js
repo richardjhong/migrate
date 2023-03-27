@@ -95,6 +95,7 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
           setCountryYearIndex={setCountryYearIndex} 
           currentSearchedCountry={currentSearchedCountry}
           setCurrentSearchedCountry={setCurrentSearchedCountry}
+          comparisonEnabled={false}
       />
     </div>
   );
