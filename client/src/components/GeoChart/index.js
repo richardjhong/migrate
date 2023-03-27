@@ -96,7 +96,7 @@ const GeoChart = ({ onClose, countryYearIndex, setCountryYearIndex, currentSearc
         </div> 
         <Chart
           width={'60vw'}
-          height={'1500px'}
+          height={'auto'}
           chartType="GeoChart"
           data={filteredCountries()}
           // Note: you will need to get a mapsApiKey for your project.
