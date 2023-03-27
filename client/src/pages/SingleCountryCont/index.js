@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import SingleCountryHeader from '../../components/SingleCountryHeader'
@@ -10,6 +10,11 @@ import './SingleCountryCont.scss'
 
 function SingleCountryCont({ countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) {
     const [chartTypeIndex, setChartTypeIndex] = useState('Bar');
+    const [enabled, setEnabled] = useState(false) // used for comparison toggle
+
+    useEffect(() => {
+        enabled ? setChartTypeIndex('Line') : setChartTypeIndex('Bar');
+    }, [enabled])
 
     return (
         <>
@@ -50,10 +55,10 @@ function SingleCountryCont({ countryYearIndex, setCountryYearIndex, currentSearc
                                 options={
                                     [
                                         {value: '', text: 'Select chart type', disabled: true},
-                                        {value: 'Bar', text: 'Bar'},
                                         {value: 'Line', text: 'Line'},
-                                        {value: 'Area', text: 'Area'},
-                                      ]
+                                        {value: 'Bar', text: 'Bar', disabled: enabled},
+                                        {value: 'Area', text: 'Area', disabled: enabled},
+                                    ]
                                 }
                                 affectedState={"chart"}
                             />
@@ -65,12 +70,13 @@ function SingleCountryCont({ countryYearIndex, setCountryYearIndex, currentSearc
                     <SingleCountry 
                         countryYearIndex={countryYearIndex} 
                         chartTypeIndex={chartTypeIndex}
+                        enabled={enabled}
+                        setEnabled={setEnabled}
                     />
                 </div>
             </main>
             <Footer />
         </>
-
     )
 }
 

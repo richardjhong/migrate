@@ -80,6 +80,7 @@ const CompareCountry = ({
            >
              Search
            </button>
+           <button onClick={() => setModalOpen(true)}>Open Map</button>
            {suggestions && suggestions.map((suggestions, i) =>
              <div className='suggestion'
                key={i}
@@ -88,7 +89,6 @@ const CompareCountry = ({
              >{suggestions.countryname}</div>
            )}
          </div>
-         <button onClick={() => setModalOpen(true)}>Open Map</button>
          {/* <Modal 
           isOpen={modalOpen} 
           onClose={() => setModalOpen(false)}

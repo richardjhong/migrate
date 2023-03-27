@@ -8,9 +8,7 @@ import { useSearch } from '../../utils/CountryContext';
 import { capitalizeFirstLetter } from '../../utils/helper'
 import CompareCountry from '../Comparison';
 
-export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
-
-  const [enabled, setEnabled] = useState(false) // used for comparison toggle
+export default function SingleCountry({ countryYearIndex, chartTypeIndex, enabled, setEnabled }) {
   const [comparedCountryData, setComparedCountryData] = useState([]);
   const { searches, updateSearch } = useSearch();
   const { countryname: countryParam } = useParams();
