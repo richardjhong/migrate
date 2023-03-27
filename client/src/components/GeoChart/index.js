@@ -15,6 +15,8 @@ const GeoChart =
   setCountryYearIndex, 
   currentSearchedCountry, 
   setCurrentSearchedCountry,
+  comparedCountry,
+  comparedCountryData,
   setComparedCountry,
   setComparedCountryData,
 }) => {
@@ -31,7 +33,7 @@ const GeoChart =
     if (!comparedCountryLoading && newComparedCountryData) {
       setComparedCountryData(newComparedCountryData?.singleCompileCountry?.year_catalog || [])
     }
-  }, [comparedCountryLoading, newComparedCountryData, setComparedCountryData]);
+  }, [comparedCountryLoading, newComparedCountryData, comparedCountryData, setComparedCountryData]);
 
   const countryYearIndexToYearMap = {
     '0': '2013',
@@ -137,21 +139,18 @@ const GeoChart =
                   setCurrentSearchedCountry(region);
                   searchCountryImages(region);
                   navigate(`/SingleCountry/${region}`);
-                  onClose();
                 } else {
                   try {
                     setComparedCountry(region);
                     delayedCompare({ variables: { countryname: region }});
-                    if (!comparedCountryLoading) {
-                      onClose();
-                    }
                   }
                   catch (err) {
                     console.error(err);
                   }
                 }
+                onClose();
               },
-            },
+            }
           ]}    
         />
       </div>

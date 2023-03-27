@@ -13,7 +13,9 @@ function SingleCountryCont({ countryYearIndex, setCountryYearIndex, currentSearc
     const [comparisonEnabled, setComparisonEnabled] = useState(false) // used for comparison toggle
 
     useEffect(() => {
-        comparisonEnabled ? setChartTypeIndex('Line') : setChartTypeIndex('Bar');
+        if (comparisonEnabled) {
+            setChartTypeIndex('Line');
+        }
     }, [comparisonEnabled])
 
     return (
