@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Navigate, useParams, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 import SearchCountry from '../../components/SearchCountry';
