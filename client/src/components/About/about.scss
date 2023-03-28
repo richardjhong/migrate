@@ -1,159 +1,166 @@
 .about {
-    margin:0 5% 0 5%;
-    min-height:100vh;
+    margin: 0 5% 0 5%;
+    min-height: 100vh;
 }
 
 .aboutSection {
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .aboutPics {
-    width:55%;
-    display:flex;
-    justify-content:center;
+    width: 55%;
+    display: flex;
+    justify-content: center;
 }
 
-.aboutPics img{
-    width:80%;
+.aboutPics img {
+    width: 80%;
 }
 
 .aboutText {
-    width:40%;
+    width: 40%;
 }
 
 .familyAboutPic {
-    margin-left:-160px;
-    transition:all .3s;
+    margin-left: -160px;
+    transition: all .3s;
 }
 
 .landscapeAboutPic {
-    z-index:5;
+    z-index: 5;
     transition: all .3s;
 }
 
 .spiLogo {
-    width:45%;
+    width: 30%;
+
 }
 
 .spiLogo img {
-    width:100%;
+    width: 100%;
 }
 
 .spiSection {
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .spiText {
-    margin:0 5% 0 5%;
-    width:45%;
+    margin: 0 5% 0 5%;
+    width: 45%;
 }
 
 .spiText2 {
-    margin:0 5% 0 5%;
-    width:100%;
+    margin: 0 5% 0 5%;
+    width: 100%;
 }
 
 figure {
-    display:flex;
-    justify-content:center;
-    flex-direction:column;
-    align-items: center;;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    ;
 }
 
 figcaption {
-    font-size:.5em;
-    font-style:italic;
-    background-color:var(--light);
-    padding:2px;
- 
+    font-size: .5em;
+    font-style: italic;
+    background-color: var(--light);
+    padding: 2px;
+
 }
 
 @media screen and (max-width: 1000px) {
     .familyAboutPic {
-        margin-left:-110px;
+        margin-left: -110px;
     }
 }
 
 @media screen and (max-width: 1200px) {
     .aboutPics {
-        flex-direction:column;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
     .familyAboutPic {
-        width:50%;
+        width: 50%;
         margin-left: 233px;
         order: 1;
         z-index: 10;
     }
+
     .landscapeAboutPic {
-        order:2;
-        position:relative;
-        top:-100px;
+        order: 2;
+        position: relative;
+        top: -100px;
     }
 }
 
 @media screen and (max-width: 700px) {
     .aboutPics {
-        flex-direction:column;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
-    .familyAboutPic {    
+    .familyAboutPic {
         margin-left: 220px;
         order: 1;
         z-index: 10;
     }
+
     .landscapeAboutPic {
-        order:2;
-        position:relative;
-        top:-100px;
+        order: 2;
+        position: relative;
+        top: -100px;
     }
 
 }
 
 @media screen and (min-width: 1440px) {
     .spiLogo {
-        width:30%;
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
     }
 }
 
 @media screen and (max-width:769px) {
     .aboutPics {
-        width:100%;
-        display:flex;
+        width: 100%;
+        display: flex;
         flex-direction: row;
     }
 
     .landscapeAboutPic {
-        width:45%;
-        margin:0;
-        top:0;
+        width: 45%;
+        margin: 0;
+        top: 0;
     }
 
     .familyAboutPic {
-        width:45%;
-        margin:0;
+        width: 45%;
+        margin: 0;
     }
 
     .aboutText {
-        width:100%;
+        width: 100%;
     }
 
 }
 
 @media screen and (max-width:430px) {
     .spiLogo {
-        width:100%;
+        width: 100%;
     }
 
     .spiText {
-        width:100%;
+        width: 100%;
     }
 }

@@ -3,6 +3,13 @@
   align-items: center;
   justify-content: center;
 }
+.compToggleCont {
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  text-align:center;
+  margin:0 1em;
+}
 
 .toggleText {
   padding-left: 10px;

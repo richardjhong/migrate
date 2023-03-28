@@ -1,7 +1,21 @@
+.alignSearchElements {
+  display:flex;
+  justify-content:space-around;
+}
+
+.mapDataContain {
+  width:15%;
+  margin:2em;
+}
+
 .searchdropdownContainer {
   display: flex;
-  padding-left:50px;
-  align-items: flex-start;
+  width: 70%;
+  align-items: center;
+  margin: 2em;
+  border: 5px solid var(--darkBackground);
+  padding: 1em;
+  border-radius: 10px;
 }
 
 .searchContainer {
@@ -12,15 +26,17 @@
 .dropdownContainer {
   display: flex;
   margin-left: auto;
-  padding-right: 50px;
+  // padding-right: 50px;
   margin-bottom: auto;
+  flex-direction:column;
+}
+
+.dropdownContainer h4 {
+  margin:0 0 1em 0;
 }
 
 .comparisonContainer {
   display: flex;
-  margin-left: auto;
-  margin-top: auto;
-  margin-bottom: auto;
 }
 
 .range-country {
