@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function FiveSavedSearches(country) {
     const [countryData, setCountryData] = useState([]);
-    console.log(country.country + ' from fivesearches component')
     const { loading, error, data } = useQuery(QUERY_COUNTRY_SPIYEAR, {
         variables: { country: country.country, spiyear: "2022" },
     });
@@ -15,11 +14,10 @@ export default function FiveSavedSearches(country) {
 
 
     useEffect(() => {
-        if (data) {
-            setCountryData(data.singleCountrySearchHistory);
+        if (!loading && data) {
+            setCountryData(data?.singleCountrySearchHistory);
         }
-    }, [data]);
-
+    }, [loading, data]);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
@@ -28,10 +26,9 @@ export default function FiveSavedSearches(country) {
         <div className='savedSearchCard' >
             <div >
                 <h2 className="">
-                    <button onClick={() => {
-                        navigate(`/SingleCountry/${countryData.country}`);
-                    }
-                    }>{countryData.country}</button>
+                    <button onClick={() => { navigate(`/SingleCountry/${countryData.country}`) }}>
+                        {countryData.country}
+                    </button>
                     
                 </h2>
                 <div className='dashCountryScore'>

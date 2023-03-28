@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 import SearchCountry from '../../components/SearchCountry';
@@ -19,7 +19,7 @@ let navigate = useNavigate();
   // dataC ? console.log((dataC.user) + ' dataC') : console.log('no data yet')
 
   const user = dataC?.me || dataC?.user || {};
-  let lastFiveSearches=(dataC.me.searchHistory)
+  let lastFiveSearches=(dataC?.me?.searchHistory)
   
   const { searches } = useSearch();
 
@@ -59,7 +59,9 @@ let navigate = useNavigate();
             <div className="dashboardContainer">
               {/* <div className='savedSearchCard' > */}
                 {loadingC ? (
-                  <div>Loading...</div>
+                  <>
+                    <div>Loading...</div>
+                  </>
                 ) :
                   <>
                   {lastFiveSearches.map((country, i) => (

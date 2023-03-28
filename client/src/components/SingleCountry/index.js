@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react';
 import CountryCards from "../CountryCards";
 import "./SingleCountry.scss";
 import { useParams, useNavigate } from 'react-router-dom';
@@ -6,7 +6,6 @@ import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_COMPILATION } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
 import { capitalizeFirstLetter } from '../../utils/helper'
-import CompareCountry from '../Comparison';
 
 const SingleCountry = 
 ({ 

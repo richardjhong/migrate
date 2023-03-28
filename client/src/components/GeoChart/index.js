@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import Chart from 'react-google-charts';
 import './GeoChart.scss';
 import { useNavigate } from 'react-router-dom';
-import { useQuery, useLazyQuery } from '@apollo/client';
-import { QUERY_COMPILATIONS, QUERY_SINGLE_COMPILATION } from '../../utils/queries';
+import { useQuery, useLazyQuery, useMutation } from '@apollo/client';
+import { QUERY_COMPILATIONS, QUERY_SINGLE_COMPILATION, QUERY_ME } from '../../utils/queries';
+import { ADD_SEARCH_HISTORY } from '../../utils/mutations';
 import { useSearch } from '../../utils/CountryContext';
 import { searchImage } from '../../utils/API';
 
@@ -25,8 +26,10 @@ const GeoChart =
   const { loading, data } = useQuery(QUERY_COMPILATIONS, {
     skip: geoCitiesInLocalStorage
   });
+  const { loading: loadingC, data: dataC } = useQuery(QUERY_ME);
   const { searches, addSearch } = useSearch();
   const countries = data?.countryCompilations || [];
+  const [addCountry, { error }] = useMutation(ADD_SEARCH_HISTORY);
   const [delayedCompare, { loading: comparedCountryLoading, data: newComparedCountryData }] = useLazyQuery(QUERY_SINGLE_COMPILATION);
 
   useEffect(() => {
@@ -95,7 +98,10 @@ const GeoChart =
     });
   };
 
-  const handleSetCountry = (region) => {
+  const handleSetCountry = async (region) => {
+    if (!loadingC && dataC) {
+      await addCountry({ variables: {userId: dataC?.me?._id, searchedCountries: region }});
+    }
     setCurrentSearchedCountry(region);
     searchCountryImages(region);
     navigate(`/SingleCountry/${region}`);
