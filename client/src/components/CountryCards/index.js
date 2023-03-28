@@ -51,7 +51,9 @@ export default function CountryCards({
         countryYearIndex, 
         chartTypeIndex, 
         comparedCountryProperties,
-        comparisonEnabled
+        comparisonEnabled,
+        comparedCountry,
+        currentSearchedCountry
     }) {
     let ref1 = useRef(null);
     let ref2 = useRef(null);
@@ -156,6 +158,8 @@ export default function CountryCards({
                                                                 countryYearIndex={countryYearIndex}
                                                                 comparedCountryFields={comparedFields}
                                                                 comparisonEnabled={comparisonEnabled}
+                                                                comparedCountry={comparedCountry}
+                                                                currentSearchedCountry={currentSearchedCountry}
                                                             />
                                                         )
                                                     case('Area'):

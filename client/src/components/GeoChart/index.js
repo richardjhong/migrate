@@ -150,12 +150,7 @@ const GeoChart =
                 if (!comparisonEnabled) {
                   handleSetCountry(region);
                 } else {
-                  try {
-                    handleCompareClick(region);
-                  }
-                  catch (err) {
-                    console.error(err);
-                  }
+                  handleCompareClick(region);
                 }
               },
             }
