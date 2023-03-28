@@ -3,7 +3,7 @@
   align-items: center;
 }
 
-.range input[orient=vertical] {
+.range-modal input[orient=vertical] {
   transform:rotate(90deg);
 }
 
@@ -13,6 +13,6 @@
   color: var(--lightBorder);
 }
 
-#rangeYearText {
+#rangeYearText-modal {
   color: var(--lightBorder);
 }
