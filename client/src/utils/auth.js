@@ -1,4 +1,5 @@
 import decode from 'jwt-decode';
+import { client } from '../App';
 
 class AuthService {
   getDashboard() {
@@ -34,6 +35,7 @@ class AuthService {
 
   logout() {
     localStorage.removeItem('id_token');
+    client.clearStore();
     // window.location.reload();
   }
 }
