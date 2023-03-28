@@ -1,7 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { getSavedCountries, saveCountries } from './localStorage';
 
-export const SearchContext = React.createContext();
+export const SearchContext = createContext();
 export const useSearch = () => useContext(SearchContext);
 
 export const SearchProvider= ({children})=>{

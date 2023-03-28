@@ -7,6 +7,12 @@ import "./SearchCountry.scss";
 import { useNavigate } from 'react-router-dom';
 import Modal from '../Modal';
 import OpenModal from '../OpenModal';
+import { ADD_SEARCH_HISTORY } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { QUERY_ME } from '../../utils/queries';
+
+
+
 
 const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) => {
   const { searches, addSearch } = useSearch();
@@ -14,14 +20,14 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
   const [searchImgInput, setSearchImgInput] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
-
+  const [addCountry, { error }] = useMutation(ADD_SEARCH_HISTORY);
   const { loading, data } = useQuery(QUERY_COMPILATIONS);
   const countries = data?.countryCompilations || [];
   const countryName = countries.map(data => data.countryname);
   let navigate = useNavigate();
-
   const [width, setWidth] = useState(window.innerWidth);
   const breakPoint = 2000;
+  const { loading: loadingC, data: dataC } = useQuery(QUERY_ME);
 
   useEffect(() => {
     const handleResizeWindow = () => setWidth(window.innerWidth);
@@ -33,16 +39,25 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
+    console.log(dataC.me._id + ' ' + searchImgInput+ ' query me in search')
+    const loggedUser = dataC.me._id;
     if (!searchImgInput) {
       return false;
     }
     const searchedImages = await searchImage(searchImgInput);
+    
 
     //if data doesn't exist in localStorage, save it to localStorage
     if (searches.findIndex(country => country.name === searchImgInput) === -1) {
       await addSearch(searchedImages);
     }
+
+    try {
+      await addCountry({ variables: {userId: dataC.me._id,  searchedCountries: searchImgInput } });
+    } catch (e) {
+      console.log(e);
+    }
+
     setSuggestions([]);
     setCurrentSearchedCountry(searchImgInput);
     navigate(`/SingleCountry/${searchImgInput}`);

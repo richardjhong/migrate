@@ -20,8 +20,11 @@ const PolarChart = ({fields}) => {
                                 key={i}
                                 label={d}
                                 labelPlacement="perpendicular"
-                                style={{ tickLabels: { fill: "none", fontSize: 30, padding: 25 } }}
+                                style={{ tickLabels: { fill: "none", fontSize: 30, padding: 25 },
+                                }}
                                 axisValue={d}
+                                
+                                
                             />
                         );
                     })

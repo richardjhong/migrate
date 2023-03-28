@@ -1,0 +1,81 @@
+.dashboardContainer {
+   display:flex;
+   justify-content:flex-start;
+   flex-wrap:wrap;
+}
+
+.dashSearch {
+   display:flex;
+   height:300px;
+ margin:0 0 2em 2em;
+   width:90%;
+}
+
+.dashCountryScore {
+   display:flex;
+   justify-content:space-between;
+}
+
+.dashSearch .singleCountryInput {
+   margin:0 0 3em 0;
+}
+
+
+.savedSearchCard {
+   display: flex;
+   justify-content:space-around;
+   align-items: flex-start;
+   width: 25%;
+   height: auto;
+   overflow: hidden;
+   border: solid 5px var(--lightBorder);
+   background-color: var(--darkBackground);
+   color: var(--light);
+   margin:0 1em 3em 1em;
+   border-radius: 30px;
+   padding:20px;
+   transition:box-shadow .2s;
+   color:var(--light);
+   overflow:hidden;
+   flex-wrap:wrap;
+   cursor:pointer;
+};
+
+.savedSearchCard a{
+   color:var(--lightBorder);
+}
+
+.savedSearchCard a:hover {
+   color:var(--light);
+}
+
+.savedSearchCard h4 {
+   margin-right:1em;
+}
+
+.cardTitle {
+   display:flex;
+   flex-direction:column;
+   justify-content:space-between;
+   width:45%;
+}
+
+.dashMain {
+   margin-left:5%;
+}
+
+.savedSearchCard:hover {
+box-shadow: 0px 0px 10px var(--dark);
+}
+
+@media screen and (max-width:1200px) {
+.savedSearchCard {
+   width:40%;
+}
+}
+
+@media screen and (max-width:960px) {
+   .savedSearchCard {
+      width:90%;
+   }
+}

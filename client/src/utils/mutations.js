@@ -24,16 +24,25 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_SEARCH_HISTORY = gql`
-  mutation addSearchHistory($searchedCountry: String!) {
-    addSearchHistory(searchedCountry: $searchedCountry) {
-      _id
-      username
-      email
-      searchHistory {
-        country
-        createdAt
-      }
-    }
+// export const ADD_SEARCH_HISTORY = gql`
+// mutation AddSearchHistory($userId: ID!, $searchedCountries: String!) {
+//   addSearchHistory(userId: $userId, searchedCountries: $searchedCountries) {
+//     username
+//     email
+//     searchHistory {
+//       searchedCountries
+//     }
+//   }
+// }
+//   `;
+
+  export const ADD_SEARCH_HISTORY = gql`
+mutation AddSearchHistory($userId: ID!, $searchedCountries: String!) {
+  addSearchHistory(userId: $userId, searchedCountries: $searchedCountries) {
+    _id
+    username
+    email
+    searchHistory 
   }
+}
   `;

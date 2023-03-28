@@ -1,6 +1,14 @@
 const { Schema, model, Types } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+// const searchHistorySchema = new Schema(
+//   {
+//     searchedCountry: {
+//       type:String
+//     }
+//   }
+// )
+
 const userSchema = new Schema(
   {
     username: {
@@ -23,9 +31,9 @@ const userSchema = new Schema(
       {
         type: Schema.Types.ObjectId,
         ref: 'Comment'
-
-  },
-],
+      },
+    ],
+    searchHistory: [String]
   }
 );
 

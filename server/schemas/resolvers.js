@@ -37,6 +37,10 @@ const resolvers = {
         $regex : new RegExp(countryname, "i") }
        }).populate('year_catalog')
     },
+    singleCountrySearchHistory: async (parent, { country, spiyear }) => {
+      const foundCountry = await Country.findOne({ country: country, spiyear: spiyear });
+      return foundCountry;
+    },
     comments: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Comment.find(params).sort({ createdAt: -1 });
@@ -85,15 +89,26 @@ const resolvers = {
 
       return { token, user };
     },
-    addSearchHistory: async (parent, { searchInput }, context) => {
-      if (context.user) {
-        const searchHistory = await SearchHistory.create({
-          searchInput,//does this need to match the model?
-          searchAuthor: context.user.username, ///does this need to match the model?
-        });
-        throw new AuthenticationError('You need to be logged in!');
-      }
-  },
+  
+  addSearchHistory: async (parent, { userId, searchedCountries}, context) => {
+    if(context.user) {
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      // { $push: { searchHistory:  searchedCountries  } },
+      { 
+        $push: { 
+          searchHistory: {
+            $each: [searchedCountries],
+            $slice: -5
+          }
+        }
+      },
+      { new: true }
+    );
+
+    return updatedUser;
+  }
+}
 }};
 
 
