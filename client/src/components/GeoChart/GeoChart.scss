@@ -3,8 +3,8 @@
   align-items: center;
 }
 
-.range-modal input[orient=vertical] {
-  transform:rotate(90deg);
+.range-modal input[type='range'] {
+  transform:rotate(270deg);
 }
 
 .chart-title {
