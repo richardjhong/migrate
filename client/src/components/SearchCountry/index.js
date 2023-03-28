@@ -78,7 +78,7 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
       <div className='singleCountryCont'>
         <div className="singleCountryInput">
           <div className='splashOpenMap'>
-          {width > breakPoint && <button onClick={() => setModalOpen(true)}>Open Map</button>}
+          {width > breakPoint && <button onClick={() => setModalOpen(true)}>Open Interactive Map</button>}
             {/* <OpenModal /> */}
           </div>
           <input
