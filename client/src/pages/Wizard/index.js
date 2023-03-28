@@ -108,9 +108,7 @@ function CountryRecs() {
     const pfcUser = document.getElementById('pfcUser');
     const inclUser = document.getElementById('inclUser');
     const aaeUser = document.getElementById('aaeUser');
-    console.log(nbmcUser.value)
     const [spiyear, setSpiyear] = useState("2022");
-    console.log(spiyear)
     const { loading, error, data } = useQuery(QUERY_COUNTRY_ADJUST, {
         variables: { spiyear: spiyear },
     });

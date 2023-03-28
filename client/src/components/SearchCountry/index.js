@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { searchImage } from '../../utils/API';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_COMPILATIONS } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
 import "./SearchCountry.scss";
 import { useNavigate } from 'react-router-dom';
 import Modal from '../Modal';
-import OpenModal from '../OpenModal';
 import { ADD_SEARCH_HISTORY } from '../../utils/mutations';
-import { useMutation } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
-
-
-
 
 const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) => {
   const { searches, addSearch } = useSearch();
@@ -39,8 +34,6 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(dataC.me._id + ' ' + searchImgInput+ ' query me in search')
-    const loggedUser = dataC.me._id;
     if (!searchImgInput) {
       return false;
     }
@@ -54,8 +47,8 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
 
     try {
       await addCountry({ variables: {userId: dataC.me._id,  searchedCountries: searchImgInput } });
-    } catch (e) {
-      console.log(e);
+    } catch (err) {
+      console.log(err);
     }
 
     setSuggestions([]);
@@ -83,8 +76,6 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
   return (
     <div className='splashSearchCont'>
       <div className='singleCountryCont'>
-
-
         <div className="singleCountryInput">
           <div className='splashOpenMap'>
           {width > breakPoint && <button onClick={() => setModalOpen(true)}>Open Map</button>}
@@ -103,14 +94,11 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
             Search
           </button>
         </div>
-        <div className='suggestionCont'>
-          
+        <div className='suggestionCont'>   
         {suggestions && suggestions.map((suggestions, i) =>
             <div className='suggestion'
               key={i}
               onClick={() => onSuggestHandler(suggestions.countryname)}
-
-
             >{suggestions.countryname}</div>
           )}
         </div>

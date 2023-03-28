@@ -55,6 +55,7 @@ const CompareCountry = ({
 
     try {
       delayedCompare({ variables: { countryname: capitalizeFirstLetter(comparedCountry) }});
+      setSuggestions([]);
     }
     catch (err) {
       console.error(err);
@@ -67,7 +68,6 @@ const CompareCountry = ({
         <>
          <div className="singleCountryInput">
            <input
-             className=""
              type="text"
              placeholder="Search Country"
              onChange={(e) => onChangeHandler(e.target.value)}
