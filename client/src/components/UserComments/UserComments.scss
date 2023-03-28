@@ -7,21 +7,23 @@
 }
 
 .tickerContent {
-    width:100%;
+    // width:100%;
     display:flex;
     justify-content:space-between;
-    overflow:hidden;
-    animation: tickerAnimate 30s linear infinite;
-    margin-right:2em;
+    // overflow:hidden;
+    animation: tickerAnimate 40s linear infinite;
+    // margin-right:2em;
 
 }
 
 .tickerContent:hover {
     animation-play-state: paused;
-    
 }
 
-
+.tickerTextContain {
+  margin-right: 3em;
+  min-width: 250px
+}
 
 .tickerAuthor {
     font-style:italic;

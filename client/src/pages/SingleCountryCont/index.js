@@ -8,6 +8,7 @@ import Dropdown from '../../components/Dropdown';
 import UserComments from '../../components/UserComments';
 import CompareCountry from '../../components/Comparison';
 import './SingleCountryCont.scss'
+import OpenModal from '../../components/OpenModal';
 
 const SingleCountryCont = 
 ({ 

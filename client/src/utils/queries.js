@@ -20,6 +20,7 @@ export const QUERY_ME = gql`
       _id
       username
       email
+      searchHistory
     }
   }
  `;
@@ -209,4 +210,17 @@ export const QUERY_SINGLE_COMMENT = gql`
       country     
     }
   }
+`
+
+export const QUERY_COUNTRY_SPIYEAR = gql`
+query SingleCountrySearchHistory($country: String, $spiyear: String) {
+  singleCountrySearchHistory(country: $country, spiyear: $spiyear) {
+    rank_score_spi
+    score_spi
+    score_bhn
+    score_fow
+    score_opp
+    country
+  }
+}
 `

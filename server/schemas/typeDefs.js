@@ -1,19 +1,15 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+
+
   type User {
     _id: ID
     username: String
     email: String
     password: String
     comments: [Comment]
-    
-  }
-
-  type SearchHistory {
-    user: User
-    searchedCountry: String
-    createdAt: String
+    searchHistory: [String]
   }
 
   type Auth {
@@ -66,7 +62,7 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     me: User
-    searchHistory(username: String): [SearchHistory]
+    searchHistory(username: String): [User]
     countries: [Country]
     countriesAdjust(spiyear: String): [Country]
     countryCompilations: [CountryCompilation]
@@ -74,13 +70,13 @@ const typeDefs = gql`
     comments(username: String): [Comment]
     comment(commentId: ID!): Comment
     commentCountry(country:String):[Comment]
-
+    singleCountrySearchHistory( country: String, spiyear:String ):Country
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addSearchHistory(userId: ID!, searchedCountry: String!): User
+    addSearchHistory(userId: ID!, searchedCountries: String!): User
     addComment(commentText: String!, commentAuthor: String!,country: String): Comment
       }
 
@@ -91,6 +87,4 @@ const typeDefs = gql`
     country: String
   }
 `
-
-
 module.exports = typeDefs;

@@ -84,12 +84,12 @@ const GeoChart =
   };
 
   const options = {
-    colorAxis: { colors: ["#b4d330", "#6c998f"] },
-    backgroundColor: "#81d4fa",
+    colorAxis: { colors: ["#b4d330", "#04566e"] },
+    backgroundColor: "#94b0da",
   };
 
   const filteredCountries = () => {
-   return savedGeoCountries[countryYearIndexToYearMap[countryYearIndex]].filter(individualGeoData => {
+   return savedGeoCountries[countryYearIndexToYearMap[countryYearIndex]]?.filter(individualGeoData => {
       const [name, spi_score] = individualGeoData;
       return name !== currentSearchedCountry;
     });

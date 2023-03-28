@@ -63,17 +63,39 @@ export default function Wizard() {
                         <button onClick={handleClick}>Calculate</button>
                     </section>
                 </div>
-                {buttonClicked ? <CountryRecs /> : <></>}
+                {(buttonClicked ? <CountryRecs /> : <></>)}
             </div>
             <Footer />
         </>
     )
 }
 
+// function StoredCountryRecs(props) {
+//     let navigate = useNavigate();
+//     let topTen=JSON.parse(localStorage.getItem('topNationWizard'))
+//     return (
+//         <div className='topTenResults'>
+//             <h2>Revised Country Rankings</h2>
+            
+//             {topTen.map((country, i) => (
+//                 <div className='topTenCard' key={i}>
+
+//                     <button className='topCountryButton' onClick={() => navigate(`/SingleCountry/${country.countryName}`)} ><h2>{country.countryName}</h2><span className='clickDirections'>Click for more information...</span></button>
+
+
+//                     <div className='revSPI'><h3>Revised score: {country.revisedSPI}</h3></div>
+//                     <div className='origSPI'><h3>Original score: {country.origSPI}</h3></div>
+//                 </div>
+//             ))}
+//         </div>
+//     )
+// }
+
 function CountryRecs() {
     let navigate = useNavigate();
-    let revisedCountryRanks = [];
     let topTen = [];
+    let revisedCountryRanks = [];
+    
     const nbmcUser = document.getElementById('nbmcUser');
     const wsUser = document.getElementById('wsUser');
     const shUser = document.getElementById('shUser');
@@ -116,6 +138,7 @@ function CountryRecs() {
         }
         revisedCountryRanks.sort((a, b) => b.revisedSPI - a.revisedSPI);
         topTen = revisedCountryRanks.slice(0, 10);
+        localStorage.setItem("topNationWizard", JSON.stringify(topTen));
 
 
         return (
