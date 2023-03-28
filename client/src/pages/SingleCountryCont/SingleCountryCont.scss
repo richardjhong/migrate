@@ -1,11 +1,35 @@
 .searchdropdownContainer {
   display: flex;
-  justify-content: flex-start;
   padding-left:50px;
+  align-items: flex-start;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .dropdownContainer {
-  display:flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  display: flex;
+  margin-left: auto;
+  padding-right: 50px;
+  margin-bottom: auto;
+}
+
+.comparisonContainer {
+  display: flex;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.range-country {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#rangeYearText {
+  color: var(--darkBackground);
 }

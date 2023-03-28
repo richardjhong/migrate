@@ -26,7 +26,7 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
   const countryName = countries.map(data => data.countryname);
   let navigate = useNavigate();
   const [width, setWidth] = useState(window.innerWidth);
-  const breakPoint = 2000;
+  const breakPoint = 1000;
   const { loading: loadingC, data: dataC } = useQuery(QUERY_ME);
 
   useEffect(() => {
@@ -87,7 +87,7 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
 
         <div className="singleCountryInput">
           <div className='splashOpenMap'>
-            <button onClick={() => setModalOpen(true)}>Open Interactive Map</button>
+          {width > breakPoint && <button onClick={() => setModalOpen(true)}>Open Map</button>}
             {/* <OpenModal /> */}
           </div>
           <input
@@ -104,7 +104,8 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
           </button>
         </div>
         <div className='suggestionCont'>
-          {suggestions && suggestions.map((suggestions, i) =>
+          
+        {suggestions && suggestions.map((suggestions, i) =>
             <div className='suggestion'
               key={i}
               onClick={() => onSuggestHandler(suggestions.countryname)}
@@ -114,14 +115,14 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
           )}
         </div>
       </div>
-
-      <Modal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        countryYearIndex={countryYearIndex}
-        setCountryYearIndex={setCountryYearIndex}
-        currentSearchedCountry={currentSearchedCountry}
-        setCurrentSearchedCountry={setCurrentSearchedCountry}
+      <Modal 
+          isOpen={modalOpen} 
+          onClose={() => setModalOpen(false)}
+          countryYearIndex={countryYearIndex} 
+          setCountryYearIndex={setCountryYearIndex} 
+          currentSearchedCountry={currentSearchedCountry}
+          setCurrentSearchedCountry={setCurrentSearchedCountry}
+          comparisonEnabled={false}
       />
     </div>
   );

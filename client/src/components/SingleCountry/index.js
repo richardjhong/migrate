@@ -8,15 +8,18 @@ import { useSearch } from '../../utils/CountryContext';
 import { capitalizeFirstLetter } from '../../utils/helper'
 import CompareCountry from '../Comparison';
 
-export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
-
-  const [enabled, setEnabled] = useState(false) // used for comparison toggle
-  const [comparedCountryData, setComparedCountryData] = useState([]);
+const SingleCountry = 
+({ 
+  countryYearIndex, 
+  chartTypeIndex, 
+  currentSearchedCountry, 
+  comparedCountry,
+  comparedCountryData,
+  comparisonEnabled, 
+}) => {
   const { searches, updateSearch } = useSearch();
   const { countryname: countryParam } = useParams();
-  const [comparedCountry, setComparedCountry] = useState("");
   const navigate = useNavigate();
-
 
   // account for transforming manual entries that do not have a capital letter
   const caseTransformedCountryParam = capitalizeFirstLetter(countryParam);
@@ -47,14 +50,6 @@ export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
 
   return (
     <>
-      <CompareCountry 
-        enabled={enabled} 
-        setEnabled={setEnabled} 
-        baseCountry={countryParam} 
-        comparedCountry={comparedCountry}
-        setComparedCountry={setComparedCountry}
-        setComparedCountryData={setComparedCountryData}
-      />
       <div className='containerCenter'>
         <div className='countryCardContainer'>
           {/* accounts for letting asynchronous conditional check of navigate to homepage to assess before possibly passing year_catalog that is undefined */}
@@ -63,7 +58,13 @@ export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
           ) : (
             <>
               <CountryCards
-                countryProperties={singleCountry} countryYearIndex={countryYearIndex} chartTypeIndex={chartTypeIndex} comparedCountryProperties={comparedCountryData} enabled={enabled}
+                countryProperties={singleCountry} 
+                countryYearIndex={countryYearIndex} 
+                chartTypeIndex={chartTypeIndex} 
+                comparedCountryProperties={comparedCountryData} 
+                comparisonEnabled={comparisonEnabled}
+                comparedCountry={comparedCountry}
+                currentSearchedCountry={currentSearchedCountry}
               />
             </>
           )}
@@ -72,3 +73,5 @@ export default function SingleCountry({ countryYearIndex, chartTypeIndex }) {
     </>
   )
 }
+
+export default SingleCountry;

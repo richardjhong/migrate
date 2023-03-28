@@ -16,3 +16,10 @@
 .modalClose {
   margin-left:133px;
 }
+
+.modalElementsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

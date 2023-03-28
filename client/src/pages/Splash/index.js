@@ -5,7 +5,7 @@ import Footer from '../../components/Footer';
 import SearchCountry from '../../components/SearchCountry';
 // import OpenModal from '../../components/OpenModal';
 
-function Splash({ countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) {
+const Splash = ({ countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) => {
     return (
         <>
             <Header />

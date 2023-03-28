@@ -65,12 +65,14 @@ function App() {
             />
             <Route
               index
-              element={<Splash 
-                          countryYearIndex={countryYearIndex} 
-                          setCountryYearIndex={setCountryYearIndex} 
-                          currentSearchedCountry={currentSearchedCountry} 
-                          setCurrentSearchedCountry={setCurrentSearchedCountry}
-                        />}
+              element={
+                <Splash 
+                  countryYearIndex={countryYearIndex} 
+                  setCountryYearIndex={setCountryYearIndex} 
+                  currentSearchedCountry={currentSearchedCountry} 
+                  setCurrentSearchedCountry={setCurrentSearchedCountry}
+                />
+              }
             />
             <Route
             path="/form"
