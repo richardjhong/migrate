@@ -4,8 +4,8 @@ import Footer from '../../components/Footer';
 import SingleCountryHeader from '../../components/SingleCountryHeader'
 import SingleCountry from '../../components/SingleCountry';
 import SearchCountry from '../../components/SearchCountry';
-import Dropdown from '../../components/Dropdown'
-import UserComments from '../../components/UserComments'
+import Dropdown from '../../components/Dropdown';
+import UserComments from '../../components/UserComments';
 import './SingleCountryCont.scss'
 
 function SingleCountryCont({ countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) {
@@ -64,8 +64,7 @@ function SingleCountryCont({ countryYearIndex, setCountryYearIndex, currentSearc
                                 }
                                 affectedState={"chart"}
                             />
-                        </div>
-                        
+                        </div>  
                     </div>
                 </div>
                 <div>

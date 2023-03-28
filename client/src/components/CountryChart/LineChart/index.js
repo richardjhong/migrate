@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { VictoryChart, VictoryAxis, VictoryLabel, VictoryLine, VictoryContainer, VictoryScatter, VictoryLegend } from "victory";
 import '../CountryChart.scss';
 
 const LineChart = ({
   fields, countryYearIndex, comparedCountryFields, comparisonEnabled, comparedCountry, currentSearchedCountry
 }) => {
-
   return (
     <div className="chartContainer">
       <VictoryChart 
@@ -33,12 +32,12 @@ const LineChart = ({
           domain={{y: [0, 100]}}
           labels={({ datum }) => !comparisonEnabled ? datum.y : null}
           data={[
-            { x: "2013", y: fields["2013"]},
+            { x: "2013", y: fields["2013"] },
             { x: "2014", y: fields["2014"] },
             { x: "2015", y: fields["2015"] },
             { x: "2016", y: fields["2016"] },
             { x: "2017", y: fields["2017"] },
-            { x: "2018", y: fields["2018"]},
+            { x: "2018", y: fields["2018"] },
             { x: "2019", y: fields["2019"] },
             { x: "2020", y: fields["2020"] },
             { x: "2021", y: fields["2021"] },
