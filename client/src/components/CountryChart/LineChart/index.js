@@ -3,7 +3,12 @@ import { VictoryChart, VictoryAxis, VictoryLabel, VictoryLine, VictoryContainer,
 import '../CountryChart.scss';
 
 const LineChart = ({
-  fields, countryYearIndex, comparedCountryFields, comparisonEnabled, comparedCountry, currentSearchedCountry
+  fields, 
+  countryYearIndex, 
+  comparedCountryFields, 
+  comparisonEnabled, 
+  comparedCountry, 
+  currentSearchedCountry
 }) => {
   return (
     <div className="chartContainer">
