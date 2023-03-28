@@ -6,11 +6,20 @@ import SingleCountry from '../../components/SingleCountry';
 import SearchCountry from '../../components/SearchCountry';
 import Dropdown from '../../components/Dropdown';
 import UserComments from '../../components/UserComments';
+import CompareCountry from '../../components/Comparison';
 import './SingleCountryCont.scss'
 
-function SingleCountryCont({ countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) {
+const SingleCountryCont = 
+({ 
+    countryYearIndex, 
+    setCountryYearIndex, 
+    currentSearchedCountry, 
+    setCurrentSearchedCountry 
+}) => {
     const [chartTypeIndex, setChartTypeIndex] = useState('Bar');
     const [comparisonEnabled, setComparisonEnabled] = useState(false) // used for comparison toggle
+    const [comparedCountryData, setComparedCountryData] = useState([]);
+    const [comparedCountry, setComparedCountry] = useState("");
 
     useEffect(() => {
         if (comparisonEnabled) {
@@ -26,12 +35,29 @@ function SingleCountryCont({ countryYearIndex, setCountryYearIndex, currentSearc
                     <SingleCountryHeader />
                     <UserComments />
                     <div className="searchdropdownContainer">
-                        <SearchCountry 
-                            countryYearIndex={countryYearIndex} 
-                            setCountryYearIndex={setCountryYearIndex}
-                            currentSearchedCountry={currentSearchedCountry}
-                            setCurrentSearchedCountry={setCurrentSearchedCountry}
-                        />
+                        <div className="searchContainer">
+                            <SearchCountry 
+                                countryYearIndex={countryYearIndex} 
+                                setCountryYearIndex={setCountryYearIndex}
+                                currentSearchedCountry={currentSearchedCountry}
+                                setCurrentSearchedCountry={setCurrentSearchedCountry}
+                            />
+                        </div>
+                        <div className="comparisonContainer">
+                            <CompareCountry 
+                                comparisonEnabled={comparisonEnabled} 
+                                setComparisonEnabled={setComparisonEnabled} 
+                                baseCountry={currentSearchedCountry} 
+                                comparedCountry={comparedCountry}
+                                setComparedCountry={setComparedCountry}
+                                comparedCountryData={comparedCountryData}
+                                setComparedCountryData={setComparedCountryData}
+                                countryYearIndex={countryYearIndex}
+                                setCountryYearIndex={setCountryYearIndex}
+                                currentSearchedCountry={currentSearchedCountry}
+                                setCurrentSearchedCountry={setCurrentSearchedCountry}
+                            />
+                        </div>
                         <div className="dropdownContainer">
                             <Dropdown 
                                 countryYearIndex={countryYearIndex} setCountryYearIndex={setCountryYearIndex} 
@@ -76,6 +102,10 @@ function SingleCountryCont({ countryYearIndex, setCountryYearIndex, currentSearc
                         setCurrentSearchedCountry={setCurrentSearchedCountry}
                         comparisonEnabled={comparisonEnabled}
                         setComparisonEnabled={setComparisonEnabled}
+                        comparedCountryData={comparedCountryData}
+                        setComparedCountryData={setComparedCountryData}
+                        comparedCountry={comparedCountry}
+                        setComparedCountry={setComparedCountry}
                     />
                 </div>
             </main>

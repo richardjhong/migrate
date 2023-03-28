@@ -4,6 +4,7 @@ import { useQuery, useLazyQuery } from '@apollo/client';
 import { QUERY_COMPILATIONS, QUERY_SINGLE_COMPILATION } from '../../utils/queries';
 import { capitalizeFirstLetter } from '../../utils/helper';
 import Modal from '../Modal';
+import './Comparison.scss';
 
 const CompareCountry = ({ 
   comparisonEnabled, 
@@ -61,14 +62,7 @@ const CompareCountry = ({
   };
   
   return (
-    <div>
-      <span>Compare Countries</span>
-      <SwitchToggle 
-        isOn={comparisonEnabled}
-        handleToggle={() => setComparisonEnabled(!comparisonEnabled)}
-        onColor="#06D6A0"
-        offColor="#EF476F"
-      />
+    <div className="compareContainer">
       {comparisonEnabled && 
         <>
          <div className="singleCountryInput">
@@ -109,6 +103,13 @@ const CompareCountry = ({
         />
        </>
       }
+      <SwitchToggle 
+        isOn={comparisonEnabled}
+        handleToggle={() => setComparisonEnabled(!comparisonEnabled)}
+        onColor="#06D6A0"
+        offColor="#EF476F"
+        />
+      <p className="toggleText">Compare Countries</p>
     </div>
   )
 }

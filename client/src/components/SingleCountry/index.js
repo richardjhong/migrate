@@ -8,11 +8,17 @@ import { useSearch } from '../../utils/CountryContext';
 import { capitalizeFirstLetter } from '../../utils/helper'
 import CompareCountry from '../Comparison';
 
-export default function SingleCountry({ countryYearIndex, setCountryYearIndex, chartTypeIndex, currentSearchedCountry, setCurrentSearchedCountry, comparisonEnabled, setComparisonEnabled }) {
-  const [comparedCountryData, setComparedCountryData] = useState([]);
+const SingleCountry = 
+({ 
+  countryYearIndex, 
+  chartTypeIndex, 
+  currentSearchedCountry, 
+  comparedCountry,
+  comparedCountryData,
+  comparisonEnabled, 
+}) => {
   const { searches, updateSearch } = useSearch();
   const { countryname: countryParam } = useParams();
-  const [comparedCountry, setComparedCountry] = useState("");
   const navigate = useNavigate();
 
   // account for transforming manual entries that do not have a capital letter
@@ -44,19 +50,6 @@ export default function SingleCountry({ countryYearIndex, setCountryYearIndex, c
 
   return (
     <>
-      <CompareCountry 
-        comparisonEnabled={comparisonEnabled} 
-        setComparisonEnabled={setComparisonEnabled} 
-        baseCountry={countryParam} 
-        comparedCountry={comparedCountry}
-        setComparedCountry={setComparedCountry}
-        comparedCountryData={comparedCountryData}
-        setComparedCountryData={setComparedCountryData}
-        countryYearIndex={countryYearIndex}
-        setCountryYearIndex={setCountryYearIndex}
-        currentSearchedCountry={currentSearchedCountry}
-        setCurrentSearchedCountry={setCurrentSearchedCountry}
-      />
       <div className='containerCenter'>
         <div className='countryCardContainer'>
           {/* accounts for letting asynchronous conditional check of navigate to homepage to assess before possibly passing year_catalog that is undefined */}
@@ -80,3 +73,5 @@ export default function SingleCountry({ countryYearIndex, setCountryYearIndex, c
     </>
   )
 }
+
+export default SingleCountry;
