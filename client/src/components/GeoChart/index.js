@@ -16,8 +16,8 @@ const GeoChart =
   currentSearchedCountry, 
   setCurrentSearchedCountry,
   comparedCountry,
-  comparedCountryData,
   setComparedCountry,
+  comparedCountryData,
   setComparedCountryData,
 }) => {
   const geoCitiesInLocalStorage = localStorage.getItem('saved_geo_countries')
@@ -46,7 +46,7 @@ const GeoChart =
     '7': '2020',
     '8': '2021',
     '9': '2022'
-  }
+  };
 
   const savedGeoCountries = geoCitiesInLocalStorage ? JSON.parse(geoCitiesInLocalStorage) : 
   {
@@ -68,11 +68,11 @@ const GeoChart =
         if (individualYear.status === "Ranked") {
           const newGeoData = [country.countryname, individualYear.rank_score_spi]
           savedGeoCountries[individualYear.spiyear].push(newGeoData);
-        }
-      })
-    })
+        };
+      });
+    });
     localStorage.setItem('saved_geo_countries', JSON.stringify(savedGeoCountries));
-  }
+  };
 
   const searchCountryImages = async (country) => {
     const results = await searchImage(country);
@@ -80,8 +80,8 @@ const GeoChart =
       //if data doesn't exist in localStorage, save it to localStorage
     if (searches.findIndex(country => country.name === country) === -1) {
       await addSearch(results);
-    }
-  }
+    };
+  };
 
   const options = {
     colorAxis: { colors: ["#b4d330", "#6c998f"] },
@@ -92,7 +92,19 @@ const GeoChart =
    return savedGeoCountries[countryYearIndexToYearMap[countryYearIndex]].filter(individualGeoData => {
       const [name, spi_score] = individualGeoData;
       return name !== currentSearchedCountry;
-    })
+    });
+  };
+
+  const handleSetCountry = (region) => {
+    setCurrentSearchedCountry(region);
+    searchCountryImages(region);
+    navigate(`/SingleCountry/${region}`);
+    onClose();
+  }
+  const handleCompareClick = async (region) => {
+    setComparedCountry(region);
+    await delayedCompare({ variables: { countryname: region }});
+    onClose();
   }
 
   return (
@@ -102,7 +114,7 @@ const GeoChart =
         : `Country SPI Rankings ${countryYearIndexToYearMap[countryYearIndex]}`}
         </h2>
       <div className="chart-container">
-        <div className="range">
+        <div className="range-modal">
           <input 
             type="range" 
             id="year-range-selector"
@@ -114,7 +126,7 @@ const GeoChart =
             orient="vertical"
             onChange={(e) => setCountryYearIndex(e.target.value)}
           />
-          <p id="rangeYearText">{countryYearIndexToYearMap[countryYearIndex]}</p> 
+          <p id="rangeYearText-modal">{countryYearIndexToYearMap[countryYearIndex]}</p> 
         </div> 
         <Chart
           width={'60vw'}
@@ -136,19 +148,15 @@ const GeoChart =
                 const [region, spi_score] = filteredCountries()[selection[0].row + 1]; 
 
                 if (!comparisonEnabled) {
-                  setCurrentSearchedCountry(region);
-                  searchCountryImages(region);
-                  navigate(`/SingleCountry/${region}`);
+                  handleSetCountry(region);
                 } else {
                   try {
-                    setComparedCountry(region);
-                    delayedCompare({ variables: { countryname: region }});
+                    handleCompareClick(region);
                   }
                   catch (err) {
                     console.error(err);
                   }
                 }
-                onClose();
               },
             }
           ]}    

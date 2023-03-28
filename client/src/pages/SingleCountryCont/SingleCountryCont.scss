@@ -9,3 +9,14 @@
   justify-content: flex-start;
   align-items: flex-start;
 }
+
+.range-country {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#rangeYearText {
+  color: var(--darkBackground);
+}
