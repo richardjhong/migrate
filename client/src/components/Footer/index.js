@@ -2,8 +2,7 @@ import React from 'react';
 import './Footer.scss'
 import { websiteTechStack } from './techstackData'
 import ReactTooltip from 'react-tooltip';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'mui-image';
 
 const Footer = () => {
