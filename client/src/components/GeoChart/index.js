@@ -21,7 +21,7 @@ const GeoChart =
   comparedCountryData,
   setComparedCountryData,
 }) => {
-  const geoCitiesInLocalStorage = localStorage.getItem('saved_geo_countries')
+  const geoCitiesInLocalStorage = localStorage.getItem('saved_geo_countries');
   let navigate = useNavigate();
   const { loading, data } = useQuery(QUERY_COMPILATIONS, {
     skip: geoCitiesInLocalStorage
@@ -34,8 +34,8 @@ const GeoChart =
 
   useEffect(() => {
     if (!comparedCountryLoading && newComparedCountryData) {
-      setComparedCountryData(newComparedCountryData?.singleCompileCountry?.year_catalog || [])
-    }
+      setComparedCountryData(newComparedCountryData?.singleCompileCountry?.year_catalog || []);
+    };
   }, [comparedCountryLoading, newComparedCountryData, comparedCountryData, setComparedCountryData]);
 
   const countryYearIndexToYearMap = {
@@ -58,7 +58,7 @@ const GeoChart =
     countries.forEach(country => {
       country.year_catalog.forEach(individualYear => {
         if (individualYear.status === "Ranked") {
-          const newGeoData = [country.countryname, individualYear.rank_score_spi]
+          const newGeoData = [country.countryname, individualYear.rank_score_spi];
           savedGeoCountries[individualYear.spiyear] ? savedGeoCountries[individualYear.spiyear].push(newGeoData) :
           savedGeoCountries[individualYear.spiyear] = [['Country', `SPI Rank (${individualYear.spiyear})`], newGeoData];
         };
@@ -91,17 +91,18 @@ const GeoChart =
   const handleSetCountry = async (region) => {
     if (!loadingC && dataC) {
       await addCountry({ variables: {userId: dataC?.me?._id, searchedCountries: region }});
-    }
+    };
     setCurrentSearchedCountry(region);
     searchCountryImages(region);
     navigate(`/SingleCountry/${region}`);
     onClose();
   }
+
   const handleCompareClick = async (region) => {
     setComparedCountry(region);
     await delayedCompare({ variables: { countryname: region }});
     onClose();
-  }
+  };
 
   return (
     <div className="container">
@@ -155,5 +156,5 @@ const GeoChart =
       </div>
     </div>
   );
-}
+};
 export default GeoChart;
