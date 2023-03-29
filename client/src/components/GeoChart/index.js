@@ -81,12 +81,12 @@ const GeoChart =
     backgroundColor: "#94b0da",
   };
 
-  const filteredCountries = () => {
-   return savedGeoCountries[countryYearIndexToYearMap[countryYearIndex]]?.filter(individualGeoData => {
-      const [name, spi_score] = individualGeoData;
-      return name !== currentSearchedCountry;
-    });
-  };
+  // const filteredCountries = () => {
+  //  return savedGeoCountries[countryYearIndexToYearMap[countryYearIndex]]?.filter(individualGeoData => {
+  //     const [name, spi_score] = individualGeoData;
+  //     return name !== currentSearchedCountry;
+  //   });
+  // };
 
   const handleSetCountry = async (region) => {
     if (!loadingC && dataC) {
@@ -129,7 +129,7 @@ const GeoChart =
           width={'60vw'}
           height={'auto'}
           chartType="GeoChart"
-          data={filteredCountries()}
+          data={savedGeoCountries[countryYearIndexToYearMap[countryYearIndex]]}
           // Note: you will need to get a mapsApiKey for your project.
           // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
           mapsApiKey={process.env.REACT_APP_GOOGLE_CHART_API_KEY}
@@ -142,7 +142,7 @@ const GeoChart =
                 const chart = chartWrapper.getChart();
                 const selection = chart.getSelection();
                 if (selection.length === 0) return;
-                const [region, spi_score] = filteredCountries()[selection[0].row + 1]; 
+                const [region, spi_score] = savedGeoCountries[countryYearIndexToYearMap[countryYearIndex]][selection[0].row + 1]; 
 
                 if (!comparisonEnabled) {
                   handleSetCountry(region);
