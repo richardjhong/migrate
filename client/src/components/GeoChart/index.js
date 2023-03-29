@@ -52,25 +52,15 @@ const GeoChart =
   };
 
   const savedGeoCountries = geoCitiesInLocalStorage ? JSON.parse(geoCitiesInLocalStorage) : 
-  {
-    '2013': [['Country', 'SPI Rank (2013)']],
-    '2014': [['Country', 'SPI Rank (2014)']],
-    '2015': [['Country', 'SPI Rank (2015)']],
-    '2016': [['Country', 'SPI Rank (2016)']],
-    '2017': [['Country', 'SPI Rank (2017)']],
-    '2018': [['Country', 'SPI Rank (2018)']],
-    '2019': [['Country', 'SPI Rank (2019)']],
-    '2020': [['Country', 'SPI Rank (2020)']],
-    '2021': [['Country', 'SPI Rank (2021)']],
-    '2022': [['Country', 'SPI Rank (2022)']], 
-  };
+  {};
 
   if (!geoCitiesInLocalStorage) { 
     countries.forEach(country => {
       country.year_catalog.forEach(individualYear => {
         if (individualYear.status === "Ranked") {
           const newGeoData = [country.countryname, individualYear.rank_score_spi]
-          savedGeoCountries[individualYear.spiyear].push(newGeoData);
+          savedGeoCountries[individualYear.spiyear] ? savedGeoCountries[individualYear.spiyear].push(newGeoData) :
+          savedGeoCountries[individualYear.spiyear] = [['Country', `SPI Rank (${individualYear.spiyear})`], newGeoData];
         };
       });
     });
