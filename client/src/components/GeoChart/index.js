@@ -52,25 +52,15 @@ const GeoChart =
   };
 
   const savedGeoCountries = geoCitiesInLocalStorage ? JSON.parse(geoCitiesInLocalStorage) : 
-  {
-    '2013': [['Country', `SPI Rank (${countryYearIndexToYearMap[countryYearIndex]})`]],
-    '2014': [['Country', `SPI Rank (${countryYearIndexToYearMap[countryYearIndex]})`]],
-    '2015': [['Country', `SPI Rank (${countryYearIndexToYearMap[countryYearIndex]})`]],
-    '2016': [['Country', `SPI Rank (${countryYearIndexToYearMap[countryYearIndex]})`]],
-    '2017': [['Country', `SPI Rank (${countryYearIndexToYearMap[countryYearIndex]})`]],
-    '2018': [['Country', `SPI Rank (${countryYearIndexToYearMap[countryYearIndex]})`]],
-    '2019': [['Country', `SPI Rank (${countryYearIndexToYearMap[countryYearIndex]})`]],
-    '2020': [['Country', `SPI Rank (${countryYearIndexToYearMap[countryYearIndex]})`]],
-    '2021': [['Country', `SPI Rank (${countryYearIndexToYearMap[countryYearIndex]})`]],
-    '2022': [['Country', `SPI Rank (${countryYearIndexToYearMap[countryYearIndex]})`]], 
-  };
+  {};
 
   if (!geoCitiesInLocalStorage) { 
     countries.forEach(country => {
       country.year_catalog.forEach(individualYear => {
         if (individualYear.status === "Ranked") {
           const newGeoData = [country.countryname, individualYear.rank_score_spi]
-          savedGeoCountries[individualYear.spiyear].push(newGeoData);
+          savedGeoCountries[individualYear.spiyear] ? savedGeoCountries[individualYear.spiyear].push(newGeoData) :
+          savedGeoCountries[individualYear.spiyear] = [['Country', `SPI Rank (${individualYear.spiyear})`], newGeoData];
         };
       });
     });
