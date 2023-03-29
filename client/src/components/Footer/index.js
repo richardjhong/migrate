@@ -2,13 +2,39 @@ import React from 'react';
 import './Footer.scss'
 import { websiteTechStack } from './techstackData'
 import ReactTooltip from 'react-tooltip';
+import { useState, useEffect } from 'react';
+import Image from 'mui-image';
 
 const Footer = () => {
+  const usernames = ['pariselectra', 'MarkGATX', 'richardjhong', 'rogseo', 'sarahthoorens'];
+  const [profileImages, setProfileImages] = useState([]);
+
+  useEffect(() => {
+    const fetchProfileImages = async () => {
+      const images = await Promise.all(usernames.map(async (username) => {
+        const response = await fetch(`https://api.github.com/users/${username}`);
+        const data = await response.json();
+        return data.avatar_url;
+      }));
+      setProfileImages(images);
+    };
+    fetchProfileImages();
+  }, []);
+
   return (
     <footer>
       <div className='authors'>
         <div className="authorContain">This site created by ... </div>
-        <div className="authorName"><a href="https://github.com/pariselectra">Paris Bland</a></div> <div className="authorName"><a href="https://github.com/MarkGATX">Mark Gardner</a></div>  <div className="authorName"><a href="https://github.com/richardjhong">Richard Hong</a></div>  <div className="authorName"><a href="https://github.com/rogseo">Yeon Seo</a></div> <div className="authorName"><a href="https://github.com/sarahthoorens">Sarah Thoorens</a></div>
+        {usernames.map((username, index) => (
+          <div className="authorName" key={username}>
+            <a href={`https://github.com/${username}`}>
+              {username}
+            </a>
+            {profileImages[index] && (
+              <Image width="50px" height='50px' src={profileImages[index]} alt={`${username} profile`} style={{ width: '50px', borderRadius: '100px' , padding:'1em'}} />
+            )}
+          </div>
+        ))}
       </div>
       <div className="techstackContainer">
         <div className="madeWith">Made with: </div>

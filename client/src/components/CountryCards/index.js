@@ -18,16 +18,19 @@ const expand = (event) => {
     // All of the positioning logic to set the end state
     const lastExpanded = document.querySelector(".wide");
     if (lastExpanded) {
-        gsap.set(lastExpanded, { clearProps: "order" });
         lastExpanded.classList.remove("wide");
+        gsap.set(lastExpanded, { clearProps: "order" });
+        
         // change order number of selected box to -1 to move to top of page (probably could be refactored)
         if (!box.isSameNode(lastExpanded)) {
-            box.classList.add("wide");
             gsap.set(box, { order: -1 });
+            box.classList.add("wide");
+            
         }
     } else {
-        box.classList.add("wide");
         gsap.set(box, { order: -1 });
+        box.classList.add("wide");
+        
     }
     //move scroll bar with  selected box
     let jumpY = box.getBoundingClientRect();

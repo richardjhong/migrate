@@ -27,8 +27,10 @@ export default function FiveSavedSearches(country) {
             <div >
                 <h2 className="">
                     <button onClick={() => { navigate(`/SingleCountry/${countryData.country}`) }}>
-                        {countryData.country}
+                        <h2 style={{margin: '.2em'}}>{countryData.country}</h2>
+                        <p style={{fontStyle: "italic", margin: '.2em'}}>Click to see more...</p>
                     </button>
+                    
                     
                 </h2>
                 <div className='dashCountryScore'>

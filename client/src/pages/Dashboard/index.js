@@ -16,7 +16,7 @@ let navigate = useNavigate();
   const { loading: loadingC, data: dataC } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam }
   });
-  // dataC ? console.log((dataC.user) + ' dataC') : console.log('no data yet')
+  
 
   const user = dataC?.me || dataC?.user || {};
   let lastFiveSearches=(dataC?.me?.searchHistory)
