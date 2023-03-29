@@ -30,34 +30,34 @@ export default function Wizard() {
                 <div className='wizSliders'>
                     <section className='humanNeeds'>
                         <label htmlFor="nbmcUser">Nutrition and Basic Medical Care</label>
-                        <input type="range" id="nbmcUser" name="Nutrition and Basic Medical Care" min=".2" max="1.8" step=".4" defaultValue="1.0" />
+                        <input type="range" id="nbmcUser" name="Nutrition and Basic Medical Care" min="1" max="5" step="1" defaultValue="3.0" />
                         <label htmlFor="wsUser">Water and Sanitation</label>
-                        <input type="range" id="wsUser" name="Water and Sanitation" min=".2" max="1.8" step=".4" defaultValue="1.0" />
+                        <input type="range" id="wsUser" name="Water and Sanitation" min="1" max="5" step="1" defaultValue="3.0" />
                         <label htmlFor="shUser">Shelter</label>
-                        <input type="range" id="shUser" name="Nutrition and Basic Medical Care" min=".2" max="1.8" step=".4" defaultValue="1.0" />
+                        <input type="range" id="shUser" name="Nutrition and Basic Medical Care" min="1" max="5" step="1" defaultValue="3.0" />
                         <label htmlFor="psUser">Personal Safety</label>
-                        <input type="range" id="psUser" name="Nutrition and Basic Medical Care" min=".2" max="1.8" step=".4" defaultValue="1.0" />
+                        <input type="range" id="psUser" name="Nutrition and Basic Medical Care" min="1" max="5" step="1" defaultValue="3.0" />
                     </section>
                     <section className='wellbeing'>
                         <label htmlFor="abkUser">Access to Basic Knowledge</label>
-                        <input type="range" id="abkUser" name="Access to Basic Knowledge" min=".2" max="1.8" step=".4" defaultValue="1.0" />
+                        <input type="range" id="abkUser" name="Access to Basic Knowledge" min="1" max="5" step="1" defaultValue="3.0" />
                         <label htmlFor="aicUser">Access to Information and Communications</label>
-                        <input type="range" id="aicUser" name="Access to Inhformation and Communications" min=".2" max="1.8" step=".4" defaultValue="1.0" />
+                        <input type="range" id="aicUser" name="Access to Inhformation and Communications" min="1" max="5" step="1" defaultValue="3.0" />
                         <label htmlFor="hwUser">Health and Wellness</label>
-                        <input type="range" id="hwUser" name="Health and Wellness" min=".2" max="1.8" step=".4" defaultValue="1.0" />
+                        <input type="range" id="hwUser" name="Health and Wellness" min="1" max="5" step="1" defaultValue="3.0" />
                         <label htmlFor="eqUser">Environmental Quality</label>
-                        <input type="range" id="eqUser" name="Environmental Quality" min=".2" max="1.8" step=".4" defaultValue="1.0" />
+                        <input type="range" id="eqUser" name="Environmental Quality" min="1" max="5" step="1" defaultValue="3.0" />
                     </section>
 
                     <section className='opportunity'>
                         <label htmlFor="prUser">Personal Rights</label>
-                        <input type="range" id="prUser" name="Personal Rights" min=".2" max="1.8" step=".4" defaultValue="1.0" />
+                        <input type="range" id="prUser" name="Personal Rights" min="1" max="5" step="1" defaultValue="3.0" />
                         <label htmlFor="pfcUser">Personal Freedom and Choice</label>
-                        <input type="range" id="pfcUser" name="Personal Freedom and Choice" min=".2" max="1.8" step=".4" defaultValue="1.0" />
+                        <input type="range" id="pfcUser" name="Personal Freedom and Choice" min="1" max="5" step="1" defaultValue="3" />
                         <label htmlFor="inclUser">Inclusiveness</label>
-                        <input type="range" id="inclUser" name="Inclusiveness" min=".2" max="1.8" step=".4" defaultValue="1.0" />
+                        <input type="range" id="inclUser" name="Inclusiveness" min="1" max="5" step="1" defaultValue="3.0" />
                         <label htmlFor="aaeUser">Access to Advanced Education</label>
-                        <input type="range" id="aaeUser" name="Access to Advanced Education" min=".2" max="1.8" step=".4" defaultValue="1.0" />
+                        <input type="range" id="aaeUser" name="Access to Advanced Education" min="1" max="5" step="1" defaultValue="3.0" />
                     </section>
                     <section className="calcButton">
                         <button onClick={handleClick}>Calculate</button>

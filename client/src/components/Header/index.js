@@ -14,7 +14,7 @@ const Header = () => {
     navigate(`/`);
   };
 
-  const mediaQuery = window.matchMedia('(max-width: 500px)')  
+  const mediaQuery = window.matchMedia('(max-width: 500px)')
 
   return (
     <header >
@@ -25,11 +25,11 @@ const Header = () => {
         </h1>
       </Link>
       <nav className='navbar'>
-        
+
         {Auth.loggedIn() ? (
           <>
-            <Link className="navLink" to='/AboutUs'>
-              About
+            <Link className="navLink" to='/HowTo'>
+              HowTo
             </Link>
             <Link className="navLink" to='/form'>
               Helper
@@ -37,11 +37,11 @@ const Header = () => {
             <Link className="navLink" to='/Wizard'>
               Wizard
             </Link>
-            <Link className="navLink" to='/HowTo'>
-              HowTo
-            </Link>
             <Link className="navLink" to='/visa'>
               Next Steps
+            </Link>
+            <Link className="navLink" to='/AboutUs'>
+              About
             </Link>
             <Link className="navLink" to="/dashboard">
               Dashboard
@@ -52,25 +52,25 @@ const Header = () => {
           </>
         ) : (
           <>
-            
+
+            <Link className="navLink" to='/HowTo'>
+              HowTo
+            </Link>
             <Link className="navLink" to='/form'>
               Helper
             </Link>
             <Link className="navLink" to='/Wizard'>
               Wizard
             </Link>
-            <Link className="navLink" to='/HowTo'>
-              HowTo
-            </Link>
             <Link className="navLink" to='/visa'>
               Next Steps
-            </Link>
-            <Link className="navLink" to="/login">
-              Login
             </Link>
             <Link className="navLink" to="/signup">
               Signup
             </Link>
+            <Link className="navLink" to="/login">
+              Login
+            </Link>          
             <Link className="navLink" to='/AboutUs'>
               About
             </Link>

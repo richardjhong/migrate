@@ -19,10 +19,23 @@ export default function HowToContent() {
                      <li>There are currently 12 tiles available per country which show how a country ranks on matters like Access to Basic Knowledge, Personal Safety, and Health and Wellness. Click them all or only the ones pertinent to you for a better understanding of the country you might one day call home.</li>
                   </ul>
 
-                  <li><h2>Not set on a destination, yet? Use our Helper to pinpoint a destination.</h2></li>
+                  <li><h2>Use our interactive map to see worldwide rankings at a glance</h2></li>
+                  <ul>
+                     <li>From any search page, click the button labeled "Open Interactive Map" to open an overlay map of the world.</li>
+                     <li>See every nation with a ranking color-coded by their score.</li>
+                     <li>Click on a country to open up more details about that country.</li>
+                  </ul>
+
+                  <li><h2>Not set on a destination, yet? Use our <a href="/form">Helper</a> to pinpoint a destination.</h2></li>
                   <ul>
                      <li>Simply choose what’s most important to you and Migrate's Helper will suggest a country based on your selection. </li>
                      <li>Click on the country name to see more information about the country.</li>
+                  </ul>
+                  <li><h2>Fine tune the criteria most important to you with our <a href="/form">Wizard</a>.</h2></li>
+                  <ul>
+                     <li>See the twelve categories used to determine overall nation rankings.</li>
+                     <li>Adjust the sliders left or right to put more or less weight on a category.</li>
+                     <li>Click the calculate button to get a revised list of the top ten countries based on your criteria.</li>
                   </ul>
                   <li><h2>For a more customized visit, <a href="/signup">create a user account</a> and have your 5 most recent searches stored on your dashboard.</h2></li>
                   <ul>

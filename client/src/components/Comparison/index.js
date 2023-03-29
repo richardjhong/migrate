@@ -4,6 +4,7 @@ import { useQuery, useLazyQuery } from '@apollo/client';
 import { QUERY_COMPILATIONS, QUERY_SINGLE_COMPILATION } from '../../utils/queries';
 import { capitalizeFirstLetter } from '../../utils/helper';
 import Modal from '../Modal';
+import ReactTooltip from 'react-tooltip';
 import './Comparison.scss';
 
 const CompareCountry = ({
@@ -74,7 +75,8 @@ const CompareCountry = ({
 
   return (
     <div className="compareContainer">
-      <div className='compToggleCont'>
+      <div className='compToggleCont' data-for="comp-tooltip" data-tip="Only valid with line graphs">
+      <ReactTooltip id="comp-tooltip" />
       <SwitchToggle
         isOn={comparisonEnabled}
         handleToggle={() => setComparisonEnabled(!comparisonEnabled)}
