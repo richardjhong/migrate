@@ -40,10 +40,19 @@ db.once('open', async () => {
     await CompileCountry.deleteMany({});
 
     for (let i = 0; i < countrySeed.length; i++) {
-        if (parseInt(countrySeed[i].spiyear) >= 2013 && countrySeed[i].country !== "World") { // greater than 2013 
+        if (parseInt(countrySeed[i].spiyear) >= 2013 && countrySeed[i].status === "Ranked" ) { // greater than 2013 
+
+            let revisedCountryName = ''
+            if (!countrySeed[i].country.includes(',')) {
+              revisedCountryName = countrySeed[i].country;
+            } else {
+              const [beforeComma, afterComma] = countrySeed[i].country.split(',');
+              revisedCountryName = afterComma.trimStart().concat(' ').concat(beforeComma);
+            };
+
             const newData = await Country.create(
               {
-                country: countrySeed[i].country,
+                country: revisedCountryName,
                 spiyear: countrySeed[i].spiyear,
                 rank_score_spi: countrySeed[i].rank_score_spi,
                 status: countrySeed[i].status,
@@ -70,7 +79,7 @@ db.once('open', async () => {
                     score_aae:countrySeed[i].score_aae
                 }
             });
-            await CompileCountry.updateOne({ countryname: countrySeed[i].country }, { $push: { year_catalog: newData } }, { upsert : true })
+            await CompileCountry.updateOne({ countryname: revisedCountryName }, { $push: { year_catalog: newData } }, { upsert : true })
         }
 
     }
