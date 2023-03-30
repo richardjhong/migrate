@@ -5,6 +5,14 @@ const userSeeds = require('./userSeeds.json');
 const commentSeeds = require('./commentSeeds.json');
 const countrySeed = require('./2011-2022 SPI data-Table 1.json');
 
+const formatCountryName = (countryName) => {
+  if (!countryName.includes(',')) {
+    return countryName;
+  }
+
+  const [beforeComma, afterComma] = countryName.split(',');
+  return afterComma.trimStart().concat(' ').concat(beforeComma);
+};
 
 db.once('open', async () => {
   try {
@@ -34,25 +42,15 @@ db.once('open', async () => {
     process.exit(1);
   }
 
-
   try {
     await Country.deleteMany({});
     await CompileCountry.deleteMany({});
 
     for (let i = 0; i < countrySeed.length; i++) {
         if (parseInt(countrySeed[i].spiyear) >= 2013 && countrySeed[i].status === "Ranked" ) { // greater than 2013 
-
-            let revisedCountryName = ''
-            if (!countrySeed[i].country.includes(',')) {
-              revisedCountryName = countrySeed[i].country;
-            } else {
-              const [beforeComma, afterComma] = countrySeed[i].country.split(',');
-              revisedCountryName = afterComma.trimStart().concat(' ').concat(beforeComma);
-            };
-
             const newData = await Country.create(
               {
-                country: revisedCountryName,
+                country: formatCountryName(countrySeed[i].country),
                 spiyear: countrySeed[i].spiyear,
                 rank_score_spi: countrySeed[i].rank_score_spi,
                 status: countrySeed[i].status,
@@ -79,7 +77,7 @@ db.once('open', async () => {
                     score_aae:countrySeed[i].score_aae
                 }
             });
-            await CompileCountry.updateOne({ countryname: revisedCountryName }, { $push: { year_catalog: newData } }, { upsert : true })
+            await CompileCountry.updateOne({ countryname: formatCountryName(countrySeed[i].country) }, { $push: { year_catalog: newData } }, { upsert : true })
         }
 
     }
