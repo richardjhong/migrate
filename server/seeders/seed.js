@@ -8,7 +8,7 @@ const countrySeed = require('./2011-2022 SPI data-Table 1.json');
 const formatCountryName = (countryName) => {
   if (!countryName.includes(',')) {
     return countryName;
-  }
+  };
 
   const [beforeComma, afterComma] = countryName.split(',');
   return afterComma.trimStart().concat(' ').concat(beforeComma);
