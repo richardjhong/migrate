@@ -21,7 +21,7 @@ const GeoChart =
   comparedCountryData,
   setComparedCountryData,
 }) => {
-  const geoCitiesInLocalStorage = localStorage.getItem('saved_geo_countries')
+  const geoCitiesInLocalStorage = localStorage.getItem('saved_geo_countries');
   let navigate = useNavigate();
   const { loading, data } = useQuery(QUERY_COMPILATIONS, {
     skip: geoCitiesInLocalStorage
@@ -34,8 +34,8 @@ const GeoChart =
 
   useEffect(() => {
     if (!comparedCountryLoading && newComparedCountryData) {
-      setComparedCountryData(newComparedCountryData?.singleCompileCountry?.year_catalog || [])
-    }
+      setComparedCountryData(newComparedCountryData?.singleCompileCountry?.year_catalog || []);
+    };
   }, [comparedCountryLoading, newComparedCountryData, comparedCountryData, setComparedCountryData]);
 
   const countryYearIndexToYearMap = {
@@ -58,7 +58,7 @@ const GeoChart =
     countries.forEach(country => {
       country.year_catalog.forEach(individualYear => {
         if (individualYear.status === "Ranked") {
-          const newGeoData = [country.countryname, individualYear.rank_score_spi]
+          const newGeoData = [country.countryname, individualYear.rank_score_spi];
           savedGeoCountries[individualYear.spiyear] ? savedGeoCountries[individualYear.spiyear].push(newGeoData) :
           savedGeoCountries[individualYear.spiyear] = [['Country', `SPI Rank (${individualYear.spiyear})`], newGeoData];
         };
@@ -81,27 +81,28 @@ const GeoChart =
     backgroundColor: "#94b0da",
   };
 
-  const filteredCountries = () => {
-   return savedGeoCountries[countryYearIndexToYearMap[countryYearIndex]]?.filter(individualGeoData => {
-      const [name, spi_score] = individualGeoData;
-      return name !== currentSearchedCountry;
-    });
-  };
+  // const filteredCountries = () => {
+  //  return savedGeoCountries[countryYearIndexToYearMap[countryYearIndex]]?.filter(individualGeoData => {
+  //     const [name, spi_score] = individualGeoData;
+  //     return name !== currentSearchedCountry;
+  //   });
+  // };
 
   const handleSetCountry = async (region) => {
     if (!loadingC && dataC) {
       await addCountry({ variables: {userId: dataC?.me?._id, searchedCountries: region }});
-    }
+    };
     setCurrentSearchedCountry(region);
     searchCountryImages(region);
     navigate(`/SingleCountry/${region}`);
     onClose();
   }
+
   const handleCompareClick = async (region) => {
     setComparedCountry(region);
     await delayedCompare({ variables: { countryname: region }});
     onClose();
-  }
+  };
 
   return (
     <div className="container">
@@ -128,7 +129,7 @@ const GeoChart =
           width={'60vw'}
           height={'auto'}
           chartType="GeoChart"
-          data={filteredCountries()}
+          data={savedGeoCountries[countryYearIndexToYearMap[countryYearIndex]]}
           // Note: you will need to get a mapsApiKey for your project.
           // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
           mapsApiKey={process.env.REACT_APP_GOOGLE_CHART_API_KEY}
@@ -141,7 +142,7 @@ const GeoChart =
                 const chart = chartWrapper.getChart();
                 const selection = chart.getSelection();
                 if (selection.length === 0) return;
-                const [region, spi_score] = filteredCountries()[selection[0].row + 1]; 
+                const [region, spi_score] = savedGeoCountries[countryYearIndexToYearMap[countryYearIndex]][selection[0].row + 1]; 
 
                 if (!comparisonEnabled) {
                   handleSetCountry(region);
@@ -155,5 +156,5 @@ const GeoChart =
       </div>
     </div>
   );
-}
+};
 export default GeoChart;
