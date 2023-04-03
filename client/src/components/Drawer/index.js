@@ -48,12 +48,9 @@ export default function Drawer({
     }, []);
 
     function handleDrawer () {
-        console.log(drawerOpen)
         setDrawerOpen(!drawerOpen);
         let drawer = document.getElementById("drawerCont");
-        console.log(drawer);
         drawerOpen ? drawer.style.transform = "translateX(100%)" : drawer.style.transform = "translateX(0)";
-
     }
 
 
