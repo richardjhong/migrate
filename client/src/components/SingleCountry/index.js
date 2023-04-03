@@ -85,7 +85,7 @@ const SingleCountry =
             setCountryYearIndex={setCountryYearIndex}
             currentSearchedCountry={currentSearchedCountry}
             setCurrentSearchedCountry={setCurrentSearchedCountry} />
-          <div className='countryCardContainer' ref={cardContainer} style={{  paddingTop: `${tabHeight}px`, position: 'relative'}}>
+          <div className='countryCardContainer' ref={cardContainer} >
             {/* accounts for letting asynchronous conditional check of navigate to homepage to assess before possibly passing year_catalog that is undefined */}
             {(loading || data.singleCompileCountry === null) ? (
               <div>Loading...</div>
