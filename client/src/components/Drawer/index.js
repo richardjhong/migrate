@@ -1,16 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import SwitchToggle from '../SwitchToggle';
-import { useQuery, useLazyQuery } from '@apollo/client';
-import { QUERY_COMPILATIONS, QUERY_SINGLE_COMPILATION } from '../../utils/queries';
-import { capitalizeFirstLetter } from '../../utils/helper';
-import Modal from '../Modal';
-import ReactTooltip from 'react-tooltip';
+import { useQuery } from '@apollo/client';
+import { QUERY_COMPILATIONS } from '../../utils/queries';
 import "./Drawer.scss"
 import CompareCountry from '../CompareCountry';
 import SearchCountry from '../SearchCountry';
 import Dropdown from '../Dropdown';
-import arrow from '../../images/optionsArrow.svg'
-import closeArrow from "../../images/closeArrow.svg"
+import collapseArrow from '../../images/collapseArrow.svg'
+import expandArrow from "../../images/expandArrow.svg"
 
 
 
@@ -28,14 +24,10 @@ export default function Drawer({
     setCurrentSearchedCountry,
     chartTypeIndex,
     setChartTypeIndex}) {
-    const [suggestions, setSuggestions] = useState([]);
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const [modalOpen, setModalOpen] = useState(false);
     const { loading, data } = useQuery(QUERY_COMPILATIONS);
     const [width, setWidth] = useState(window.innerWidth);
-    const [delayedCompare, { loading: comparedCountryLoading, data: newComparedCountryData }] = useLazyQuery(QUERY_SINGLE_COMPILATION);
     const drawerContainer = useRef();
-    const breakPoint = 1000;
 
     const countries = data?.countryCompilations || [];
 
@@ -48,27 +40,32 @@ export default function Drawer({
     }, []);
 
     function handleDrawer () {
-        console.log(drawerOpen)
         setDrawerOpen(!drawerOpen);
         let drawer = document.getElementById("drawerCont");
-        console.log(drawer);
         drawerOpen ? drawer.style.transform = "translateX(100%)" : drawer.style.transform = "translateX(0)";
-
     }
 
 
     return (
         <>
             <div id="drawerCont" className='drawer'>
-                <div className='optionsToggle' ref={drawerContainer}>
+                <div className='optionsToggle' ref={drawerContainer} onClick={() => handleDrawer()}>
                     {!drawerOpen ?
                         <>
-                            <h3>Open Options</h3><img src={closeArrow} onClick={() => handleDrawer()} className='optionsArrow' />
+                            <h3>Open Options</h3>
+                            <img 
+                                src={expandArrow}  
+                                alt='arrow indicating expanding options menu'
+                                className='optionsArrow' 
+                            />
                         </>
                         :
                         <>
-                            <h3>Close Options</h3><img src={arrow} onClick={() => handleDrawer()} className='optionsArrow' />
-
+                            <h3>Close Options</h3>
+                            <img src={collapseArrow} 
+                                alt='arrow indicating collapsing options menu'
+                                className='optionsArrow' 
+                            />
                         </>
                     }
                 </div>
