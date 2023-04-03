@@ -9,8 +9,8 @@ import "./Drawer.scss"
 import CompareCountry from '../CompareCountry';
 import SearchCountry from '../SearchCountry';
 import Dropdown from '../Dropdown';
-import arrow from '../../images/optionsArrow.svg'
-import closeArrow from "../../images/closeArrow.svg"
+import collapseArrow from '../../images/collapseArrow.svg'
+import expandArrow from "../../images/expandArrow.svg"
 
 
 
@@ -57,15 +57,23 @@ export default function Drawer({
     return (
         <>
             <div id="drawerCont" className='drawer'>
-                <div className='optionsToggle' ref={drawerContainer}>
+                <div className='optionsToggle' ref={drawerContainer} onClick={() => handleDrawer()}>
                     {!drawerOpen ?
                         <>
-                            <h3>Open Options</h3><img src={closeArrow} onClick={() => handleDrawer()} className='optionsArrow' />
+                            <h3>Open Options</h3>
+                            <img 
+                                src={expandArrow}  
+                                alt='arrow indicating expanding options menu'
+                                className='optionsArrow' 
+                            />
                         </>
                         :
                         <>
-                            <h3>Close Options</h3><img src={arrow} onClick={() => handleDrawer()} className='optionsArrow' />
-
+                            <h3>Close Options</h3>
+                            <img src={collapseArrow} 
+                                alt='arrow indicating collapsing options menu'
+                                className='optionsArrow' 
+                            />
                         </>
                     }
                 </div>
