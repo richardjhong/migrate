@@ -60,5 +60,12 @@ header h1 {
     .navbar {
         font-size:.8em;
     }
+}
 
+
+@media screen and (max-width: 600px) {
+    .navbar {
+        flex-wrap: wrap;
+justify-content: center;    
+    }
 }

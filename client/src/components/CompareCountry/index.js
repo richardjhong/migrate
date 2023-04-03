@@ -5,7 +5,7 @@ import { QUERY_COMPILATIONS, QUERY_SINGLE_COMPILATION } from '../../utils/querie
 import { capitalizeFirstLetter } from '../../utils/helper';
 import Modal from '../Modal';
 import ReactTooltip from 'react-tooltip';
-import './Comparison.scss';
+import './CompareCountry.scss';
 
 const CompareCountry = ({
   comparisonEnabled,
@@ -25,7 +25,7 @@ const CompareCountry = ({
   const { loading, data } = useQuery(QUERY_COMPILATIONS);
   const [width, setWidth] = useState(window.innerWidth);
   const [delayedCompare, { loading: comparedCountryLoading, data: newComparedCountryData }] = useLazyQuery(QUERY_SINGLE_COMPILATION);
-  const breakPoint = 1000;
+  const breakPoint = 900;
 
   const countries = data?.countryCompilations || [];
 
@@ -74,7 +74,7 @@ const CompareCountry = ({
   };
 
   return (
-    <div className="compareContainer">
+    <>
       <div className='compToggleCont' data-for="comp-tooltip" data-tip="Only valid with line graphs">
       <ReactTooltip id="comp-tooltip" />
       <SwitchToggle
@@ -128,7 +128,7 @@ const CompareCountry = ({
         </>
       }
       
-    </div>
+      </>
   )
 }
 

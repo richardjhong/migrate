@@ -3,7 +3,7 @@
 }
 
 .splash {
-    background-image: url("../../images/homeBackground2.svg");
+    background-image: url("../../images/homeBackground3.svg");
     background-size: contain;
     background-color: var(--darkBackground);
     background-repeat: no-repeat;
@@ -50,7 +50,7 @@
 .searchRespCenter {
     display: flex;
     justify-content: center;
-    top: 60px;
+    top: 90px;
     position: relative;
     transition:all .3s;
 }
@@ -76,25 +76,28 @@
    
 }
 
-@media screen and (min-width:1024px) and (max-width:1150px) {
-   
-}
-
-@media screen and (min-width:701px) and (max-width:1000px) {
+@media screen and (min-width:731px) and (max-width:1000px) and (min-height:901px){
     .searchRespCenter {
-        top:200px;
+        top:25px;
     }
 }
 
-@media screen and (min-width:551px) and (max-width:700px) {
+@media screen and (min-width:701px) and (max-width:1000px) and (max-height:900px){
     .searchRespCenter {
-        top:100px;
+        top:35px;
     }
 }
 
-@media screen and (min-width:400px) and (max-width:550px) {
+
+@media screen and (min-width:551px) and (max-width:700px) and (max-height:900px) {
     .searchRespCenter {
-        top:0;
+        top:125px;
+    }
+}
+
+@media screen and (min-width:400px) and (max-width:550px) and (max-height:900px) {
+    .searchRespCenter {
+        top:80px;
     }
 }
 

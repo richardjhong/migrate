@@ -3,6 +3,8 @@
     margin:0;
 }
 
+
+
 .singleCountryImage {
    height:100%;  
 }
@@ -38,6 +40,7 @@
     position:relative;
     top:0;
     transition:all .3s;
+    width:32%;
 }
 
 .suggestion{
@@ -68,7 +71,7 @@
  @media screen and (max-width: 700px) {
     .dropdownContainer .alignSelect {
         left:0;
-        top:15px;
+        // top:15px;
     }
 
 
