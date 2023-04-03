@@ -6,9 +6,12 @@ import SingleCountry from '../../components/SingleCountry';
 import SearchCountry from '../../components/SearchCountry';
 import Dropdown from '../../components/Dropdown';
 import UserComments from '../../components/UserComments';
-import CompareCountry from '../../components/Comparison';
+import CompareCountry from '../../components/CompareCountry';
 import './SingleCountryCont.scss'
 import OpenModal from '../../components/OpenModal';
+
+
+
 
 const SingleCountryCont =
     ({
@@ -34,8 +37,9 @@ const SingleCountryCont =
                 <main>
                     <div className='singleCountHeadCont'>
                         <SingleCountryHeader />
-                        <UserComments />
-                        <div className='alignSearchElements'>
+                        {/* <UserComments /> */}
+                        
+                        {/* <div className='alignSearchElements'>
                             <div className="searchdropdownContainer">
                                 <div className="searchContainer">
                                     <SearchCountry
@@ -44,9 +48,9 @@ const SingleCountryCont =
                                         currentSearchedCountry={currentSearchedCountry}
                                         setCurrentSearchedCountry={setCurrentSearchedCountry}
                                     />
-                                </div>
-                                <div className="comparisonContainer">
-                                    <CompareCountry
+                                {/* </div>
+                                <div className="comparisonContainer"> */}
+                                    {/* <CompareCountry
                                         comparisonEnabled={comparisonEnabled}
                                         setComparisonEnabled={setComparisonEnabled}
                                         baseCountry={currentSearchedCountry}
@@ -60,8 +64,8 @@ const SingleCountryCont =
                                         setCurrentSearchedCountry={setCurrentSearchedCountry}
                                     />
                                 </div>
-                            </div>
-                            <div className='mapDataContain'>
+                            </div> */}
+                            {/* <div className='mapDataContain'>
                                 <div className="dropdownContainer">
                                     <h4>Data Options</h4>
                                     <Dropdown
@@ -97,9 +101,11 @@ const SingleCountryCont =
                                     />
                                 </div>
                             </div>
-                        </div>
+                        </div> */} 
                     </div>
                     <div>
+                        
+                    
                         <SingleCountry
                             countryYearIndex={countryYearIndex}
                             setCountryYearIndex={setCountryYearIndex}

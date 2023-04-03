@@ -3,10 +3,7 @@
   justify-content:space-around;
 }
 
-.mapDataContain {
-  width:15%;
-  margin:2em;
-}
+
 
 .searchdropdownContainer {
   display: flex;
@@ -16,24 +13,17 @@
   border: 5px solid var(--darkBackground);
   padding: 1em;
   border-radius: 10px;
+  justify-content: center;
 }
 
 .searchContainer {
   display: flex;
   justify-content: flex-start;
+  width:95%;
+  align-items: center;
 }
 
-.dropdownContainer {
-  display: flex;
-  margin-left: auto;
-  // padding-right: 50px;
-  margin-bottom: auto;
-  flex-direction:column;
-}
 
-.dropdownContainer h4 {
-  margin:0 0 1em 0;
-}
 
 .comparisonContainer {
   display: flex;
@@ -48,4 +38,9 @@
 
 #rangeYearText {
   color: var(--darkBackground);
+}
+
+
+@media screen and (max-width:700px) {
+
 }

@@ -21,7 +21,7 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
   const countryName = countries.map(data => data.countryname);
   let navigate = useNavigate();
   const [width, setWidth] = useState(window.innerWidth);
-  const breakPoint = 1000;
+  const breakPoint = 900;
   const { loading: loadingC, data: dataC } = useQuery(QUERY_ME);
 
   useEffect(() => {
@@ -74,8 +74,9 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
   }
 
   return (
-    <div className='splashSearchCont'>
-      <div className='singleCountryCont'>
+
+    <>
+ 
         <div className="singleCountryInput">
           <div className='splashOpenMap'>
           {width > breakPoint && <button onClick={() => setModalOpen(true)}>Open Interactive Map</button>}
@@ -102,7 +103,7 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
             >{suggestions.countryname}</div>
           )}
         </div>
-      </div>
+
       <Modal 
           isOpen={modalOpen} 
           onClose={() => setModalOpen(false)}
@@ -112,7 +113,8 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
           setCurrentSearchedCountry={setCurrentSearchedCountry}
           comparisonEnabled={false}
       />
-    </div>
+      </>
+
   );
 };
 

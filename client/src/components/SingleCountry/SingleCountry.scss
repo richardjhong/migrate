@@ -3,6 +3,8 @@
     justify-content: space-around;
     width: 95%;
     flex-wrap:wrap;
+    position:relative;
+    padding-top: calc(var(--drawerHeight) + 20px);
 }
 
 .containerCenter {
