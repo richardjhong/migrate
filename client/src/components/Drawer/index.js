@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import SwitchToggle from '../SwitchToggle';
-import { useQuery, useLazyQuery } from '@apollo/client';
-import { QUERY_COMPILATIONS, QUERY_SINGLE_COMPILATION } from '../../utils/queries';
-import { capitalizeFirstLetter } from '../../utils/helper';
-import Modal from '../Modal';
-import ReactTooltip from 'react-tooltip';
+import { useQuery } from '@apollo/client';
+import { QUERY_COMPILATIONS } from '../../utils/queries';
 import "./Drawer.scss"
 import CompareCountry from '../CompareCountry';
 import SearchCountry from '../SearchCountry';
@@ -28,14 +24,10 @@ export default function Drawer({
     setCurrentSearchedCountry,
     chartTypeIndex,
     setChartTypeIndex}) {
-    const [suggestions, setSuggestions] = useState([]);
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const [modalOpen, setModalOpen] = useState(false);
     const { loading, data } = useQuery(QUERY_COMPILATIONS);
     const [width, setWidth] = useState(window.innerWidth);
-    const [delayedCompare, { loading: comparedCountryLoading, data: newComparedCountryData }] = useLazyQuery(QUERY_SINGLE_COMPILATION);
     const drawerContainer = useRef();
-    const breakPoint = 1000;
 
     const countries = data?.countryCompilations || [];
 
