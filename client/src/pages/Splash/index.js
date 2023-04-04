@@ -3,9 +3,8 @@ import "./Splash.scss";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import SearchCountry from '../../components/SearchCountry';
-// import OpenModal from '../../components/OpenModal';
 
-const Splash = ({ countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) => {
+const Splash = () => {
     return (
         <>
             <Header />
@@ -13,13 +12,7 @@ const Splash = ({ countryYearIndex, setCountryYearIndex, currentSearchedCountry,
                 <p className='tag'>Looking to relocate? Start your search here.</p>
                 <div className='splash'>
                     <div className="searchRespCenter">
-                        {/* <OpenModal /> */}
-                        <SearchCountry 
-                            countryYearIndex={countryYearIndex} 
-                            setCountryYearIndex={setCountryYearIndex}
-                            currentSearchedCountry={currentSearchedCountry}
-                            setCurrentSearchedCountry={setCurrentSearchedCountry}
-                        />
+                        <SearchCountry />
                     </div>
                 </div>
                 <p className="overview"> 
@@ -28,9 +21,8 @@ const Splash = ({ countryYearIndex, setCountryYearIndex, currentSearchedCountry,
                 </p>
             </main>
             <Footer />
-            
         </>
-    )
-}
+    );
+};
 
 export default Splash;

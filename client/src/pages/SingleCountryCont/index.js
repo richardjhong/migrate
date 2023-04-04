@@ -1,36 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import SingleCountryHeader from '../../components/SingleCountryHeader'
 import SingleCountry from '../../components/SingleCountry';
-import SearchCountry from '../../components/SearchCountry';
-import Dropdown from '../../components/Dropdown';
-import UserComments from '../../components/UserComments';
-import CompareCountry from '../../components/CompareCountry';
 import './SingleCountryCont.scss'
-import OpenModal from '../../components/OpenModal';
 
 
 
-
-const SingleCountryCont =
-    ({
-        countryYearIndex,
-        setCountryYearIndex,
-        currentSearchedCountry,
-        setCurrentSearchedCountry
-    }) => {
-        const [chartTypeIndex, setChartTypeIndex] = useState('Bar');
-        const [comparisonEnabled, setComparisonEnabled] = useState(false) // used for comparison toggle
-        const [comparedCountryData, setComparedCountryData] = useState([]);
-        const [comparedCountry, setComparedCountry] = useState("");
-
-        useEffect(() => {
-            if (comparisonEnabled) {
-                setChartTypeIndex('Line');
-            }
-        }, [comparisonEnabled])
-
+const SingleCountryCont = () => {
         return (
             <>
                 <Header />
@@ -104,21 +81,7 @@ const SingleCountryCont =
                         </div> */} 
                     </div>
                     <div>
-                        
-                    
-                        <SingleCountry
-                            countryYearIndex={countryYearIndex}
-                            setCountryYearIndex={setCountryYearIndex}
-                            chartTypeIndex={chartTypeIndex}
-                            currentSearchedCountry={currentSearchedCountry}
-                            setCurrentSearchedCountry={setCurrentSearchedCountry}
-                            comparisonEnabled={comparisonEnabled}
-                            setComparisonEnabled={setComparisonEnabled}
-                            comparedCountryData={comparedCountryData}
-                            setComparedCountryData={setComparedCountryData}
-                            comparedCountry={comparedCountry}
-                            setComparedCountry={setComparedCountry}
-                        />
+                        <SingleCountry />
                     </div>
                 </main>
                 <Footer />

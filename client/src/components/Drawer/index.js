@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_COMPILATIONS } from '../../utils/queries';
+import { useSearch } from '../../utils/CountryContext';
+import { useDrawer } from '../../utils/DrawerContext';
 import "./Drawer.scss"
 import CompareCountry from '../CompareCountry';
 import SearchCountry from '../SearchCountry';
@@ -10,20 +12,16 @@ import expandArrow from "../../images/expandArrow.svg"
 
 
 
-export default function Drawer({
-    comparisonEnabled,
-    setComparisonEnabled,
-    baseCountry,
-    comparedCountry,
-    setComparedCountry,
-    comparedCountryData,
-    setComparedCountryData,
-    countryYearIndex,
-    setCountryYearIndex,
-    currentSearchedCountry,
-    setCurrentSearchedCountry,
-    chartTypeIndex,
-    setChartTypeIndex}) {
+export default function Drawer() {
+    const { 
+        countryYearIndex, 
+        setCountryYearIndex, 
+    } = useSearch();
+    const {
+        chartTypeIndex,
+        setChartTypeIndex,
+        comparisonEnabled,
+    } = useDrawer();
     const [drawerOpen, setDrawerOpen] = useState(false);
     const { loading, data } = useQuery(QUERY_COMPILATIONS);
     const [width, setWidth] = useState(window.innerWidth);
@@ -69,25 +67,8 @@ export default function Drawer({
                         </>
                     }
                 </div>
-                <SearchCountry
-                    countryYearIndex={countryYearIndex}
-                    setCountryYearIndex={setCountryYearIndex}
-                    currentSearchedCountry={currentSearchedCountry}
-                    setCurrentSearchedCountry={setCurrentSearchedCountry}
-                />
-                <CompareCountry
-                    comparisonEnabled={comparisonEnabled}
-                    setComparisonEnabled={setComparisonEnabled}
-                    baseCountry={currentSearchedCountry}
-                    comparedCountry={comparedCountry}
-                    setComparedCountry={setComparedCountry}
-                    comparedCountryData={comparedCountryData}
-                    setComparedCountryData={setComparedCountryData}
-                    countryYearIndex={countryYearIndex}
-                    setCountryYearIndex={setCountryYearIndex}
-                    currentSearchedCountry={currentSearchedCountry}
-                    setCurrentSearchedCountry={setCurrentSearchedCountry}
-                />
+                <SearchCountry />
+                <CompareCountry />
                 <hr />
                 <div className='mapDataContain'>
                     <div className="dropdownContainer">

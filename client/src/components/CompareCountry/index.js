@@ -3,23 +3,23 @@ import SwitchToggle from '../SwitchToggle';
 import { useQuery, useLazyQuery } from '@apollo/client';
 import { QUERY_COMPILATIONS, QUERY_SINGLE_COMPILATION } from '../../utils/queries';
 import { capitalizeFirstLetter } from '../../utils/helper';
+import { useSearch } from '../../utils/CountryContext';
+import { useDrawer } from '../../utils/DrawerContext';
 import Modal from '../Modal';
 import ReactTooltip from 'react-tooltip';
 import './CompareCountry.scss';
 
-const CompareCountry = ({
-  comparisonEnabled,
-  setComparisonEnabled,
-  baseCountry,
-  comparedCountry,
-  setComparedCountry,
-  comparedCountryData,
-  setComparedCountryData,
-  countryYearIndex,
-  setCountryYearIndex,
-  currentSearchedCountry,
-  setCurrentSearchedCountry
-}) => {
+const CompareCountry = () => {
+  const {
+    currentSearchedCountry
+  } = useSearch();
+  const {
+    comparisonEnabled,
+    setComparisonEnabled,
+    comparedCountry,
+    setComparedCountry,
+    setComparedCountryData
+  } = useDrawer();
   const [suggestions, setSuggestions] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const { loading, data } = useQuery(QUERY_COMPILATIONS);
@@ -49,7 +49,7 @@ const CompareCountry = ({
 
       matches = countries.filter(country => {
         const regex = new RegExp(`${text}`, "gi");
-        return country.countryname !== baseCountry && country.countryname.match(regex)
+        return country.countryname !== currentSearchedCountry && country.countryname.match(regex)
       })
     }
     setSuggestions(matches);
@@ -108,26 +108,15 @@ const CompareCountry = ({
               <div className='suggestion'
                 key={i}
                 onClick={() => onSuggestHandler(suggestions.countryname)}
-
               >{suggestions.countryname}</div>
             )}
           </div>
           <Modal
             isOpen={modalOpen}
             onClose={() => setModalOpen(false)}
-            countryYearIndex={countryYearIndex}
-            setCountryYearIndex={setCountryYearIndex}
-            currentSearchedCountry={currentSearchedCountry}
-            setCurrentSearchedCountry={setCurrentSearchedCountry}
-            comparisonEnabled={true}
-            comparedCountry={comparedCountry}
-            setComparedCountry={setComparedCountry}
-            comparedCountryData={comparedCountryData}
-            setComparedCountryData={setComparedCountryData}
           />
         </>
-      }
-      
+      } 
       </>
   )
 }

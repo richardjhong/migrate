@@ -7,15 +7,6 @@ const Modal =
 ({ 
   isOpen, 
   onClose, 
-  countryYearIndex, 
-  setCountryYearIndex, 
-  currentSearchedCountry, 
-  setCurrentSearchedCountry, 
-  comparedCountry,
-  setComparedCountry, 
-  comparedCountryData,
-  setComparedCountryData,
-  comparisonEnabled,
   children 
 }) => {
   const modalRef = useRef();
@@ -48,15 +39,6 @@ const Modal =
       <div className="modalElementsContainer" ref={modalRef}>
         <GeoChart 
           onClose={onClose} 
-          comparisonEnabled={comparisonEnabled}
-          countryYearIndex={countryYearIndex} 
-          setCountryYearIndex={setCountryYearIndex} 
-          currentSearchedCountry={currentSearchedCountry} 
-          setCurrentSearchedCountry={setCurrentSearchedCountry}
-          comparedCountry={comparedCountry}
-          setComparedCountry={setComparedCountry} 
-          comparedCountryData={comparedCountryData}
-          setComparedCountryData={setComparedCountryData}
         />
         <button onClick={onClose}>Close</button>
       </div>
