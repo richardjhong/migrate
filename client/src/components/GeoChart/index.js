@@ -6,21 +6,17 @@ import { useQuery, useLazyQuery, useMutation } from '@apollo/client';
 import { QUERY_COMPILATIONS, QUERY_SINGLE_COMPILATION, QUERY_ME } from '../../utils/queries';
 import { ADD_SEARCH_HISTORY } from '../../utils/mutations';
 import { useSearch } from '../../utils/CountryContext';
+import { useDrawer } from '../../utils/DrawerContext';
 import { searchImage } from '../../utils/API';
 
-const GeoChart = 
-({ 
-  onClose, 
-  comparisonEnabled,
-  countryYearIndex, 
-  setCountryYearIndex, 
-  currentSearchedCountry, 
-  setCurrentSearchedCountry,
-  comparedCountry,
-  setComparedCountry,
-  comparedCountryData,
-  setComparedCountryData,
-}) => {
+const GeoChart = ({ onClose }) => {
+  const { countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry } = useSearch();
+  const {
+      comparisonEnabled,
+      setComparedCountry,
+      comparedCountryData,
+      setComparedCountryData
+  } = useDrawer();
   const geoCitiesInLocalStorage = localStorage.getItem('saved_geo_countries');
   let navigate = useNavigate();
   const { loading, data } = useQuery(QUERY_COMPILATIONS, {

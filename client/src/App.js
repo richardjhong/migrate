@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { HashRouter, Routes, Route } from 'react-router-dom';
@@ -19,7 +19,6 @@ import Visa from './pages/Visa';
 import './App.scss';
 
 import { SearchProvider } from './utils/CountryContext';
-
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -46,10 +45,8 @@ export const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-function App() {
-  const [countryYearIndex, setCountryYearIndex] = useState(9);
-  const [currentSearchedCountry, setCurrentSearchedCountry] = useState("");
 
+function App() {
   return (
     <ApolloProvider client={client}>
       <SearchProvider>
@@ -66,12 +63,7 @@ function App() {
             <Route
               index
               element={
-                <Splash 
-                  countryYearIndex={countryYearIndex} 
-                  setCountryYearIndex={setCountryYearIndex} 
-                  currentSearchedCountry={currentSearchedCountry} 
-                  setCurrentSearchedCountry={setCurrentSearchedCountry}
-                />
+                <Splash />
               }
             />
             <Route
@@ -89,12 +81,7 @@ function App() {
             /> */}
             <Route
               path="/SingleCountry/:countryname"
-              element={<SingleCountryCont 
-                          countryYearIndex={countryYearIndex} 
-                          setCountryYearIndex={setCountryYearIndex} 
-                          currentSearchedCountry={currentSearchedCountry} 
-                          setCurrentSearchedCountry={setCurrentSearchedCountry}
-                        />}
+              element={<SingleCountryCont />}
             />
             {/* <Route
               path="/listings"
@@ -114,16 +101,10 @@ function App() {
             />
             <Route
               path="/dashboard"
-              element={<Dashboard countryYearIndex={countryYearIndex} 
-              setCountryYearIndex={setCountryYearIndex}
-              currentSearchedCountry={currentSearchedCountry}
-              setCurrentSearchedCountry={setCurrentSearchedCountry}/>} />
+              element={<Dashboard />} />
             <Route 
               path="/dashboard/:username" 
-              element={<Dashboard countryYearIndex={countryYearIndex} 
-              setCountryYearIndex={setCountryYearIndex}
-              currentSearchedCountry={currentSearchedCountry}
-              setCurrentSearchedCountry={setCurrentSearchedCountry}/>}
+              element={<Dashboard />}
             />
             <Route
               path="/*"
@@ -132,10 +113,8 @@ function App() {
           </Routes>
         </HashRouter>
       </SearchProvider>
-
-
     </ApolloProvider>
   );
-}
+};
 
 export default App;

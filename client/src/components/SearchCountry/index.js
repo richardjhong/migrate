@@ -3,14 +3,19 @@ import { searchImage } from '../../utils/API';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_COMPILATIONS } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
+import { DrawerProvider } from '../../utils/DrawerContext';
 import "./SearchCountry.scss";
 import { useNavigate } from 'react-router-dom';
 import Modal from '../Modal';
 import { ADD_SEARCH_HISTORY } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
 
-const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) => {
-  const { searches, addSearch } = useSearch();
+const SearchCountry = () => {
+  const { 
+    searches, 
+    addSearch, 
+    setCurrentSearchedCountry  
+ } = useSearch();
   //For Search country
   const [searchImgInput, setSearchImgInput] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -74,13 +79,11 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
   }
 
   return (
-
     <>
- 
+      <DrawerProvider>
         <div className="singleCountryInput">
           <div className='splashOpenMap'>
           {width > breakPoint && <button onClick={() => setModalOpen(true)}>Open Interactive Map</button>}
-            {/* <OpenModal /> */}
           </div>
           <input
             type="text"
@@ -88,33 +91,24 @@ const SearchCountry = ({ countryYearIndex, setCountryYearIndex, currentSearchedC
             value={searchImgInput}
             onChange={(e) => onChangeHandler(e.target.value)}
           />
-          <button
-            type="submit"
-            onClick={handleFormSubmit}
-          >
+          <button type="submit" onClick={handleFormSubmit}>
             Search
           </button>
         </div>
         <div className='suggestionCont'>   
-        {suggestions && suggestions.map((suggestions, i) =>
-            <div className='suggestion'
-              key={i}
-              onClick={() => onSuggestHandler(suggestions.countryname)}
-            >{suggestions.countryname}</div>
+          {suggestions && suggestions.map((suggestions, i) =>
+              <div className='suggestion'
+                key={i}
+                onClick={() => onSuggestHandler(suggestions.countryname)}
+              >{suggestions.countryname}</div>
           )}
         </div>
-
-      <Modal 
-          isOpen={modalOpen} 
-          onClose={() => setModalOpen(false)}
-          countryYearIndex={countryYearIndex} 
-          setCountryYearIndex={setCountryYearIndex} 
-          currentSearchedCountry={currentSearchedCountry}
-          setCurrentSearchedCountry={setCurrentSearchedCountry}
-          comparisonEnabled={false}
-      />
-      </>
-
+        <Modal 
+            isOpen={modalOpen} 
+            onClose={() => setModalOpen(false)}
+        />
+      </DrawerProvider>
+    </>
   );
 };
 

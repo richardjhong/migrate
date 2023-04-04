@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 import SearchCountry from '../../components/SearchCountry';
@@ -7,22 +7,16 @@ import { useSearch } from '../../utils/CountryContext';
 import "./dashboard.scss";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import PolarChart from '../../components/CountryPolarChart'
 import FiveSavedSearches from '../../components/FiveSavedSearches';
 
-const Dashboard = ({ countryYearIndex, setCountryYearIndex, currentSearchedCountry, setCurrentSearchedCountry }) => {
-let navigate = useNavigate();
+const Dashboard = () => {
   const { username: userParam } = useParams();
   const { loading: loadingC, data: dataC } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam }
   });
   
-
   const user = dataC?.me || dataC?.user || {};
   let lastFiveSearches=(dataC?.me?.searchHistory)
-  
-  const { searches } = useSearch();
-
   
   if (loadingC) {
     return <div>Loading...</div>;
@@ -46,7 +40,6 @@ let navigate = useNavigate();
   }
   return (
     <>
-
       <Header />
       <main className='dashMain'>
         <div className="">
@@ -96,10 +89,7 @@ let navigate = useNavigate();
                   }
               {/* </div> */}
               <div className='dashSearch'>
-                <SearchCountry countryYearIndex={countryYearIndex} 
-                            setCountryYearIndex={setCountryYearIndex}
-                            currentSearchedCountry={currentSearchedCountry}
-                            setCurrentSearchedCountry={setCurrentSearchedCountry} />
+                <SearchCountry />
               </div>
             </div>
             {/* <button type="submit" onClick={handleLogout}>Log Out</button> */}
