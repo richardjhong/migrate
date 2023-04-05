@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
-import GeoChart from '../GeoChart';
 import './Modal.scss';
 
 const Modal = 
@@ -37,9 +36,7 @@ const Modal =
   return ReactDOM.createPortal(    
     <div className="modal">
       <div className="modalElementsContainer" ref={modalRef}>
-        <GeoChart 
-          onClose={onClose} 
-        />
+        {children}
         <button onClick={onClose}>Close</button>
       </div>
     </div>,

@@ -10,3 +10,11 @@ export const capitalizeFirstLetter = (str) => {
 
 };
 
+export const resizeWindow = (setWidth) => {
+    const handleResizeWindow = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResizeWindow);
+    return () => {
+        window.removeEventListener("resize", handleResizeWindow);
+    };
+};
+
