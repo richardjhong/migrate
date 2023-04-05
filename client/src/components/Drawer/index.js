@@ -24,18 +24,9 @@ export default function Drawer() {
     } = useDrawer();
     const [drawerOpen, setDrawerOpen] = useState(false);
     const { loading, data } = useQuery(QUERY_COMPILATIONS);
-    const [width, setWidth] = useState(window.innerWidth);
     const drawerContainer = useRef();
 
     const countries = data?.countryCompilations || [];
-
-    useEffect(() => {
-        const handleResizeWindow = () => setWidth(window.innerWidth);
-        window.addEventListener("resize", handleResizeWindow);
-        return () => {
-            window.removeEventListener("resize", handleResizeWindow);
-        };
-    }, []);
 
     function handleDrawer () {
         setDrawerOpen(!drawerOpen);

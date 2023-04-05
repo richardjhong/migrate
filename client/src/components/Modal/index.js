@@ -37,9 +37,7 @@ const Modal =
   return ReactDOM.createPortal(    
     <div className="modal">
       <div className="modalElementsContainer" ref={modalRef}>
-        <GeoChart 
-          onClose={onClose} 
-        />
+        {children}
         <button onClick={onClose}>Close</button>
       </div>
     </div>,

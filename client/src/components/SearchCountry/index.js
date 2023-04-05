@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { searchImage } from '../../utils/API';
+import { resizeWindow } from '../../utils/helper.js'
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_COMPILATIONS } from '../../utils/queries';
 import { useSearch } from '../../utils/CountryContext';
@@ -9,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import Modal from '../Modal';
 import { ADD_SEARCH_HISTORY } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
+import GeoChart from '../GeoChart'
 
 const SearchCountry = () => {
   const { 
@@ -30,11 +32,7 @@ const SearchCountry = () => {
   const { loading: loadingC, data: dataC } = useQuery(QUERY_ME);
 
   useEffect(() => {
-    const handleResizeWindow = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", handleResizeWindow);
-    return () => {
-      window.removeEventListener("resize", handleResizeWindow);
-    };
+    resizeWindow(setWidth);
   }, []);
 
   const handleFormSubmit = async (e) => {
@@ -42,6 +40,8 @@ const SearchCountry = () => {
     if (!searchImgInput) {
       return false;
     }
+
+    
     const searchedImages = await searchImage(searchImgInput);
     
 
@@ -78,6 +78,10 @@ const SearchCountry = () => {
     setSuggestions([]);
   }
 
+  const closeModal = () => {
+    setModalOpen(false);
+  }
+
   return (
     <>
       <DrawerProvider>
@@ -103,10 +107,9 @@ const SearchCountry = () => {
               >{suggestions.countryname}</div>
           )}
         </div>
-        <Modal 
-            isOpen={modalOpen} 
-            onClose={() => setModalOpen(false)}
-        />
+        <Modal isOpen={modalOpen} onClose={closeModal}>
+          <GeoChart onClose={closeModal} />
+        </Modal>
       </DrawerProvider>
     </>
   );

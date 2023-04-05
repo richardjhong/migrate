@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import SwitchToggle from '../SwitchToggle';
 import { useQuery, useLazyQuery } from '@apollo/client';
 import { QUERY_COMPILATIONS, QUERY_SINGLE_COMPILATION } from '../../utils/queries';
-import { capitalizeFirstLetter } from '../../utils/helper';
+import { capitalizeFirstLetter, resizeWindow } from '../../utils/helper';
 import { useSearch } from '../../utils/CountryContext';
 import { useDrawer } from '../../utils/DrawerContext';
 import Modal from '../Modal';
 import ReactTooltip from 'react-tooltip';
+import GeoChart from '../GeoChart'
 import './CompareCountry.scss';
 
 const CompareCountry = () => {
@@ -30,11 +31,7 @@ const CompareCountry = () => {
   const countries = data?.countryCompilations || [];
 
   useEffect(() => {
-    const handleResizeWindow = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", handleResizeWindow);
-    return () => {
-      window.removeEventListener("resize", handleResizeWindow);
-    };
+    resizeWindow(setWidth);
   }, []);
 
   // Remove extra }); here
@@ -72,6 +69,10 @@ const CompareCountry = () => {
       console.error(err);
     }
   };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  }
 
   return (
     <>
@@ -111,10 +112,9 @@ const CompareCountry = () => {
               >{suggestions.countryname}</div>
             )}
           </div>
-          <Modal
-            isOpen={modalOpen}
-            onClose={() => setModalOpen(false)}
-          />
+          <Modal isOpen={modalOpen} onClose={closeModal}>
+            <GeoChart onClose={closeModal} />
+          </Modal>
         </>
       } 
       </>
