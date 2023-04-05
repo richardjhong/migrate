@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
-import GeoChart from '../GeoChart';
 import './Modal.scss';
 
 const Modal = 
